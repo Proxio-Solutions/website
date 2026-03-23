@@ -1,13 +1,13 @@
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { NAV_LINKS } from "../config/navigation";
+import bannerIllustration from '@assets/banner.svg';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { NAV_LINKS } from '../config/navigation';
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
 
-  // Function to toggle between Portuguese and English
   const toggleLanguage = () => {
-    const newLang = i18n.language === "pt" ? "en" : "pt";
+    const newLang = i18n.language === 'pt' ? 'en' : 'pt';
     i18n.changeLanguage(newLang);
   };
 
@@ -15,11 +15,13 @@ export default function Navbar() {
     <nav className="bg-proxio-dark border-proxio-dark-border border-b shadow-lg">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex shrink-0 items-center">
-            <span className="text-proxio-accent text-2xl font-bold tracking-tight">
-              Proxio Solutions
-            </span>
-          </div>
+          <Link to="/" className="flex shrink-0 items-center">
+            <img
+              src={bannerIllustration}
+              alt={'Proxio Solutions'}
+              className="h-10 w-auto opacity-90"
+            />
+          </Link>
 
           <div className="hidden space-x-8 md:flex">
             {NAV_LINKS.map((link) => (
@@ -35,15 +37,14 @@ export default function Navbar() {
 
           <div className="hidden items-center space-x-4 md:flex">
             <button className="bg-proxio-accent hover:bg-proxio-accent-hover text-proxio-darker rounded-md px-5 py-2 text-sm font-bold transition-colors">
-              {t("nav.cta")}
+              {t('nav.cta')}
             </button>
 
-            {/* Language Switcher Button */}
             <button
               onClick={toggleLanguage}
               className="text-proxio-text-mute hover:text-proxio-text-main text-sm font-medium uppercase transition-colors"
             >
-              {i18n.language === "pt" ? "EN" : "PT"}
+              {i18n.language === 'pt' ? 'EN' : 'PT'}
             </button>
           </div>
         </div>

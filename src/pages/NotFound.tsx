@@ -1,7 +1,7 @@
-import { ArrowLeft } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import voidIllustration from "../assets/void.svg";
+import voidIllustration from '@assets/void.svg';
+import { ArrowLeft } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 export default function NotFound() {
   const { t } = useTranslation();
@@ -9,12 +9,10 @@ export default function NotFound() {
   return (
     <main className="flex grow flex-col items-center justify-center px-4 py-32 sm:px-6 lg:px-8">
       <div className="flex flex-col items-center text-center">
-        <p className="text-proxio-accent text-base font-bold tracking-widest uppercase">
-          Erro 404
-        </p>
+        <p className="text-proxio-accent text-base font-bold tracking-widest uppercase">Erro 404</p>
 
         <h1 className="text-proxio-text-main mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
-          {t("notFound.title")}
+          {t('notFound.title')}
         </h1>
 
         <img
@@ -24,7 +22,7 @@ export default function NotFound() {
         />
 
         <p className="text-proxio-text-muted mx-auto mt-4 max-w-md text-lg">
-          {t("notFound.description")}
+          {t('notFound.description')}
         </p>
 
         <div className="mt-8">
@@ -34,7 +32,7 @@ export default function NotFound() {
           >
             {/* Ícone de seta no botão */}
             <ArrowLeft className="h-5 w-5" />
-            {t("notFound.backHome")}
+            {t('notFound.backHome')}
           </Link>
         </div>
       </div>

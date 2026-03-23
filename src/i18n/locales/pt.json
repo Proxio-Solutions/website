@@ -2,30 +2,443 @@
     "nav": {
         "home": "Início",
         "about": "Sobre Nós",
+        "projects": "Projetos",
         "services": "Serviços",
         "contact": "Contacto",
         "cta": "Falar Connosco"
     },
     "home": {
-        "welcome": "Bem-vindo à",
-        "description": "A construir o futuro digital com inovação e excelência.",
-        "getStarted": "Começar"
+        "hero": {
+            "label": "Estúdio de Software Moderno",
+            "title": "Criamos Produtos Digitais que Importam",
+            "subtitle": "Da ideia à entrega, desenhamos e desenvolvemos software moderno e bonito que resolve problemas reais e encanta os utilizadores.",
+            "cta": "Iniciar um Projeto",
+            "learnMore": "Ver o Nosso Trabalho"
+        },
+        "services": {
+            "label": "O Que Fazemos",
+            "title": "Desenvolvimento de Produto Digital de Ponta a Ponta",
+            "subtitle": "Cobrimos todas as fases da criação de produto — desde a estratégia e design até à engenharia e lançamento.",
+            "web": {
+                "title": "Desenvolvimento Web",
+                "desc": "Aplicações web performativas e escaláveis construídas com tecnologias modernas como React e .NET."
+            },
+            "mobile": {
+                "title": "Aplicações Móveis",
+                "desc": "Experiências mobile multiplataforma com React Native, desenhadas para iOS e Android."
+            },
+            "consulting": {
+                "title": "Consultoria Tecnológica",
+                "desc": "Orientação estratégica em tecnologia para ajudar o seu negócio a tomar as decisões certas e avançar mais rápido."
+            }
+        },
+        "featured": {
+            "label": "Projeto em Destaque",
+            "title": "Veja o Que Estamos a Construir"
+        },
+        "values": {
+            "label": "Os Nossos Princípios",
+            "title": "Construídos sobre Bases Sólidas",
+            "client": {
+                "title": "Cliente em Primeiro",
+                "desc": "Trabalhamos de perto com os nossos clientes em cada etapa. A sua visão guia o nosso processo."
+            },
+            "quality": {
+                "title": "Qualidade Sem Compromisso",
+                "desc": "Cada linha de código, cada pixel, cada interação é trabalhada com cuidado e precisão."
+            },
+            "modern": {
+                "title": "Moderno por Defeito",
+                "desc": "Usamos as melhores ferramentas e frameworks disponíveis para construir produtos que resistem ao tempo."
+            }
+        },
+        "cta": {
+            "title": "Tem um Projeto em Mente?",
+            "subtitle": "Vamos conversar sobre o que podemos construir juntos.",
+            "button": "Fale Connosco"
+        }
     },
     "about": {
         "title": "Sobre Nós",
-        "description": "Somos uma equipa apaixonada por transformar ideias complexas em soluções digitais de excelência, impulsionando o futuro do seu negócio."
+        "description": "Somos uma equipa apaixonada por transformar ideias complexas em soluções digitais de excelência, impulsionando o futuro do seu negócio.",
+        "mission": {
+            "label": "A Nossa Missão",
+            "title": "Tecnologia que Conecta e Inspira",
+            "desc": "Acreditamos que a tecnologia deve ser bela, intuitiva e duradoura. A nossa missão é transformar ideias complexas em produtos digitais elegantes que fazem uma diferença real na vida das pessoas."
+        },
+        "story": {
+            "label": "A Nossa História",
+            "title": "Da Paixão à Prática",
+            "p1": "A Proxio Solutions nasceu de uma convicção partilhada: que o grande software deve ser simultaneamente tecnicamente excelente e visualmente apelativo. Propusemo-nos a criar um estúdio onde o rigor de engenharia e a sensibilidade de design andam de mãos dadas.",
+            "p2": "Somos uma equipa focada com profunda especialização em tecnologias web e mobile modernas. Cada projeto que assumimos é tratado como uma parceria de longo prazo — preocupamo-nos com os resultados, não apenas com as entregas."
+        },
+        "values": {
+            "label": "Os Nossos Valores",
+            "title": "O Que Nos Move",
+            "craft": {
+                "title": "Artesanato Digital",
+                "desc": "Preocupamo-nos profundamente com a qualidade do nosso trabalho — das decisões de arquitetura aos mais pequenos detalhes de UI."
+            },
+            "partnership": {
+                "title": "Parceria Verdadeira",
+                "desc": "Vemo-nos como uma extensão da sua equipa, não apenas como um fornecedor. O seu sucesso é o nosso sucesso."
+            },
+            "innovation": {
+                "title": "Visão de Futuro",
+                "desc": "Mantemo-nos na vanguarda da tecnologia para que os nossos clientes beneficiem sempre das melhores soluções."
+            },
+            "transparency": {
+                "title": "Transparência Total",
+                "desc": "Comunicação clara, prazos honestos e sem surpresas. Acreditamos que a confiança se constrói com consistência."
+            }
+        },
+        "team": {
+            "label": "A Equipa",
+            "title": "As Pessoas Por Detrás do Trabalho",
+            "desc": "Uma equipa dedicada de engenheiros apaixonados por construir produtos que importam.",
+            "member1": {
+                "name": "O Seu Nome Aqui",
+                "role": "Co-Fundador & Engenheiro de Software",
+                "bio": "Focado em construir sistemas robustos e escaláveis e em liderar a estratégia técnica."
+            },
+            "member2": {
+                "name": "O Seu Nome Aqui",
+                "role": "Co-Fundador & Engenheiro de Software",
+                "bio": "Apaixonado pela experiência do utilizador e pela entrega de interfaces modernas e bonitas."
+            }
+        },
+        "cta": {
+            "title": "Vamos Construir Algo Juntos",
+            "button": "Iniciar uma Conversa"
+        }
     },
     "services": {
         "title": "Os Nossos Serviços",
-        "description": "Desenhamos, desenvolvemos e escalamos produtos tecnológicos à medida das suas necessidades, com foco na performance e inovação."
+        "description": "Desenhamos, desenvolvemos e escalamos produtos tecnológicos à medida das suas necessidades, com foco na performance e inovação.",
+        "hero": {
+            "label": "Os Nossos Serviços",
+            "title": "O Que Construímos e Como Ajudamos",
+            "subtitle": "Trabalhamos com equipas ambiciosas para desenhar, construir e escalar produtos digitais — combinando excelência técnica com um foco profundo na experiência do utilizador."
+        },
+        "items": {
+            "web": {
+                "title": "Desenvolvimento de Aplicações Web",
+                "desc": "De sites de marketing a plataformas SaaS complexas, construímos aplicações web rápidas, fiáveis e escaláveis. O nosso stack preferido: React, .NET e Tailwind CSS.",
+                "features": [
+                    "Design UI/UX Personalizado",
+                    "APIs REST e GraphQL",
+                    "Otimização de Performance",
+                    "Publicação em Cloud"
+                ]
+            },
+            "mobile": {
+                "title": "Desenvolvimento de Aplicações Móveis",
+                "desc": "Desenvolvemos aplicações móveis multiplataforma com React Native, oferecendo uma experiência nativa em iOS e Android a partir de uma única base de código.",
+                "features": [
+                    "iOS e Android",
+                    "Suporte Offline",
+                    "Notificações Push",
+                    "Publicação nas App Stores"
+                ]
+            },
+            "consulting": {
+                "title": "Consultoria Tecnológica",
+                "desc": "Não sabe qual o caminho a seguir? Ajudamos equipas a fazer as escolhas tecnológicas certas — desde revisões de arquitetura a estratégia de produto completa.",
+                "features": [
+                    "Seleção de Stack Tecnológico",
+                    "Revisão de Arquitetura",
+                    "Roadmap de Produto",
+                    "Aumento de Equipa"
+                ]
+            }
+        },
+        "process": {
+            "label": "O Nosso Processo",
+            "title": "Como Trabalhamos",
+            "discover": {
+                "title": "Descoberta",
+                "desc": "Começamos por compreender profundamente o seu negócio, utilizadores e objetivos."
+            },
+            "design": {
+                "title": "Design",
+                "desc": "Definimos a arquitetura e a experiência do utilizador antes de escrever uma linha de código."
+            },
+            "build": {
+                "title": "Construção",
+                "desc": "Desenvolvimento iterativo com check-ins regulares para que esteja sempre a par do progresso."
+            },
+            "launch": {
+                "title": "Lançamento e Escala",
+                "desc": "Publicamos, monitorizamos e damos suporte ao seu produto à medida que cresce."
+            }
+        },
+        "stack": {
+            "label": "O Nosso Stack",
+            "title": "Construído com as Melhores Ferramentas"
+        },
+        "cta": {
+            "title": "Pronto para Começar?",
+            "subtitle": "Fale-nos do seu projeto e vamos explorar como podemos ajudar.",
+            "button": "Contacte-nos"
+        }
     },
     "contact": {
         "title": "Fale Connosco",
-        "description": "Tem um projeto em mente ou precisa de uma consultoria tecnológica? Estamos prontos para ajudar a tornar a sua visão realidade."
+        "description": "Tem um projeto em mente ou precisa de uma consultoria tecnológica? Estamos prontos para ajudar a tornar a sua visão realidade.",
+        "hero": {
+            "label": "Contacte-nos",
+            "title": "Vamos Falar Sobre o Seu Projeto",
+            "subtitle": "Tenha um briefing claro ou apenas uma ideia, adorávamos ouvi-lo. Contacte-nos e iniciemos uma conversa."
+        },
+        "form": {
+            "name": "Nome Completo",
+            "namePlaceholder": "João Silva",
+            "email": "Endereço de Email",
+            "emailPlaceholder": "joao@empresa.com",
+            "subject": "Assunto",
+            "subjectPlaceholder": "Pedido de projeto",
+            "message": "Mensagem",
+            "messagePlaceholder": "Fale-nos do seu projeto, ideia ou questão...",
+            "submit": "Enviar Mensagem",
+            "sending": "A enviar...",
+            "success": "Mensagem enviada! Responderemos em breve.",
+            "error": "Algo correu mal. Tente novamente ou envie-nos um email diretamente."
+        },
+        "info": {
+            "email": {
+                "label": "Email",
+                "value": "hello@proxiosolutions.com"
+            },
+            "location": {
+                "label": "Baseados em",
+                "value": "Portugal"
+            },
+            "response": {
+                "label": "Tempo de Resposta",
+                "value": "Dentro de 24 horas"
+            }
+        }
+    },
+    "projects": {
+        "title": "Projetos",
+        "description": "Conheça as soluções inovadoras que estamos a construir.",
+        "featured": "Em Destaque",
+        "status": {
+            "development": "Em Desenvolvimento",
+            "research": "Em Investigação"
+        },
+        "urbi": {
+            "description": "Uma plataforma revolucionária desenhada para simplificar processos complexos. O Urbi conecta as necessidades do dia a dia com tecnologia de ponta, oferecendo uma experiência fluida e intuitiva."
+        },
+        "next": {
+            "label": "O Que Aí Vem",
+            "title": "Sempre a Construir",
+            "desc": "Estamos constantemente a explorar novas ideias e a expandir os limites do possível. O próximo capítulo já está em criação.",
+            "placeholder": "Algo novo está a tomar forma. Fique atento.",
+            "cta": "Tem uma ideia? Fale connosco"
+        },
+        "viewCaseStudy": "Ver caso de estudo"
     },
     "notFound": {
         "title": "Página não encontrada",
         "description": "Desculpe, não conseguimos encontrar a página que procura.",
         "backHome": "Voltar ao início"
+    },
+    "footer": {
+        "tagline": "A construir produtos digitais modernos com excelência e propósito.",
+        "company": "Empresa",
+        "services": "Serviços",
+        "contact": "Contacto",
+        "legal": "Legal",
+        "privacy": "Política de Privacidade",
+        "copyright": "© {{year}} Proxio Solutions. Todos os direitos reservados.",
+        "services_web": "Desenvolvimento Web",
+        "services_mobile": "Aplicações Móveis",
+        "services_consulting": "Consultoria Tecnológica"
+    },
+    "caseStudies": {
+        "urbi": {
+            "meta": {
+                "title": "Urbi — Caso de Estudo",
+                "description": "Como o Urbi está a aproximar municípios e cidadãos através de tecnologia cívica inteligente."
+            },
+            "hero": {
+                "backLink": "Voltar aos Projetos",
+                "tag": "Caso de Estudo",
+                "title": "Urbi",
+                "subtitle": "A aproximar municípios e cidadãos através de tecnologia cívica inteligente e inclusiva.",
+                "stat1Label": "Plataformas",
+                "stat1Value": "Web + Mobile",
+                "stat2Label": "Estado",
+                "stat2Value": "Designs Concluídos",
+                "stat3Label": "Competição",
+                "stat3Value": "Poliempreende 2026"
+            },
+            "problem": {
+                "label": "O Desafio",
+                "title": "Uma Barreira entre os Cidadãos e os Seus Municípios",
+                "intro": "As cidades modernas dependem da comunicação — mas na maioria dos municípios, essa comunicação está quebrada. Os cidadãos sentem-se desligados das decisões locais, e os governos locais não têm as ferramentas para se envolver de forma significativa com as comunidades que servem.",
+                "card1Title": "Os Cidadãos Sentem-se Ignorados",
+                "card1Desc": "Reportar problemas, participar em decisões locais ou simplesmente obter atualizações do município é lento, opaco e muitas vezes ineficaz.",
+                "card2Title": "Os Municípios Carecem de Dados",
+                "card2Desc": "Os governos locais não têm forma fiável de recolher feedback estruturado, acompanhar problemas recorrentes ou obter estatísticas significativas dos seus residentes.",
+                "card3Title": "Os Processos Internos São Analógicos",
+                "card3Desc": "Muitas juntas de freguesia ainda dependem de processos manuais para gestão de stock, folhas de obra e registo de ocorrências — gerando ineficiência e silos de informação."
+            },
+            "solution": {
+                "label": "A Solução",
+                "title": "Uma Plataforma Cívica Unificada",
+                "body": "O Urbi é uma plataforma de dois lados concebida para fechar a lacuna de comunicação entre cidadãos e governo local. Dá voz aos cidadãos e fornece aos municípios as ferramentas, os dados e a inteligência de que precisam para agir."
+            },
+            "features": {
+                "label": "Visão Geral da Plataforma",
+                "title": "Construído para Ambos os Lados",
+                "citizens": {
+                    "title": "Para os Cidadãos",
+                    "items": [
+                        "Reportar ocorrências e acompanhar a sua resolução em tempo real",
+                        "Participar em decisões e consultas públicas locais",
+                        "Receber atualizações e notificações do município",
+                        "Aceder a serviços e informações locais num só lugar"
+                    ]
+                },
+                "municipalities": {
+                    "title": "Para os Municípios",
+                    "items": [
+                        "Dashboard centralizado de gestão de ocorrências",
+                        "Estatísticas sobre relatórios e tendências dos residentes",
+                        "Ferramentas com IA para priorizar e encaminhar ocorrências",
+                        "Ferramentas de comunicação e coordenação entre juntas"
+                    ]
+                },
+                "juntas": {
+                    "title": "Para as Juntas de Freguesia",
+                    "items": [
+                        "Gestão de stock e inventário",
+                        "Folhas de obra digitais",
+                        "Comunicação e coordenação inter-juntas",
+                        "Recolha de dados estruturados e relatórios"
+                    ]
+                }
+            },
+            "stack": {
+                "label": "Stack Tecnológico",
+                "title": "Escolhido pelas Razões Certas",
+                "dotnet": {
+                    "name": ".NET",
+                    "role": "Backend & API",
+                    "reason": "Robustez industrial. Escolhemos o .NET pela sua performance, fiabilidade e historial comprovado em ambientes empresariais. Dá ao Urbi a base sólida e escalável que a sua infraestrutura de dados exige."
+                },
+                "react": {
+                    "name": "React",
+                    "role": "Aplicação Web",
+                    "reason": "Construído para a excelência. O dashboard web orientado aos municípios é desenvolvido com React e Tailwind CSS, permitindo criar uma interface bonita e responsiva sem comprometer a velocidade ou a manutenção."
+                },
+                "reactNative": {
+                    "name": "React Native",
+                    "role": "Aplicação Móvel",
+                    "reason": "Uma base de código, duas plataformas. A aplicação móvel para cidadãos é desenvolvida com React Native, oferecendo uma experiência nativa em iOS e Android a partir de uma única base de código."
+                },
+                "tailwind": {
+                    "name": "Tailwind CSS",
+                    "role": "Sistema de Design",
+                    "reason": "Consistência com rapidez. O Tailwind permite implementar o nosso sistema de design de forma coerente em toda a aplicação web, mantendo a UI nítida e fácil de manter à medida que o produto cresce."
+                }
+            },
+            "origin": {
+                "label": "A Nossa História",
+                "title": "De Ideia Académica a Produto Real",
+                "p1": "O Urbi nasceu num contexto académico — uma resposta a um problema cívico que todos à nossa volta experienciavam, mas que ninguém tinha resolvido bem. O que começou como um conceito de projeto rapidamente revelou potencial para o mundo real.",
+                "p2": "Evoluímos a ideia para além das suas raízes académicas, aprofundando a pesquisa do problema, mapeando as jornadas de utilizador tanto do cidadão como do município, e desenvolvendo uma visão de produto que pode genuinamente funcionar na prática.",
+                "p3": "Em 2026, o Urbi vai concorrer ao Poliempreende, uma das principais competições de empreendedorismo para estudantes do ensino politécnico em Portugal — um marco que reflete a seriedade e a ambição por detrás do projeto."
+            },
+            "ai": {
+                "label": "O Futuro",
+                "title": "IA no Centro",
+                "body": "Estamos a desenhar o Urbi com integração de IA desde o início — não como uma funcionalidade adicionada depois, mas como parte fundamental de como a plataforma funciona.",
+                "item1Title": "Encaminhamento Inteligente de Ocorrências",
+                "item1Desc": "A IA categoriza e encaminha automaticamente as participações dos cidadãos para o departamento certo, reduzindo drasticamente os tempos de resposta.",
+                "item2Title": "Inteligência Inter-Juntas",
+                "item2Desc": "Identificação de padrões e facilitação da comunicação entre múltiplas juntas que enfrentam problemas recorrentes semelhantes.",
+                "item3Title": "Insights Preditivos",
+                "item3Desc": "Ajudar os municípios a antecipar necessidades, alocar recursos de forma proativa e tomar decisões baseadas em dados."
+            },
+            "roadmap": {
+                "label": "O Que Aí Vem",
+                "title": "O Caminho à Frente",
+                "step1": "Validação do Conceito e do Problema",
+                "step2": "Design UI/UX",
+                "step3": "Fase de Desenvolvimento",
+                "step4": "Beta com Municípios Parceiros",
+                "step5": "Poliempreende 2026",
+                "step6": "Integração de Funcionalidades de IA",
+                "step7": "Lançamento Público",
+                "done": "Concluído",
+                "next": "A Seguir",
+                "upcoming": "Por Vir"
+            },
+            "cta": {
+                "title": "Interessado no Urbi?",
+                "body": "Seja um município que pretende experimentar a plataforma, um investidor ou simplesmente alguém curioso sobre o projeto — adorávamos conversar.",
+                "button": "Fale Connosco"
+            }
+        }
+    },
+    "privacyPolicy": {
+        "title": "Política de Privacidade",
+        "lastUpdated": "Última atualização: março de 2025",
+        "intro": {
+            "title": "Introdução",
+            "body": "A Proxio Solutions ('nós', 'nos' ou 'nosso') está comprometida com a proteção dos seus dados pessoais. Esta Política de Privacidade explica como recolhemos, utilizamos e protegemos as informações que nos fornece ao utilizar o nosso website e serviços, em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD) e a legislação portuguesa aplicável."
+        },
+        "controller": {
+            "title": "Responsável pelo Tratamento",
+            "body": "O responsável pelo tratamento dos seus dados pessoais é a Proxio Solutions, com sede em Portugal. Para qualquer questão relacionada com dados, contacte-nos através de: hello@proxiosolutions.com"
+        },
+        "dataCollected": {
+            "title": "Que Dados Recolhemos",
+            "body": "Recolhemos apenas os dados pessoais que nos fornece voluntariamente através do nosso formulário de contacto. Estes podem incluir:",
+            "items": [
+                "Nome completo",
+                "Endereço de email",
+                "Assunto e conteúdo da mensagem que nos envia"
+            ]
+        },
+        "usage": {
+            "title": "Como Utilizamos os Seus Dados",
+            "body": "Os dados pessoais que nos fornece são utilizados exclusivamente para responder à sua questão e manter correspondência consigo. Não utilizamos os seus dados para fins de marketing ou de criação de perfis sem o seu consentimento explícito."
+        },
+        "legal": {
+            "title": "Base Legal para o Tratamento",
+            "body": "Tratamos os seus dados pessoais com base nos seguintes fundamentos legais ao abrigo do RGPD: o seu consentimento (Artigo 6.º, n.º 1, alínea a)), prestado ao submeter o nosso formulário de contacto; e o nosso interesse legítimo em responder a pedidos de negócio (Artigo 6.º, n.º 1, alínea f))."
+        },
+        "retention": {
+            "title": "Período de Conservação",
+            "body": "Conservamos os seus dados pessoais apenas durante o tempo necessário para cumprir a finalidade para a qual foram recolhidos, ou conforme exigido pela legislação aplicável. Os dados de contacto são geralmente conservados por um período máximo de 2 anos, após o qual são eliminados de forma segura."
+        },
+        "thirdParties": {
+            "title": "Terceiros",
+            "body": "Não vendemos, arrendamos nem transferimos os seus dados pessoais a terceiros para uso próprio. Podemos recorrer a prestadores de serviços de confiança (como serviços de email ou alojamento) que tratam dados em nosso nome, estando vinculados por acordos de processamento de dados e obrigações de confidencialidade."
+        },
+        "rights": {
+            "title": "Os Seus Direitos",
+            "body": "Como titular de dados ao abrigo do RGPD, tem os seguintes direitos:",
+            "items": [
+                "Direito de acesso — obter uma cópia dos seus dados pessoais",
+                "Direito de retificação — corrigir dados inexatos ou incompletos",
+                "Direito ao apagamento — solicitar a eliminação dos seus dados ('direito a ser esquecido')",
+                "Direito à limitação — solicitar que limitemos o tratamento dos seus dados",
+                "Direito de oposição — opor-se ao tratamento dos seus dados",
+                "Direito de apresentar reclamação à CNPD (Comissão Nacional de Proteção de Dados) em www.cnpd.pt"
+            ]
+        },
+        "cookies": {
+            "title": "Cookies",
+            "body": "O nosso website utiliza apenas cookies técnicos estritamente necessários, como o armazenamento da sua preferência de idioma. Não utilizamos cookies de rastreamento, análise ou publicidade. Nenhum dado pessoal é recolhido através de cookies."
+        },
+        "contact": {
+            "title": "Contacto e Pedidos de Dados",
+            "body": "Para exercer qualquer um dos seus direitos, colocar questões sobre esta Política de Privacidade ou submeter um pedido de dados, contacte-nos através de: hello@proxiosolutions.com. Responderemos no prazo de 30 dias."
+        }
     }
 }
