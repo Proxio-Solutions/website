@@ -36,9 +36,12 @@ export default function Navbar() {
           </div>
 
           <div className="hidden items-center space-x-4 md:flex">
-            <button className="bg-proxio-accent hover:bg-proxio-accent-hover text-proxio-darker rounded-md px-5 py-2 text-sm font-bold transition-colors">
+            <Link
+              to="/contact"
+              className="bg-proxio-accent hover:bg-proxio-accent-hover text-proxio-darker rounded-md px-5 py-2 text-sm font-bold transition-colors"
+            >
               {t('nav.cta')}
-            </button>
+            </Link>
 
             <button
               onClick={toggleLanguage}

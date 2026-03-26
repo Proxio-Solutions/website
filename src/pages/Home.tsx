@@ -1,13 +1,18 @@
+import HighlightedText from '@components/HighlightedText';
 import SEO from '@components/SEO';
-import { Globe, Gem, Lightbulb, Smartphone, Users, Zap, ArrowRight } from 'lucide-react';
+import { ArrowRight, Gem, Users, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-const serviceIcons = { web: Globe, mobile: Smartphone, consulting: Lightbulb } as const;
 const valueIcons = { client: Users, quality: Gem, modern: Zap } as const;
 
+const heroHighlights: Record<string, string[]> = {
+  pt: ['Soluções Digitais', 'Diferença'],
+  en: ['Digital Solutions', 'Difference'],
+};
+
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -17,11 +22,11 @@ export default function Home() {
         {/* Hero */}
         <section className="mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="bg-proxio-dark border-proxio-dark-border text-proxio-accent mb-6 inline-block rounded-full border px-4 py-1.5 text-sm font-semibold tracking-wide">
-              {t('home.hero.label')}
-            </span>
             <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl lg:text-7xl">
-              {t('home.hero.title')}
+              <HighlightedText
+                text={t('home.hero.title')}
+                words={heroHighlights[i18n.language] ?? heroHighlights.en}
+              />
             </h1>
             <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
               {t('home.hero.subtitle')}
@@ -43,38 +48,31 @@ export default function Home() {
             </div>
           </div>
         </section>
-
-        {/* What We Do */}
+        {/* Our Principles */}
         <section className="bg-proxio-dark border-proxio-dark-border border-y py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-14 text-center">
               <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
-                {t('home.services.label')}
+                {t('home.values.label')}
               </span>
               <h2 className="text-proxio-text-main mt-3 text-3xl font-extrabold sm:text-4xl">
-                {t('home.services.title')}
+                {t('home.values.title')}
               </h2>
-              <p className="text-proxio-text-muted mx-auto mt-4 max-w-2xl text-lg">
-                {t('home.services.subtitle')}
-              </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-              {(Object.keys(serviceIcons) as Array<keyof typeof serviceIcons>).map((key) => {
-                const Icon = serviceIcons[key];
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
+              {(Object.keys(valueIcons) as Array<keyof typeof valueIcons>).map((key) => {
+                const Icon = valueIcons[key];
                 return (
-                  <div
-                    key={key}
-                    className="bg-proxio-darker border-proxio-dark-border rounded-2xl border p-8 transition-shadow hover:shadow-md"
-                  >
-                    <div className="bg-proxio-accent/10 mb-5 inline-flex rounded-xl p-3">
+                  <div key={key} className="text-center">
+                    <div className="bg-proxio-darker border-proxio-dark-border mx-auto mb-5 inline-flex rounded-full border p-4">
                       <Icon className="text-proxio-accent h-6 w-6" />
                     </div>
                     <h3 className="text-proxio-text-main mb-3 text-xl font-bold">
-                      {t(`home.services.${key}.title`)}
+                      {t(`home.values.${key}.title`)}
                     </h3>
                     <p className="text-proxio-text-muted leading-relaxed">
-                      {t(`home.services.${key}.desc`)}
+                      {t(`home.values.${key}.desc`)}
                     </p>
                   </div>
                 );
@@ -109,7 +107,7 @@ export default function Home() {
                   {t('projects.urbi.description')}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-2">
-                  {['React', 'React Native', '.NET', 'Tailwind'].map((tag) => (
+                  {['React', 'React Native', '.NET', 'TypeScript'].map((tag) => (
                     <span
                       key={tag}
                       className="rounded-md bg-white/20 px-3 py-1 text-sm font-medium"
@@ -121,43 +119,10 @@ export default function Home() {
               </div>
               <Link
                 to="/projects"
-                className="shrink-0 self-start rounded-xl bg-white px-6 py-3 text-sm font-bold text-proxio-accent transition-opacity hover:opacity-75"
+                className="text-proxio-accent shrink-0 self-start rounded-xl bg-white px-6 py-3 text-sm font-bold transition-opacity hover:opacity-75"
               >
                 {t('home.hero.learnMore')} →
               </Link>
-            </div>
-          </div>
-        </section>
-
-        {/* Our Principles */}
-        <section className="bg-proxio-dark border-proxio-dark-border border-y py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-14 text-center">
-              <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
-                {t('home.values.label')}
-              </span>
-              <h2 className="text-proxio-text-main mt-3 text-3xl font-extrabold sm:text-4xl">
-                {t('home.values.title')}
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
-              {(Object.keys(valueIcons) as Array<keyof typeof valueIcons>).map((key) => {
-                const Icon = valueIcons[key];
-                return (
-                  <div key={key} className="text-center">
-                    <div className="bg-proxio-darker border-proxio-dark-border mx-auto mb-5 inline-flex rounded-full border p-4">
-                      <Icon className="text-proxio-accent h-6 w-6" />
-                    </div>
-                    <h3 className="text-proxio-text-main mb-3 text-xl font-bold">
-                      {t(`home.values.${key}.title`)}
-                    </h3>
-                    <p className="text-proxio-text-muted leading-relaxed">
-                      {t(`home.values.${key}.desc`)}
-                    </p>
-                  </div>
-                );
-              })}
             </div>
           </div>
         </section>

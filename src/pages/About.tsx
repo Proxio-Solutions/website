@@ -1,13 +1,24 @@
+import HighlightedText from '@components/HighlightedText';
 import SEO from '@components/SEO';
 import { Eye, Hammer, Lightbulb, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
-const valueIcons = { craft: Hammer, partnership: Users, innovation: Lightbulb, transparency: Eye } as const;
+const valueIcons = {
+  craft: Hammer,
+  partnership: Users,
+  innovation: Lightbulb,
+  transparency: Eye,
+} as const;
 const teamMembers = ['member1', 'member2'] as const;
 
+const highlightWords: Record<string, string[]> = {
+  pt: ['Tecnologia', 'Conecta', 'Inspira'],
+  en: ['Technology', 'Connects', 'Inspires'],
+};
+
 export default function About() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -21,7 +32,7 @@ export default function About() {
               {t('about.mission.label')}
             </span>
             <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
-              {t('about.mission.title')}
+              <HighlightedText text={t('about.mission.title')} words={highlightWords[i18n.language] ?? highlightWords.en} />
             </h1>
             <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
               {t('about.mission.desc')}
@@ -68,7 +79,10 @@ export default function About() {
             {(Object.keys(valueIcons) as Array<keyof typeof valueIcons>).map((key) => {
               const Icon = valueIcons[key];
               return (
-                <div key={key} className="bg-proxio-dark border-proxio-dark-border rounded-2xl border p-8">
+                <div
+                  key={key}
+                  className="bg-proxio-dark border-proxio-dark-border rounded-2xl border p-8"
+                >
                   <div className="bg-proxio-accent/10 mb-5 inline-flex rounded-xl p-3">
                     <Icon className="text-proxio-accent h-6 w-6" />
                   </div>
@@ -103,9 +117,6 @@ export default function About() {
                   key={member}
                   className="bg-proxio-darker border-proxio-dark-border rounded-2xl border p-8 text-center"
                 >
-                  <div className="border-proxio-dark-border bg-proxio-accent/10 mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full border-2 border-dashed">
-                    <span className="text-proxio-accent text-2xl font-bold">PS</span>
-                  </div>
                   <p className="text-proxio-text-muted mb-1 text-sm font-medium">
                     {t(`about.team.${member}.role`)}
                   </p>

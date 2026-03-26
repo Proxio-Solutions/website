@@ -1,9 +1,15 @@
+import HighlightedText from '@components/HighlightedText';
 import SEO from '@components/SEO';
 import { Check, Code2, Globe, Lightbulb, PenLine, Rocket, Search, Smartphone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
 const serviceIcons = { web: Globe, mobile: Smartphone, consulting: Lightbulb } as const;
+
+const heroHighlights: Record<string, string[]> = {
+  pt: ['Ideias', 'Software'],
+  en: ['Ideas', 'Software'],
+};
 
 const processSteps = [
   { key: 'discover', icon: Search, step: '01' },
@@ -12,10 +18,8 @@ const processSteps = [
   { key: 'launch', icon: Rocket, step: '04' },
 ] as const;
 
-const techStack = ['React', 'React Native', '.NET', 'Tailwind CSS'];
-
 export default function Services() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <>
@@ -29,7 +33,7 @@ export default function Services() {
               {t('services.hero.label')}
             </span>
             <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
-              {t('services.hero.title')}
+              <HighlightedText text={t('services.hero.title')} words={heroHighlights[i18n.language] ?? heroHighlights.en} />
             </h1>
             <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
               {t('services.hero.subtitle')}
@@ -49,6 +53,7 @@ export default function Services() {
                 return (
                   <div
                     key={key}
+                    id={`service-${key}`}
                     className="bg-proxio-darker border-proxio-dark-border flex flex-col rounded-2xl border p-8"
                   >
                     <div className="bg-proxio-accent/10 mb-6 inline-flex self-start rounded-xl p-4">
@@ -104,30 +109,6 @@ export default function Services() {
                 </p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Tech Stack */}
-        <section className="bg-proxio-dark border-proxio-dark-border border-y py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
-                {t('services.stack.label')}
-              </span>
-              <h2 className="text-proxio-text-main mt-3 text-3xl font-extrabold sm:text-4xl">
-                {t('services.stack.title')}
-              </h2>
-            </div>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              {techStack.map((tech) => (
-                <div
-                  key={tech}
-                  className="bg-proxio-darker border-proxio-dark-border rounded-xl border px-8 py-5"
-                >
-                  <span className="text-proxio-text-main text-lg font-bold">{tech}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 

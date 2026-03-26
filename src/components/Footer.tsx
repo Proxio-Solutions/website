@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 import { NAV_LINKS } from '../config/navigation';
 
 const serviceLinks = [
-  { key: 'web', href: '/services' },
-  { key: 'mobile', href: '/services' },
-  { key: 'consulting', href: '/services' },
+  { key: 'web', href: '/services#service-web' },
+  { key: 'mobile', href: '/services#service-mobile' },
+  { key: 'consulting', href: '/services#service-consulting' },
 ] as const;
 
 export default function Footer() {
@@ -74,10 +74,10 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:hello@proxiosolutions.com"
+                  href="mailto:proxiosolutions@gmail.com"
                   className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
                 >
-                  hello@proxiosolutions.com
+                  proxiosolutions@gmail.com
                 </a>
               </li>
               <li>

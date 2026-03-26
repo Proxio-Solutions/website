@@ -1,3 +1,10 @@
+declare global {
+  interface Window {
+    plausible?: (event: string) => void;
+  }
+}
+
+import HighlightedText from '@components/HighlightedText';
 import SEO from '@components/SEO';
 import emailjs from '@emailjs/browser';
 import { Clock, Mail, MapPin } from 'lucide-react';
@@ -8,8 +15,13 @@ const EMAILJS_SERVICE_ID = 'service_oamgj8f';
 const EMAILJS_TEMPLATE_ID = 'template_qscsv6j';
 const EMAILJS_PUBLIC_KEY = 'wq8c44hOVc_fVr0Fq';
 
+const heroHighlights: Record<string, string[]> = {
+  pt: ['Vamos Falar', 'Teu Projeto'],
+  en: ["Let's Talk", 'Your Project'],
+};
+
 export default function Contact() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -22,6 +34,7 @@ export default function Contact() {
         publicKey: EMAILJS_PUBLIC_KEY,
       });
       setStatus('success');
+      window.plausible?.('Contact Form Submitted');
     } catch {
       setStatus('error');
     }
@@ -56,7 +69,7 @@ export default function Contact() {
               {t('contact.hero.label')}
             </span>
             <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight">
-              {t('contact.hero.title')}
+              <HighlightedText text={t('contact.hero.title')} words={heroHighlights[i18n.language] ?? heroHighlights.en} />
             </h1>
             <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
               {t('contact.hero.subtitle')}
