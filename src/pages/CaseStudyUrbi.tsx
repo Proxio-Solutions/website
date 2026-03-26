@@ -65,7 +65,7 @@ export default function CaseStudyUrbi() {
 
       <main>
         {/* Back link + Hero */}
-        <section className="mx-auto max-w-7xl px-4 pb-16 pt-10 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 pt-10 pb-16 sm:px-6 lg:px-8">
           <Link
             to="/projects"
             className="text-proxio-text-muted hover:text-proxio-accent mb-10 inline-flex items-center gap-2 text-sm font-medium transition-colors"
@@ -143,9 +143,7 @@ export default function CaseStudyUrbi() {
             <span className="text-sm font-semibold tracking-widest uppercase opacity-75">
               {t(`${u}.solution.label`)}
             </span>
-            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
-              {t(`${u}.solution.title`)}
-            </h2>
+            <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">{t(`${u}.solution.title`)}</h2>
             <p className="mt-5 max-w-3xl text-xl leading-relaxed opacity-90">
               {t(`${u}.solution.body`)}
             </p>
@@ -182,7 +180,10 @@ export default function CaseStudyUrbi() {
                     </h3>
                     <ul className="space-y-3">
                       {items.map((item) => (
-                        <li key={item} className="text-proxio-text-muted flex gap-2.5 text-sm leading-relaxed">
+                        <li
+                          key={item}
+                          className="text-proxio-text-muted flex gap-2.5 text-sm leading-relaxed"
+                        >
                           <Check className="text-proxio-accent mt-0.5 h-4 w-4 shrink-0" />
                           {item}
                         </li>
@@ -262,9 +263,7 @@ export default function CaseStudyUrbi() {
                 {t(`${u}.ai.title`)}
               </h2>
             </div>
-            <p className="text-proxio-text-muted text-lg leading-relaxed">
-              {t(`${u}.ai.body`)}
-            </p>
+            <p className="text-proxio-text-muted text-lg leading-relaxed">{t(`${u}.ai.body`)}</p>
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
@@ -312,9 +311,7 @@ export default function CaseStudyUrbi() {
                   <div className="flex flex-1 items-center justify-between gap-4">
                     <span
                       className={`text-base font-medium ${
-                        status === 'done'
-                          ? 'text-proxio-text-main'
-                          : 'text-proxio-text-muted'
+                        status === 'done' ? 'text-proxio-text-main' : 'text-proxio-text-muted'
                       }`}
                     >
                       {t(`${u}.roadmap.${key}`)}

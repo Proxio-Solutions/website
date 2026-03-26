@@ -12,7 +12,7 @@ const projectsDB: Project[] = [
     title: 'Urbi',
     descriptionKey: 'projects.urbi.description',
     status: 'development',
-    tags: ['React', 'React Native', '.NET', 'Tailwind'],
+    tags: ['React', 'React Native', '.NET', 'TypeScript'],
   },
 ];
 
