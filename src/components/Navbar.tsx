@@ -1,14 +1,16 @@
 import bannerIllustration from '@assets/banner.svg';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { NAV_LINKS } from '../config/navigation';
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
+  const [, setSearchParams] = useSearchParams();
 
   const toggleLanguage = () => {
     const newLang = i18n.language === 'pt' ? 'en' : 'pt';
     i18n.changeLanguage(newLang);
+    setSearchParams((prev) => { prev.set('lang', newLang); return prev; }, { replace: true });
   };
 
   return (
