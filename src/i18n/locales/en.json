@@ -9,16 +9,15 @@
     },
     "home": {
         "hero": {
-            "label": "Modern Software Studio",
-            "title": "We Build Digital Products That Matter",
-            "subtitle": "From idea to deployment, we design and develop modern, beautiful software that solves real problems and delights users.",
+            "title": "We Create Digital Solutions That Make a Difference",
+            "subtitle": "From idea to deployment, we design and develop modern software that solves real problems and delights users.",
             "cta": "Start a Project",
             "learnMore": "See Our Work"
         },
         "services": {
             "label": "What We Do",
             "title": "Full-Cycle Digital Product Development",
-            "subtitle": "We cover every stage of product creation — from strategy and design to engineering and launch.",
+            "subtitle": "We cover every stage of product creation, from strategy and design to engineering and launch.",
             "web": {
                 "title": "Web Development",
                 "desc": "Performant, scalable web applications built with modern technologies like React and .NET."
@@ -64,7 +63,7 @@
         "mission": {
             "label": "Our Mission",
             "title": "Technology That Connects and Inspires",
-            "desc": "We believe technology should be beautiful, intuitive, and built to last. Our mission is to turn complex ideas into elegant digital products that make a real difference in people's lives."
+            "desc": "We believe technology should be appealing, intuitive, and sustainable. Our mission is to turn complex ideas into elegant digital products that make a real difference in people's lives."
         },
         "story": {
             "label": "Our Story",
@@ -76,8 +75,8 @@
             "label": "Our Values",
             "title": "What Drives Us",
             "craft": {
-                "title": "Craftsmanship",
-                "desc": "We care deeply about the quality of our work — from architecture decisions to the finest UI details."
+                "title": "Digital Engineering",
+                "desc": "We care deeply about the quality of our work, from architecture decisions to the finest UI details."
             },
             "partnership": {
                 "title": "True Partnership",
@@ -97,14 +96,14 @@
             "title": "The People Behind the Work",
             "desc": "A dedicated team of engineers passionate about building products that matter.",
             "member1": {
-                "name": "Your Name Here",
+                "name": "Filipe Passarinho",
                 "role": "Co-Founder & Software Engineer",
-                "bio": "Focused on building robust, scalable systems and leading technical strategy."
+                "bio": "Focused on building reliable systems while leading technological strategy."
             },
             "member2": {
-                "name": "Your Name Here",
+                "name": "Diogo Santos",
                 "role": "Co-Founder & Software Engineer",
-                "bio": "Passionate about user experience and delivering modern, beautiful interfaces."
+                "bio": "Passionate about user experience and delivering modern, appealing interfaces."
             }
         },
         "cta": {
@@ -117,38 +116,35 @@
         "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation.",
         "hero": {
             "label": "Our Services",
-            "title": "What We Build and How We Help",
-            "subtitle": "We partner with ambitious teams to design, build, and scale digital products — combining technical excellence with a deep focus on user experience."
+            "title": "Turning Ideas into Software",
+            "subtitle": "We work with ambitious clients on the design, development, and evolution of digital products, combining engineering excellence with a strong focus on user experience."
         },
         "items": {
             "web": {
                 "title": "Web Application Development",
-                "desc": "From marketing sites to complex SaaS platforms, we build web applications that are fast, reliable, and scalable. Our stack of choice: React, .NET, and Tailwind CSS.",
+                "desc": "From simple websites to complex SaaS platforms, we build web applications that are fast, reliable, and scalable.",
                 "features": [
                     "Custom UI/UX Design",
-                    "REST & GraphQL APIs",
-                    "Performance Optimisation",
-                    "Cloud Deployment"
+                    "REST API's",
+                    "Performance Optimization"
                 ]
             },
             "mobile": {
                 "title": "Mobile App Development",
-                "desc": "We develop cross-platform mobile applications with React Native, delivering a native experience on both iOS and Android from a single codebase.",
+                "desc": "We develop cross-platform mobile applications, delivering a native experience on both iOS and Android.",
                 "features": [
+                    "Custom UI/UX Design",
                     "iOS & Android",
-                    "Offline Support",
-                    "Push Notifications",
                     "App Store Publishing"
                 ]
             },
             "consulting": {
                 "title": "Technology Consulting",
-                "desc": "Not sure which path to take? We help teams make the right technology choices — from architecture reviews to full product strategy.",
+                "desc": "Not sure which path to take? We help teams make the right technology choices, from architecture reviews to full product strategy.",
                 "features": [
                     "Tech Stack Selection",
                     "Architecture Review",
-                    "Product Roadmapping",
-                    "Team Augmentation"
+                    "Product Road-mapping"
                 ]
             }
         },
@@ -157,11 +153,11 @@
             "title": "How We Work",
             "discover": {
                 "title": "Discover",
-                "desc": "We start by deeply understanding your business, users, and goals."
+                "desc": "We start by deeply understanding your necessities, users, and goals."
             },
             "design": {
                 "title": "Design",
-                "desc": "We craft the architecture and UX before writing a single line of code."
+                "desc": "We craft the project architecture and design focused on the user experience."
             },
             "build": {
                 "title": "Build",
@@ -207,7 +203,7 @@
         "info": {
             "email": {
                 "label": "Email",
-                "value": "hello@proxiosolutions.com"
+                "value": "proxiosolutions@gmail.com"
             },
             "location": {
                 "label": "Based In",
@@ -221,21 +217,21 @@
     },
     "projects": {
         "title": "Projects",
-        "description": "Discover the innovative solutions we are building.",
+        "headline": "From Idea to Product",
+        "description": "We don't build software for the sake of it — we solve real problems. Discover what we're creating and what's taking shape.",
         "featured": "Featured",
         "status": {
             "development": "In Development",
             "research": "In Research"
         },
         "urbi": {
-            "description": "A revolutionary platform designed to simplify complex processes. Urbi connects daily needs with cutting-edge technology, offering a seamless and intuitive experience."
+            "description": "Have you ever tried to report a problem in your city and gave up halfway? Urbi was born out of that frustration. A platform that brings citizens and municipalities closer — simple for those who report, powerful for those who manage."
         },
         "next": {
-            "label": "What's Next",
-            "title": "Always Building",
-            "desc": "We're constantly exploring new ideas and pushing the boundaries of what's possible. The next chapter is already in the making.",
-            "placeholder": "Something new is taking shape. Stay tuned.",
-            "cta": "Have an idea? Let's talk"
+            "label": "In Incubation",
+            "title": "The Next Ideas",
+            "desc": "Every product we build starts with a simple question. We're actively exploring new problems worth solving. If you have an idea or a challenge that deserves a proper solution, we'd love to hear it.",
+            "cta": "Talk to us"
         },
         "viewCaseStudy": "Read the case study"
     },
@@ -332,7 +328,7 @@
                 "react": {
                     "name": "React",
                     "role": "Web Application",
-                    "reason": "Built for excellence. The municipality-facing web dashboard is built with React and Tailwind CSS, allowing us to craft a beautiful, responsive interface without compromising on speed or maintainability."
+                    "reason": "Built for excellence. The municipality-facing web dashboard is built with React, allowing us to craft a fast, beautiful, responsive interface without compromising on speed or maintainability."
                 },
                 "reactNative": {
                     "name": "React Native",
@@ -342,7 +338,7 @@
                 "tailwind": {
                     "name": "Tailwind CSS",
                     "role": "Design System",
-                    "reason": "Consistency at speed. Tailwind enables us to implement our design system coherently across the web application, keeping the UI sharp and maintainable as the product grows."
+                    "reason": "Consistency at speed. Enables us to implement our design system coherently across the web application, keeping the UI sharp and maintainable as the product grows."
                 }
             },
             "origin": {
@@ -393,7 +389,7 @@
         },
         "controller": {
             "title": "Data Controller",
-            "body": "The data controller responsible for your personal data is Proxio Solutions, based in Portugal. For any data-related enquiries, please contact us at: hello@proxiosolutions.com"
+            "body": "The data controller responsible for your personal data is Proxio Solutions, based in Portugal. For any data-related enquiries, please contact us at: proxiosolutions@gmail.com"
         },
         "dataCollected": {
             "title": "What Data We Collect",
@@ -438,7 +434,7 @@
         },
         "contact": {
             "title": "Contact & Data Requests",
-            "body": "To exercise any of your rights, ask questions about this Privacy Policy, or submit a data request, please contact us at: hello@proxiosolutions.com. We will respond within 30 days."
+            "body": "To exercise any of your rights, ask questions about this Privacy Policy, or submit a data request, please contact us at: proxiosolutions@gmail.com. We will respond within 30 days."
         }
     }
 }

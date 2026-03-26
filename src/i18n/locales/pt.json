@@ -5,20 +5,19 @@
         "projects": "Projetos",
         "services": "Serviços",
         "contact": "Contacto",
-        "cta": "Falar Connosco"
+        "cta": "Fala Connosco"
     },
     "home": {
         "hero": {
-            "label": "Estúdio de Software Moderno",
-            "title": "Criamos Produtos Digitais que Importam",
-            "subtitle": "Da ideia à entrega, desenhamos e desenvolvemos software moderno e bonito que resolve problemas reais e encanta os utilizadores.",
+            "title": "Criamos Soluções Digitais que Fazem a Diferença",
+            "subtitle": "Da ideia à entrega, desenhamos e desenvolvemos software moderno que resolve problemas reais e satisfaz os utilizadores.",
             "cta": "Iniciar um Projeto",
             "learnMore": "Ver o Nosso Trabalho"
         },
         "services": {
             "label": "O Que Fazemos",
             "title": "Desenvolvimento de Produto Digital de Ponta a Ponta",
-            "subtitle": "Cobrimos todas as fases da criação de produto — desde a estratégia e design até à engenharia e lançamento.",
+            "subtitle": "Cobrimos todas as fases da criação de produto, desde a estratégia e design até à engenharia e lançamento.",
             "web": {
                 "title": "Desenvolvimento Web",
                 "desc": "Aplicações web performativas e escaláveis construídas com tecnologias modernas como React e .NET."
@@ -29,12 +28,12 @@
             },
             "consulting": {
                 "title": "Consultoria Tecnológica",
-                "desc": "Orientação estratégica em tecnologia para ajudar o seu negócio a tomar as decisões certas e avançar mais rápido."
+                "desc": "Orientação estratégica em tecnologia para ajudar o teu negócio a tomar as decisões certas e avançar mais rápido."
             }
         },
         "featured": {
             "label": "Projeto em Destaque",
-            "title": "Veja o Que Estamos a Construir"
+            "title": "Vê o Que Estamos a Construir"
         },
         "values": {
             "label": "Os Nossos Princípios",
@@ -53,18 +52,18 @@
             }
         },
         "cta": {
-            "title": "Tem um Projeto em Mente?",
+            "title": "Tens um Projeto em Mente?",
             "subtitle": "Vamos conversar sobre o que podemos construir juntos.",
-            "button": "Fale Connosco"
+            "button": "Fala Connosco"
         }
     },
     "about": {
         "title": "Sobre Nós",
-        "description": "Somos uma equipa apaixonada por transformar ideias complexas em soluções digitais de excelência, impulsionando o futuro do seu negócio.",
+        "description": "Somos uma equipa apaixonada por transformar ideias complexas em soluções digitais de excelência, impulsionando o futuro do teu negócio.",
         "mission": {
             "label": "A Nossa Missão",
             "title": "Tecnologia que Conecta e Inspira",
-            "desc": "Acreditamos que a tecnologia deve ser bela, intuitiva e duradoura. A nossa missão é transformar ideias complexas em produtos digitais elegantes que fazem uma diferença real na vida das pessoas."
+            "desc": "Acreditamos que a tecnologia deve ser apelativa, intuitiva e sustentável. A nossa missão é transformar ideias complexas em produtos digitais elegantes que fazem uma diferença real na vida das pessoas."
         },
         "story": {
             "label": "A Nossa História",
@@ -76,12 +75,12 @@
             "label": "Os Nossos Valores",
             "title": "O Que Nos Move",
             "craft": {
-                "title": "Artesanato Digital",
-                "desc": "Preocupamo-nos profundamente com a qualidade do nosso trabalho — das decisões de arquitetura aos mais pequenos detalhes de UI."
+                "title": "Engenharia Digital",
+                "desc": "Preocupamo-nos profundamente com a qualidade do nosso trabalho, desde as decisões de arquitetura aos mais pequenos detalhes de UI."
             },
             "partnership": {
                 "title": "Parceria Verdadeira",
-                "desc": "Vemo-nos como uma extensão da sua equipa, não apenas como um fornecedor. O seu sucesso é o nosso sucesso."
+                "desc": "Vemo-nos como uma extensão da tua equipa, não apenas como um fornecedor. O teu sucesso é o nosso sucesso."
             },
             "innovation": {
                 "title": "Visão de Futuro",
@@ -97,14 +96,14 @@
             "title": "As Pessoas Por Detrás do Trabalho",
             "desc": "Uma equipa dedicada de engenheiros apaixonados por construir produtos que importam.",
             "member1": {
-                "name": "O Seu Nome Aqui",
+                "name": "Filipe Passarinho",
                 "role": "Co-Fundador & Engenheiro de Software",
-                "bio": "Focado em construir sistemas robustos e escaláveis e em liderar a estratégia técnica."
+                "bio": "Focado na construção de sistemas fiáveis, liderando a estratégia tecnológica."
             },
             "member2": {
-                "name": "O Seu Nome Aqui",
+                "name": "Diogo Santos",
                 "role": "Co-Fundador & Engenheiro de Software",
-                "bio": "Apaixonado pela experiência do utilizador e pela entrega de interfaces modernas e bonitas."
+                "bio": "Apaixonado pela experiência do utilizador e pela entrega de interfaces modernas e apelativas."
             }
         },
         "cta": {
@@ -114,41 +113,38 @@
     },
     "services": {
         "title": "Os Nossos Serviços",
-        "description": "Desenhamos, desenvolvemos e escalamos produtos tecnológicos à medida das suas necessidades, com foco na performance e inovação.",
+        "description": "Desenhamos, desenvolvemos e escalamos produtos tecnológicos à medida das tuas necessidades, com foco na performance e inovação.",
         "hero": {
             "label": "Os Nossos Serviços",
-            "title": "O Que Construímos e Como Ajudamos",
-            "subtitle": "Trabalhamos com equipas ambiciosas para desenhar, construir e escalar produtos digitais — combinando excelência técnica com um foco profundo na experiência do utilizador."
+            "title": "Transformamos Ideias em Software",
+            "subtitle": "Trabalhamos com clientes ambiciosos na conceção, desenvolvimento e evolução de produtos digitais, combinando excelência em engenharia com foco na experiência do utilizador."
         },
         "items": {
             "web": {
                 "title": "Desenvolvimento de Aplicações Web",
-                "desc": "De sites de marketing a plataformas SaaS complexas, construímos aplicações web rápidas, fiáveis e escaláveis. O nosso stack preferido: React, .NET e Tailwind CSS.",
+                "desc": "De websites simples a plataformas SaaS complexas, construímos aplicações web rápidas, fiáveis e escaláveis.",
                 "features": [
                     "Design UI/UX Personalizado",
-                    "APIs REST e GraphQL",
-                    "Otimização de Performance",
-                    "Publicação em Cloud"
+                    "API's REST",
+                    "Otimização de Performance"
                 ]
             },
             "mobile": {
                 "title": "Desenvolvimento de Aplicações Móveis",
-                "desc": "Desenvolvemos aplicações móveis multiplataforma com React Native, oferecendo uma experiência nativa em iOS e Android a partir de uma única base de código.",
+                "desc": "Desenvolvemos aplicações móveis multiplataforma, oferecendo uma experiência nativa em iOS e Android.",
                 "features": [
+                    "Design UI/UX Personalizado",
                     "iOS e Android",
-                    "Suporte Offline",
-                    "Notificações Push",
                     "Publicação nas App Stores"
                 ]
             },
             "consulting": {
                 "title": "Consultoria Tecnológica",
-                "desc": "Não sabe qual o caminho a seguir? Ajudamos equipas a fazer as escolhas tecnológicas certas — desde revisões de arquitetura a estratégia de produto completa.",
+                "desc": "Não sabes qual o caminho a seguir? Ajudamos equipas a fazer as escolhas tecnológicas certas, desde revisões de arquitetura a estratégia de produto completa.",
                 "features": [
                     "Seleção de Stack Tecnológico",
                     "Revisão de Arquitetura",
-                    "Roadmap de Produto",
-                    "Aumento de Equipa"
+                    "Roadmap de Produto"
                 ]
             }
         },
@@ -157,19 +153,19 @@
             "title": "Como Trabalhamos",
             "discover": {
                 "title": "Descoberta",
-                "desc": "Começamos por compreender profundamente o seu negócio, utilizadores e objetivos."
+                "desc": "Começamos por compreender profundamente as tuas necessidades, utilizadores e objetivos."
             },
             "design": {
                 "title": "Design",
-                "desc": "Definimos a arquitetura e a experiência do utilizador antes de escrever uma linha de código."
+                "desc": "Definimos a arquitetura do projeto e o design com foco na experiência do utilizador."
             },
             "build": {
                 "title": "Construção",
-                "desc": "Desenvolvimento iterativo com check-ins regulares para que esteja sempre a par do progresso."
+                "desc": "Desenvolvimento iterativo com check-ins regulares para que estejas sempre a par do progresso."
             },
             "launch": {
                 "title": "Lançamento e Escala",
-                "desc": "Publicamos, monitorizamos e damos suporte ao seu produto à medida que cresce."
+                "desc": "Publicamos, monitorizamos e damos suporte ao teu produto à medida que cresce."
             }
         },
         "stack": {
@@ -178,17 +174,17 @@
         },
         "cta": {
             "title": "Pronto para Começar?",
-            "subtitle": "Fale-nos do seu projeto e vamos explorar como podemos ajudar.",
-            "button": "Contacte-nos"
+            "subtitle": "Fala-nos do teu projeto e vamos explorar como podemos ajudar.",
+            "button": "Contacta-nos"
         }
     },
     "contact": {
-        "title": "Fale Connosco",
-        "description": "Tem um projeto em mente ou precisa de uma consultoria tecnológica? Estamos prontos para ajudar a tornar a sua visão realidade.",
+        "title": "Fala Connosco",
+        "description": "Tens um projeto em mente ou precisas de uma consultoria tecnológica? Estamos prontos para ajudar a tornar a tua visão realidade.",
         "hero": {
-            "label": "Contacte-nos",
-            "title": "Vamos Falar Sobre o Seu Projeto",
-            "subtitle": "Tenha um briefing claro ou apenas uma ideia, adorávamos ouvi-lo. Contacte-nos e iniciemos uma conversa."
+            "label": "Contacta-nos",
+            "title": "Vamos Falar Sobre o Teu Projeto",
+            "subtitle": "Tens um plano estruturado ou apenas uma ideia, adorávamos ouvir-te. Contacta-nos para iniciarmos uma conversa."
         },
         "form": {
             "name": "Nome Completo",
@@ -198,19 +194,19 @@
             "subject": "Assunto",
             "subjectPlaceholder": "Pedido de projeto",
             "message": "Mensagem",
-            "messagePlaceholder": "Fale-nos do seu projeto, ideia ou questão...",
+            "messagePlaceholder": "Fala-nos do teu projeto, ideia ou questão...",
             "submit": "Enviar Mensagem",
             "sending": "A enviar...",
             "success": "Mensagem enviada! Responderemos em breve.",
-            "error": "Algo correu mal. Tente novamente ou envie-nos um email diretamente."
+            "error": "Algo correu mal. Tenta novamente ou envia-nos um email diretamente."
         },
         "info": {
             "email": {
                 "label": "Email",
-                "value": "hello@proxiosolutions.com"
+                "value": "proxiosolutions@gmail.com"
             },
             "location": {
-                "label": "Baseados em",
+                "label": "Localização",
                 "value": "Portugal"
             },
             "response": {
@@ -221,21 +217,21 @@
     },
     "projects": {
         "title": "Projetos",
-        "description": "Conheça as soluções inovadoras que estamos a construir.",
+        "headline": "Da Ideia ao Produto",
+        "description": "Não construímos software por construir — resolvemos problemas reais. Conhece o que estamos a criar e o que está a tomar forma.",
         "featured": "Em Destaque",
         "status": {
             "development": "Em Desenvolvimento",
             "research": "Em Investigação"
         },
         "urbi": {
-            "description": "Uma plataforma revolucionária desenhada para simplificar processos complexos. O Urbi conecta as necessidades do dia a dia com tecnologia de ponta, oferecendo uma experiência fluida e intuitiva."
+            "description": "Já alguma vez tentaste reportar um problema na tua cidade e desististe a meio? O Urbi nasceu dessa frustração. Uma plataforma que aproxima cidadãos e municípios — simples para quem reporta, poderosa para quem gere."
         },
         "next": {
-            "label": "O Que Aí Vem",
-            "title": "Sempre a Construir",
-            "desc": "Estamos constantemente a explorar novas ideias e a expandir os limites do possível. O próximo capítulo já está em criação.",
-            "placeholder": "Algo novo está a tomar forma. Fique atento.",
-            "cta": "Tem uma ideia? Fale connosco"
+            "label": "Em Incubação",
+            "title": "As Próximas Ideias",
+            "desc": "Cada produto que construímos começa com uma pergunta simples. Estamos ativamente a explorar novos problemas para resolver. Se tens uma ideia ou um problema que merece uma solução, queremos ouvir.",
+            "cta": "Fala connosco"
         },
         "viewCaseStudy": "Ver caso de estudo"
     },
@@ -332,7 +328,7 @@
                 "react": {
                     "name": "React",
                     "role": "Aplicação Web",
-                    "reason": "Construído para a excelência. O dashboard web orientado aos municípios é desenvolvido com React e Tailwind CSS, permitindo criar uma interface bonita e responsiva sem comprometer a velocidade ou a manutenção."
+                    "reason": "Construído para a excelência. O dashboard web orientado aos municípios é desenvolvido com React, permitindo criar uma interface rápida, bonita e responsiva sem comprometer a velocidade ou a manutenção."
                 },
                 "reactNative": {
                     "name": "React Native",
@@ -342,7 +338,7 @@
                 "tailwind": {
                     "name": "Tailwind CSS",
                     "role": "Sistema de Design",
-                    "reason": "Consistência com rapidez. O Tailwind permite implementar o nosso sistema de design de forma coerente em toda a aplicação web, mantendo a UI nítida e fácil de manter à medida que o produto cresce."
+                    "reason": "Consistência com rapidez. Permite implementar o nosso sistema de design de forma coerente em toda a aplicação web, mantendo a UI nítida e fácil de manter à medida que o produto cresce."
                 }
             },
             "origin": {
@@ -379,8 +375,8 @@
             },
             "cta": {
                 "title": "Interessado no Urbi?",
-                "body": "Seja um município que pretende experimentar a plataforma, um investidor ou simplesmente alguém curioso sobre o projeto — adorávamos conversar.",
-                "button": "Fale Connosco"
+                "body": "Quer sejas um município que pretende experimentar a plataforma, um investidor ou simplesmente alguém curioso sobre o projeto — adorávamos conversar.",
+                "button": "Fala Connosco"
             }
         }
     },
@@ -393,7 +389,7 @@
         },
         "controller": {
             "title": "Responsável pelo Tratamento",
-            "body": "O responsável pelo tratamento dos seus dados pessoais é a Proxio Solutions, com sede em Portugal. Para qualquer questão relacionada com dados, contacte-nos através de: hello@proxiosolutions.com"
+            "body": "O responsável pelo tratamento dos seus dados pessoais é a Proxio Solutions, com sede em Portugal. Para qualquer questão relacionada com dados, contacte-nos através de: proxiosolutions@gmail.com"
         },
         "dataCollected": {
             "title": "Que Dados Recolhemos",
@@ -438,7 +434,7 @@
         },
         "contact": {
             "title": "Contacto e Pedidos de Dados",
-            "body": "Para exercer qualquer um dos seus direitos, colocar questões sobre esta Política de Privacidade ou submeter um pedido de dados, contacte-nos através de: hello@proxiosolutions.com. Responderemos no prazo de 30 dias."
+            "body": "Para exercer qualquer um dos seus direitos, colocar questões sobre esta Política de Privacidade ou submeter um pedido de dados, contacte-nos através de: proxiosolutions@gmail.com. Responderemos no prazo de 30 dias."
         }
     }
 }
