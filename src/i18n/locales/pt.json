@@ -200,7 +200,9 @@
       "submit": "Enviar Mensagem",
       "sending": "A enviar...",
       "success": "Mensagem enviada! Responderemos em breve.",
-      "error": "Algo correu mal. Tenta novamente ou envia-nos um email diretamente."
+      "error": "Algo correu mal. Tenta novamente ou envia-nos um email diretamente.",
+      "sendAnother": "Enviar outra mensagem",
+      "notConfigured": "Formulário não configurado. Contacta-nos diretamente por email."
     },
     "info": {
       "email": {
