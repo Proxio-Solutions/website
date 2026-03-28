@@ -2,30 +2,439 @@
     "nav": {
         "home": "Home",
         "about": "About Us",
+        "projects": "Projects",
         "services": "Services",
         "contact": "Contact",
         "cta": "Let's Talk"
     },
     "home": {
-        "welcome": "Welcome to",
-        "description": "Building the digital future with innovation and excellence.",
-        "getStarted": "Get Started"
+        "hero": {
+            "title": "We Create Digital Solutions That Make a Difference",
+            "subtitle": "From idea to deployment, we design and develop modern software that solves real problems and delights users.",
+            "cta": "Start a Project",
+            "learnMore": "See Our Work"
+        },
+        "services": {
+            "label": "What We Do",
+            "title": "Full-Cycle Digital Product Development",
+            "subtitle": "We cover every stage of product creation, from strategy and design to engineering and launch.",
+            "web": {
+                "title": "Web Development",
+                "desc": "Performant, scalable web applications built with modern technologies like React and .NET."
+            },
+            "mobile": {
+                "title": "Mobile Apps",
+                "desc": "Cross-platform mobile experiences using React Native, crafted for both iOS and Android."
+            },
+            "consulting": {
+                "title": "Tech Consulting",
+                "desc": "Strategic technology guidance to help your business make the right decisions and move faster."
+            }
+        },
+        "featured": {
+            "label": "Featured Project",
+            "title": "See What We're Building"
+        },
+        "values": {
+            "label": "Our Principles",
+            "title": "Built on a Strong Foundation",
+            "client": {
+                "title": "Client-First Approach",
+                "desc": "We work closely with our clients throughout every stage. Your vision drives our process."
+            },
+            "quality": {
+                "title": "Uncompromising Quality",
+                "desc": "Every line of code, every pixel, every interaction is crafted with care and precision."
+            },
+            "modern": {
+                "title": "Modern by Default",
+                "desc": "We use the best tools and frameworks available to build products that stand the test of time."
+            }
+        },
+        "cta": {
+            "title": "Have a Project in Mind?",
+            "subtitle": "Let's talk about what we can build together.",
+            "button": "Get in Touch"
+        }
     },
     "about": {
         "title": "About Us",
-        "description": "We are a passionate team dedicated to transforming complex ideas into digital excellence, driving the future of your business."
+        "description": "We are a passionate team dedicated to transforming complex ideas into digital excellence, driving the future of your business.",
+        "mission": {
+            "label": "Our Mission",
+            "title": "Technology That Connects and Inspires",
+            "desc": "We believe technology should be appealing, intuitive, and sustainable. Our mission is to turn complex ideas into digital products that make a real difference in people's lives."
+        },
+        "story": {
+            "label": "Our Story",
+            "title": "From Classmates to Founders",
+            "p1": "Proxio was born out of a friendship between two computer engineering classmates. What started as an academic partnership shared assignments, late-night projects, and a lot of code, grew as we realised we held the same views on technology, product, and what it means to do things properly.",
+            "p2": "We both wanted to change the way relationships between companies and clients work in software. It was with that conviction, and through Urbi, a project we deeply believe in, that we took our first step into the market by entering Poliempreende."
+        },
+        "values": {
+            "label": "Our Values",
+            "title": "What Drives Us",
+            "craft": {
+                "title": "Digital Engineering",
+                "desc": "We care deeply about the quality of our work, from architecture decisions to the finest UI details."
+            },
+            "partnership": {
+                "title": "True Partnership",
+                "desc": "We see ourselves as an extension of your team, not just a vendor. Your success is our success."
+            },
+            "innovation": {
+                "title": "Forward Thinking",
+                "desc": "We stay at the forefront of technology so our clients always benefit from the best solutions available."
+            },
+            "transparency": {
+                "title": "Radical Transparency",
+                "desc": "Clear communication, honest timelines, and no surprises. We believe trust is built through consistency."
+            }
+        },
+        "team": {
+            "label": "The Team",
+            "title": "The People Behind the Work",
+            "desc": "A dedicated team of engineers passionate about building products that matter.",
+            "member1": {
+                "name": "Filipe Passarinho",
+                "role": "Co-Founder & Software Engineer",
+                "bio": "Focused on building reliable systems while leading technological strategy."
+            },
+            "member2": {
+                "name": "Diogo Santos",
+                "role": "Co-Founder & Software Engineer",
+                "bio": "Passionate about user experience and delivering modern, appealing interfaces."
+            }
+        },
+        "cta": {
+            "title": "Let's Build Something Together",
+            "button": "Start a Conversation"
+        }
     },
     "services": {
         "title": "Our Services",
-        "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation."
+        "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation.",
+        "hero": {
+            "label": "Our Services",
+            "title": "Turning Ideas into Software",
+            "subtitle": "We work with ambitious clients on the design, development, and evolution of digital products, combining engineering excellence with a strong focus on user experience."
+        },
+        "items": {
+            "web": {
+                "title": "Web Application Development",
+                "desc": "From simple websites to complex SaaS platforms, we build web applications that are fast, reliable, and scalable.",
+                "features": [
+                    "Custom UI/UX Design",
+                    "REST API's",
+                    "Performance Optimization"
+                ]
+            },
+            "mobile": {
+                "title": "Mobile App Development",
+                "desc": "We develop cross-platform mobile applications, delivering a native experience on both iOS and Android.",
+                "features": [
+                    "Custom UI/UX Design",
+                    "iOS & Android",
+                    "App Store Publishing"
+                ]
+            },
+            "consulting": {
+                "title": "Technology Consulting",
+                "desc": "Not sure which path to take? We help teams make the right technology choices, from architecture reviews to full product strategy.",
+                "features": [
+                    "Tech Stack Selection",
+                    "Architecture Review",
+                    "Product Road-mapping"
+                ]
+            }
+        },
+        "process": {
+            "label": "Our Process",
+            "title": "How We Work",
+            "discover": {
+                "title": "Discover",
+                "desc": "We start by deeply understanding your necessities, users, and goals."
+            },
+            "design": {
+                "title": "Design",
+                "desc": "We craft the project architecture and design focused on the user experience."
+            },
+            "build": {
+                "title": "Build",
+                "desc": "Iterative development with regular check-ins so you're always in the loop."
+            },
+            "launch": {
+                "title": "Launch & Scale",
+                "desc": "We deploy, monitor, and support your product as it grows."
+            }
+        },
+        "stack": {
+            "label": "Our Tech Stack",
+            "title": "Built With the Best Tools"
+        },
+        "cta": {
+            "title": "Ready to Start?",
+            "subtitle": "Tell us about your project and let's explore how we can help.",
+            "button": "Contact Us"
+        }
     },
     "contact": {
         "title": "Contact Us",
-        "description": "Have a project in mind or need tech consulting? We are ready to help turn your vision into reality."
+        "description": "Have a question, a project, or just want to learn more about what we do? We're here and we'd love to hear from you.",
+        "hero": {
+            "label": "Get in Touch",
+            "title": "Let's Talk",
+            "subtitle": "Whatever brings you here, we're available. Reach out and let's start a conversation."
+        },
+        "form": {
+            "name": "Full Name",
+            "namePlaceholder": "John Smith",
+            "email": "Email Address",
+            "emailPlaceholder": "john@company.com",
+            "subject": "Subject",
+            "subjectPlaceholder": "Project enquiry",
+            "message": "Message",
+            "messagePlaceholder": "Tell us about your project, idea, or question...",
+            "submit": "Send Message",
+            "sending": "Sending...",
+            "success": "Message sent! We'll get back to you shortly.",
+            "error": "Something went wrong. Please try again or email us directly."
+        },
+        "info": {
+            "email": {
+                "label": "Email",
+                "value": "proxiosolutions@gmail.com"
+            },
+            "location": {
+                "label": "Based In",
+                "value": "Portugal"
+            },
+            "response": {
+                "label": "Response Time",
+                "value": "Within 24 hours"
+            }
+        }
+    },
+    "projects": {
+        "title": "Projects",
+        "headline": "From Idea to Product",
+        "description": "We don't build software for the sake of it, we solve real problems. Discover what we're creating and what's taking shape.",
+        "featured": "Featured",
+        "status": {
+            "development": "In Development",
+            "research": "In Research"
+        },
+        "urbi": {
+            "description": "Have you ever reported a problem in your city and felt like you were talking to a wall? Urbi was born from exactly that feeling, of not being heard. On the other side, municipalities face the daily chaos of managing hundreds of reports with no proper tools. Urbi solves both ends: simple for those who report, powerful for those who manage."
+        },
+        "next": {
+            "label": "In Incubation",
+            "title": "The Next Ideas",
+            "desc": "Every product we build starts with a simple question. We're actively exploring new problems worth solving. If you have an idea or a challenge that deserves a proper solution, we'd love to hear it.",
+            "cta": "Talk to us"
+        },
+        "viewCaseStudy": "Read the case study"
     },
     "notFound": {
         "title": "Page not found",
         "description": "Sorry, we couldn't find the page you're looking for.",
         "backHome": "Go back home"
+    },
+    "footer": {
+        "tagline": "Building modern digital products with craft and purpose.",
+        "company": "Company",
+        "services": "Services",
+        "contact": "Contact",
+        "legal": "Legal",
+        "privacy": "Privacy Policy",
+        "copyright": "© {{year}} Proxio Solutions. All rights reserved.",
+        "services_web": "Web Development",
+        "services_mobile": "Mobile Apps",
+        "services_consulting": "Tech Consulting"
+    },
+    "caseStudies": {
+        "urbi": {
+            "meta": {
+                "title": "Urbi — Case Study",
+                "description": "How Urbi is bridging the gap between municipalities and citizens through smart civic technology."
+            },
+            "hero": {
+                "backLink": "Back to Projects",
+                "tag": "Case Study",
+                "title": "Urbi",
+                "subtitle": "Bridging the gap between municipalities and citizens through smart, inclusive civic technology.",
+                "stat1Label": "Platforms",
+                "stat1Value": "Web + Mobile",
+                "stat2Label": "Status",
+                "stat2Value": "Designs Complete",
+                "stat3Label": "Competition",
+                "stat3Value": "Poliempreende 2026"
+            },
+            "problem": {
+                "label": "The Challenge",
+                "title": "A Gap Between Citizens and Their Municipalities",
+                "intro": "Modern cities run on communication — yet in most municipalities, that communication is broken. Citizens feel disconnected from local decision-making, and local governments lack the tools to engage meaningfully with the communities they serve.",
+                "card1Title": "Citizens Feel Unheard",
+                "card1Desc": "Reporting issues, participating in local decisions, or simply getting updates from the municipality is slow, opaque, and often futile.",
+                "card2Title": "Municipalities Lack Insight",
+                "card2Desc": "Local governments have no reliable way to collect structured feedback, track recurring issues, or gather meaningful statistics from residents.",
+                "card3Title": "Internal Processes Are Analog",
+                "card3Desc": "Many juntas de freguesia still rely on manual processes for stock management, work orders, and occurrence tracking — creating inefficiency and data silos."
+            },
+            "solution": {
+                "label": "The Solution",
+                "title": "A Unified Civic Platform",
+                "body": "Urbi is a two-sided platform designed to close the communication gap between citizens and local government. It gives citizens a voice and gives municipalities the tools, data, and intelligence they need to act on it."
+            },
+            "features": {
+                "label": "Platform Overview",
+                "title": "Built for Both Sides",
+                "citizens": {
+                    "title": "For Citizens",
+                    "items": [
+                        "Report issues and track their resolution in real time",
+                        "Participate in local decisions and public consultations",
+                        "Receive updates and notifications from the municipality",
+                        "Access local services and information in one place"
+                    ]
+                },
+                "municipalities": {
+                    "title": "For Municipalities",
+                    "items": [
+                        "Centralised occurrence management dashboard",
+                        "Statistical insights on resident reports and trends",
+                        "AI-powered tools to prioritise and route issues",
+                        "Communication and coordination tools across juntas"
+                    ]
+                },
+                "juntas": {
+                    "title": "For Juntas de Freguesia",
+                    "items": [
+                        "Stock and inventory management",
+                        "Digital work orders (folhas de obra)",
+                        "Inter-junta communication and coordination",
+                        "Structured data collection and reporting"
+                    ]
+                }
+            },
+            "stack": {
+                "label": "Tech Stack",
+                "title": "Chosen for the Right Reasons",
+                "dotnet": {
+                    "name": ".NET",
+                    "role": "Backend & API",
+                    "reason": "Industrial strength. We chose .NET for its performance, reliability, and proven track record in enterprise environments. It gives Urbi the solid, scalable foundation its data infrastructure demands."
+                },
+                "react": {
+                    "name": "React",
+                    "role": "Web Application",
+                    "reason": "Built for excellence. The municipality-facing web dashboard is built with React, allowing us to craft a fast, beautiful, responsive interface without compromising on speed or maintainability."
+                },
+                "reactNative": {
+                    "name": "React Native",
+                    "role": "Mobile App",
+                    "reason": "One codebase, two platforms. The citizen-facing mobile app is built with React Native, delivering a native experience on both iOS and Android from a single, maintainable codebase."
+                },
+                "tailwind": {
+                    "name": "Tailwind CSS",
+                    "role": "Design System",
+                    "reason": "Consistency at speed. Enables us to implement our design system coherently across the web application, keeping the UI sharp and maintainable as the product grows."
+                }
+            },
+            "origin": {
+                "label": "Our Story",
+                "title": "From Academic Idea to Real Product",
+                "p1": "Urbi was born in an academic context — a response to a civic problem that everyone around us experienced but nobody had solved well. What started as a project concept quickly proved to have real-world potential.",
+                "p2": "We evolved the idea beyond its academic roots, deepening the problem research, mapping out both the citizen and municipality user journeys, and developing a product vision that could genuinely work in practice.",
+                "p3": "In 2026, Urbi will compete at Poliempreende, one of Portugal's leading entrepreneurship competitions for polytechnic students — a milestone that reflects the seriousness and ambition behind the project."
+            },
+            "ai": {
+                "label": "The Future",
+                "title": "AI at the Core",
+                "body": "We're designing Urbi with AI integration from the ground up — not as a feature bolt-on, but as a fundamental part of how the platform works.",
+                "item1Title": "Smart Occurrence Routing",
+                "item1Desc": "AI automatically categorises and routes citizen reports to the right department, reducing response times dramatically.",
+                "item2Title": "Inter-Junta Intelligence",
+                "item2Desc": "Identifying patterns and facilitating communication between multiple juntas that face similar recurring issues.",
+                "item3Title": "Predictive Insights",
+                "item3Desc": "Helping municipalities anticipate needs, allocate resources proactively, and make data-driven decisions."
+            },
+            "roadmap": {
+                "label": "What's Next",
+                "title": "The Road Ahead",
+                "step1": "Concept & Problem Validation",
+                "step2": "UI/UX Design",
+                "step3": "Development Phase",
+                "step4": "Beta with Partner Municipalities",
+                "step5": "Poliempreende 2026",
+                "step6": "AI Feature Integration",
+                "step7": "Public Launch",
+                "done": "Complete",
+                "next": "Next Up",
+                "upcoming": "Upcoming"
+            },
+            "cta": {
+                "title": "Interested in Urbi?",
+                "body": "Whether you're a municipality looking to pilot the platform, an investor, or just curious about the project — we'd love to talk.",
+                "button": "Get in Touch"
+            }
+        }
+    },
+    "privacyPolicy": {
+        "title": "Privacy Policy",
+        "lastUpdated": "Last updated: March 2025",
+        "intro": {
+            "title": "Introduction",
+            "body": "Proxio Solutions ('we', 'us', or 'our') is committed to protecting your personal data. This Privacy Policy explains how we collect, use, and safeguard the information you provide when using our website and services, in accordance with the General Data Protection Regulation (GDPR) and applicable Portuguese law."
+        },
+        "controller": {
+            "title": "Data Controller",
+            "body": "The data controller responsible for your personal data is Proxio Solutions, based in Portugal. For any data-related enquiries, please contact us at: proxiosolutions@gmail.com"
+        },
+        "dataCollected": {
+            "title": "What Data We Collect",
+            "body": "We only collect personal data that you voluntarily provide when using our contact form. This may include:",
+            "items": [
+                "Full name",
+                "Email address",
+                "Subject and message content you submit"
+            ]
+        },
+        "usage": {
+            "title": "How We Use Your Data",
+            "body": "The personal data you provide is used exclusively to respond to your enquiry and to maintain correspondence with you. We do not use your data for marketing or profiling purposes without your explicit consent."
+        },
+        "legal": {
+            "title": "Legal Basis for Processing",
+            "body": "We process your personal data on the following legal grounds under the GDPR: your consent (Article 6(1)(a)), given when you submit our contact form; and our legitimate interest in responding to business enquiries (Article 6(1)(f))."
+        },
+        "retention": {
+            "title": "Data Retention",
+            "body": "We retain your personal data only for as long as necessary to fulfil the purpose for which it was collected, or as required by applicable law. Contact enquiry data is generally retained for up to 2 years, after which it is securely deleted."
+        },
+        "thirdParties": {
+            "title": "Third Parties",
+            "body": "We do not sell, rent, or transfer your personal data to third parties for their own use. We may use trusted third-party service providers (such as email or hosting services) who process data on our behalf and are bound by strict data processing agreements and confidentiality obligations."
+        },
+        "rights": {
+            "title": "Your Rights",
+            "body": "As a data subject under the GDPR, you have the following rights:",
+            "items": [
+                "Right of access — obtain a copy of your personal data",
+                "Right to rectification — correct inaccurate or incomplete data",
+                "Right to erasure — request deletion of your data ('right to be forgotten')",
+                "Right to restriction — request that we limit the processing of your data",
+                "Right to object — object to the processing of your data",
+                "Right to lodge a complaint with the CNPD (Comissão Nacional de Proteção de Dados) at www.cnpd.pt"
+            ]
+        },
+        "cookies": {
+            "title": "Cookies",
+            "body": "Our website uses only strictly necessary technical cookies, such as storing your language preference. We do not use tracking, analytics, or advertising cookies. No personal data is collected through cookies."
+        },
+        "contact": {
+            "title": "Contact & Data Requests",
+            "body": "To exercise any of your rights, ask questions about this Privacy Policy, or submit a data request, please contact us at: proxiosolutions@gmail.com. We will respond within 30 days."
+        }
     }
 }
