@@ -11,9 +11,9 @@ import { Clock, Mail, MapPin } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const EMAILJS_SERVICE_ID = 'service_oamgj8f';
-const EMAILJS_TEMPLATE_ID = 'template_qscsv6j';
-const EMAILJS_PUBLIC_KEY = 'wq8c44hOVc_fVr0Fq';
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
 const heroHighlights: Record<string, string[]> = {
   pt: ['Vamos Falar', 'Teu Projeto'],

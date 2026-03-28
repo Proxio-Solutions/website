@@ -4,7 +4,7 @@
         "about": "Sobre Nós",
         "projects": "Projetos",
         "services": "Serviços",
-        "contact": "Contacto",
+        "contact": "Contactos",
         "cta": "Fala Connosco"
     },
     "home": {
@@ -244,7 +244,7 @@
         "tagline": "A construir produtos digitais modernos com excelência e propósito.",
         "company": "Empresa",
         "services": "Serviços",
-        "contact": "Contacto",
+        "contact": "Contactos",
         "legal": "Legal",
         "privacy": "Política de Privacidade",
         "copyright": "© {{year}} Proxio Solutions. Todos os direitos reservados.",
