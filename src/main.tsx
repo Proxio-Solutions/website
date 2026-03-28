@@ -14,6 +14,8 @@ import PrivacyPolicy from '@pages/PrivacyPolicy.tsx';
 import Services from '@pages/Services.tsx';
 import Projects from './pages/Projects';
 
+const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
       { path: '/services', element: <Services /> },
       { path: '/contact', element: <Contact /> },
       { path: '/privacy-policy', element: <PrivacyPolicy /> },
-      { path: '/case-studies/urbi', element: <CaseStudyUrbi /> },
+      ...(caseStudyUrbiEnabled ? [{ path: '/case-studies/urbi', element: <CaseStudyUrbi /> }] : []),
       { path: '*', element: <NotFound /> },
     ],
   },

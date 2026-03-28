@@ -6,6 +6,8 @@ import { FlaskConical, Rocket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
+const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
+
 const headlineHighlights: Record<string, string[]> = {
   pt: ['Ideia', 'Produto'],
   en: ['Idea', 'Product'],
@@ -87,12 +89,14 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <Link
-                  to="/case-studies/urbi"
-                  className="bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-bold text-white transition-colors"
-                >
-                  {t('projects.viewCaseStudy')} →
-                </Link>
+                {caseStudyUrbiEnabled && (
+                  <Link
+                    to="/case-studies/urbi"
+                    className="bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-bold text-white transition-colors"
+                  >
+                    {t('projects.viewCaseStudy')} →
+                  </Link>
+                )}
               </div>
 
               {/* Right — logo */}
