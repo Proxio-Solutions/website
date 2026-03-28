@@ -15,6 +15,9 @@ const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
 const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
 const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
+const emailConfigured =
+  Boolean(EMAILJS_SERVICE_ID) && Boolean(EMAILJS_TEMPLATE_ID) && Boolean(EMAILJS_PUBLIC_KEY);
+
 const heroHighlights: Record<string, string[]> = {
   pt: ['Vamos Falar', 'Teu Projeto'],
   en: ["Let's Talk", 'Your Project'],
@@ -27,12 +30,13 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!formRef.current) return;
+    if (!formRef.current || !emailConfigured) return;
     setStatus('sending');
     try {
       await emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formRef.current, {
         publicKey: EMAILJS_PUBLIC_KEY,
       });
+      formRef.current.reset();
       setStatus('success');
       window.plausible?.('Contact Form Submitted');
     } catch {
@@ -90,6 +94,12 @@ export default function Contact() {
                   <h3 className="text-proxio-text-main text-2xl font-bold">
                     {t('contact.form.success')}
                   </h3>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="text-proxio-accent mt-6 text-sm font-medium underline-offset-4 hover:underline"
+                  >
+                    {t('contact.form.sendAnother')}
+                  </button>
                 </div>
               ) : (
                 <form
@@ -97,6 +107,11 @@ export default function Contact() {
                   onSubmit={handleSubmit}
                   className="bg-proxio-dark border-proxio-dark-border space-y-6 rounded-2xl border p-8"
                 >
+                  {!emailConfigured && (
+                    <p className="rounded-lg bg-yellow-500/10 px-4 py-3 text-sm font-medium text-yellow-400">
+                      {t('contact.form.notConfigured')}
+                    </p>
+                  )}
                   {status === 'error' && (
                     <p className="text-sm font-medium text-red-400">
                       {t('contact.form.error')}
@@ -158,7 +173,7 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    disabled={status === 'sending'}
+                    disabled={status === 'sending' || !emailConfigured}
                     className="bg-proxio-accent hover:bg-proxio-accent-hover w-full rounded-lg py-3.5 text-base font-bold text-white transition-colors disabled:opacity-60"
                   >
                     {status === 'sending' ? t('contact.form.sending') : t('contact.form.submit')}

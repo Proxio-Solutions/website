@@ -200,7 +200,9 @@
       "submit": "Send Message",
       "sending": "Sending...",
       "success": "Message sent! We'll get back to you shortly.",
-      "error": "Something went wrong. Please try again or email us directly."
+      "error": "Something went wrong. Please try again or email us directly.",
+      "sendAnother": "Send another message",
+      "notConfigured": "Form not configured. Please contact us directly by email."
     },
     "info": {
       "email": {

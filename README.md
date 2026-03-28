@@ -1,113 +1,113 @@
 # Proxio Solutions — Website
 
-Site institucional da **Proxio Solutions**, disponível em [proxiosolutions.com](https://proxiosolutions.com).
+Institutional website for **Proxio Solutions**, available at [proxiosolutions.com](https://proxiosolutions.com).
 
-Construído com React 19, TypeScript e Vite, com suporte a internacionalização (i18n), routing client-side e deploy estático via GitHub Pages.
+Built with React 19, TypeScript and Vite, with internationalization (i18n) support, client-side routing and static deployment via GitHub Pages.
 
 ---
 
-## Índice
+## Table of Contents
 
-- [Stack Tecnológica](#stack-tecnológica)
-- [Pré-requisitos](#pré-requisitos)
-- [Instalação](#instalação)
-- [Variáveis de Ambiente](#variáveis-de-ambiente)
-- [Desenvolvimento Local](#desenvolvimento-local)
-- [Scripts Disponíveis](#scripts-disponíveis)
-- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Local Development](#local-development)
+- [Available Scripts](#available-scripts)
+- [Project Structure](#project-structure)
 - [Deploy](#deploy)
-- [Contribuição](#contribuição)
+- [Contributing](#contributing)
 
 ---
 
-## Stack Tecnológica
+## Tech Stack
 
-| Camada     | Tecnologia              |
+| Layer      | Technology              |
 | ---------- | ----------------------- |
 | Framework  | React 19                |
-| Linguagem  | TypeScript 5.9          |
+| Language   | TypeScript 5.9          |
 | Build Tool | Vite 8                  |
-| Estilos    | Tailwind CSS 4          |
+| Styles     | Tailwind CSS 4          |
 | Routing    | React Router DOM 7      |
 | i18n       | i18next + react-i18next |
-| Ícones     | Lucide React            |
+| Icons      | Lucide React            |
 | Email      | EmailJS                 |
 | Linting    | ESLint 9 + Prettier     |
 
 ---
 
-## Pré-requisitos
+## Prerequisites
 
 - **Node.js** >= 20 ([download](https://nodejs.org))
-- **npm** >= 10 (incluído com o Node.js)
-- Acesso às variáveis de ambiente necessárias (ver abaixo)
+- **npm** >= 10 (included with Node.js)
+- Access to the required environment variables (see below)
 
 ---
 
-## Instalação
+## Installation
 
 ```bash
-# 1. Clonar o repositório
+# 1. Clone the repository
 git clone https://github.com/proxio-solutions/website.git
 cd website
 
-# 2. Instalar dependências
+# 2. Install dependencies
 npm install
 ```
 
 ---
 
-## Variáveis de Ambiente
+## Environment Variables
 
-Criar um ficheiro `.env` na raiz do projeto com base no `.env.example`:
+Create a `.env` file in the project root based on `.env.example`:
 
 ```bash
 cp .env.example .env
 ```
 
-| Variável                   | Descrição              | Obrigatória |
-| -------------------------- | ---------------------- | ----------- |
-| `VITE_EMAILJS_SERVICE_ID`  | ID do serviço EmailJS  | Sim         |
-| `VITE_EMAILJS_TEMPLATE_ID` | ID do template EmailJS | Sim         |
-| `VITE_EMAILJS_PUBLIC_KEY`  | Chave pública EmailJS  | Sim         |
+| Variable                   | Description             | Required |
+| -------------------------- | ----------------------- | -------- |
+| `VITE_EMAILJS_SERVICE_ID`  | EmailJS service ID      | Yes      |
+| `VITE_EMAILJS_TEMPLATE_ID` | EmailJS template ID     | Yes      |
+| `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key      | Yes      |
 
-> As variáveis com prefixo `VITE_` são expostas ao cliente. Nunca colocar segredos sem este prefixo em variáveis de ambiente do Vite.
+> Variables prefixed with `VITE_` are exposed to the client. Never place secrets without this prefix in Vite environment variables.
 
 ---
 
-## Desenvolvimento Local
+## Local Development
 
 ```bash
 npm run dev
 ```
 
-O servidor de desenvolvimento estará disponível em `http://localhost:5173` com Hot Module Replacement (HMR) ativo.
+The development server will be available at `http://localhost:5173` with Hot Module Replacement (HMR) enabled.
 
 ---
 
-## Scripts Disponíveis
+## Available Scripts
 
-| Comando           | Descrição                                      |
-| ----------------- | ---------------------------------------------- |
-| `npm run dev`     | Inicia o servidor de desenvolvimento           |
-| `npm run build`   | Compila TypeScript e gera o bundle de produção |
-| `npm run preview` | Serve o bundle de produção localmente          |
-| `npm run lint`    | Corre o ESLint em todos os ficheiros           |
+| Command           | Description                                        |
+| ----------------- | -------------------------------------------------- |
+| `npm run dev`     | Starts the development server                      |
+| `npm run build`   | Compiles TypeScript and generates the production bundle |
+| `npm run preview` | Serves the production bundle locally               |
+| `npm run lint`    | Runs ESLint across all files                       |
 
 ---
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
 website/
-├── public/             # Ficheiros estáticos (favicon, og images, etc.)
+├── public/             # Static files (favicon, og images, etc.)
 ├── src/
-│   ├── assets/         # Imagens, fontes e outros assets
-│   ├── components/     # Componentes reutilizáveis (Navbar, Footer, SEO…)
-│   ├── config/         # Configurações globais
-│   ├── hooks/          # Custom hooks React
-│   ├── i18n/           # Ficheiros de tradução (PT, EN, …)
-│   ├── pages/          # Páginas da aplicação
+│   ├── assets/         # Images, fonts and other assets
+│   ├── components/     # Reusable components (Navbar, Footer, SEO…)
+│   ├── config/         # Global configuration
+│   ├── hooks/          # Custom React hooks
+│   ├── i18n/           # Translation files (PT, EN, …)
+│   ├── pages/          # Application pages
 │   │   ├── Home.tsx
 │   │   ├── About.tsx
 │   │   ├── Services.tsx
@@ -116,15 +116,15 @@ website/
 │   │   ├── CaseStudyUrbi.tsx
 │   │   ├── PrivacyPolicy.tsx
 │   │   └── NotFound.tsx
-│   ├── services/       # Integrações com serviços externos (EmailJS, etc.)
-│   ├── App.tsx         # Componente raiz e configuração de rotas
-│   ├── main.tsx        # Entry point da aplicação
-│   └── index.css       # Estilos globais (Tailwind base)
-├── .env.example        # Template de variáveis de ambiente
-├── CNAME               # Domínio personalizado (GitHub Pages)
-├── eslint.config.js    # Configuração do ESLint
-├── vite.config.ts      # Configuração do Vite
-├── tsconfig.json       # Configuração base do TypeScript
+│   ├── services/       # External service integrations (EmailJS, etc.)
+│   ├── App.tsx         # Root component and route configuration
+│   ├── main.tsx        # Application entry point
+│   └── index.css       # Global styles (Tailwind base)
+├── .env.example        # Environment variables template
+├── CNAME               # Custom domain (GitHub Pages)
+├── eslint.config.js    # ESLint configuration
+├── vite.config.ts      # Vite configuration
+├── tsconfig.json       # Base TypeScript configuration
 └── package.json
 ```
 
@@ -132,22 +132,22 @@ website/
 
 ## Deploy
 
-O site é publicado automaticamente via **GitHub Pages** a partir da branch `main`.
+The site is automatically published via **GitHub Pages** from the `main` branch.
 
-O bundle de produção é gerado com:
+The production bundle is generated with:
 
 ```bash
 npm run build
 ```
 
-Os ficheiros gerados ficam na pasta `dist/` e são servidos como site estático. O ficheiro `CNAME` define o domínio personalizado `proxiosolutions.com`.
+The generated files are placed in the `dist/` folder and served as a static site. The `CNAME` file defines the custom domain `proxiosolutions.com`.
 
 ---
 
-## Contribuição
+## Contributing
 
-1. Criar uma branch a partir de `dev`: `git checkout -b feature/nome-da-feature`
-2. Fazer commit das alterações com mensagens claras e descritivas
-3. Abrir um Pull Request para revisão antes de fazer merge
+1. Create a branch from `dev`: `git checkout -b feature/feature-name`
+2. Commit your changes with clear and descriptive messages
+3. Open a Pull Request for review before merging
 
 ---
