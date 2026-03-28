@@ -1,4 +1,3 @@
-import HighlightedText from '@components/HighlightedText';
 import SEO from '@components/SEO';
 import { Eye, Hammer, Lightbulb, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -32,7 +31,7 @@ export default function About() {
               {t('about.mission.label')}
             </span>
             <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
-              <HighlightedText text={t('about.mission.title')} words={highlightWords[i18n.language] ?? highlightWords.en} />
+              <HighlightedTitle text={t('about.mission.title')} language={i18n.language} />
             </h1>
             <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
               {t('about.mission.desc')}
