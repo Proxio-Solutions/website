@@ -13,21 +13,9 @@ const headlineHighlights: Record<string, string[]> = {
   en: ['Idea', 'Product'],
 };
 
-const incubationAreas = {
-  pt: [
-    'Gestão de Condomínios',
-    'Ferramentas para Equipas',
-    'Saúde & Bem-estar',
-    'Educação Digital',
-  ],
-  en: ['Condo Management', 'Team Collaboration Tools', 'Health & Wellness', 'Digital Education'],
-};
-
 export default function Projects() {
   const { t, i18n } = useTranslation();
   const featuredProject = getFeaturedProject();
-  const areas =
-    incubationAreas[i18n.language as keyof typeof incubationAreas] ?? incubationAreas.en;
 
   return (
     <>
@@ -127,33 +115,18 @@ export default function Projects() {
           </div>
 
           <div className="bg-proxio-dark border-proxio-dark-border rounded-2xl border p-8 md:p-12">
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:items-center">
-              <div>
-                <h3 className="text-proxio-text-main mb-4 text-3xl font-extrabold">
-                  {t('projects.next.title')}
-                </h3>
-                <p className="text-proxio-text-muted mb-8 text-lg leading-relaxed">
-                  {t('projects.next.desc')}
-                </p>
-                <Link
-                  to="/contact"
-                  className="bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-bold text-white transition-colors"
-                >
-                  {t('projects.next.cta')} →
-                </Link>
-              </div>
-
-              <div className="flex flex-wrap gap-3">
-                {areas.map((area) => (
-                  <span
-                    key={area}
-                    className="border-proxio-dark-border text-proxio-text-muted bg-proxio-darker rounded-full border px-4 py-2 text-sm font-medium"
-                  >
-                    {area}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <h3 className="text-proxio-text-main mb-4 text-3xl font-extrabold">
+              {t('projects.next.title')}
+            </h3>
+            <p className="text-proxio-text-muted mb-8 text-lg leading-relaxed">
+              {t('projects.next.desc')}
+            </p>
+            <Link
+              to="/contact"
+              className="bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-bold text-white transition-colors"
+            >
+              {t('projects.next.cta')} →
+            </Link>
           </div>
         </section>
       </main>

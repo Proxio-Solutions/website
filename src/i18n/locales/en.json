@@ -63,13 +63,13 @@
         "mission": {
             "label": "Our Mission",
             "title": "Technology That Connects and Inspires",
-            "desc": "We believe technology should be appealing, intuitive, and sustainable. Our mission is to turn complex ideas into elegant digital products that make a real difference in people's lives."
+            "desc": "We believe technology should be appealing, intuitive, and sustainable. Our mission is to turn complex ideas into digital products that make a real difference in people's lives."
         },
         "story": {
             "label": "Our Story",
-            "title": "From Passion to Practice",
-            "p1": "Proxio Solutions was born from a shared conviction: that great software should be both technically excellent and visually compelling. We set out to build a studio where engineering rigour and design sensibility go hand in hand.",
-            "p2": "We are a focused team with deep expertise in modern web and mobile technologies. Every project we take on is treated as a long-term partnership — we care about outcomes, not just deliverables."
+            "title": "From Classmates to Founders",
+            "p1": "Proxio was born out of a friendship between two computer engineering classmates. What started as an academic partnership shared assignments, late-night projects, and a lot of code, grew as we realised we held the same views on technology, product, and what it means to do things properly.",
+            "p2": "We both wanted to change the way relationships between companies and clients work in software. It was with that conviction, and through Urbi, a project we deeply believe in, that we took our first step into the market by entering Poliempreende."
         },
         "values": {
             "label": "Our Values",
@@ -180,11 +180,11 @@
     },
     "contact": {
         "title": "Contact Us",
-        "description": "Have a project in mind or need tech consulting? We are ready to help turn your vision into reality.",
+        "description": "Have a question, a project, or just want to learn more about what we do? We're here and we'd love to hear from you.",
         "hero": {
             "label": "Get in Touch",
-            "title": "Let's Talk About Your Project",
-            "subtitle": "Whether you have a clear brief or just an idea, we'd love to hear from you. Reach out and let's start a conversation."
+            "title": "Let's Talk",
+            "subtitle": "Whatever brings you here, we're available. Reach out and let's start a conversation."
         },
         "form": {
             "name": "Full Name",
@@ -218,14 +218,14 @@
     "projects": {
         "title": "Projects",
         "headline": "From Idea to Product",
-        "description": "We don't build software for the sake of it — we solve real problems. Discover what we're creating and what's taking shape.",
+        "description": "We don't build software for the sake of it, we solve real problems. Discover what we're creating and what's taking shape.",
         "featured": "Featured",
         "status": {
             "development": "In Development",
             "research": "In Research"
         },
         "urbi": {
-            "description": "Have you ever tried to report a problem in your city and gave up halfway? Urbi was born out of that frustration. A platform that brings citizens and municipalities closer — simple for those who report, powerful for those who manage."
+            "description": "Have you ever reported a problem in your city and felt like you were talking to a wall? Urbi was born from exactly that feeling, of not being heard. On the other side, municipalities face the daily chaos of managing hundreds of reports with no proper tools. Urbi solves both ends: simple for those who report, powerful for those who manage."
         },
         "next": {
             "label": "In Incubation",

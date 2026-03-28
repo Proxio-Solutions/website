@@ -63,13 +63,13 @@
         "mission": {
             "label": "A Nossa Missão",
             "title": "Tecnologia que Conecta e Inspira",
-            "desc": "Acreditamos que a tecnologia deve ser apelativa, intuitiva e sustentável. A nossa missão é transformar ideias complexas em produtos digitais elegantes que fazem uma diferença real na vida das pessoas."
+            "desc": "Acreditamos que a tecnologia deve ser apelativa, intuitiva e sustentável. A nossa missão é transformar ideias complexas em produtos digitais que fazem uma diferença real na vida das pessoas."
         },
         "story": {
             "label": "A Nossa História",
-            "title": "Da Paixão à Prática",
-            "p1": "A Proxio Solutions nasceu de uma convicção partilhada: que o grande software deve ser simultaneamente tecnicamente excelente e visualmente apelativo. Propusemo-nos a criar um estúdio onde o rigor de engenharia e a sensibilidade de design andam de mãos dadas.",
-            "p2": "Somos uma equipa focada com profunda especialização em tecnologias web e mobile modernas. Cada projeto que assumimos é tratado como uma parceria de longo prazo — preocupamo-nos com os resultados, não apenas com as entregas."
+            "title": "De Colegas a Fundadores",
+            "p1": "A Proxio nasceu da amizade entre dois colegas do curso de Engenharia Informática. O que começou como parceria académica em trabalhos, projetos e muitas horas de código, foi crescendo à medida que percebemos que partilhávamos as mesmas visões sobre tecnologia, produto e o que significa fazer as coisas bem feitas.",
+            "p2": "Ambos queríamos mudar a forma como as relações entre empresas e clientes funcionam na área de software. Foi com essa convicção, e através do Urbi, um projeto em que acreditamos plenamente, que demos o primeiro passo, ao entrar no mercado através do concurso Poliempreende."
         },
         "values": {
             "label": "Os Nossos Valores",
@@ -180,11 +180,11 @@
     },
     "contact": {
         "title": "Fala Connosco",
-        "description": "Tens um projeto em mente ou precisas de uma consultoria tecnológica? Estamos prontos para ajudar a tornar a tua visão realidade.",
+        "description": "Tens uma questão, um projeto ou simplesmente queres saber mais sobre o nosso trabalho? Estamos disponíveis e adorávamos ouvir-te.",
         "hero": {
             "label": "Contacta-nos",
-            "title": "Vamos Falar Sobre o Teu Projeto",
-            "subtitle": "Tens um plano estruturado ou apenas uma ideia, adorávamos ouvir-te. Contacta-nos para iniciarmos uma conversa."
+            "title": "Vamos Falar",
+            "subtitle": "Seja qual for o motivo, estamos disponíveis. Entra em contacto e começamos uma conversa."
         },
         "form": {
             "name": "Nome Completo",
@@ -218,14 +218,14 @@
     "projects": {
         "title": "Projetos",
         "headline": "Da Ideia ao Produto",
-        "description": "Não construímos software por construir — resolvemos problemas reais. Conhece o que estamos a criar e o que está a tomar forma.",
+        "description": "Não construímos software por construir, resolvemos problemas reais. Conhece o que estamos a criar e o que está a tomar forma.",
         "featured": "Em Destaque",
         "status": {
             "development": "Em Desenvolvimento",
             "research": "Em Investigação"
         },
         "urbi": {
-            "description": "Já alguma vez tentaste reportar um problema na tua cidade e desististe a meio? O Urbi nasceu dessa frustração. Uma plataforma que aproxima cidadãos e municípios — simples para quem reporta, poderosa para quem gere."
+            "description": "Já reportaste um problema na tua cidade e sentiste que estavas a falar para o vazio? O Urbi nasceu exatamente dessa sensação, a de não ser ouvido. Do outro lado, os municípios enfrentam diariamente o caos de gerir centenas de ocorrências sem ferramentas adequadas. O Urbi resolve os dois lados: simples para quem reporta, poderosa para quem gere."
         },
         "next": {
             "label": "Em Incubação",
