@@ -1,7 +1,9 @@
+import HighlightedText from '@components/HighlightedText';
 import SEO from '@components/SEO';
 import { Eye, Hammer, Lightbulb, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { getTeamMembers } from '../services/teamService';
 
 const valueIcons = {
   craft: Hammer,
@@ -9,7 +11,7 @@ const valueIcons = {
   innovation: Lightbulb,
   transparency: Eye,
 } as const;
-const teamMembers = ['member1', 'member2'] as const;
+const teamMembers = getTeamMembers();
 
 const highlightWords: Record<string, string[]> = {
   pt: ['Tecnologia', 'Conecta', 'Inspira'],
@@ -31,7 +33,7 @@ export default function About() {
               {t('about.mission.label')}
             </span>
             <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
-              <HighlightedTitle text={t('about.mission.title')} language={i18n.language} />
+              <HighlightedText text={t('about.mission.title')} words={highlightWords[i18n.language] ?? highlightWords.en} />
             </h1>
             <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
               {t('about.mission.desc')}
@@ -111,19 +113,19 @@ export default function About() {
             </div>
 
             <div className="mx-auto grid max-w-2xl grid-cols-1 gap-8 sm:grid-cols-2">
-              {teamMembers.map((member) => (
+              {teamMembers.map(({ id }) => (
                 <div
-                  key={member}
+                  key={id}
                   className="bg-proxio-darker border-proxio-dark-border rounded-2xl border p-8 text-center"
                 >
                   <p className="text-proxio-text-muted mb-1 text-sm font-medium">
-                    {t(`about.team.${member}.role`)}
+                    {t(`about.team.${id}.role`)}
                   </p>
                   <h3 className="text-proxio-text-main mb-3 text-xl font-bold">
-                    {t(`about.team.${member}.name`)}
+                    {t(`about.team.${id}.name`)}
                   </h3>
                   <p className="text-proxio-text-muted text-sm leading-relaxed">
-                    {t(`about.team.${member}.bio`)}
+                    {t(`about.team.${id}.bio`)}
                   </p>
                 </div>
               ))}
