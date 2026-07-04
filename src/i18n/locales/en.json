@@ -11,6 +11,7 @@
   },
   "home": {
     "hero": {
+      "badge": "Hi, we're Proxio 👋",
       "title": "We Create Digital Solutions That Make a Difference",
       "subtitle": "From idea to deployment, we design and develop modern software that solves real problems and delights users.",
       "cta": "Start a Project",
@@ -71,7 +72,7 @@
       "label": "Our Story",
       "title": "From Classmates to Founders",
       "p1": "Proxio was born out of a friendship between two computer engineering classmates. What started as an academic partnership shared assignments, late-night projects, and a lot of code, grew as we realised we held the same views on technology, product, and what it means to do things properly.",
-      "p2": "We both wanted to change the way relationships between companies and clients work in software. It was with that conviction, and through Urbi, a project we deeply believe in, that we took our first step into the market by entering Poliempreende."
+      "p2": "We both wanted to change the way relationships between companies and clients work in software. It was with that conviction, and through Urbi, a project we deeply believe in, that we took our first step into the market."
     },
     "values": {
       "label": "Our Values",
@@ -125,29 +126,17 @@
       "web": {
         "title": "Web Application Development",
         "desc": "From simple websites to complex SaaS platforms, we build web applications that are fast, reliable, and scalable.",
-        "features": [
-          "Custom UI/UX Design",
-          "REST API's",
-          "Performance Optimization"
-        ]
+        "features": ["Custom UI/UX Design", "REST API's", "Performance Optimization"]
       },
       "mobile": {
         "title": "Mobile App Development",
         "desc": "We develop cross-platform mobile applications, delivering a native experience on both iOS and Android.",
-        "features": [
-          "Custom UI/UX Design",
-          "iOS & Android",
-          "App Store Publishing"
-        ]
+        "features": ["Custom UI/UX Design", "iOS & Android", "App Store Publishing"]
       },
       "consulting": {
         "title": "Technology Consulting",
         "desc": "Not sure which path to take? We help teams make the right technology choices, from architecture reviews to full product strategy.",
-        "features": [
-          "Tech Stack Selection",
-          "Architecture Review",
-          "Product Road-mapping"
-        ]
+        "features": ["Tech Stack Selection", "Architecture Review", "Product Road-mapping"]
       }
     },
     "process": {
@@ -259,128 +248,144 @@
   "caseStudies": {
     "urbi": {
       "meta": {
-        "title": "Urbi — Case Study",
-        "description": "How Urbi is bridging the gap between municipalities and citizens through smart civic technology."
+        "title": "Urbi — Our Product",
+        "description": "How we're building Urbi, the platform that brings parish councils and residents closer together — from concept to operational pilot."
       },
       "hero": {
         "backLink": "Back to Projects",
-        "tag": "Case Study",
+        "tag": "In-House Product · In Development",
         "title": "Urbi",
-        "subtitle": "Bridging the gap between municipalities and citizens through smart, inclusive civic technology.",
-        "stat1Label": "Platforms",
-        "stat1Value": "Web + Mobile",
-        "stat2Label": "Status",
-        "stat2Value": "Designs Complete",
-        "stat3Label": "Competition",
-        "stat3Value": "Poliempreende 2026"
+        "subtitle": "One platform, one channel: residents report and follow along, the parish council manages, resolves and communicates. Simple for the people who live there, powerful for the people who take care of it.",
+        "visitSite": "Visit the Urbi website",
+        "siteNote": "Urbi's dedicated website is almost here.",
+        "stat1Label": "Functional modules",
+        "stat1Value": "13",
+        "stat2Label": "Platforms",
+        "stat2Value": "Web · iOS · Android",
+        "stat3Label": "Requirements mapped",
+        "stat3Value": "240+",
+        "stat4Label": "Operational pilot",
+        "stat4Value": "Nov 2026"
       },
       "problem": {
-        "label": "The Challenge",
-        "title": "A Gap Between Citizens and Their Municipalities",
-        "intro": "Modern cities run on communication — yet in most municipalities, that communication is broken. Citizens feel disconnected from local decision-making, and local governments lack the tools to engage meaningfully with the communities they serve.",
-        "card1Title": "Citizens Feel Unheard",
-        "card1Desc": "Reporting issues, participating in local decisions, or simply getting updates from the municipality is slow, opaque, and often futile.",
-        "card2Title": "Municipalities Lack Insight",
-        "card2Desc": "Local governments have no reliable way to collect structured feedback, track recurring issues, or gather meaningful statistics from residents.",
-        "card3Title": "Internal Processes Are Analog",
-        "card3Desc": "Many juntas de freguesia still rely on manual processes for stock management, work orders, and occurrence tracking — creating inefficiency and data silos."
+        "label": "The Problem",
+        "title": "Reporting a local problem shouldn't be a problem",
+        "intro": "A broken streetlight, a pothole, overgrown weeds. Today, fixing the simplest of issues means phone calls, trips to the front desk and Facebook posts — followed by weeks of silence. And on the other side of that desk, things aren't any easier.",
+        "card1Title": "Fragmented channels",
+        "card1Desc": "Reports arrive by phone, email, social media and in person. Without a single system, information gets lost and nothing is traceable.",
+        "card2Title": "Reporters are left in the dark",
+        "card2Desc": "After reporting, residents rarely know whether anyone saw it, whether it's in progress or simply forgotten. Trust erodes with every silence.",
+        "card3Title": "Management that runs on memory",
+        "card3Desc": "Teams, materials, work orders and history live on paper and in the heads of long-time staff. When someone leaves, the knowledge leaves with them."
       },
       "solution": {
         "label": "The Solution",
-        "title": "A Unified Civic Platform",
-        "body": "Urbi is a two-sided platform designed to close the communication gap between citizens and local government. It gives citizens a voice and gives municipalities the tools, data, and intelligence they need to act on it."
+        "title": "One channel, from report to resolution",
+        "body": "Urbi brings everything together. Residents report with a photo and a pin on the map, follow the status in real time and rate the resolution at the end. The parish council receives every report as a structured process — with deadlines, teams, materials and photographic proof that it actually got fixed."
       },
       "features": {
-        "label": "Platform Overview",
-        "title": "Built for Both Sides",
-        "citizens": {
-          "title": "For Citizens",
+        "label": "The Platform",
+        "title": "Built for both sides of the counter",
+        "residents": {
+          "title": "For residents",
           "items": [
-            "Report issues and track their resolution in real time",
-            "Participate in local decisions and public consultations",
-            "Receive updates and notifications from the municipality",
-            "Access local services and information in one place"
+            "Report issues with a photo and a location on the map",
+            "Follow every step, with public deadlines and notifications",
+            "Support neighbours' reports to raise their priority",
+            "News and alerts in a single feed — and on the map",
+            "Polls, suggestions and questions straight to the council",
+            "Public statistics: what got fixed, and how fast"
           ]
         },
-        "municipalities": {
-          "title": "For Municipalities",
+        "junta": {
+          "title": "For the parish council",
           "items": [
-            "Centralised occurrence management dashboard",
-            "Statistical insights on resident reports and trends",
-            "AI-powered tools to prioritise and route issues",
-            "Communication and coordination tools across juntas"
+            "Geo-referenced dashboard with every report and KPIs",
+            "Administrative workflow with customisable states",
+            "Team, shift, vehicle and equipment management",
+            "Stock with minimum-level alerts and automatic deduction",
+            "Financial planning, reports and public accountability",
+            "Full audit trail and GDPR compliance"
           ]
         },
-        "juntas": {
-          "title": "For Juntas de Freguesia",
+        "ai": {
+          "title": "Artificial intelligence",
           "items": [
-            "Stock and inventory management",
-            "Digital work orders (folhas de obra)",
-            "Inter-junta communication and coordination",
-            "Structured data collection and reporting"
+            "Detection of duplicates and chronic problems",
+            "Reports created automatically from email and social media",
+            "Emails to external entities drafted and tracked by AI",
+            "Work orders filled in by voice, in the field",
+            "Critical streets and seasonal trends identified automatically",
+            "Fallbacks for everything: if the AI fails, the platform keeps working"
           ]
         }
       },
+      "build": {
+        "label": "Inside the Development",
+        "title": "How we're building Urbi",
+        "p1": "Urbi was born in an academic context, but it stopped being an exercise early on. We spent months listening to the people who work in parish councils and structuring the product properly: 13 functional modules, over 240 requirements and a data model with 68 entities — all before the first line of code.",
+        "p2": "We develop full-stack in parallel: every phase delivers a complete increment — API, web and mobile — which we demo to our pilot partner before moving on. Nobody likes waiting a year to see the product working; neither do we.",
+        "p3": "In 2026 we made the leap from paper to product: we started building the platform for real and we're preparing the operational pilot with our first parish council for November.",
+        "h1Title": "Complete increments",
+        "h1Desc": "Every phase closes with working API, web and mobile. Nothing gets left “for later”.",
+        "h2Title": "Regular demos",
+        "h2Desc": "Our pilot partner sees, tests and gives feedback throughout the development — not just at the end.",
+        "h3Title": "Accessible to everyone",
+        "h3Desc": "WCAG 2.1 AA, short flows and readable text. Designed for the least digital residents too.",
+        "h4Title": "Serious from day one",
+        "h4Desc": "Multi-tenant with data isolation, GDPR, immutable audit logs and verified backups."
+      },
       "stack": {
         "label": "Tech Stack",
-        "title": "Chosen for the Right Reasons",
+        "title": "Chosen for the right reasons",
         "dotnet": {
-          "name": ".NET",
-          "role": "Backend & API",
-          "reason": "Industrial strength. We chose .NET for its performance, reliability, and proven track record in enterprise environments. It gives Urbi the solid, scalable foundation its data infrastructure demands."
+          "name": ".NET 10",
+          "role": "API & Backend",
+          "reason": "The backbone of the platform. Performance, reliability and a mature ecosystem to treat the data of thousands of residents with the seriousness it deserves."
+        },
+        "postgres": {
+          "name": "PostgreSQL + PostGIS",
+          "role": "Database",
+          "reason": "Every report is a point on the map. PostGIS gives us native geospatial queries — from critical zones to the boundaries of each parish."
         },
         "react": {
           "name": "React",
           "role": "Web Application",
-          "reason": "Built for excellence. The municipality-facing web dashboard is built with React, allowing us to craft a fast, beautiful, responsive interface without compromising on speed or maintainability."
+          "reason": "The council's dashboard is built with React: fast, responsive and easy to evolve as the platform grows."
         },
         "reactNative": {
           "name": "React Native",
-          "role": "Mobile App",
-          "reason": "One codebase, two platforms. The citizen-facing mobile app is built with React Native, delivering a native experience on both iOS and Android from a single, maintainable codebase."
+          "role": "iOS & Android",
+          "reason": "One codebase, two platforms and full feature parity — staff can do on their phone everything they do on a computer."
         },
-        "tailwind": {
-          "name": "Tailwind CSS",
-          "role": "Design System",
-          "reason": "Consistency at speed. Enables us to implement our design system coherently across the web application, keeping the UI sharp and maintainable as the product grows."
+        "signalr": {
+          "name": "SignalR",
+          "role": "Real Time",
+          "reason": "Instant notifications and updates. When a report's status changes, everyone knows right away."
+        },
+        "azure": {
+          "name": "Azure",
+          "role": "Cloud & AI",
+          "reason": "Managed infrastructure, automatic backups and Azure OpenAI powering the platform's intelligence layer."
         }
       },
-      "origin": {
-        "label": "Our Story",
-        "title": "From Academic Idea to Real Product",
-        "p1": "Urbi was born in an academic context — a response to a civic problem that everyone around us experienced but nobody had solved well. What started as a project concept quickly proved to have real-world potential.",
-        "p2": "We evolved the idea beyond its academic roots, deepening the problem research, mapping out both the citizen and municipality user journeys, and developing a product vision that could genuinely work in practice.",
-        "p3": "In 2026, Urbi will compete at Poliempreende, one of Portugal's leading entrepreneurship competitions for polytechnic students — a milestone that reflects the seriousness and ambition behind the project."
-      },
-      "ai": {
-        "label": "The Future",
-        "title": "AI at the Core",
-        "body": "We're designing Urbi with AI integration from the ground up — not as a feature bolt-on, but as a fundamental part of how the platform works.",
-        "item1Title": "Smart Occurrence Routing",
-        "item1Desc": "AI automatically categorises and routes citizen reports to the right department, reducing response times dramatically.",
-        "item2Title": "Inter-Junta Intelligence",
-        "item2Desc": "Identifying patterns and facilitating communication between multiple juntas that face similar recurring issues.",
-        "item3Title": "Predictive Insights",
-        "item3Desc": "Helping municipalities anticipate needs, allocate resources proactively, and make data-driven decisions."
-      },
       "roadmap": {
-        "label": "What's Next",
-        "title": "The Road Ahead",
-        "step1": "Concept & Problem Validation",
-        "step2": "UI/UX Design",
-        "step3": "Development Phase",
-        "step4": "Beta with Partner Municipalities",
-        "step5": "Poliempreende 2026",
-        "step6": "AI Feature Integration",
-        "step7": "Public Launch",
-        "done": "Complete",
-        "next": "Next Up",
-        "upcoming": "Upcoming"
+        "label": "Roadmap",
+        "title": "Where we are, where we're going",
+        "step1": "Concept, requirements and architecture",
+        "step2": "Visual identity and UI/UX design",
+        "step3": "MVP development (web, iOS and Android)",
+        "step4": "App Store and Play Store release",
+        "step5": "Operational pilot with the first parish council",
+        "done": "Done",
+        "active": "In progress",
+        "upcoming": "On the way"
       },
       "cta": {
-        "title": "Interested in Urbi?",
-        "body": "Whether you're a municipality looking to pilot the platform, an investor, or just curious about the project — we'd love to talk.",
-        "button": "Get in Touch"
+        "title": "Curious about Urbi?",
+        "body": "Whether you represent a parish council or you're simply curious about the project — we love talking about Urbi. And soon it will have a website of its own.",
+        "button": "Talk to Us",
+        "secondary": "Visit the Urbi website"
       }
     }
   },
@@ -398,11 +403,7 @@
     "dataCollected": {
       "title": "What Data We Collect",
       "body": "We only collect personal data that you voluntarily provide when using our contact form. This may include:",
-      "items": [
-        "Full name",
-        "Email address",
-        "Subject and message content you submit"
-      ]
+      "items": ["Full name", "Email address", "Subject and message content you submit"]
     },
     "usage": {
       "title": "How We Use Your Data",

@@ -13,3 +13,69 @@
   --color-proxio-text-main: #0f172a;
   --color-proxio-text-muted: #64748b;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background-color: var(--color-proxio-accent);
+  color: #ffffff;
+}
+
+/* Scroll-in animation, driven by the Reveal component */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Card hover: subtle lift + accent tint on the border */
+.card-lift {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -16px rgb(37 99 235 / 0.18);
+  border-color: color-mix(in srgb, var(--color-proxio-accent) 35%, var(--color-proxio-dark-border));
+}
+
+/* Decorative hero backdrop: faint grid fading out radially */
+.hero-grid {
+  background-image:
+    linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(15 23 42 / 0.05) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 40%, black 25%, transparent 75%);
+}
+
+.hero-glow {
+  background: radial-gradient(ellipse 55% 45% at 50% 30%, rgb(37 99 235 / 0.1), transparent 70%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .card-lift {
+    transition: none;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

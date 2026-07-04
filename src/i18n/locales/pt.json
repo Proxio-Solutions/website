@@ -11,6 +11,7 @@
   },
   "home": {
     "hero": {
+      "badge": "Olá, somos a Proxio 👋",
       "title": "Criamos Soluções Digitais que Fazem a Diferença",
       "subtitle": "Da ideia à entrega, desenhamos e desenvolvemos software moderno que resolve problemas reais e satisfaz os utilizadores.",
       "cta": "Iniciar um Projeto",
@@ -71,7 +72,7 @@
       "label": "A Nossa História",
       "title": "De Colegas a Fundadores",
       "p1": "A Proxio nasceu da amizade entre dois colegas do curso de Engenharia Informática. O que começou como parceria académica em trabalhos, projetos e muitas horas de código, foi crescendo à medida que percebemos que partilhávamos as mesmas visões sobre tecnologia, produto e o que significa fazer as coisas bem feitas.",
-      "p2": "Ambos queríamos mudar a forma como as relações entre empresas e clientes funcionam na área de software. Foi com essa convicção, e através do Urbi, um projeto em que acreditamos plenamente, que demos o primeiro passo, ao entrar no mercado através do concurso Poliempreende."
+      "p2": "Ambos queríamos mudar a forma como as relações entre empresas e clientes funcionam na área de software. Foi com essa convicção, e através do Urbi, um projeto em que acreditamos plenamente, que demos o primeiro passo e entrámos no mercado."
     },
     "values": {
       "label": "Os Nossos Valores",
@@ -125,29 +126,17 @@
       "web": {
         "title": "Desenvolvimento de Aplicações Web",
         "desc": "De websites simples a plataformas SaaS complexas, construímos aplicações web rápidas, fiáveis e escaláveis.",
-        "features": [
-          "Design UI/UX Personalizado",
-          "API's REST",
-          "Otimização de Performance"
-        ]
+        "features": ["Design UI/UX Personalizado", "API's REST", "Otimização de Performance"]
       },
       "mobile": {
         "title": "Desenvolvimento de Aplicações Móveis",
         "desc": "Desenvolvemos aplicações móveis multiplataforma, oferecendo uma experiência nativa em iOS e Android.",
-        "features": [
-          "Design UI/UX Personalizado",
-          "iOS e Android",
-          "Publicação nas App Stores"
-        ]
+        "features": ["Design UI/UX Personalizado", "iOS e Android", "Publicação nas App Stores"]
       },
       "consulting": {
         "title": "Consultoria Tecnológica",
         "desc": "Não sabes qual o caminho a seguir? Ajudamos equipas a fazer as escolhas tecnológicas certas, desde revisões de arquitetura a estratégia de produto completa.",
-        "features": [
-          "Seleção de Stack Tecnológico",
-          "Revisão de Arquitetura",
-          "Roadmap de Produto"
-        ]
+        "features": ["Seleção de Stack Tecnológico", "Revisão de Arquitetura", "Roadmap de Produto"]
       }
     },
     "process": {
@@ -259,128 +248,144 @@
   "caseStudies": {
     "urbi": {
       "meta": {
-        "title": "Urbi — Caso de Estudo",
-        "description": "Como o Urbi está a aproximar municípios e cidadãos através de tecnologia cívica inteligente."
+        "title": "Urbi — O Nosso Produto",
+        "description": "Como estamos a construir o Urbi, a plataforma que aproxima juntas de freguesia e residentes — do conceito ao piloto operacional."
       },
       "hero": {
         "backLink": "Voltar aos Projetos",
-        "tag": "Caso de Estudo",
+        "tag": "Produto Próprio · Em Desenvolvimento",
         "title": "Urbi",
-        "subtitle": "A aproximar municípios e cidadãos através de tecnologia cívica inteligente e inclusiva.",
-        "stat1Label": "Plataformas",
-        "stat1Value": "Web + Mobile",
-        "stat2Label": "Estado",
-        "stat2Value": "Designs Concluídos",
-        "stat3Label": "Competição",
-        "stat3Value": "Poliempreende 2026"
+        "subtitle": "Uma plataforma, um canal único: os residentes reportam e acompanham, a junta gere, resolve e comunica. Simples para quem vive na freguesia, poderosa para quem cuida dela.",
+        "visitSite": "Visitar o site do Urbi",
+        "siteNote": "O site dedicado do Urbi está quase a chegar.",
+        "stat1Label": "Módulos funcionais",
+        "stat1Value": "13",
+        "stat2Label": "Plataformas",
+        "stat2Value": "Web · iOS · Android",
+        "stat3Label": "Requisitos mapeados",
+        "stat3Value": "240+",
+        "stat4Label": "Piloto operacional",
+        "stat4Value": "Nov 2026"
       },
       "problem": {
-        "label": "O Desafio",
-        "title": "Uma Barreira entre os Cidadãos e os Seus Municípios",
-        "intro": "As cidades modernas dependem da comunicação — mas na maioria dos municípios, essa comunicação está quebrada. Os cidadãos sentem-se desligados das decisões locais, e os governos locais não têm as ferramentas para se envolver de forma significativa com as comunidades que servem.",
-        "card1Title": "Os Cidadãos Sentem-se Ignorados",
-        "card1Desc": "Reportar problemas, participar em decisões locais ou simplesmente obter atualizações do município é lento, opaco e muitas vezes ineficaz.",
-        "card2Title": "Os Municípios Carecem de Dados",
-        "card2Desc": "Os governos locais não têm forma fiável de recolher feedback estruturado, acompanhar problemas recorrentes ou obter estatísticas significativas dos seus residentes.",
-        "card3Title": "Os Processos Internos São Analógicos",
-        "card3Desc": "Muitas juntas de freguesia ainda dependem de processos manuais para gestão de stock, folhas de obra e registo de ocorrências — gerando ineficiência e silos de informação."
+        "label": "O Problema",
+        "title": "Reportar um problema na freguesia não devia ser um problema",
+        "intro": "Um candeeiro fundido, um buraco na estrada, ervas por cortar. Hoje, resolver o mais simples dos problemas passa por telefonemas, idas ao balcão e posts no Facebook — seguidos de semanas sem saber de nada. E do outro lado do balcão, a realidade não é mais fácil.",
+        "card1Title": "Canais fragmentados",
+        "card1Desc": "As ocorrências chegam por telefone, email, redes sociais e atendimento presencial. Sem um sistema único, a informação perde-se e nada fica rastreável.",
+        "card2Title": "Quem reporta fica às escuras",
+        "card2Desc": "Depois de reportar, o residente raramente sabe se alguém viu, se está em curso ou se caiu no esquecimento. A confiança desgasta-se a cada silêncio.",
+        "card3Title": "Gestão assente na memória",
+        "card3Desc": "Equipas, materiais, folhas de obra e histórico vivem em papel e na cabeça de quem lá trabalha há anos. Quando alguém sai, o conhecimento sai com ela."
       },
       "solution": {
         "label": "A Solução",
-        "title": "Uma Plataforma Cívica Unificada",
-        "body": "O Urbi é uma plataforma de dois lados concebida para fechar a lacuna de comunicação entre cidadãos e governo local. Dá voz aos cidadãos e fornece aos municípios as ferramentas, os dados e a inteligência de que precisam para agir."
+        "title": "Um canal único, do reporte à resolução",
+        "body": "O Urbi junta tudo num só lugar. O residente reporta com uma fotografia e a localização no mapa, acompanha o estado em tempo real e avalia a resolução no fim. A junta recebe cada ocorrência como um processo estruturado — com prazos, equipas, materiais e prova fotográfica de que ficou mesmo resolvida."
       },
       "features": {
-        "label": "Visão Geral da Plataforma",
-        "title": "Construído para Ambos os Lados",
-        "citizens": {
-          "title": "Para os Cidadãos",
+        "label": "A Plataforma",
+        "title": "Construída para os dois lados do balcão",
+        "residents": {
+          "title": "Para os residentes",
           "items": [
-            "Reportar ocorrências e acompanhar a sua resolução em tempo real",
-            "Participar em decisões e consultas públicas locais",
-            "Receber atualizações e notificações do município",
-            "Aceder a serviços e informações locais num só lugar"
+            "Reportar ocorrências com fotografia e localização no mapa",
+            "Acompanhar cada passo, com prazos públicos e notificações",
+            "Apoiar ocorrências de vizinhos para lhes dar prioridade",
+            "Notícias e alertas da freguesia num só feed — e no mapa",
+            "Votações, sugestões e perguntas diretas à junta",
+            "Estatísticas públicas: o que foi resolvido e em quanto tempo"
           ]
         },
-        "municipalities": {
-          "title": "Para os Municípios",
+        "junta": {
+          "title": "Para a junta",
           "items": [
-            "Dashboard centralizado de gestão de ocorrências",
-            "Estatísticas sobre relatórios e tendências dos residentes",
-            "Ferramentas com IA para priorizar e encaminhar ocorrências",
-            "Ferramentas de comunicação e coordenação entre juntas"
+            "Painel georreferenciado com todas as ocorrências e KPIs",
+            "Workflow administrativo com estados personalizáveis",
+            "Gestão de equipas, turnos, viaturas e equipamentos",
+            "Stock com alertas de mínimos e dedução automática",
+            "Planeamento financeiro, relatórios e prestação de contas",
+            "Auditoria completa e conformidade RGPD"
           ]
         },
-        "juntas": {
-          "title": "Para as Juntas de Freguesia",
+        "ai": {
+          "title": "Inteligência artificial",
           "items": [
-            "Gestão de stock e inventário",
-            "Folhas de obra digitais",
-            "Comunicação e coordenação inter-juntas",
-            "Recolha de dados estruturados e relatórios"
+            "Deteção de duplicados e de problemas crónicos",
+            "Ocorrências criadas automaticamente a partir de email e redes sociais",
+            "Emails a entidades externas redigidos e acompanhados por IA",
+            "Folhas de obra preenchidas por voz, no terreno",
+            "Identificação de ruas críticas e tendências sazonais",
+            "Fallbacks para tudo: se a IA falhar, a plataforma continua a funcionar"
           ]
         }
       },
+      "build": {
+        "label": "Por Dentro do Desenvolvimento",
+        "title": "Como estamos a construir o Urbi",
+        "p1": "O Urbi nasceu num contexto académico, mas cedo deixou de ser um exercício. Passámos meses a ouvir quem trabalha nas juntas e a estruturar o produto a sério: 13 módulos funcionais, mais de 240 requisitos e um modelo de dados com 68 entidades — tudo antes da primeira linha de código.",
+        "p2": "Desenvolvemos em full-stack paralelo: cada fase entrega um incremento completo — API, web e mobile — que demonstramos ao parceiro piloto antes de avançar. Ninguém gosta de esperar um ano para ver o produto a funcionar; nós também não.",
+        "p3": "Em 2026 demos o salto do papel para o produto: começámos a construir a plataforma a sério e estamos a preparar o piloto operacional com a primeira junta de freguesia para novembro.",
+        "h1Title": "Incrementos completos",
+        "h1Desc": "Cada fase fecha com API, web e mobile funcionais. Nada fica «para depois».",
+        "h2Title": "Demonstrações regulares",
+        "h2Desc": "O parceiro piloto vê, testa e dá feedback ao longo de todo o desenvolvimento — não apenas no fim.",
+        "h3Title": "Acessível a todos",
+        "h3Desc": "WCAG 2.1 AA, fluxos curtos e texto legível. Desenhado também para os residentes menos digitais.",
+        "h4Title": "Sério desde o primeiro dia",
+        "h4Desc": "Multi-tenant com isolamento de dados, RGPD, auditoria imutável e backups verificados."
+      },
       "stack": {
         "label": "Stack Tecnológico",
-        "title": "Escolhido pelas Razões Certas",
+        "title": "Escolhido pelas razões certas",
         "dotnet": {
-          "name": ".NET",
-          "role": "Backend & API",
-          "reason": "Robustez industrial. Escolhemos o .NET pela sua performance, fiabilidade e historial comprovado em ambientes empresariais. Dá ao Urbi a base sólida e escalável que a sua infraestrutura de dados exige."
+          "name": ".NET 10",
+          "role": "API & Backend",
+          "reason": "A espinha dorsal da plataforma. Performance, fiabilidade e um ecossistema maduro para tratar com seriedade os dados de milhares de residentes."
+        },
+        "postgres": {
+          "name": "PostgreSQL + PostGIS",
+          "role": "Base de Dados",
+          "reason": "Cada ocorrência é um ponto no mapa. O PostGIS dá-nos consultas geoespaciais nativas — das zonas críticas aos limites de cada freguesia."
         },
         "react": {
           "name": "React",
           "role": "Aplicação Web",
-          "reason": "Construído para a excelência. O dashboard web orientado aos municípios é desenvolvido com React, permitindo criar uma interface rápida, bonita e responsiva sem comprometer a velocidade ou a manutenção."
+          "reason": "O painel da junta é construído em React: rápido, responsivo e fácil de evoluir à medida que a plataforma cresce."
         },
         "reactNative": {
           "name": "React Native",
-          "role": "Aplicação Móvel",
-          "reason": "Uma base de código, duas plataformas. A aplicação móvel para cidadãos é desenvolvida com React Native, oferecendo uma experiência nativa em iOS e Android a partir de uma única base de código."
+          "role": "iOS & Android",
+          "reason": "Uma base de código, duas plataformas e paridade funcional total — o staff faz no telemóvel tudo o que faz no computador."
         },
-        "tailwind": {
-          "name": "Tailwind CSS",
-          "role": "Sistema de Design",
-          "reason": "Consistência com rapidez. Permite implementar o nosso sistema de design de forma coerente em toda a aplicação web, mantendo a UI nítida e fácil de manter à medida que o produto cresce."
+        "signalr": {
+          "name": "SignalR",
+          "role": "Tempo Real",
+          "reason": "Notificações e atualizações instantâneas. Quando o estado de uma ocorrência muda, toda a gente fica a saber no momento."
+        },
+        "azure": {
+          "name": "Azure",
+          "role": "Cloud & IA",
+          "reason": "Infraestrutura gerida, backups automáticos e Azure OpenAI a alimentar a camada de inteligência da plataforma."
         }
       },
-      "origin": {
-        "label": "A Nossa História",
-        "title": "De Ideia Académica a Produto Real",
-        "p1": "O Urbi nasceu num contexto académico — uma resposta a um problema cívico que todos à nossa volta experienciavam, mas que ninguém tinha resolvido bem. O que começou como um conceito de projeto rapidamente revelou potencial para o mundo real.",
-        "p2": "Evoluímos a ideia para além das suas raízes académicas, aprofundando a pesquisa do problema, mapeando as jornadas de utilizador tanto do cidadão como do município, e desenvolvendo uma visão de produto que pode genuinamente funcionar na prática.",
-        "p3": "Em 2026, o Urbi vai concorrer ao Poliempreende, uma das principais competições de empreendedorismo para estudantes do ensino politécnico em Portugal — um marco que reflete a seriedade e a ambição por detrás do projeto."
-      },
-      "ai": {
-        "label": "O Futuro",
-        "title": "IA no Centro",
-        "body": "Estamos a desenhar o Urbi com integração de IA desde o início — não como uma funcionalidade adicionada depois, mas como parte fundamental de como a plataforma funciona.",
-        "item1Title": "Encaminhamento Inteligente de Ocorrências",
-        "item1Desc": "A IA categoriza e encaminha automaticamente as participações dos cidadãos para o departamento certo, reduzindo drasticamente os tempos de resposta.",
-        "item2Title": "Inteligência Inter-Juntas",
-        "item2Desc": "Identificação de padrões e facilitação da comunicação entre múltiplas juntas que enfrentam problemas recorrentes semelhantes.",
-        "item3Title": "Insights Preditivos",
-        "item3Desc": "Ajudar os municípios a antecipar necessidades, alocar recursos de forma proativa e tomar decisões baseadas em dados."
-      },
       "roadmap": {
-        "label": "O Que Aí Vem",
-        "title": "O Caminho à Frente",
-        "step1": "Validação do Conceito e do Problema",
-        "step2": "Design UI/UX",
-        "step3": "Fase de Desenvolvimento",
-        "step4": "Beta com Municípios Parceiros",
-        "step5": "Poliempreende 2026",
-        "step6": "Integração de Funcionalidades de IA",
-        "step7": "Lançamento Público",
+        "label": "Roadmap",
+        "title": "Onde estamos, para onde vamos",
+        "step1": "Conceito, requisitos e arquitetura",
+        "step2": "Identidade visual e design UI/UX",
+        "step3": "Desenvolvimento do MVP (web, iOS e Android)",
+        "step4": "Publicação na App Store e Play Store",
+        "step5": "Piloto operacional com a primeira junta de freguesia",
         "done": "Concluído",
-        "next": "A Seguir",
-        "upcoming": "Por Vir"
+        "active": "Em curso",
+        "upcoming": "A caminho"
       },
       "cta": {
-        "title": "Interessado no Urbi?",
-        "body": "Quer sejas um município que pretende experimentar a plataforma, um investidor ou simplesmente alguém curioso sobre o projeto — adorávamos conversar.",
-        "button": "Fala Connosco"
+        "title": "Ficaste curioso sobre o Urbi?",
+        "body": "Quer representes uma junta de freguesia, quer estejas simplesmente curioso sobre o projeto — adoramos falar sobre o Urbi. E em breve vai ter um site só dele.",
+        "button": "Fala Connosco",
+        "secondary": "Visitar o site do Urbi"
       }
     }
   },

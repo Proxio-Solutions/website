@@ -1,4 +1,5 @@
 import HighlightedText from '@components/HighlightedText';
+import Reveal from '@components/Reveal';
 import SEO from '@components/SEO';
 import { Eye, Hammer, Lightbulb, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -27,18 +28,25 @@ export default function About() {
 
       <main>
         {/* Mission */}
-        <section className="mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
-              {t('about.mission.label')}
-            </span>
-            <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
-              <HighlightedText text={t('about.mission.title')} words={highlightWords[i18n.language] ?? highlightWords.en} />
-            </h1>
-            <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
-              {t('about.mission.desc')}
-            </p>
-          </div>
+        <section className="relative overflow-hidden">
+          <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+          <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
+          <Reveal className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
+                {t('about.mission.label')}
+              </span>
+              <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
+                <HighlightedText
+                  text={t('about.mission.title')}
+                  words={highlightWords[i18n.language] ?? highlightWords.en}
+                />
+              </h1>
+              <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
+                {t('about.mission.desc')}
+              </p>
+            </div>
+          </Reveal>
         </section>
 
         {/* Story */}
@@ -77,23 +85,22 @@ export default function About() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-            {(Object.keys(valueIcons) as Array<keyof typeof valueIcons>).map((key) => {
+            {(Object.keys(valueIcons) as Array<keyof typeof valueIcons>).map((key, index) => {
               const Icon = valueIcons[key];
               return (
-                <div
-                  key={key}
-                  className="bg-proxio-dark border-proxio-dark-border rounded-2xl border p-8"
-                >
-                  <div className="bg-proxio-accent/10 mb-5 inline-flex rounded-xl p-3">
-                    <Icon className="text-proxio-accent h-6 w-6" />
+                <Reveal key={key} delay={(index % 2) * 100}>
+                  <div className="bg-proxio-dark border-proxio-dark-border card-lift h-full rounded-2xl border p-8">
+                    <div className="bg-proxio-accent/10 mb-5 inline-flex rounded-xl p-3">
+                      <Icon className="text-proxio-accent h-6 w-6" />
+                    </div>
+                    <h3 className="text-proxio-text-main mb-2 text-xl font-bold">
+                      {t(`about.values.${key}.title`)}
+                    </h3>
+                    <p className="text-proxio-text-muted leading-relaxed">
+                      {t(`about.values.${key}.desc`)}
+                    </p>
                   </div>
-                  <h3 className="text-proxio-text-main mb-2 text-xl font-bold">
-                    {t(`about.values.${key}.title`)}
-                  </h3>
-                  <p className="text-proxio-text-muted leading-relaxed">
-                    {t(`about.values.${key}.desc`)}
-                  </p>
-                </div>
+                </Reveal>
               );
             })}
           </div>
@@ -116,7 +123,7 @@ export default function About() {
               {teamMembers.map(({ id }) => (
                 <div
                   key={id}
-                  className="bg-proxio-darker border-proxio-dark-border rounded-2xl border p-8 text-center"
+                  className="bg-proxio-darker border-proxio-dark-border card-lift rounded-2xl border p-8 text-center"
                 >
                   <p className="text-proxio-text-muted mb-1 text-sm font-medium">
                     {t(`about.team.${id}.role`)}
