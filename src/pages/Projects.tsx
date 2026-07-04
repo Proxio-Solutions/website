@@ -1,8 +1,10 @@
 import urbiLogo from '@/assets/urbi-logo.svg';
 import HighlightedText from '@/components/HighlightedText';
+import Reveal from '@/components/Reveal';
 import SEO from '@/components/SEO';
+import { URBI_WEBSITE_URL } from '@/config/links';
 import { getFeaturedProject } from '@/services/projectService';
-import { FlaskConical, Rocket } from 'lucide-react';
+import { ArrowUpRight, FlaskConical, Rocket } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -23,7 +25,7 @@ export default function Projects() {
 
       <main className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         {/* Page Header */}
-        <div className="mb-16 max-w-2xl">
+        <Reveal className="mb-16 max-w-2xl">
           <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
             {t('projects.title')}
           </span>
@@ -36,7 +38,7 @@ export default function Projects() {
           <p className="text-proxio-text-muted mt-4 text-lg leading-relaxed">
             {t('projects.description')}
           </p>
-        </div>
+        </Reveal>
 
         {/* Featured Project — Urbi */}
         <section className="mb-24">
@@ -47,7 +49,7 @@ export default function Projects() {
             </h2>
           </div>
 
-          <div className="bg-proxio-dark border-proxio-dark-border overflow-hidden rounded-2xl border">
+          <div className="bg-proxio-dark border-proxio-dark-border card-lift overflow-hidden rounded-2xl border">
             <div className="flex flex-col md:flex-row">
               {/* Left — content */}
               <div className="flex flex-col justify-center p-8 md:w-3/5 md:p-12">
@@ -77,14 +79,25 @@ export default function Projects() {
                   ))}
                 </div>
 
-                {caseStudyUrbiEnabled && (
-                  <Link
-                    to="/case-studies/urbi"
-                    className="bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-bold text-white transition-colors"
+                <div className="flex flex-wrap items-center gap-3">
+                  {caseStudyUrbiEnabled && (
+                    <Link
+                      to="/case-studies/urbi"
+                      className="bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-2.5 text-sm font-bold text-white transition-colors"
+                    >
+                      {t('projects.viewCaseStudy')} →
+                    </Link>
+                  )}
+                  <a
+                    href={URBI_WEBSITE_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="border-proxio-dark-border text-proxio-text-main hover:border-proxio-accent hover:text-proxio-accent group inline-flex w-max items-center gap-2 rounded-lg border px-6 py-2.5 text-sm font-bold transition-colors"
                   >
-                    {t('projects.viewCaseStudy')} →
-                  </Link>
-                )}
+                    {t('caseStudies.urbi.hero.visitSite')}
+                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                </div>
               </div>
 
               {/* Right — logo */}

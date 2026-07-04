@@ -1,4 +1,5 @@
 import HighlightedText from '@components/HighlightedText';
+import Reveal from '@components/Reveal';
 import SEO from '@components/SEO';
 import { Check, Code2, Globe, Lightbulb, PenLine, Rocket, Search, Smartphone } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -27,56 +28,64 @@ export default function Services() {
 
       <main>
         {/* Hero */}
-        <section className="mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
-              {t('services.hero.label')}
-            </span>
-            <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
-              <HighlightedText text={t('services.hero.title')} words={heroHighlights[i18n.language] ?? heroHighlights.en} />
-            </h1>
-            <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
-              {t('services.hero.subtitle')}
-            </p>
-          </div>
+        <section className="relative overflow-hidden">
+          <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+          <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
+          <Reveal className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
+                {t('services.hero.label')}
+              </span>
+              <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
+                <HighlightedText
+                  text={t('services.hero.title')}
+                  words={heroHighlights[i18n.language] ?? heroHighlights.en}
+                />
+              </h1>
+              <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
+                {t('services.hero.subtitle')}
+              </p>
+            </div>
+          </Reveal>
         </section>
 
         {/* Service Cards */}
         <section className="bg-proxio-dark border-proxio-dark-border border-y py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              {(Object.keys(serviceIcons) as Array<keyof typeof serviceIcons>).map((key) => {
+              {(Object.keys(serviceIcons) as Array<keyof typeof serviceIcons>).map((key, index) => {
                 const Icon = serviceIcons[key];
                 const features = t(`services.items.${key}.features`, {
                   returnObjects: true,
                 }) as string[];
                 return (
-                  <div
-                    key={key}
-                    id={`service-${key}`}
-                    className="bg-proxio-darker border-proxio-dark-border flex flex-col rounded-2xl border p-8"
-                  >
-                    <div className="bg-proxio-accent/10 mb-6 inline-flex self-start rounded-xl p-4">
-                      <Icon className="text-proxio-accent h-7 w-7" />
+                  <Reveal key={key} delay={index * 100}>
+                    <div
+                      id={`service-${key}`}
+                      className="bg-proxio-darker border-proxio-dark-border card-lift flex h-full flex-col rounded-2xl border p-8"
+                    >
+                      <div className="bg-proxio-accent/10 mb-6 inline-flex self-start rounded-xl p-4">
+                        <Icon className="text-proxio-accent h-7 w-7" />
+                      </div>
+                      <h2 className="text-proxio-text-main mb-4 text-2xl font-bold">
+                        {t(`services.items.${key}.title`)}
+                      </h2>
+                      <p className="text-proxio-text-muted mb-6 leading-relaxed">
+                        {t(`services.items.${key}.desc`)}
+                      </p>
+                      <ul className="mt-auto space-y-2.5">
+                        {features.map((feature) => (
+                          <li
+                            key={feature}
+                            className="text-proxio-text-muted flex items-center gap-2.5 text-sm"
+                          >
+                            <Check className="text-proxio-accent h-4 w-4 shrink-0" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                    <h2 className="text-proxio-text-main mb-4 text-2xl font-bold">
-                      {t(`services.items.${key}.title`)}
-                    </h2>
-                    <p className="text-proxio-text-muted mb-6 leading-relaxed">
-                      {t(`services.items.${key}.desc`)}
-                    </p>
-                    <ul className="mt-auto space-y-2.5">
-                      {features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="text-proxio-text-muted flex items-center gap-2.5 text-sm"
-                        >
-                          <Check className="text-proxio-accent h-4 w-4 shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  </Reveal>
                 );
               })}
             </div>
@@ -95,8 +104,8 @@ export default function Services() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map(({ key, icon: Icon, step }) => (
-              <div key={key} className="text-center">
+            {processSteps.map(({ key, icon: Icon, step }, index) => (
+              <Reveal key={key} delay={index * 100} className="text-center">
                 <div className="text-proxio-dark-border mb-3 text-5xl font-black">{step}</div>
                 <div className="bg-proxio-accent/10 border-proxio-dark-border mx-auto mb-4 inline-flex rounded-xl border p-3">
                   <Icon className="text-proxio-accent h-6 w-6" />
@@ -107,7 +116,7 @@ export default function Services() {
                 <p className="text-proxio-text-muted text-sm leading-relaxed">
                   {t(`services.process.${key}.desc`)}
                 </p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
