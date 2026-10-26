@@ -5,11 +5,22 @@ const BASE_RADIUS = 1.1;
 const HOVER_RADIUS = 150;
 const MAX_PUSH = 10;
 
+/** [r, g, b, base alpha] for idle dots and [r, g, b] for dots near the pointer. */
+const TONES = {
+  light: { idle: [15, 23, 42, 0.1], near: [37, 99, 235] },
+  dark: { idle: [255, 255, 255, 0.07], near: [96, 165, 250] },
+} as const;
+
+interface DotGridProps {
+  className?: string;
+  tone?: keyof typeof TONES;
+}
+
 /**
  * Canvas dot grid that swells and turns accent-blue around the pointer,
  * with a slow ambient wave so it stays alive on touch devices.
  */
-export default function DotGrid({ className = '' }: { className?: string }) {
+export default function DotGrid({ className = '', tone = 'light' }: DotGridProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -18,6 +29,7 @@ export default function DotGrid({ className = '' }: { className?: string }) {
     if (!canvas || !ctx) return;
 
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const { idle, near: nearRgb } = TONES[tone];
     const pointer = { x: -9999, y: -9999 };
     const smooth = { x: -9999, y: -9999 };
     let width = 0;
@@ -47,8 +59,8 @@ export default function DotGrid({ className = '' }: { className?: string }) {
           ctx.arc(px, py, radius, 0, Math.PI * 2);
           ctx.fillStyle =
             near > 0.02
-              ? `rgba(37, 99, 235, ${0.25 + near * 0.65})`
-              : `rgba(15, 23, 42, ${0.1 + wave * 0.08})`;
+              ? `rgba(${nearRgb[0]}, ${nearRgb[1]}, ${nearRgb[2]}, ${0.25 + near * 0.65})`
+              : `rgba(${idle[0]}, ${idle[1]}, ${idle[2]}, ${idle[3] + wave * 0.08})`;
           ctx.fill();
         }
       }
@@ -104,7 +116,7 @@ export default function DotGrid({ className = '' }: { className?: string }) {
       window.removeEventListener('pointermove', onPointerMove);
       document.documentElement.removeEventListener('pointerleave', onPointerLeave);
     };
-  }, []);
+  }, [tone]);
 
   return (
     <canvas ref={canvasRef} aria-hidden="true" className={`h-full w-full ${className}`.trim()} />

@@ -1,8 +1,3 @@
-interface HighlightedTextProps {
-  text: string;
-  words: string[];
-}
-
 /** Hand-drawn underline placed under a highlighted phrase (parent must be `relative`). */
 export function HighlightUnderline() {
   return (
@@ -42,21 +37,4 @@ export function splitHighlights(text: string, words: string[]) {
     .split(new RegExp(`(${pattern})`, 'g'))
     .filter(Boolean)
     .map((part) => ({ text: part, highlighted: words.includes(part) }));
-}
-
-export default function HighlightedText({ text, words }: HighlightedTextProps) {
-  return (
-    <>
-      {splitHighlights(text, words).map((part, i) =>
-        part.highlighted ? (
-          <span key={i} className="relative inline-block whitespace-nowrap">
-            {part.text}
-            <HighlightUnderline />
-          </span>
-        ) : (
-          part.text
-        ),
-      )}
-    </>
-  );
 }

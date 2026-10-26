@@ -1,9 +1,9 @@
-import { gsap, MOTION_OK, useGSAP } from '@/lib/gsap';
+import { gsap, motion, MOTION_OK, useGSAP } from '@/lib/gsap';
 import { ArrowRight } from 'lucide-react';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import SectionLabel from './SectionLabel';
+import SectionHeader from '@components/motion/SectionHeader';
 
 /* Line illustrations: `svc-draw` strokes are drawn in on scroll, `svc-pop` shapes pop in. */
 
@@ -116,11 +116,52 @@ function ConsultingIllustration() {
   );
 }
 
-const services = [
-  { key: 'web', Illustration: WebIllustration },
-  { key: 'mobile', Illustration: MobileIllustration },
-  { key: 'consulting', Illustration: ConsultingIllustration },
-] as const;
+export const serviceIllustrations = {
+  web: WebIllustration,
+  mobile: MobileIllustration,
+  consulting: ConsultingIllustration,
+} as const;
+
+const serviceKeys = ['web', 'mobile', 'consulting'] as const;
+
+/** Card entrance: lift in, draw the illustration strokes, pop the accent shapes. */
+export function revealServiceCards(cards: HTMLElement[]) {
+  cards.forEach((card, i) => {
+    gsap
+      .timeline({
+        scrollTrigger: { trigger: card, start: 'top 82%' },
+        delay: i * motion.stagger.loose,
+      })
+      .from(card, {
+        y: motion.distance.lg,
+        opacity: 0,
+        duration: motion.duration.normal,
+        ease: motion.ease.out,
+      })
+      .fromTo(
+        card.querySelectorAll('.svc-draw'),
+        { strokeDasharray: 1, strokeDashoffset: 1 },
+        {
+          strokeDashoffset: 0,
+          duration: motion.duration.slow,
+          stagger: 0.06,
+          ease: motion.ease.inOut,
+        },
+        '-=0.4',
+      )
+      .from(
+        card.querySelectorAll('.svc-pop'),
+        {
+          scale: 0,
+          transformOrigin: '50% 50%',
+          duration: 0.5,
+          stagger: motion.stagger.tight,
+          ease: motion.ease.pop,
+        },
+        '-=0.7',
+      );
+  });
+}
 
 export default function ServicesSection() {
   const { t } = useTranslation();
@@ -129,28 +170,7 @@ export default function ServicesSection() {
   useGSAP(
     () => {
       gsap.matchMedia().add(MOTION_OK, () => {
-        gsap.utils.toArray<HTMLElement>('.service-card').forEach((card, i) => {
-          gsap
-            .timeline({ scrollTrigger: { trigger: card, start: 'top 82%' }, delay: i * 0.12 })
-            .from(card, { y: 48, opacity: 0, duration: 0.8, ease: 'power3.out' })
-            .fromTo(
-              card.querySelectorAll('.svc-draw'),
-              { strokeDasharray: 1, strokeDashoffset: 1 },
-              { strokeDashoffset: 0, duration: 1, stagger: 0.06, ease: 'power2.inOut' },
-              '-=0.4',
-            )
-            .from(
-              card.querySelectorAll('.svc-pop'),
-              {
-                scale: 0,
-                transformOrigin: '50% 50%',
-                duration: 0.5,
-                stagger: 0.05,
-                ease: 'back.out(2)',
-              },
-              '-=0.7',
-            );
-        });
+        revealServiceCards(gsap.utils.toArray<HTMLElement>('.service-card'));
       });
     },
     { scope: root },
@@ -159,43 +179,43 @@ export default function ServicesSection() {
   return (
     <section ref={root} className="bg-proxio-dark border-proxio-dark-border border-y py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-14 max-w-3xl">
-          <SectionLabel index="01">{t('home.services.label')}</SectionLabel>
-          <h2 className="text-proxio-text-main mt-3 text-3xl font-extrabold sm:text-5xl">
-            {t('home.services.title')}
-          </h2>
-          <p className="text-proxio-text-muted mt-4 text-lg leading-relaxed">
-            {t('home.services.subtitle')}
-          </p>
-        </div>
+        <SectionHeader
+          index="01"
+          label={t('home.services.label')}
+          title={t('home.services.title')}
+          subtitle={t('home.services.subtitle')}
+        />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {services.map(({ key, Illustration }, i) => (
-            <div key={key} className="service-card">
-              <Link
-                to="/services"
-                className="card-lift group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6"
-              >
-                <div
-                  className="bg-proxio-dark border-proxio-dark-border mb-6 h-40 rounded-xl border p-4"
-                  aria-hidden="true"
+          {serviceKeys.map((key, i) => {
+            const Illustration = serviceIllustrations[key];
+            return (
+              <div key={key} className="service-card">
+                <Link
+                  to="/services"
+                  className="card-lift group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6"
                 >
-                  <Illustration />
-                </div>
-                <span className="text-proxio-text-muted font-mono text-xs">[0{i + 1}]</span>
-                <h3 className="text-proxio-text-main mt-1 text-xl font-bold">
-                  {t(`home.services.${key}.title`)}
-                </h3>
-                <p className="text-proxio-text-muted mt-2 flex-1 leading-relaxed">
-                  {t(`home.services.${key}.desc`)}
-                </p>
-                <span className="text-proxio-accent mt-6 inline-flex items-center gap-1.5 text-sm font-bold">
-                  {t('home.services.cta')}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </Link>
-            </div>
-          ))}
+                  <div
+                    className="bg-proxio-dark border-proxio-dark-border mb-6 h-40 rounded-xl border p-4"
+                    aria-hidden="true"
+                  >
+                    <Illustration />
+                  </div>
+                  <span className="text-proxio-text-muted font-mono text-xs">[0{i + 1}]</span>
+                  <h3 className="text-proxio-text-main mt-1 text-xl font-bold">
+                    {t(`home.services.${key}.title`)}
+                  </h3>
+                  <p className="text-proxio-text-muted mt-2 flex-1 leading-relaxed">
+                    {t(`home.services.${key}.desc`)}
+                  </p>
+                  <span className="text-proxio-accent mt-6 inline-flex items-center gap-1.5 text-sm font-bold">
+                    {t('home.services.cta')}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

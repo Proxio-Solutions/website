@@ -1,21 +1,17 @@
 import { gsap, MOTION_OK, ScrollTrigger, useGSAP } from '@/lib/gsap';
+import { scrollToTarget } from '@/lib/smoothScroll';
 import { ArrowRight, MousePointer2 } from 'lucide-react';
 import { useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import SectionLabel from './SectionLabel';
+import CountUp from '@components/motion/CountUp';
+import SectionLabel from '@components/motion/SectionLabel';
 import { urbiScreens } from './UrbiScreens';
 
 const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
 
 const steps = ['report', 'manage', 'resolve'] as const;
 const stats = ['stat1', 'stat2', 'stat3', 'stat4'] as const;
-
-/** Splits "240+" into a countable number and its suffix; non-numeric values stay static. */
-function parseStat(value: string) {
-  const match = value.match(/^(\d+)(.*)$/);
-  return match ? { target: Number(match[1]), suffix: match[2] } : null;
-}
 
 export default function UrbiShowcase() {
   const { t } = useTranslation();
@@ -72,20 +68,6 @@ export default function UrbiShowcase() {
       });
 
       mm.add(MOTION_OK, () => {
-        gsap.utils.toArray<HTMLElement>('.urbi-count').forEach((el) => {
-          const target = Number(el.dataset.target);
-          const counter = { value: 0 };
-          gsap.to(counter, {
-            value: target,
-            duration: 1.6,
-            ease: 'power2.out',
-            scrollTrigger: { trigger: el, start: 'top 90%', once: true },
-            onUpdate: () => {
-              el.textContent = Math.round(counter.value).toString();
-            },
-          });
-        });
-
         gsap.utils.toArray<HTMLElement>('.urbi-stack-item').forEach((item) => {
           gsap.from(item, {
             y: 40,
@@ -104,7 +86,7 @@ export default function UrbiShowcase() {
     const st = trigger.current;
     if (!st) return;
     const y = st.start + (st.end - st.start) * ((index + 0.5) / steps.length);
-    window.scrollTo({ top: y, behavior: 'smooth' });
+    scrollToTarget(y);
   };
 
   const intro = (
@@ -220,23 +202,13 @@ export default function UrbiShowcase() {
         <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4">
           {stats.map((stat) => {
             const value = t(`${cs}.hero.${stat}Value`);
-            const parsed = parseStat(value);
             return (
               <div key={stat} className="bg-[#0b1120] p-6 sm:p-8">
                 <dt className="font-mono text-xs tracking-wider text-white/50 uppercase">
                   {t(`${cs}.hero.${stat}Label`)}
                 </dt>
                 <dd className="mt-2 text-2xl font-extrabold sm:text-3xl">
-                  {parsed ? (
-                    <>
-                      <span className="urbi-count tabular-nums" data-target={parsed.target}>
-                        {parsed.target}
-                      </span>
-                      <span className="text-blue-400">{parsed.suffix}</span>
-                    </>
-                  ) : (
-                    value
-                  )}
+                  <CountUp value={value} suffixClassName="text-blue-400" />
                 </dd>
               </div>
             );

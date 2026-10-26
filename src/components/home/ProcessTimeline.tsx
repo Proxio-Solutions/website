@@ -2,7 +2,7 @@ import { gsap, MOTION_OK, useGSAP } from '@/lib/gsap';
 import { Code2, PenTool, Rocket, Search } from 'lucide-react';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import SectionLabel from './SectionLabel';
+import SectionHeader from '@components/motion/SectionHeader';
 
 const steps = [
   { key: 'discover', icon: Search },
@@ -11,7 +11,7 @@ const steps = [
   { key: 'launch', icon: Rocket },
 ] as const;
 
-export default function ProcessTimeline() {
+export default function ProcessTimeline({ index = '03' }: { index?: string }) {
   const { t } = useTranslation();
   const root = useRef<HTMLElement>(null);
 
@@ -55,12 +55,13 @@ export default function ProcessTimeline() {
 
   return (
     <section ref={root} className="mx-auto max-w-7xl overflow-x-clip px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mb-16 text-center">
-        <SectionLabel index="03">{t('services.process.label')}</SectionLabel>
-        <h2 className="text-proxio-text-main mt-3 text-3xl font-extrabold sm:text-5xl">
-          {t('services.process.title')}
-        </h2>
-      </div>
+      <SectionHeader
+        index={index}
+        label={t('services.process.label')}
+        title={t('services.process.title')}
+        align="center"
+        className="mb-16"
+      />
 
       <ol className="process-track relative">
         {/* Track: left edge on mobile, centred on desktop */}

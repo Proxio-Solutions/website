@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'lenis/dist/lenis.css';
 
 @theme {
   --font-sans: 'Plus Jakarta Sans', sans-serif;
@@ -170,6 +171,116 @@ html {
   }
 }
 
+/* Spotlight cards: accent light following the pointer (position set by SpotlightCard) */
+.spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    420px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(37 99 235 / 0.09),
+    transparent 60%
+  );
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+.spotlight > * {
+  position: relative;
+}
+
+/* Navbar: underline that grows under the hovered / active link */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.25rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-proxio-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Shared CTA: dot grid fades towards the panel edges */
+.cta-mask {
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 20%, transparent 85%);
+}
+
+/* Contact form: accent line that draws under the focused field */
+.field {
+  position: relative;
+}
+
+.field::after {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--color-proxio-accent);
+  transform: scaleX(0);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.field:focus-within::after {
+  transform: scaleX(1);
+}
+
+/* Gentle idle float for illustrations */
+.float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* SVG check that draws itself (contact success) */
+.draw-check {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw-check 0.7s 0.2s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Projects "next ideas": dots orbiting a seed */
+.orbit {
+  animation: orbit 14s linear infinite;
+}
+
+.orbit-reverse {
+  animation: orbit 22s linear infinite reverse;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Home process timeline: node lights up once the line reaches it */
 .process-step.is-active .process-node {
   border-color: var(--color-proxio-accent);
@@ -189,6 +300,9 @@ html {
   }
 
   .caret,
+  .float,
+  .orbit,
+  .orbit-reverse,
   .urbi-pin,
   .group:hover .svc-wave,
   .group:hover .svc-ring,
@@ -200,6 +314,11 @@ html {
   .process-node {
     border-color: var(--color-proxio-accent);
     color: var(--color-proxio-accent);
+  }
+
+  .draw-check {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 
   .reveal {
