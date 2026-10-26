@@ -32,11 +32,66 @@
       "consulting": {
         "title": "Tech Consulting",
         "desc": "Strategic technology guidance to help your business make the right decisions and move faster."
-      }
+      },
+      "cta": "Learn more"
     },
     "featured": {
       "label": "Featured Project",
       "title": "See What We're Building"
+    },
+    "urbi": {
+      "scrollHint": "Scroll to see Urbi in action",
+      "steps": {
+        "report": {
+          "title": "Residents report",
+          "desc": "A photo, a pin on the map and it’s done. No phone calls, no trips to the front desk."
+        },
+        "manage": {
+          "title": "The parish manages",
+          "desc": "Every report arrives as a structured case, with deadlines, teams and materials."
+        },
+        "resolve": {
+          "title": "Resolved and communicated",
+          "desc": "Residents follow every step and, at the end, rate the resolution with photographic proof."
+        }
+      },
+      "mock": {
+        "report": {
+          "header": "New report",
+          "category": "Street lighting",
+          "title": "Broken street lamp",
+          "location": "12 Flower Street",
+          "submit": "Send report"
+        },
+        "manage": {
+          "header": "Parish dashboard",
+          "open": "Open",
+          "inProgress": "In progress",
+          "resolved": "Resolved",
+          "items": [
+            {
+              "title": "Broken street lamp",
+              "status": "New"
+            },
+            {
+              "title": "Pothole on the road",
+              "status": "Team assigned"
+            },
+            {
+              "title": "Overgrown weeds",
+              "status": "In progress"
+            }
+          ]
+        },
+        "resolve": {
+          "header": "Report #1284",
+          "status": "Resolved",
+          "timeline": ["Received", "Team assigned", "Resolved"],
+          "before": "Before",
+          "after": "After",
+          "rate": "How did it go?"
+        }
+      }
     },
     "values": {
       "label": "Our Principles",

@@ -32,11 +32,66 @@
       "consulting": {
         "title": "Consultoria Tecnológica",
         "desc": "Orientação estratégica em tecnologia para ajudar o teu negócio a tomar as decisões certas e avançar mais rápido."
-      }
+      },
+      "cta": "Saber mais"
     },
     "featured": {
       "label": "Projeto em Destaque",
       "title": "Vê o Que Estamos a Construir"
+    },
+    "urbi": {
+      "scrollHint": "Faz scroll para ver o Urbi em ação",
+      "steps": {
+        "report": {
+          "title": "O residente reporta",
+          "desc": "Uma fotografia, um ponto no mapa e está feito. Sem telefonemas nem idas ao balcão."
+        },
+        "manage": {
+          "title": "A junta gere",
+          "desc": "Cada ocorrência chega como um processo estruturado, com prazos, equipas e materiais."
+        },
+        "resolve": {
+          "title": "Resolvido e comunicado",
+          "desc": "O residente acompanha cada passo e, no fim, avalia a resolução com prova fotográfica."
+        }
+      },
+      "mock": {
+        "report": {
+          "header": "Nova ocorrência",
+          "category": "Iluminação pública",
+          "title": "Candeeiro fundido",
+          "location": "Rua das Flores, 12",
+          "submit": "Enviar ocorrência"
+        },
+        "manage": {
+          "header": "Painel da junta",
+          "open": "Abertas",
+          "inProgress": "Em curso",
+          "resolved": "Resolvidas",
+          "items": [
+            {
+              "title": "Candeeiro fundido",
+              "status": "Nova"
+            },
+            {
+              "title": "Buraco na estrada",
+              "status": "Equipa atribuída"
+            },
+            {
+              "title": "Ervas por cortar",
+              "status": "Em curso"
+            }
+          ]
+        },
+        "resolve": {
+          "header": "Ocorrência #1284",
+          "status": "Resolvida",
+          "timeline": ["Recebida", "Equipa atribuída", "Resolvida"],
+          "before": "Antes",
+          "after": "Depois",
+          "rate": "Como correu?"
+        }
+      }
     },
     "values": {
       "label": "Os Nossos Princípios",
