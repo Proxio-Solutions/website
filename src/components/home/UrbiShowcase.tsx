@@ -35,6 +35,7 @@ export default function UrbiShowcase() {
             start: 'top top',
             end: '+=220%',
             pin: true,
+            anticipatePin: 1,
             scrub: 0.6,
             onUpdate: (self) => {
               const index = Math.min(steps.length - 1, Math.floor(self.progress * steps.length));
@@ -161,7 +162,7 @@ export default function UrbiShowcase() {
             </div>
 
             <div className="relative h-[560px]" aria-hidden="true">
-              <div className="absolute inset-10 rounded-full bg-blue-600/20 blur-3xl" />
+              <div className="absolute inset-10 rounded-full bg-[radial-gradient(closest-side,rgb(37_99_235/0.2),transparent)]" />
               {urbiScreens.map((Screen, i) => (
                 <div
                   key={i}

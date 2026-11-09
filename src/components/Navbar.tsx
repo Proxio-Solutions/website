@@ -90,7 +90,7 @@ export default function Navbar() {
       ref={menuRef}
       className={`sticky top-0 z-50 border-b transition-[translate,background-color,border-color,box-shadow] duration-500 ease-out motion-reduce:transition-none ${
         scrolled || isMenuOpen
-          ? 'bg-proxio-darker/80 border-proxio-dark-border shadow-[0_8px_30px_-12px_rgb(15_23_42/0.12)] backdrop-blur-lg'
+          ? 'bg-proxio-darker/95 border-proxio-dark-border shadow-[0_8px_30px_-12px_rgb(15_23_42/0.12)]'
           : 'bg-proxio-darker border-transparent'
       } ${isHidden ? '-translate-y-full' : 'translate-y-0'}`}
     >

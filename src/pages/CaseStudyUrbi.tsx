@@ -177,7 +177,7 @@ export default function CaseStudyUrbi() {
           <div className="relative overflow-hidden rounded-3xl bg-[#0b1120] p-8 text-white md:p-14">
             <div className="urbi-grid pointer-events-none absolute inset-0" aria-hidden="true" />
             <div
-              className="pointer-events-none absolute -right-20 -bottom-20 h-80 w-80 rounded-full bg-blue-600/25 blur-3xl"
+              className="pointer-events-none absolute -right-20 -bottom-20 h-80 w-80 rounded-full bg-[radial-gradient(closest-side,rgb(37_99_235/0.25),transparent)]"
               aria-hidden="true"
             />
             <div className="relative">

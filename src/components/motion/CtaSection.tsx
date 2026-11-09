@@ -52,7 +52,7 @@ export default function CtaSection({ title, subtitle, primary, secondary }: CtaS
           <DotGrid tone="dark" />
         </div>
         <div
-          className="pointer-events-none absolute -top-1/2 left-1/2 h-full w-2/3 -translate-x-1/2 rounded-full bg-blue-600/25 blur-3xl"
+          className="pointer-events-none absolute -top-1/2 left-1/2 h-full w-2/3 -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(37_99_235/0.25),transparent)]"
           aria-hidden="true"
         />
 

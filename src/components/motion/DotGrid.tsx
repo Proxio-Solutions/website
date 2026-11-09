@@ -4,6 +4,7 @@ const SPACING = 26;
 const BASE_RADIUS = 1.1;
 const HOVER_RADIUS = 150;
 const MAX_PUSH = 10;
+const WAVE_BUCKETS = 8;
 
 /** [r, g, b, base alpha] for idle dots and [r, g, b] for dots near the pointer. */
 const TONES = {
@@ -37,33 +38,53 @@ export default function DotGrid({ className = '', tone = 'light' }: DotGridProps
     let frame = 0;
     let visible = true;
 
+    // Idle dots are batched into a few alpha buckets (one fill each) instead of one fill per dot
+    const idleStyles = Array.from(
+      { length: WAVE_BUCKETS },
+      (_, b) =>
+        `rgba(${idle[0]}, ${idle[1]}, ${idle[2]}, ${idle[3] + ((b + 0.5) / WAVE_BUCKETS) * 0.08})`,
+    );
+
     const draw = (time: number) => {
       ctx.clearRect(0, 0, width, height);
       smooth.x += (pointer.x - smooth.x) * 0.12;
       smooth.y += (pointer.y - smooth.y) * 0.12;
 
+      const buckets = idleStyles.map(() => new Path2D());
+      const hoverSq = HOVER_RADIUS * HOVER_RADIUS;
+
       for (let x = SPACING / 2; x < width; x += SPACING) {
         for (let y = SPACING / 2; y < height; y += SPACING) {
+          const wave = reduceMotion ? 0 : (Math.sin(x * 0.012 + y * 0.008 - time * 0.0012) + 1) / 2;
           const dx = x - smooth.x;
           const dy = y - smooth.y;
-          const dist = Math.hypot(dx, dy);
-          const near = Math.max(0, 1 - dist / HOVER_RADIUS);
-          const wave = reduceMotion ? 0 : (Math.sin(x * 0.012 + y * 0.008 - time * 0.0012) + 1) / 2;
+          const distSq = dx * dx + dy * dy;
 
+          if (distSq >= hoverSq) {
+            const radius = BASE_RADIUS + wave * 0.35;
+            const path = buckets[Math.min(WAVE_BUCKETS - 1, Math.floor(wave * WAVE_BUCKETS))];
+            path.moveTo(x + radius, y);
+            path.arc(x, y, radius, 0, Math.PI * 2);
+            continue;
+          }
+
+          const dist = Math.sqrt(distSq);
+          const near = 1 - dist / HOVER_RADIUS;
           const push = near * near * MAX_PUSH;
           const px = dist > 0 ? x + (dx / dist) * push : x;
           const py = dist > 0 ? y + (dy / dist) * push : y;
-          const radius = BASE_RADIUS + near * 1.8 + wave * 0.35;
 
           ctx.beginPath();
-          ctx.arc(px, py, radius, 0, Math.PI * 2);
-          ctx.fillStyle =
-            near > 0.02
-              ? `rgba(${nearRgb[0]}, ${nearRgb[1]}, ${nearRgb[2]}, ${0.25 + near * 0.65})`
-              : `rgba(${idle[0]}, ${idle[1]}, ${idle[2]}, ${idle[3] + wave * 0.08})`;
+          ctx.arc(px, py, BASE_RADIUS + near * 1.8 + wave * 0.35, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${nearRgb[0]}, ${nearRgb[1]}, ${nearRgb[2]}, ${0.25 + near * 0.65})`;
           ctx.fill();
         }
       }
+
+      buckets.forEach((path, b) => {
+        ctx.fillStyle = idleStyles[b];
+        ctx.fill(path);
+      });
     };
 
     const resize = () => {
