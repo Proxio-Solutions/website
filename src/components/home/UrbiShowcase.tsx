@@ -10,7 +10,7 @@ import { urbiScreens } from './UrbiScreens';
 
 const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
 
-const steps = ['report', 'manage', 'resolve'] as const;
+const steps = ['report', 'triage', 'field', 'follow'] as const;
 const stats = ['stat1', 'stat2', 'stat3', 'stat4'] as const;
 
 export default function UrbiShowcase() {
@@ -33,7 +33,7 @@ export default function UrbiShowcase() {
           scrollTrigger: {
             trigger: '.urbi-stage',
             start: 'top top',
-            end: '+=220%',
+            end: `+=${steps.length * 75}%`,
             pin: true,
             anticipatePin: 1,
             scrub: 0.6,
@@ -48,7 +48,7 @@ export default function UrbiShowcase() {
         });
         trigger.current = tl.scrollTrigger ?? null;
 
-        tl.fromTo('.urbi-progress', { scaleX: 0 }, { scaleX: 1, ease: 'none', duration: 3 }, 0);
+        tl.fromTo('.urbi-progress', { scaleX: 0 }, { scaleX: 1, ease: 'none', duration: steps.length }, 0);
         // Swap screens right at each step boundary (i + 1) so they line up with the active step
         screens.slice(1).forEach((screen, i) => {
           tl.to(
@@ -166,7 +166,7 @@ export default function UrbiShowcase() {
               {urbiScreens.map((Screen, i) => (
                 <div
                   key={i}
-                  className="urbi-screen-d absolute inset-0 flex items-center justify-center"
+                  className={`urbi-screen-d absolute inset-0 flex items-center justify-center ${active === i ? 'is-active' : ''}`}
                 >
                   <Screen />
                 </div>
@@ -179,7 +179,7 @@ export default function UrbiShowcase() {
       {/* Mobile and reduced motion: stacked steps */}
       <div className="urbi-stack relative mx-auto max-w-7xl px-4 pt-20 sm:px-6 lg:px-8 motion-safe:lg:hidden">
         <div className="urbi-stack-item">{intro}</div>
-        <ol className="mt-12 grid grid-cols-1 gap-14 lg:grid-cols-3 lg:gap-8">
+        <ol className="mt-12 grid grid-cols-1 gap-14 md:grid-cols-2 md:gap-x-8">
           {steps.map((step, i) => {
             const Screen = urbiScreens[i];
             return (

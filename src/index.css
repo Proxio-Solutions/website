@@ -148,26 +148,34 @@ html {
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 80%);
 }
 
-.urbi-map {
-  background-image:
-    linear-gradient(115deg, transparent 46%, #e2e8f0 46%, #e2e8f0 54%, transparent 54%),
-    linear-gradient(25deg, transparent 47%, #e2e8f0 47%, #e2e8f0 53%, transparent 53%),
-    linear-gradient(to right, rgb(15 23 42 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(15 23 42 / 0.05) 1px, transparent 1px);
-  background-size:
-    100% 100%,
-    100% 100%,
-    16px 16px,
-    16px 16px;
+/* Urbi mockups: a soft ring calls out the feature of the screen in view */
+.urbi-duplicate,
+.urbi-proof,
+.urbi-evaluate {
+  position: relative;
 }
 
-.urbi-pin {
-  animation: urbi-pin 2s ease-in-out infinite;
+.urbi-screen-d.is-active :is(.urbi-duplicate, .urbi-proof, .urbi-evaluate)::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid rgb(34 79 180 / 0.45);
+  border-radius: 1rem;
+  pointer-events: none;
+  animation: urbi-callout 1.8s ease-out 0.4s infinite;
 }
 
-@keyframes urbi-pin {
-  50% {
-    transform: translateY(-6px);
+@keyframes urbi-callout {
+  0% {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.04);
   }
 }
 
@@ -303,7 +311,7 @@ html {
   .float,
   .orbit,
   .orbit-reverse,
-  .urbi-pin,
+  .urbi-screen-d.is-active :is(.urbi-duplicate, .urbi-proof, .urbi-evaluate)::after,
   .group:hover .svc-wave,
   .group:hover .svc-ring,
   .group:hover .svc-node,

@@ -40,56 +40,128 @@
       "title": "Vê o Que Estamos a Construir"
     },
     "urbi": {
-      "scrollHint": "Faz scroll para ver o Urbi em ação",
+      "scrollHint": "Faz scroll para seguir uma ocorrência do início ao fim",
       "steps": {
         "report": {
           "title": "O residente reporta",
-          "desc": "Uma fotografia, um ponto no mapa e está feito. Sem telefonemas nem idas ao balcão."
+          "desc": "Categoria, ponto no mapa e fotografias, em três passos. Se já houver uma ocorrência igual ali perto, o Urbi sugere apoiá-la em vez de criar outra."
         },
-        "manage": {
-          "title": "A junta gere",
-          "desc": "Cada ocorrência chega como um processo estruturado, com prazos, equipas e materiais."
+        "triage": {
+          "title": "A junta faz a triagem",
+          "desc": "App, telefone, email ou balcão: tudo chega à mesma lista. A junta decide se é duplicada, define a prioridade e põe a ocorrência em análise."
         },
-        "resolve": {
-          "title": "Resolvido e comunicado",
-          "desc": "O residente acompanha cada passo e, no fim, avalia a resolução com prova fotográfica."
+        "field": {
+          "title": "A equipa resolve no terreno",
+          "desc": "O trabalho chega ao telemóvel da equipa, com localização, prazo e ficha de trabalho. A prova de resolução segue para a junta validar."
+        },
+        "follow": {
+          "title": "O residente acompanha e avalia",
+          "desc": "Cada mudança de estado fica no histórico e chega como notificação. No fim, quem reportou ou apoiou avalia se o problema ficou mesmo resolvido."
         }
       },
       "mock": {
+        "status": {
+          "submitted": "Submetida",
+          "inAnalysis": "Em Análise",
+          "inProgress": "Em Curso",
+          "concluded": "Concluída"
+        },
+        "priority": {
+          "high": "Alta",
+          "medium": "Média",
+          "low": "Baixa"
+        },
         "report": {
-          "header": "Nova ocorrência",
-          "category": "Iluminação pública",
-          "title": "Candeeiro fundido",
-          "location": "Rua das Flores, 12",
-          "submit": "Enviar ocorrência"
+          "header": "Reportar ocorrência",
+          "steps": [
+            "Categoria",
+            "Localização",
+            "Detalhes"
+          ],
+          "subject": "Buraco na via",
+          "area": "Vias e Passeios",
+          "location": "Rua da Escola, 14",
+          "duplicateTitle": "Já há uma ocorrência parecida aqui perto",
+          "duplicateRef": "OC-2026-0139",
+          "duplicateMeta": "a 40 m · 6 apoios",
+          "support": "Apoiar esta",
+          "photos": "Fotografias",
+          "description": "Dois buracos junto ao estacionamento. Com chuva enchem de água e não se veem.",
+          "back": "Voltar",
+          "submit": "Submeter"
         },
-        "manage": {
-          "header": "Painel da junta",
-          "open": "Abertas",
-          "inProgress": "Em curso",
-          "resolved": "Resolvidas",
-          "items": [
+        "triage": {
+          "url": "urbi.proxiosolutions.com/manage/occurrences",
+          "title": "Ocorrências",
+          "subtitle": "Gere o estado, a prioridade e a atribuição de cada uma.",
+          "columns": {
+            "subject": "Assunto",
+            "origin": "Origem",
+            "status": "Estado",
+            "priority": "Prioridade"
+          },
+          "origins": [
+            "App",
+            "Telefone",
+            "Email",
+            "Presencial"
+          ],
+          "rows": [
             {
-              "title": "Candeeiro fundido",
-              "status": "Nova"
+              "ref": "OC-2026-0142",
+              "subject": "Buraco na via"
             },
             {
-              "title": "Buraco na estrada",
-              "status": "Equipa atribuída"
+              "ref": "OC-2026-0141",
+              "subject": "Candeeiro avariado / apagado"
             },
             {
-              "title": "Ervas por cortar",
-              "status": "Em curso"
+              "ref": "OC-2026-0138",
+              "subject": "Contentor a transbordar"
+            },
+            {
+              "ref": "OC-2026-0135",
+              "subject": "Árvore em risco de queda"
             }
-          ]
+          ],
+          "duplicateBadge": "Possível duplicada",
+          "priorityLabel": "Prioridade",
+          "advance": "Passar a Em Análise"
         },
-        "resolve": {
-          "header": "Ocorrência #1284",
-          "status": "Resolvida",
-          "timeline": ["Recebida", "Equipa atribuída", "Resolvida"],
-          "before": "Antes",
-          "after": "Depois",
-          "rate": "Como correu?"
+        "field": {
+          "header": "O meu trabalho",
+          "tabs": [
+            "Ativas · 3",
+            "Concluídas"
+          ],
+          "ref": "OC-2026-0142",
+          "subject": "Buraco na via",
+          "location": "Rua da Escola, 14 · a 1,2 km",
+          "deadline": "Prazo: amanhã",
+          "notes": "Notas",
+          "workSheet": "Ficha de trabalho",
+          "workSheetStatus": "Submetida",
+          "proofTitle": "Prova de resolução",
+          "proofHint": "Fotografa o local depois da intervenção. A junta valida antes de concluir.",
+          "submitProof": "Submeter prova"
+        },
+        "follow": {
+          "header": "OC-2026-0142",
+          "subject": "Buraco na via",
+          "meta": "Rua da Escola, 14 · Vias e Passeios",
+          "supports": "12 apoios",
+          "historyTitle": "Histórico de estados",
+          "times": [
+            "3 nov, 09:12",
+            "3 nov, 11:40",
+            "4 nov, 08:30",
+            "5 nov, 16:05"
+          ],
+          "replyAuthor": "Junta de Freguesia",
+          "reply": "Os buracos foram tapados pela equipa de vias. Obrigado por ajudares a cuidar da freguesia!",
+          "evaluationTitle": "Como correu?",
+          "evaluationBody": "A tua resposta ajuda a junta a perceber o que funcionou.",
+          "evaluationCta": "Avaliar resolução"
         }
       }
     },
@@ -181,17 +253,29 @@
       "web": {
         "title": "Desenvolvimento de Aplicações Web",
         "desc": "De websites simples a plataformas SaaS complexas, construímos aplicações web rápidas, fiáveis e escaláveis.",
-        "features": ["Design UI/UX Personalizado", "API's REST", "Otimização de Performance"]
+        "features": [
+          "Design UI/UX Personalizado",
+          "API's REST",
+          "Otimização de Performance"
+        ]
       },
       "mobile": {
         "title": "Desenvolvimento de Aplicações Móveis",
         "desc": "Desenvolvemos aplicações móveis multiplataforma, oferecendo uma experiência nativa em iOS e Android.",
-        "features": ["Design UI/UX Personalizado", "iOS e Android", "Publicação nas App Stores"]
+        "features": [
+          "Design UI/UX Personalizado",
+          "iOS e Android",
+          "Publicação nas App Stores"
+        ]
       },
       "consulting": {
         "title": "Consultoria Tecnológica",
         "desc": "Não sabes qual o caminho a seguir? Ajudamos equipas a fazer as escolhas tecnológicas certas, desde revisões de arquitetura a estratégia de produto completa.",
-        "features": ["Seleção de Stack Tecnológico", "Revisão de Arquitetura", "Roadmap de Produto"]
+        "features": [
+          "Seleção de Stack Tecnológico",
+          "Revisão de Arquitetura",
+          "Roadmap de Produto"
+        ]
       }
     },
     "process": {

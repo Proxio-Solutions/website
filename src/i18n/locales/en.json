@@ -40,56 +40,128 @@
       "title": "See What We're Building"
     },
     "urbi": {
-      "scrollHint": "Scroll to see Urbi in action",
+      "scrollHint": "Scroll to follow one issue from start to finish",
       "steps": {
         "report": {
-          "title": "Residents report",
-          "desc": "A photo, a pin on the map and it’s done. No phone calls, no trips to the front desk."
+          "title": "A resident reports it",
+          "desc": "Category, a pin on the map and photos, in three steps. If the same issue was already reported nearby, Urbi suggests supporting it instead of creating another."
         },
-        "manage": {
-          "title": "The parish manages",
-          "desc": "Every report arrives as a structured case, with deadlines, teams and materials."
+        "triage": {
+          "title": "The parish triages it",
+          "desc": "App, phone, email or front desk: everything lands in the same list. The parish rules out duplicates, sets the priority and moves the issue into analysis."
         },
-        "resolve": {
-          "title": "Resolved and communicated",
-          "desc": "Residents follow every step and, at the end, rate the resolution with photographic proof."
+        "field": {
+          "title": "The team fixes it on site",
+          "desc": "The job reaches the team's phone with its location, deadline and work sheet. The proof of resolution goes back to the parish for validation."
+        },
+        "follow": {
+          "title": "The resident follows and rates it",
+          "desc": "Every status change is logged and sent as a notification. At the end, whoever reported or supported it rates whether the problem was really solved."
         }
       },
       "mock": {
-        "report": {
-          "header": "New report",
-          "category": "Street lighting",
-          "title": "Broken street lamp",
-          "location": "12 Flower Street",
-          "submit": "Send report"
-        },
-        "manage": {
-          "header": "Parish dashboard",
-          "open": "Open",
+        "status": {
+          "submitted": "Submitted",
+          "inAnalysis": "In analysis",
           "inProgress": "In progress",
-          "resolved": "Resolved",
-          "items": [
-            {
-              "title": "Broken street lamp",
-              "status": "New"
-            },
-            {
-              "title": "Pothole on the road",
-              "status": "Team assigned"
-            },
-            {
-              "title": "Overgrown weeds",
-              "status": "In progress"
-            }
-          ]
+          "concluded": "Concluded"
         },
-        "resolve": {
-          "header": "Report #1284",
-          "status": "Resolved",
-          "timeline": ["Received", "Team assigned", "Resolved"],
-          "before": "Before",
-          "after": "After",
-          "rate": "How did it go?"
+        "priority": {
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low"
+        },
+        "report": {
+          "header": "Report an issue",
+          "steps": [
+            "Category",
+            "Location",
+            "Details"
+          ],
+          "subject": "Pothole",
+          "area": "Roads and pavements",
+          "location": "Rua da Escola, 14",
+          "duplicateTitle": "A similar issue was reported nearby",
+          "duplicateRef": "OC-2026-0139",
+          "duplicateMeta": "40 m away · 6 supports",
+          "support": "Support it",
+          "photos": "Photos",
+          "description": "Two potholes by the parking spaces. When it rains they fill up and you can't see them.",
+          "back": "Back",
+          "submit": "Submit"
+        },
+        "triage": {
+          "url": "urbi.proxiosolutions.com/manage/occurrences",
+          "title": "Issues",
+          "subtitle": "Manage the status, priority and assignment of each one.",
+          "columns": {
+            "subject": "Subject",
+            "origin": "Origin",
+            "status": "Status",
+            "priority": "Priority"
+          },
+          "origins": [
+            "App",
+            "Phone",
+            "Email",
+            "In person"
+          ],
+          "rows": [
+            {
+              "ref": "OC-2026-0142",
+              "subject": "Pothole"
+            },
+            {
+              "ref": "OC-2026-0141",
+              "subject": "Street light out"
+            },
+            {
+              "ref": "OC-2026-0138",
+              "subject": "Overflowing bin"
+            },
+            {
+              "ref": "OC-2026-0135",
+              "subject": "Tree at risk of falling"
+            }
+          ],
+          "duplicateBadge": "Possible duplicate",
+          "priorityLabel": "Priority",
+          "advance": "Move to analysis"
+        },
+        "field": {
+          "header": "My work",
+          "tabs": [
+            "Active · 3",
+            "Concluded"
+          ],
+          "ref": "OC-2026-0142",
+          "subject": "Pothole",
+          "location": "Rua da Escola, 14 · 1.2 km away",
+          "deadline": "Deadline: tomorrow",
+          "notes": "Notes",
+          "workSheet": "Work sheet",
+          "workSheetStatus": "Submitted",
+          "proofTitle": "Proof of resolution",
+          "proofHint": "Photograph the site after the job. The parish validates it before closing.",
+          "submitProof": "Submit proof"
+        },
+        "follow": {
+          "header": "OC-2026-0142",
+          "subject": "Pothole",
+          "meta": "Rua da Escola, 14 · Roads and pavements",
+          "supports": "12 supports",
+          "historyTitle": "Status history",
+          "times": [
+            "3 Nov, 09:12",
+            "3 Nov, 11:40",
+            "4 Nov, 08:30",
+            "5 Nov, 16:05"
+          ],
+          "replyAuthor": "Parish council",
+          "reply": "The potholes were filled by the roads team. Thanks for helping look after the parish!",
+          "evaluationTitle": "How did it go?",
+          "evaluationBody": "Your answer helps the parish understand what worked.",
+          "evaluationCta": "Rate the resolution"
         }
       }
     },
@@ -181,17 +253,29 @@
       "web": {
         "title": "Web Application Development",
         "desc": "From simple websites to complex SaaS platforms, we build web applications that are fast, reliable, and scalable.",
-        "features": ["Custom UI/UX Design", "REST API's", "Performance Optimization"]
+        "features": [
+          "Custom UI/UX Design",
+          "REST API's",
+          "Performance Optimization"
+        ]
       },
       "mobile": {
         "title": "Mobile App Development",
         "desc": "We develop cross-platform mobile applications, delivering a native experience on both iOS and Android.",
-        "features": ["Custom UI/UX Design", "iOS & Android", "App Store Publishing"]
+        "features": [
+          "Custom UI/UX Design",
+          "iOS & Android",
+          "App Store Publishing"
+        ]
       },
       "consulting": {
         "title": "Technology Consulting",
         "desc": "Not sure which path to take? We help teams make the right technology choices, from architecture reviews to full product strategy.",
-        "features": ["Tech Stack Selection", "Architecture Review", "Product Road-mapping"]
+        "features": [
+          "Tech Stack Selection",
+          "Architecture Review",
+          "Product Road-mapping"
+        ]
       }
     },
     "process": {
@@ -458,7 +542,11 @@
     "dataCollected": {
       "title": "What Data We Collect",
       "body": "We only collect personal data that you voluntarily provide when using our contact form. This may include:",
-      "items": ["Full name", "Email address", "Subject and message content you submit"]
+      "items": [
+        "Full name",
+        "Email address",
+        "Subject and message content you submit"
+      ]
     },
     "usage": {
       "title": "How We Use Your Data",
