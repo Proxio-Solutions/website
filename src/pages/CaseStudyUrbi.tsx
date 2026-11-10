@@ -1,3 +1,4 @@
+import UrbiComparison from '@components/caseStudy/UrbiComparison';
 import CountUp from '@components/motion/CountUp';
 import CtaSection from '@components/motion/CtaSection';
 import PageHero from '@components/motion/PageHero';
@@ -102,7 +103,8 @@ export default function CaseStudyUrbi() {
           title={t(`${u}.hero.title`)}
           subtitle={t(`${u}.hero.subtitle`)}
           before={
-            <Link viewTransition
+            <Link
+              viewTransition
               to="/projects"
               className="text-proxio-text-muted hover:text-proxio-accent group mb-10 inline-flex w-max items-center gap-2 text-sm font-medium transition-colors"
             >
@@ -169,6 +171,17 @@ export default function CaseStudyUrbi() {
                 </Reveal>
               ))}
             </div>
+
+            {/* Before / after: drag to compare */}
+            <Reveal className="mt-20">
+              <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                <h3 className="text-proxio-text-main max-w-xl text-2xl font-extrabold tracking-tight sm:text-3xl">
+                  {t(`${u}.compare.title`)}
+                </h3>
+                <p className="text-proxio-text-muted font-mono text-xs">{t(`${u}.compare.hint`)}</p>
+              </div>
+              <UrbiComparison />
+            </Reveal>
           </div>
         </section>
 

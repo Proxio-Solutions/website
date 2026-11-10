@@ -525,6 +525,53 @@
         "body": "Whether you represent a parish council or you're simply curious about the project — we love talking about Urbi. And soon it will have a website of its own.",
         "button": "Talk to Us",
         "secondary": "Visit the Urbi website"
+      },
+      "compare": {
+        "title": "The same day at a parish council, before and after Urbi",
+        "hint": "← Drag to compare →",
+        "beforeLabel": "Before",
+        "afterLabel": "With Urbi",
+        "handleLabel": "Compare before and after Urbi",
+        "before": {
+          "phoneMeta": "Phone call · 09:40",
+          "phone": "Mrs Rosa called about the pothole on Rua da Escola. Call her back?",
+          "emailMeta": "4 replies · no owner",
+          "email": "RE: RE: Fwd: street light out",
+          "noReply": "No reply for 3 weeks",
+          "socialMeta": "Social media · 23 comments",
+          "social": "Does anyone know who to complain to about the bin? Third time this month 😤",
+          "duplicate": "Duplicate?",
+          "sheet": "issues_2026_FINAL_v3.xlsx",
+          "counter": "Ticket 047 · Front desk",
+          "counterMeta": "Paper request, not yet filed"
+        },
+        "after": {
+          "title": "Issues",
+          "subtitle": "Every channel in one list, each issue with a status and an owner.",
+          "rows": [
+            {
+              "subject": "Pothole",
+              "ref": "OC-2026-0142",
+              "origin": "Phone"
+            },
+            {
+              "subject": "Street light out",
+              "ref": "OC-2026-0141",
+              "origin": "Email"
+            },
+            {
+              "subject": "Overflowing bin",
+              "ref": "OC-2026-0138",
+              "origin": "Social media"
+            },
+            {
+              "subject": "Damaged bench",
+              "ref": "OC-2026-0131",
+              "origin": "In person"
+            }
+          ],
+          "toast": "The resident was notified: “Pothole” moved to In analysis."
+        }
       }
     }
   },

@@ -525,6 +525,53 @@
         "body": "Quer representes uma junta de freguesia, quer estejas simplesmente curioso sobre o projeto — adoramos falar sobre o Urbi. E em breve vai ter um site só dele.",
         "button": "Fala Connosco",
         "secondary": "Visitar o site do Urbi"
+      },
+      "compare": {
+        "title": "O mesmo dia numa junta, antes e depois do Urbi",
+        "hint": "← Arrasta para comparar →",
+        "beforeLabel": "Antes",
+        "afterLabel": "Com o Urbi",
+        "handleLabel": "Comparar antes e depois do Urbi",
+        "before": {
+          "phoneMeta": "Telefonema · 09:40",
+          "phone": "D. Rosa ligou por causa do buraco na Rua da Escola. Ligar de volta?",
+          "emailMeta": "4 respostas · sem responsável",
+          "email": "RE: RE: Fwd: candeeiro apagado",
+          "noReply": "Sem resposta há 3 semanas",
+          "socialMeta": "Redes sociais · 23 comentários",
+          "social": "Alguém sabe a quem se reclama do contentor? Já é a 3.ª vez este mês 😤",
+          "duplicate": "Duplicado?",
+          "sheet": "ocorrencias_2026_FINAL_v3.xlsx",
+          "counter": "Senha 047 · Balcão",
+          "counterMeta": "Pedido em papel, por arquivar"
+        },
+        "after": {
+          "title": "Ocorrências",
+          "subtitle": "Todos os canais na mesma lista, cada uma com estado e responsável.",
+          "rows": [
+            {
+              "subject": "Buraco na via",
+              "ref": "OC-2026-0142",
+              "origin": "Telefone"
+            },
+            {
+              "subject": "Candeeiro avariado / apagado",
+              "ref": "OC-2026-0141",
+              "origin": "Email"
+            },
+            {
+              "subject": "Contentor a transbordar",
+              "ref": "OC-2026-0138",
+              "origin": "Redes sociais"
+            },
+            {
+              "subject": "Banco danificado",
+              "ref": "OC-2026-0131",
+              "origin": "Presencial"
+            }
+          ],
+          "toast": "Quem reportou foi avisado: «Buraco na via» passou a Em Análise."
+        }
       }
     }
   },

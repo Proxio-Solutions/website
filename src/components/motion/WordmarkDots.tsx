@@ -49,22 +49,31 @@ export default function WordmarkDots({ className = '' }: { className?: string })
       canvas.height = height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const spacing = width < 640 ? 5 : width < 1024 ? 7 : 9;
-      radius = spacing * 0.34;
-
       const off = document.createElement('canvas');
       off.width = width;
       off.height = height;
       const octx = off.getContext('2d', { willReadFrequently: true });
       if (!octx || !width || !height) return;
 
-      // Size the word to the full width, then let it sit on the bottom edge
+      // Fit the word inside the box (whichever of width or height runs out first), centred
       octx.font = `800 100px ${FONT}`;
-      const fontSize = (100 * width * 0.98) / octx.measureText(WORD).width;
+      const metrics = octx.measureText(WORD);
+      const fontSize = Math.min(
+        (100 * width * 0.98) / metrics.width,
+        (100 * height * 0.92) / metrics.actualBoundingBoxAscent,
+      );
       octx.font = `800 ${fontSize}px ${FONT}`;
       octx.textAlign = 'center';
       octx.textBaseline = 'alphabetic';
-      octx.fillText(WORD, width / 2, height * 0.86);
+      octx.fillText(
+        WORD,
+        width / 2,
+        (height + (metrics.actualBoundingBoxAscent * fontSize) / 100) / 2,
+      );
+
+      // Dot pitch follows the letter size so small and large words read the same
+      const spacing = Math.max(4, Math.min(9, Math.round(fontSize / 22)));
+      radius = spacing * 0.34;
 
       const data = octx.getImageData(0, 0, width, height).data;
       dots = [];

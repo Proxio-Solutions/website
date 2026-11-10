@@ -22,7 +22,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link viewTransition to="/">
-              <img src={bannerIllustration} alt="Proxio Solutions" className="h-8 w-auto opacity-90" />
+              <img
+                src={bannerIllustration}
+                alt="Proxio Solutions"
+                className="h-8 w-auto opacity-90"
+              />
             </Link>
             <p className="text-proxio-text-muted mt-4 max-w-xs text-sm leading-relaxed">
               {t('footer.tagline')}
@@ -37,7 +41,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.translationKey}>
-                  <Link viewTransition
+                  <Link
+                    viewTransition
                     to={link.href}
                     className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
                   >
@@ -56,7 +61,8 @@ export default function Footer() {
             <ul className="space-y-3">
               {serviceLinks.map(({ key, href }) => (
                 <li key={key}>
-                  <Link viewTransition
+                  <Link
+                    viewTransition
                     to={href}
                     className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
                   >
@@ -91,7 +97,7 @@ export default function Footer() {
 
       {/* Brand signature: the word in the hero's dot language */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="aspect-[25/7] w-full">
+        <div className="h-[clamp(72px,12vw,170px)] w-full pb-6">
           <WordmarkDots />
         </div>
       </div>
@@ -99,10 +105,9 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-proxio-dark-border border-t">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 sm:flex-row sm:px-6 lg:px-8">
-          <p className="text-proxio-text-muted text-sm">
-            {t('footer.copyright', { year })}
-          </p>
-          <Link viewTransition
+          <p className="text-proxio-text-muted text-sm">{t('footer.copyright', { year })}</p>
+          <Link
+            viewTransition
             to="/privacy-policy"
             className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
           >
