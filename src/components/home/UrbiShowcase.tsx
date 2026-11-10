@@ -217,7 +217,7 @@ export default function UrbiShowcase() {
         </dl>
 
         <div className="mt-10 flex justify-center">
-          <Link
+          <Link viewTransition
             to={caseStudyUrbiEnabled ? '/case-studies/urbi' : '/projects'}
             className="group inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-bold text-slate-900 transition-colors hover:bg-blue-50"
           >

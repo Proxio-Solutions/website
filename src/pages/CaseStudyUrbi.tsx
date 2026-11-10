@@ -102,7 +102,7 @@ export default function CaseStudyUrbi() {
           title={t(`${u}.hero.title`)}
           subtitle={t(`${u}.hero.subtitle`)}
           before={
-            <Link
+            <Link viewTransition
               to="/projects"
               className="text-proxio-text-muted hover:text-proxio-accent group mb-10 inline-flex w-max items-center gap-2 text-sm font-medium transition-colors"
             >

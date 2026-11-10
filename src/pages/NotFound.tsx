@@ -35,7 +35,7 @@ export default function NotFound() {
 
         <div className="mt-8">
           <Magnetic>
-            <Link
+            <Link viewTransition
               to="/"
               className="group text-proxio-darker bg-proxio-accent hover:bg-proxio-accent-hover inline-flex items-center gap-2 rounded-md border border-transparent px-6 py-3 text-base font-bold shadow-sm transition-colors"
             >
