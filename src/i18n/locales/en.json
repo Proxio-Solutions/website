@@ -345,6 +345,127 @@
         "label": "Response Time",
         "value": "Within 24 hours"
       }
+    },
+    "brief": {
+      "stepOf": "Step {{current}} of {{total}}",
+      "steps": {
+        "type": "Type",
+        "features": "Features",
+        "timing": "Timing and budget",
+        "contact": "Contact"
+      },
+      "type": {
+        "title": "What do you want to build?",
+        "subtitle": "Pick the closest match. We'll fine-tune the rest when we talk.",
+        "options": {
+          "website": {
+            "title": "Website or landing page",
+            "desc": "Company presence, a campaign or a product showcase."
+          },
+          "webapp": {
+            "title": "Web app or platform",
+            "desc": "Customer area, back office, SaaS or an internal tool."
+          },
+          "mobile": {
+            "title": "Mobile app",
+            "desc": "iOS and Android, with or without a web platform behind it."
+          },
+          "consulting": {
+            "title": "Consulting or other",
+            "desc": "Technical audit, architecture or an idea still taking shape."
+          }
+        }
+      },
+      "features": {
+        "title": "What does it need?",
+        "subtitle": "Tick whatever applies. Leaving it all blank is fine.",
+        "options": {
+          "accounts": {
+            "title": "Accounts and sign-in",
+            "desc": "Sign-up, login and profiles with permissions."
+          },
+          "payments": {
+            "title": "Payments",
+            "desc": "Checkout, subscriptions or invoicing."
+          },
+          "backoffice": {
+            "title": "Admin panel",
+            "desc": "A back office to manage content, orders or users."
+          },
+          "integrations": {
+            "title": "Integrations",
+            "desc": "Connecting to ERP, CRM, APIs or systems you already use."
+          },
+          "multilang": {
+            "title": "Multiple languages",
+            "desc": "Content and interface in more than one language."
+          },
+          "design": {
+            "title": "Design from scratch",
+            "desc": "Identity and interface designed from the ground up."
+          }
+        }
+      },
+      "timing": {
+        "title": "When, and on what budget?",
+        "subtitle": "It helps us gauge the scale. It's not a commitment.",
+        "timelineLabel": "Timeline",
+        "budgetLabel": "Expected budget",
+        "timeline": {
+          "urgent": "Under 1 month",
+          "short": "1 to 3 months",
+          "medium": "3 to 6 months",
+          "flexible": "Flexible"
+        },
+        "budget": {
+          "lt5": "Up to €5k",
+          "from5to15": "€5k–15k",
+          "from15to40": "€15k–40k",
+          "gt40": "Over €40k",
+          "unsure": "Not sure yet"
+        }
+      },
+      "contact": {
+        "title": "How do we reach you?",
+        "subtitle": "We reply within 24 hours with concrete next steps.",
+        "company": "Company or organisation",
+        "companyPlaceholder": "Organisation name",
+        "optional": "(optional)"
+      },
+      "nav": {
+        "back": "Back",
+        "next": "Continue",
+        "noneOfThese": "None of these",
+        "submit": "Send brief",
+        "skip": "I'd rather just write a message →"
+      },
+      "summary": {
+        "title": "Your brief",
+        "type": "Type",
+        "features": "Features",
+        "timeline": "Timeline",
+        "budget": "Budget",
+        "featureCount_one": "{{count}} selected",
+        "featureCount_other": "{{count}} selected",
+        "none": "none",
+        "language": "Site language",
+        "empty": "Pick a project type to see an estimated duration.",
+        "estimateLabel": "Estimated duration",
+        "weeks": "{{min}}–{{max}} weeks",
+        "level": {
+          "1": "Simple",
+          "2": "Medium",
+          "3": "Complex"
+        },
+        "tight": "That's a tight timeline for this. We could start with a smaller first version and grow from there.",
+        "disclaimer": "An indicative estimate based on your choices. We'll confirm once we've talked."
+      },
+      "email": {
+        "subject": "Brief: {{type}} · {{who}}",
+        "general": "General message"
+      },
+      "success": "Brief received!",
+      "successSub": "Thank you. We'll reply within 24 hours with a first read and next steps."
     }
   },
   "projects": {

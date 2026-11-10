@@ -345,6 +345,127 @@
         "label": "Tempo de Resposta",
         "value": "Dentro de 24 horas"
       }
+    },
+    "brief": {
+      "stepOf": "Passo {{current}} de {{total}}",
+      "steps": {
+        "type": "Tipo",
+        "features": "Funcionalidades",
+        "timing": "Prazo e orçamento",
+        "contact": "Contacto"
+      },
+      "type": {
+        "title": "O que queres construir?",
+        "subtitle": "Escolhe o que está mais perto. Afinamos o resto na conversa.",
+        "options": {
+          "website": {
+            "title": "Website ou landing page",
+            "desc": "Presença institucional, campanha ou montra de produto."
+          },
+          "webapp": {
+            "title": "Aplicação web ou plataforma",
+            "desc": "Área de cliente, backoffice, SaaS ou ferramenta interna."
+          },
+          "mobile": {
+            "title": "App mobile",
+            "desc": "iOS e Android, com ou sem plataforma web associada."
+          },
+          "consulting": {
+            "title": "Consultoria ou outro",
+            "desc": "Auditoria técnica, arquitetura ou uma ideia por definir."
+          }
+        }
+      },
+      "features": {
+        "title": "O que precisa de ter?",
+        "subtitle": "Marca o que se aplica. Podes não marcar nada.",
+        "options": {
+          "accounts": {
+            "title": "Contas e autenticação",
+            "desc": "Registo, login e perfis com permissões."
+          },
+          "payments": {
+            "title": "Pagamentos",
+            "desc": "Checkout, subscrições ou faturação."
+          },
+          "backoffice": {
+            "title": "Painel de gestão",
+            "desc": "Backoffice para gerir conteúdos, pedidos ou utilizadores."
+          },
+          "integrations": {
+            "title": "Integrações",
+            "desc": "Ligação a ERP, CRM, APIs ou sistemas que já usas."
+          },
+          "multilang": {
+            "title": "Vários idiomas",
+            "desc": "Conteúdo e interface em mais do que uma língua."
+          },
+          "design": {
+            "title": "Design de raiz",
+            "desc": "Identidade e interface desenhadas do zero."
+          }
+        }
+      },
+      "timing": {
+        "title": "Para quando, e com que orçamento?",
+        "subtitle": "Serve para percebermos a escala. Não é um compromisso.",
+        "timelineLabel": "Prazo",
+        "budgetLabel": "Orçamento previsto",
+        "timeline": {
+          "urgent": "Menos de 1 mês",
+          "short": "1 a 3 meses",
+          "medium": "3 a 6 meses",
+          "flexible": "Flexível"
+        },
+        "budget": {
+          "lt5": "Até 5 mil €",
+          "from5to15": "5–15 mil €",
+          "from15to40": "15–40 mil €",
+          "gt40": "Mais de 40 mil €",
+          "unsure": "Ainda não sei"
+        }
+      },
+      "contact": {
+        "title": "Como te contactamos?",
+        "subtitle": "Respondemos em 24 horas, com próximos passos concretos.",
+        "company": "Empresa ou entidade",
+        "companyPlaceholder": "Nome da organização",
+        "optional": "(opcional)"
+      },
+      "nav": {
+        "back": "Voltar",
+        "next": "Continuar",
+        "noneOfThese": "Nenhuma destas",
+        "submit": "Enviar brief",
+        "skip": "Prefiro só escrever uma mensagem →"
+      },
+      "summary": {
+        "title": "O teu brief",
+        "type": "Tipo",
+        "features": "Funcionalidades",
+        "timeline": "Prazo",
+        "budget": "Orçamento",
+        "featureCount_one": "{{count}} selecionada",
+        "featureCount_other": "{{count}} selecionadas",
+        "none": "nenhuma",
+        "language": "Idioma do site",
+        "empty": "Escolhe o tipo de projeto para veres uma estimativa de duração.",
+        "estimateLabel": "Duração estimada",
+        "weeks": "{{min}}–{{max}} semanas",
+        "level": {
+          "1": "Simples",
+          "2": "Médio",
+          "3": "Complexo"
+        },
+        "tight": "O prazo é curto para isto. Podemos começar por uma primeira versão mais pequena e crescer a partir daí.",
+        "disclaimer": "Estimativa indicativa, calculada a partir das tuas escolhas. Confirmamos depois de falarmos."
+      },
+      "email": {
+        "subject": "Brief: {{type}} · {{who}}",
+        "general": "Mensagem geral"
+      },
+      "success": "Brief recebido!",
+      "successSub": "Obrigado. Respondemos em 24 horas com uma primeira leitura e os próximos passos."
     }
   },
   "projects": {
