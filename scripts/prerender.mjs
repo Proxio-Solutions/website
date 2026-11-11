@@ -44,7 +44,9 @@ function pagePreloads(source) {
 
   return [
     ...[...css].map((file) => `<link rel="stylesheet" crossorigin href="/${file}">`),
-    ...[...files].map((file) => `<link rel="modulepreload" crossorigin href="/${file}">`),
+    ...[...files].map(
+      (file) => `<link rel="modulepreload" fetchpriority="low" crossorigin href="/${file}">`,
+    ),
   ];
 }
 
