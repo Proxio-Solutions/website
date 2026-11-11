@@ -1,51 +1,56 @@
-import '@/i18n';
+import i18n from '@/i18n';
 import '@/index.css';
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
-import App from '@/App.tsx';
+import { startHydration } from '@/lib/hydration';
+import { routes } from '@/routes';
 import ErrorBoundary from '@components/ErrorBoundary';
-import Home from '@pages/Home.tsx';
-import type { ComponentType } from 'react';
-
-const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
-
-/** Loads a page in its own chunk; the router fetches it before navigating, so there is no blank fallback. */
-const page = (load: () => Promise<{ default: ComponentType }>) => async () => ({
-  Component: (await load()).default,
-});
-
-// Home ships in the main bundle (it is the landing page); every other page is split out
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    children: [
-      { path: '/', element: <Home /> },
-      { path: '/about', lazy: page(() => import('@pages/About.tsx')) },
-      { path: '/projects', lazy: page(() => import('@pages/Projects.tsx')) },
-      { path: '/services', lazy: page(() => import('@pages/Services.tsx')) },
-      { path: '/contact', lazy: page(() => import('@pages/Contact.tsx')) },
-      { path: '/insights', lazy: page(() => import('@pages/Insights.tsx')) },
-      { path: '/insights/:slug', lazy: page(() => import('@pages/InsightArticle.tsx')) },
-      { path: '/privacy-policy', lazy: page(() => import('@pages/PrivacyPolicy.tsx')) },
-      ...(caseStudyUrbiEnabled
-        ? [{ path: '/case-studies/urbi', lazy: page(() => import('@pages/CaseStudyUrbi.tsx')) }]
-        : []),
-      { path: '*', lazy: page(() => import('@pages/NotFound.tsx')) },
-    ],
-  },
-]);
+import { StrictMode } from 'react';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+import { createBrowserRouter, matchRoutes, RouterProvider } from 'react-router-dom';
 
 const rootElement = document.getElementById('root');
 if (!rootElement)
   throw new Error('Root element not found. Check that index.html has <div id="root">.');
 
-createRoot(rootElement).render(
+const app = () => (
   <StrictMode>
     <ErrorBoundary>
-      <RouterProvider router={router} />
+      <RouterProvider router={createBrowserRouter(routes)} />
     </ErrorBoundary>
-  </StrictMode>,
+  </StrictMode>
 );
+
+/** Strips the trailing slash so `/about/` (served from about/index.html) matches `/about`. */
+const normalize = (path: string) => (path.length > 1 ? path.replace(/\/+$/, '') : path);
+
+/** Loads the lazy chunks of the current URL, so the first render matches the static HTML exactly. */
+async function resolveLazyRoutes() {
+  const matches = matchRoutes(routes, window.location) ?? [];
+  await Promise.all(
+    matches.map(async ({ route }) => {
+      if (typeof route.lazy !== 'function') return;
+      Object.assign(route, await route.lazy(), { lazy: undefined });
+    }),
+  );
+}
+
+async function start(root: HTMLElement) {
+  // The build pre-renders each route in Portuguese. Hydrate only when this HTML belongs to the
+  // current URL and language; otherwise (404 shell, ?lang=en, stored English) render from scratch.
+  const prerenderedPath = root.dataset.prerendered;
+  const canHydrate =
+    prerenderedPath !== undefined &&
+    prerenderedPath === normalize(window.location.pathname) &&
+    i18n.resolvedLanguage === 'pt';
+
+  if (!canHydrate) {
+    root.removeAttribute('data-prerendered');
+    createRoot(root).render(app());
+    return;
+  }
+
+  await resolveLazyRoutes();
+  startHydration();
+  hydrateRoot(root, app());
+}
+
+void start(rootElement);

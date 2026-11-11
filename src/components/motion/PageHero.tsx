@@ -1,5 +1,6 @@
 import { HighlightUnderline, splitHighlights } from '@components/motion/Highlight';
 import { gsap, motion, MOTION_OK, useGSAP } from '@/lib/gsap';
+import { useMountedFromPrerender } from '@/lib/hydration';
 import { useRef, type ReactNode } from 'react';
 import DotGrid from './DotGrid';
 import SectionLabel from './SectionLabel';
@@ -44,6 +45,7 @@ export default function PageHero({
   children,
 }: PageHeroProps) {
   const root = useRef<HTMLElement>(null);
+  const alreadyPainted = useMountedFromPrerender();
   const centered = align === 'center';
   const parts = highlights.length
     ? splitHighlights(title, highlights)
@@ -52,6 +54,22 @@ export default function PageHero({
   useGSAP(
     () => {
       gsap.matchMedia().add(MOTION_OK, () => {
+        const drawUnderline = {
+          strokeDashoffset: 0,
+          duration: motion.duration.normal,
+          stagger: 0.15,
+          ease: motion.ease.inOut,
+        };
+        // Pre-rendered first load: the text is already painted (and is the LCP), so leave it
+        // in place and only draw the underline, which CSS keeps hidden until now
+        if (alreadyPainted) {
+          gsap.fromTo(
+            '.highlight-underline path',
+            { strokeDasharray: 1, strokeDashoffset: 1 },
+            { ...drawUnderline, delay: 0.1 },
+          );
+          return;
+        }
         gsap
           .timeline({ defaults: { ease: motion.ease.expo } })
           .from('.hero-fade-top', {
@@ -67,12 +85,7 @@ export default function PageHero({
           .fromTo(
             '.highlight-underline path',
             { strokeDasharray: 1, strokeDashoffset: 1 },
-            {
-              strokeDashoffset: 0,
-              duration: motion.duration.normal,
-              stagger: 0.15,
-              ease: motion.ease.inOut,
-            },
+            drawUnderline,
             '-=0.4',
           )
           .from(

@@ -6,4 +6,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths()],
   base: "/",
+  // The manifest lets scripts/prerender.mjs preload each page's lazy chunk (deleted after use)
+  build: { manifest: true },
 });
