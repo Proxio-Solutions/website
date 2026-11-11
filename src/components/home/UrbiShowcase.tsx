@@ -1,12 +1,15 @@
 import { gsap, MOTION_OK, ScrollTrigger, useGSAP } from '@/lib/gsap';
 import { scrollToTarget } from '@/lib/smoothScroll';
-import { ArrowRight, MousePointer2 } from 'lucide-react';
-import { useRef, useState } from 'react';
+import { ArrowRight, Check, MousePointer2 } from 'lucide-react';
+import { lazy, Suspense, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import CountUp from '@components/motion/CountUp';
 import SectionLabel from '@components/motion/SectionLabel';
 import { urbiScreens } from './UrbiScreens';
+
+// Below the fold and only played by some visitors: keep it out of the main bundle
+const UrbiDemo = lazy(() => import('./UrbiDemo'));
 
 const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
 
@@ -48,7 +51,12 @@ export default function UrbiShowcase() {
         });
         trigger.current = tl.scrollTrigger ?? null;
 
-        tl.fromTo('.urbi-progress', { scaleX: 0 }, { scaleX: 1, ease: 'none', duration: steps.length }, 0);
+        tl.fromTo(
+          '.urbi-progress',
+          { scaleX: 0 },
+          { scaleX: 1, ease: 'none', duration: steps.length },
+          0,
+        );
         // Swap screens right at each step boundary (i + 1) so they line up with the active step
         screens.slice(1).forEach((screen, i) => {
           tl.to(
@@ -198,6 +206,37 @@ export default function UrbiShowcase() {
         </ol>
       </div>
 
+      {/* Try it: a playable report, as a resident */}
+      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 pt-24 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+        <div className="urbi-stack-item">
+          <p className="font-mono text-xs tracking-wider text-blue-400 uppercase">
+            {t('home.urbi.demo.label')}
+          </p>
+          <h3 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">
+            {t('home.urbi.demo.title')}
+          </h3>
+          <p className="mt-4 max-w-lg leading-relaxed text-white/60">{t('home.urbi.demo.text')}</p>
+          <ul className="mt-6 space-y-3">
+            {(t('home.urbi.demo.points', { returnObjects: true }) as string[]).map((point) => (
+              <li key={point} className="flex gap-3 text-sm text-white/80">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-blue-400" strokeWidth={3} />
+                {point}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 font-mono text-xs text-white/40">{t('home.urbi.demo.note')}</p>
+        </div>
+        <div className="urbi-stack-item flex justify-center">
+          <Suspense
+            fallback={
+              <div className="h-[620px] w-[300px] max-w-full rounded-[2.75rem] border border-white/15 bg-slate-900" />
+            }
+          >
+            <UrbiDemo />
+          </Suspense>
+        </div>
+      </div>
+
       {/* Stats + CTA */}
       <div className="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
         <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 lg:grid-cols-4">
@@ -217,7 +256,8 @@ export default function UrbiShowcase() {
         </dl>
 
         <div className="mt-10 flex justify-center">
-          <Link viewTransition
+          <Link
+            viewTransition
             to={caseStudyUrbiEnabled ? '/case-studies/urbi' : '/projects'}
             className="group inline-flex items-center gap-2 rounded-lg bg-white px-7 py-3.5 text-sm font-bold text-slate-900 transition-colors hover:bg-blue-50"
           >

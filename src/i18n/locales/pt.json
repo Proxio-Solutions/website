@@ -163,6 +163,121 @@
           "evaluationBody": "A tua resposta ajuda a junta a perceber o que funcionou.",
           "evaluationCta": "Avaliar resolução"
         }
+      },
+      "demo": {
+        "label": "Experimenta",
+        "title": "Reporta uma ocorrência, como um munícipe",
+        "text": "Uma simulação do assistente real da app: marcas o local no mapa, escolhes a categoria e descreves o problema. Depois vês o que o munícipe recebe enquanto a junta trata do pedido.",
+        "points": [
+          "As mesmas categorias que uma junta recebe por omissão",
+          "Cada ocorrência fica com uma referência e um estado",
+          "O munícipe é avisado a cada mudança, sem ter de perguntar"
+        ],
+        "note": "Simulação: nada é enviado a nenhuma junta.",
+        "header": "Reportar ocorrência",
+        "steps": {
+          "location": "Localização",
+          "category": "Categoria",
+          "details": "Detalhes"
+        },
+        "questions": {
+          "location": "Indica onde se passa a ocorrência",
+          "category": "Que tipo de problema queres reportar?",
+          "details": "Descreve a situação e adiciona fotografias"
+        },
+        "location": {
+          "mapLabel": "Mapa: toca ou usa as setas para mudar o local do marcador",
+          "tapHint": "Toca no mapa para mudar o ponto",
+          "hint": "Coloca o marcador no local exato e confirma para preencher a morada.",
+          "confirm": "Confirmar posição",
+          "resolving": "A obter a morada…",
+          "confirmed": "Posição confirmada",
+          "addresses": [
+            "Rua das Flores, 21",
+            "Rua da Escola, 14",
+            "Travessa do Rio, 3",
+            "Avenida Central, 120"
+          ]
+        },
+        "category": {
+          "backToAreas": "Voltar às áreas",
+          "subjectCount_one": "{{count}} assunto",
+          "subjectCount_other": "{{count}} assuntos"
+        },
+        "details": {
+          "descriptionLabel": "Descrição",
+          "descriptionPlaceholder": "Descreve a ocorrência com o máximo de detalhe possível",
+          "photos": "Fotografias",
+          "photosHint": "Até 6 fotografias. JPG ou PNG.",
+          "addPhoto": "Adicionar fotografia",
+          "removePhoto": "Remover fotografia"
+        },
+        "nav": {
+          "back": "Voltar",
+          "next": "Seguinte",
+          "submit": "Submeter"
+        },
+        "done": {
+          "title": "Ocorrência registada",
+          "message": "Ocorrência {{ref}} submetida com sucesso.",
+          "follow": "Acompanhamento",
+          "times": [
+            "Agora",
+            "Hoje, 2 horas depois",
+            "Amanhã, 09:30",
+            "3 dias depois"
+          ],
+          "notification": "A ocorrência {{ref}} passou a «{{status}}».",
+          "restart": "Reportar outra"
+        },
+        "taxonomy": [
+          {
+            "name": "Vias e Passeios",
+            "subjects": [
+              "Buraco na via",
+              "Passeio danificado",
+              "Marcas rodoviárias apagadas"
+            ]
+          },
+          {
+            "name": "Iluminação Pública",
+            "subjects": [
+              "Candeeiro avariado / apagado",
+              "Poste danificado"
+            ]
+          },
+          {
+            "name": "Higiene Urbana e Resíduos",
+            "subjects": [
+              "Lixo na via pública",
+              "Contentor danificado / a transbordar"
+            ]
+          },
+          {
+            "name": "Espaços Verdes",
+            "subjects": [
+              "Árvore em risco de queda",
+              "Poda / manutenção de árvores",
+              "Vegetação / ervas por cortar"
+            ]
+          },
+          {
+            "name": "Saneamento e Águas Pluviais",
+            "subjects": [
+              "Sarjeta / sumidouro entupido",
+              "Rutura ou fuga de água",
+              "Acumulação de água / inundação"
+            ]
+          },
+          {
+            "name": "Mobiliário e Equipamento Urbano",
+            "subjects": [
+              "Banco ou papeleira danificado",
+              "Abrigo de paragem danificado",
+              "Equipamento de parque infantil danificado"
+            ]
+          }
+        ]
       }
     },
     "values": {

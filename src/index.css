@@ -139,6 +139,18 @@ html {
   }
 }
 
+/* Home Urbi demo: each wizard step eases in */
+.urbi-demo-step {
+  animation: urbi-demo-step 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes urbi-demo-step {
+  from {
+    opacity: 0;
+    transform: translateX(14px);
+  }
+}
+
 /* Home Urbi showcase: dark section backdrop */
 .urbi-grid {
   background-image:
@@ -308,6 +320,7 @@ html {
   }
 
   .caret,
+  .urbi-demo-step,
   .float,
   .orbit,
   .orbit-reverse,

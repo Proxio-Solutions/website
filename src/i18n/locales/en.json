@@ -163,6 +163,121 @@
           "evaluationBody": "Your answer helps the parish understand what worked.",
           "evaluationCta": "Rate the resolution"
         }
+      },
+      "demo": {
+        "label": "Try it",
+        "title": "Report an issue, as a resident would",
+        "text": "A simulation of the app's real wizard: drop a pin on the map, pick a category and describe the problem. Then see what the resident receives while the parish council handles it.",
+        "points": [
+          "The same categories a parish council gets by default",
+          "Every report gets a reference and a status",
+          "Residents are notified at every change, without having to ask"
+        ],
+        "note": "Simulation: nothing is sent to any parish council.",
+        "header": "Report an issue",
+        "steps": {
+          "location": "Location",
+          "category": "Category",
+          "details": "Details"
+        },
+        "questions": {
+          "location": "Tell us where the issue is",
+          "category": "What kind of problem are you reporting?",
+          "details": "Describe the situation and add photos"
+        },
+        "location": {
+          "mapLabel": "Map: tap or use the arrow keys to move the pin",
+          "tapHint": "Tap the map to move the pin",
+          "hint": "Place the pin on the exact spot and confirm to fill in the address.",
+          "confirm": "Confirm position",
+          "resolving": "Looking up the address…",
+          "confirmed": "Position confirmed",
+          "addresses": [
+            "Rua das Flores, 21",
+            "Rua da Escola, 14",
+            "Travessa do Rio, 3",
+            "Avenida Central, 120"
+          ]
+        },
+        "category": {
+          "backToAreas": "Back to areas",
+          "subjectCount_one": "{{count}} subject",
+          "subjectCount_other": "{{count}} subjects"
+        },
+        "details": {
+          "descriptionLabel": "Description",
+          "descriptionPlaceholder": "Describe the issue in as much detail as you can",
+          "photos": "Photos",
+          "photosHint": "Up to 6 photos. JPG or PNG.",
+          "addPhoto": "Add photo",
+          "removePhoto": "Remove photo"
+        },
+        "nav": {
+          "back": "Back",
+          "next": "Next",
+          "submit": "Submit"
+        },
+        "done": {
+          "title": "Report submitted",
+          "message": "Report {{ref}} was submitted successfully.",
+          "follow": "Progress",
+          "times": [
+            "Now",
+            "Today, 2 hours later",
+            "Tomorrow, 9:30",
+            "3 days later"
+          ],
+          "notification": "Report {{ref}} is now “{{status}}”.",
+          "restart": "Report another"
+        },
+        "taxonomy": [
+          {
+            "name": "Roads and Pavements",
+            "subjects": [
+              "Pothole",
+              "Damaged pavement",
+              "Faded road markings"
+            ]
+          },
+          {
+            "name": "Street Lighting",
+            "subjects": [
+              "Broken / unlit street lamp",
+              "Damaged lamp post"
+            ]
+          },
+          {
+            "name": "Street Cleaning and Waste",
+            "subjects": [
+              "Litter on the street",
+              "Damaged / overflowing bin"
+            ]
+          },
+          {
+            "name": "Green Spaces",
+            "subjects": [
+              "Tree at risk of falling",
+              "Tree pruning / upkeep",
+              "Overgrown grass / weeds"
+            ]
+          },
+          {
+            "name": "Drains and Rainwater",
+            "subjects": [
+              "Blocked drain",
+              "Burst pipe or water leak",
+              "Standing water / flooding"
+            ]
+          },
+          {
+            "name": "Street Furniture",
+            "subjects": [
+              "Damaged bench or litter bin",
+              "Damaged bus shelter",
+              "Damaged playground equipment"
+            ]
+          }
+        ]
       }
     },
     "values": {
