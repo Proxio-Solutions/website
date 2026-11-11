@@ -118,16 +118,28 @@ export default function DotGrid({ className = '', tone = 'light' }: DotGridProps
       frame = requestAnimationFrame(loop);
     };
 
-    const onPointerMove = (e: PointerEvent) => {
+    // Last pointer position in viewport coordinates, kept so a scroll can re-place it
+    let client: { x: number; y: number } | null = null;
+
+    /** Maps the last viewport position onto the canvas. */
+    const place = () => {
+      if (!client) return;
       const rect = canvas.getBoundingClientRect();
-      pointer.x = e.clientX - rect.left;
-      pointer.y = e.clientY - rect.top;
+      pointer.x = client.x - rect.left;
+      pointer.y = client.y - rect.top;
       if (smooth.x < -999) {
         smooth.x = pointer.x;
         smooth.y = pointer.y;
       }
     };
+    const onPointerMove = (e: PointerEvent) => {
+      client = { x: e.clientX, y: e.clientY };
+      place();
+    };
+    // Scrolling moves the grid under a still pointer without firing pointer events
+    const onScroll = () => place();
     const onPointerLeave = () => {
+      client = null;
       pointer.x = -9999;
       pointer.y = -9999;
     };
@@ -144,6 +156,7 @@ export default function DotGrid({ className = '', tone = 'light' }: DotGridProps
     });
     visibilityObserver.observe(canvas);
     window.addEventListener('pointermove', onPointerMove, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
     document.documentElement.addEventListener('pointerleave', onPointerLeave);
 
     return () => {
@@ -151,6 +164,7 @@ export default function DotGrid({ className = '', tone = 'light' }: DotGridProps
       resizeObserver.disconnect();
       visibilityObserver.disconnect();
       window.removeEventListener('pointermove', onPointerMove);
+      window.removeEventListener('scroll', onScroll);
       document.documentElement.removeEventListener('pointerleave', onPointerLeave);
     };
   }, [tone]);
