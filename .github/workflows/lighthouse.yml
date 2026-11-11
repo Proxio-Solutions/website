@@ -4,7 +4,7 @@ name: Lighthouse
 # LCP, blocking time, layout shift or the JS weight past the limits in lighthouserc.json fails the check.
 on:
   pull_request:
-    branches: ["main"]
+    branches: ["main", "dev"]
 
 permissions:
   contents: read
