@@ -6,7 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import CountUp from '@components/motion/CountUp';
 import SectionLabel from '@components/motion/SectionLabel';
-import { urbiScreens } from './UrbiScreens';
+import { FieldScreen, FollowScreen, ReportScreen, TriageScreen } from './UrbiScreens';
+
+const urbiScreens = [ReportScreen, TriageScreen, FieldScreen, FollowScreen];
 
 // Below the fold and only played by some visitors: keep it out of the main bundle
 const UrbiDemo = lazy(() => import('./UrbiDemo'));

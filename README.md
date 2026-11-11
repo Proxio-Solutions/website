@@ -65,11 +65,11 @@ Create a `.env` file in the project root based on `.env.example`:
 cp .env.example .env
 ```
 
-| Variable                   | Description             | Required |
-| -------------------------- | ----------------------- | -------- |
-| `VITE_EMAILJS_SERVICE_ID`  | EmailJS service ID      | Yes      |
-| `VITE_EMAILJS_TEMPLATE_ID` | EmailJS template ID     | Yes      |
-| `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key      | Yes      |
+| Variable                   | Description         | Required |
+| -------------------------- | ------------------- | -------- |
+| `VITE_EMAILJS_SERVICE_ID`  | EmailJS service ID  | Yes      |
+| `VITE_EMAILJS_TEMPLATE_ID` | EmailJS template ID | Yes      |
+| `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key  | Yes      |
 
 > Variables prefixed with `VITE_` are exposed to the client. Never place secrets without this prefix in Vite environment variables.
 
@@ -87,12 +87,12 @@ The development server will be available at `http://localhost:5173` with Hot Mod
 
 ## Available Scripts
 
-| Command           | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| `npm run dev`     | Starts the development server                      |
+| Command           | Description                                                                      |
+| ----------------- | -------------------------------------------------------------------------------- |
+| `npm run dev`     | Starts the development server                                                    |
 | `npm run build`   | Compiles TypeScript, builds the bundle and pre-renders each route to static HTML |
-| `npm run preview` | Serves the production bundle locally               |
-| `npm run lint`    | Runs ESLint across all files                       |
+| `npm run preview` | Serves the production bundle locally                                             |
+| `npm run lint`    | Runs ESLint across all files                                                     |
 
 ---
 

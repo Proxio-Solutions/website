@@ -31,10 +31,13 @@ export default function Navbar() {
     );
   };
 
-  // Close menu on route change
-  useEffect(() => {
+  // A new page closes the menu and starts with the bar in view
+  const [pathname, setPathname] = useState(location.pathname);
+  if (pathname !== location.pathname) {
+    setPathname(location.pathname);
     setIsMenuOpen(false);
-  }, [location.pathname]);
+    setHidden(false);
+  }
 
   // Close menu on outside click
   useEffect(() => {
@@ -75,8 +78,6 @@ export default function Navbar() {
       if (!frame) frame = requestAnimationFrame(update);
     };
 
-    // A new page always starts with the bar in view
-    setHidden(false);
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
@@ -90,7 +91,7 @@ export default function Navbar() {
   return (
     <nav
       ref={menuRef}
-      className={`sticky top-0 z-50 border-b [view-transition-name:site-nav] transition-[translate,background-color,border-color,box-shadow] duration-500 ease-out motion-reduce:transition-none ${
+      className={`sticky top-0 z-50 border-b transition-[translate,background-color,border-color,box-shadow] duration-500 ease-out [view-transition-name:site-nav] motion-reduce:transition-none ${
         scrolled || isMenuOpen
           ? 'bg-proxio-darker/95 border-proxio-dark-border shadow-[0_8px_30px_-12px_rgb(15_23_42/0.12)]'
           : 'bg-proxio-darker border-transparent'
@@ -110,7 +111,8 @@ export default function Navbar() {
           {/* Desktop nav links */}
           <div className="hidden space-x-6 md:flex">
             {NAV_LINKS.map((link) => (
-              <NavLink viewTransition
+              <NavLink
+                viewTransition
                 key={link.translationKey}
                 to={link.href}
                 end={link.href === '/'}
@@ -130,7 +132,8 @@ export default function Navbar() {
           {/* Desktop CTA + language toggle */}
           <div className="hidden items-center space-x-4 md:flex">
             <Magnetic strength={0.25}>
-              <Link viewTransition
+              <Link
+                viewTransition
                 to="/contact"
                 className="bg-proxio-accent hover:bg-proxio-accent-hover text-proxio-darker rounded-md px-5 py-2 text-sm font-bold transition-colors"
               >
@@ -174,7 +177,8 @@ export default function Navbar() {
       >
         <div className="mx-auto max-w-7xl space-y-1 px-4 pt-3 pb-6 sm:px-6">
           {NAV_LINKS.map((link, i) => (
-            <NavLink viewTransition
+            <NavLink
+              viewTransition
               key={link.translationKey}
               to={link.href}
               end={link.href === '/'}
@@ -192,7 +196,8 @@ export default function Navbar() {
           ))}
 
           <div className="border-proxio-dark-border mt-4 flex items-center justify-between gap-4 border-t pt-4">
-            <Link viewTransition
+            <Link
+              viewTransition
               to="/contact"
               onClick={() => setIsMenuOpen(false)}
               className="bg-proxio-accent hover:bg-proxio-accent-hover text-proxio-darker flex-1 rounded-md px-5 py-3 text-center text-sm font-bold transition-colors"

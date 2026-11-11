@@ -30,7 +30,7 @@ export default function SectionHeader({
   useGSAP(
     () => {
       gsap.matchMedia().add(MOTION_OK, () => {
-        gsap
+        const tl = gsap
           .timeline({
             defaults: { ease: motion.ease.expo },
             scrollTrigger: { trigger: root.current, start: 'top 85%' },
@@ -40,15 +40,18 @@ export default function SectionHeader({
             '.split-word',
             { yPercent: 115, duration: motion.duration.normal, stagger: motion.stagger.tight },
             '<0.05',
-          )
-          .from(
+          );
+        // The subtitle is optional; tweening a missing target makes GSAP warn
+        if (subtitle) {
+          tl.from(
             '.section-sub',
             { opacity: 0, y: motion.distance.sm, duration: motion.duration.normal },
             '<0.2',
           );
+        }
       });
     },
-    { scope: root },
+    { scope: root, dependencies: [subtitle] },
   );
 
   return (

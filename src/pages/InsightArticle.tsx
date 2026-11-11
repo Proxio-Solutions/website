@@ -2,11 +2,11 @@ import CtaSection from '@components/motion/CtaSection';
 import PageHero from '@components/motion/PageHero';
 import Reveal from '@components/Reveal';
 import SEO from '@components/SEO';
-import { ARTICLES, getArticle, readingMinutes, type Block } from '@/content/insights';
+import { ARTICLES, formatDate, getArticle, readingMinutes, type Block } from '@/content/insights';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
-import { ArticleCard, formatDate } from './Insights';
+import { ArticleCard } from './Insights';
 import NotFound from './NotFound';
 
 function BodyBlock({ block }: { block: Block }) {

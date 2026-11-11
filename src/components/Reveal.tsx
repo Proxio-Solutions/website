@@ -15,10 +15,8 @@ export default function Reveal({ children, delay = 0, className = '' }: RevealPr
     const el = ref.current;
     if (!el) return;
 
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setVisible(true);
-      return;
-    }
+    // Reduced motion: the stylesheet already shows `.reveal` without a transition
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {

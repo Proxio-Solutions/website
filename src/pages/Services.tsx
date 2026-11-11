@@ -1,4 +1,4 @@
-import { revealServiceCards, serviceIllustrations } from '@components/home/ServicesSection';
+import { revealServiceCards, serviceIllustrations } from '@components/home/serviceCards';
 import ProcessTimeline from '@components/home/ProcessTimeline';
 import CtaSection from '@components/motion/CtaSection';
 import PageHero from '@components/motion/PageHero';

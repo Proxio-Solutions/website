@@ -42,11 +42,9 @@ npm run dev                    # Vite dev server
 npm run build                  # type-check, bundle and pre-render every route (what the deploy runs)
 npm run preview                # serve the production build
 npx tsc -b                     # type-check only
-npx prettier --check <files>   # formatting (config in .prettierrc)
+npm run lint                   # ESLint (react-hooks, react-refresh, typescript-eslint)
+npx prettier --check .         # formatting (config in .prettierrc); the whole repo is clean
 ```
-
-`npm run lint` currently fails with a pre-existing `eslint.config.js` error ("Plugin '' not
-found"); it is not caused by your change.
 
 ## Structure
 

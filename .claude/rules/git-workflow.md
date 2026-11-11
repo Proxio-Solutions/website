@@ -100,12 +100,12 @@ in the history.
 
 ```bash
 npx tsc -b                              # types
+npm run lint                            # ESLint
 npm run build                           # what CI and the deploy run
-npx prettier --check <changed files>    # formatting
+npx prettier --check .                  # formatting
 ```
 
-`npm run lint` is currently broken by a pre-existing `eslint.config.js` error; do not treat its
-failure as caused by your change.
+All four pass on `dev`; a failure after your change is yours to fix.
 
 ## Enforcement
 

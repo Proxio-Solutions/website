@@ -322,3 +322,12 @@ export function readingMinutes(copy: ArticleCopy): number {
 export function getArticle(slug: string | undefined): Article | undefined {
   return ARTICLES.find((article) => article.slug === slug);
 }
+
+/** Long-form date in the reader's language, e.g. "11 de novembro de 2026". */
+export function formatDate(date: string, language: string) {
+  return new Intl.DateTimeFormat(language === 'en' ? 'en-GB' : 'pt-PT', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  }).format(new Date(`${date}T12:00:00`));
+}
