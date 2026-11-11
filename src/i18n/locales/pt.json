@@ -4,6 +4,7 @@
     "about": "Sobre Nós",
     "projects": "Projetos",
     "services": "Serviços",
+    "insights": "Artigos",
     "contact": "Contactos",
     "cta": "Fala Connosco",
     "closeMenu": "Fechar menu",
@@ -32,11 +33,253 @@
       "consulting": {
         "title": "Consultoria Tecnológica",
         "desc": "Orientação estratégica em tecnologia para ajudar o teu negócio a tomar as decisões certas e avançar mais rápido."
-      }
+      },
+      "cta": "Saber mais"
     },
     "featured": {
       "label": "Projeto em Destaque",
       "title": "Vê o Que Estamos a Construir"
+    },
+    "urbi": {
+      "scrollHint": "Faz scroll para seguir uma ocorrência do início ao fim",
+      "steps": {
+        "report": {
+          "title": "O residente reporta",
+          "desc": "Ponto no mapa, categoria e fotografias, em três passos. Se já houver uma ocorrência igual ali perto, o Urbi sugere apoiá-la em vez de criar outra."
+        },
+        "triage": {
+          "title": "A junta faz a triagem",
+          "desc": "App, telefone, email ou balcão: tudo chega à mesma lista. A junta decide se é duplicada, define a prioridade e põe a ocorrência em análise."
+        },
+        "field": {
+          "title": "A equipa resolve no terreno",
+          "desc": "O trabalho chega ao telemóvel da equipa, com localização, prazo e ficha de trabalho. A prova de resolução segue para a junta validar."
+        },
+        "follow": {
+          "title": "O residente acompanha e avalia",
+          "desc": "Cada mudança de estado fica no histórico e chega como notificação. No fim, quem reportou ou apoiou avalia se o problema ficou mesmo resolvido."
+        }
+      },
+      "mock": {
+        "status": {
+          "submitted": "Submetida",
+          "inAnalysis": "Em Análise",
+          "inProgress": "Em Curso",
+          "concluded": "Concluída"
+        },
+        "priority": {
+          "high": "Alta",
+          "medium": "Média",
+          "low": "Baixa"
+        },
+        "report": {
+          "header": "Reportar ocorrência",
+          "steps": [
+            "Localização",
+            "Categoria",
+            "Detalhes"
+          ],
+          "subject": "Buraco na via",
+          "area": "Vias e Passeios",
+          "location": "Rua da Escola, 14",
+          "duplicateTitle": "Já há uma ocorrência parecida aqui perto",
+          "duplicateRef": "OC-2026-0139",
+          "duplicateMeta": "a 40 m · 6 apoios",
+          "support": "Apoiar esta",
+          "photos": "Fotografias",
+          "description": "Dois buracos junto ao estacionamento. Com chuva enchem de água e não se veem.",
+          "back": "Voltar",
+          "submit": "Submeter"
+        },
+        "triage": {
+          "url": "urbi.proxiosolutions.com/manage/occurrences",
+          "title": "Ocorrências",
+          "subtitle": "Gere o estado, a prioridade e a atribuição de cada uma.",
+          "columns": {
+            "subject": "Assunto",
+            "origin": "Origem",
+            "status": "Estado",
+            "priority": "Prioridade"
+          },
+          "origins": [
+            "App",
+            "Telefone",
+            "Email",
+            "Presencial"
+          ],
+          "rows": [
+            {
+              "ref": "OC-2026-0142",
+              "subject": "Buraco na via"
+            },
+            {
+              "ref": "OC-2026-0141",
+              "subject": "Candeeiro avariado / apagado"
+            },
+            {
+              "ref": "OC-2026-0138",
+              "subject": "Contentor a transbordar"
+            },
+            {
+              "ref": "OC-2026-0135",
+              "subject": "Árvore em risco de queda"
+            }
+          ],
+          "duplicateBadge": "Possível duplicada",
+          "priorityLabel": "Prioridade",
+          "advance": "Passar a Em Análise"
+        },
+        "field": {
+          "header": "O meu trabalho",
+          "tabs": [
+            "Ativas · 3",
+            "Concluídas"
+          ],
+          "ref": "OC-2026-0142",
+          "subject": "Buraco na via",
+          "location": "Rua da Escola, 14 · a 1,2 km",
+          "deadline": "Prazo: amanhã",
+          "notes": "Notas",
+          "workSheet": "Ficha de trabalho",
+          "workSheetStatus": "Submetida",
+          "proofTitle": "Prova de resolução",
+          "proofHint": "Fotografa o local depois da intervenção. A junta valida antes de concluir.",
+          "submitProof": "Submeter prova"
+        },
+        "follow": {
+          "header": "OC-2026-0142",
+          "subject": "Buraco na via",
+          "meta": "Rua da Escola, 14 · Vias e Passeios",
+          "supports": "12 apoios",
+          "historyTitle": "Histórico de estados",
+          "times": [
+            "3 nov, 09:12",
+            "3 nov, 11:40",
+            "4 nov, 08:30",
+            "5 nov, 16:05"
+          ],
+          "replyAuthor": "Junta de Freguesia",
+          "reply": "Os buracos foram tapados pela equipa de vias. Obrigado por ajudares a cuidar da freguesia!",
+          "evaluationTitle": "Como correu?",
+          "evaluationBody": "A tua resposta ajuda a junta a perceber o que funcionou.",
+          "evaluationCta": "Avaliar resolução"
+        }
+      },
+      "demo": {
+        "label": "Experimenta",
+        "title": "Reporta uma ocorrência, como um munícipe",
+        "text": "Uma simulação do assistente real da app: marcas o local no mapa, escolhes a categoria e descreves o problema. Depois vês o que o munícipe recebe enquanto a junta trata do pedido.",
+        "points": [
+          "As mesmas categorias que uma junta recebe por omissão",
+          "Cada ocorrência fica com uma referência e um estado",
+          "O munícipe é avisado a cada mudança, sem ter de perguntar"
+        ],
+        "note": "Simulação: nada é enviado a nenhuma junta.",
+        "header": "Reportar ocorrência",
+        "steps": {
+          "location": "Localização",
+          "category": "Categoria",
+          "details": "Detalhes"
+        },
+        "questions": {
+          "location": "Indica onde se passa a ocorrência",
+          "category": "Que tipo de problema queres reportar?",
+          "details": "Descreve a situação e adiciona fotografias"
+        },
+        "location": {
+          "mapLabel": "Mapa: toca ou usa as setas para mudar o local do marcador",
+          "tapHint": "Toca no mapa para mudar o ponto",
+          "hint": "Coloca o marcador no local exato e confirma para preencher a morada.",
+          "confirm": "Confirmar posição",
+          "resolving": "A obter a morada…",
+          "confirmed": "Posição confirmada",
+          "addresses": [
+            "Rua das Flores, 21",
+            "Rua da Escola, 14",
+            "Travessa do Rio, 3",
+            "Avenida Central, 120"
+          ]
+        },
+        "category": {
+          "backToAreas": "Voltar às áreas",
+          "subjectCount_one": "{{count}} assunto",
+          "subjectCount_other": "{{count}} assuntos"
+        },
+        "details": {
+          "descriptionLabel": "Descrição",
+          "descriptionPlaceholder": "Descreve a ocorrência com o máximo de detalhe possível",
+          "photos": "Fotografias",
+          "photosHint": "Até 6 fotografias. JPG ou PNG.",
+          "addPhoto": "Adicionar fotografia",
+          "removePhoto": "Remover fotografia"
+        },
+        "nav": {
+          "back": "Voltar",
+          "next": "Seguinte",
+          "submit": "Submeter"
+        },
+        "done": {
+          "title": "Ocorrência registada",
+          "message": "Ocorrência {{ref}} submetida com sucesso.",
+          "follow": "Acompanhamento",
+          "times": [
+            "Agora",
+            "Hoje, 2 horas depois",
+            "Amanhã, 09:30",
+            "3 dias depois"
+          ],
+          "notification": "A ocorrência {{ref}} passou a «{{status}}».",
+          "restart": "Reportar outra"
+        },
+        "taxonomy": [
+          {
+            "name": "Vias e Passeios",
+            "subjects": [
+              "Buraco na via",
+              "Passeio danificado",
+              "Marcas rodoviárias apagadas"
+            ]
+          },
+          {
+            "name": "Iluminação Pública",
+            "subjects": [
+              "Candeeiro avariado / apagado",
+              "Poste danificado"
+            ]
+          },
+          {
+            "name": "Higiene Urbana e Resíduos",
+            "subjects": [
+              "Lixo na via pública",
+              "Contentor danificado / a transbordar"
+            ]
+          },
+          {
+            "name": "Espaços Verdes",
+            "subjects": [
+              "Árvore em risco de queda",
+              "Poda / manutenção de árvores",
+              "Vegetação / ervas por cortar"
+            ]
+          },
+          {
+            "name": "Saneamento e Águas Pluviais",
+            "subjects": [
+              "Sarjeta / sumidouro entupido",
+              "Rutura ou fuga de água",
+              "Acumulação de água / inundação"
+            ]
+          },
+          {
+            "name": "Mobiliário e Equipamento Urbano",
+            "subjects": [
+              "Banco ou papeleira danificado",
+              "Abrigo de paragem danificado",
+              "Equipamento de parque infantil danificado"
+            ]
+          }
+        ]
+      }
     },
     "values": {
       "label": "Os Nossos Princípios",
@@ -126,17 +369,29 @@
       "web": {
         "title": "Desenvolvimento de Aplicações Web",
         "desc": "De websites simples a plataformas SaaS complexas, construímos aplicações web rápidas, fiáveis e escaláveis.",
-        "features": ["Design UI/UX Personalizado", "API's REST", "Otimização de Performance"]
+        "features": [
+          "Design UI/UX Personalizado",
+          "API's REST",
+          "Otimização de Performance"
+        ]
       },
       "mobile": {
         "title": "Desenvolvimento de Aplicações Móveis",
         "desc": "Desenvolvemos aplicações móveis multiplataforma, oferecendo uma experiência nativa em iOS e Android.",
-        "features": ["Design UI/UX Personalizado", "iOS e Android", "Publicação nas App Stores"]
+        "features": [
+          "Design UI/UX Personalizado",
+          "iOS e Android",
+          "Publicação nas App Stores"
+        ]
       },
       "consulting": {
         "title": "Consultoria Tecnológica",
         "desc": "Não sabes qual o caminho a seguir? Ajudamos equipas a fazer as escolhas tecnológicas certas, desde revisões de arquitetura a estratégia de produto completa.",
-        "features": ["Seleção de Stack Tecnológico", "Revisão de Arquitetura", "Roadmap de Produto"]
+        "features": [
+          "Seleção de Stack Tecnológico",
+          "Revisão de Arquitetura",
+          "Roadmap de Produto"
+        ]
       }
     },
     "process": {
@@ -206,6 +461,127 @@
         "label": "Tempo de Resposta",
         "value": "Dentro de 24 horas"
       }
+    },
+    "brief": {
+      "stepOf": "Passo {{current}} de {{total}}",
+      "steps": {
+        "type": "Tipo",
+        "features": "Funcionalidades",
+        "timing": "Prazo e orçamento",
+        "contact": "Contacto"
+      },
+      "type": {
+        "title": "O que queres construir?",
+        "subtitle": "Escolhe o que está mais perto. Afinamos o resto na conversa.",
+        "options": {
+          "website": {
+            "title": "Website ou landing page",
+            "desc": "Presença institucional, campanha ou montra de produto."
+          },
+          "webapp": {
+            "title": "Aplicação web ou plataforma",
+            "desc": "Área de cliente, backoffice, SaaS ou ferramenta interna."
+          },
+          "mobile": {
+            "title": "App mobile",
+            "desc": "iOS e Android, com ou sem plataforma web associada."
+          },
+          "consulting": {
+            "title": "Consultoria ou outro",
+            "desc": "Auditoria técnica, arquitetura ou uma ideia por definir."
+          }
+        }
+      },
+      "features": {
+        "title": "O que precisa de ter?",
+        "subtitle": "Marca o que se aplica. Podes não marcar nada.",
+        "options": {
+          "accounts": {
+            "title": "Contas e autenticação",
+            "desc": "Registo, login e perfis com permissões."
+          },
+          "payments": {
+            "title": "Pagamentos",
+            "desc": "Checkout, subscrições ou faturação."
+          },
+          "backoffice": {
+            "title": "Painel de gestão",
+            "desc": "Backoffice para gerir conteúdos, pedidos ou utilizadores."
+          },
+          "integrations": {
+            "title": "Integrações",
+            "desc": "Ligação a ERP, CRM, APIs ou sistemas que já usas."
+          },
+          "multilang": {
+            "title": "Vários idiomas",
+            "desc": "Conteúdo e interface em mais do que uma língua."
+          },
+          "design": {
+            "title": "Design de raiz",
+            "desc": "Identidade e interface desenhadas do zero."
+          }
+        }
+      },
+      "timing": {
+        "title": "Para quando, e com que orçamento?",
+        "subtitle": "Serve para percebermos a escala. Não é um compromisso.",
+        "timelineLabel": "Prazo",
+        "budgetLabel": "Orçamento previsto",
+        "timeline": {
+          "urgent": "Menos de 1 mês",
+          "short": "1 a 3 meses",
+          "medium": "3 a 6 meses",
+          "flexible": "Flexível"
+        },
+        "budget": {
+          "lt5": "Até 5 mil €",
+          "from5to15": "5–15 mil €",
+          "from15to40": "15–40 mil €",
+          "gt40": "Mais de 40 mil €",
+          "unsure": "Ainda não sei"
+        }
+      },
+      "contact": {
+        "title": "Como te contactamos?",
+        "subtitle": "Respondemos em 24 horas, com próximos passos concretos.",
+        "company": "Empresa ou entidade",
+        "companyPlaceholder": "Nome da organização",
+        "optional": "(opcional)"
+      },
+      "nav": {
+        "back": "Voltar",
+        "next": "Continuar",
+        "noneOfThese": "Nenhuma destas",
+        "submit": "Enviar brief",
+        "skip": "Prefiro só escrever uma mensagem →"
+      },
+      "summary": {
+        "title": "O teu brief",
+        "type": "Tipo",
+        "features": "Funcionalidades",
+        "timeline": "Prazo",
+        "budget": "Orçamento",
+        "featureCount_one": "{{count}} selecionada",
+        "featureCount_other": "{{count}} selecionadas",
+        "none": "nenhuma",
+        "language": "Idioma do site",
+        "empty": "Escolhe o tipo de projeto para veres uma estimativa de duração.",
+        "estimateLabel": "Duração estimada",
+        "weeks": "{{min}}–{{max}} semanas",
+        "level": {
+          "1": "Simples",
+          "2": "Médio",
+          "3": "Complexo"
+        },
+        "tight": "O prazo é curto para isto. Podemos começar por uma primeira versão mais pequena e crescer a partir daí.",
+        "disclaimer": "Estimativa indicativa, calculada a partir das tuas escolhas. Confirmamos depois de falarmos."
+      },
+      "email": {
+        "subject": "Brief: {{type}} · {{who}}",
+        "general": "Mensagem geral"
+      },
+      "success": "Brief recebido!",
+      "successSub": "Obrigado. Respondemos em 24 horas com uma primeira leitura e os próximos passos."
     }
   },
   "projects": {
@@ -386,6 +762,53 @@
         "body": "Quer representes uma junta de freguesia, quer estejas simplesmente curioso sobre o projeto — adoramos falar sobre o Urbi. E em breve vai ter um site só dele.",
         "button": "Fala Connosco",
         "secondary": "Visitar o site do Urbi"
+      },
+      "compare": {
+        "title": "O mesmo dia numa junta, antes e depois do Urbi",
+        "hint": "← Arrasta para comparar →",
+        "beforeLabel": "Antes",
+        "afterLabel": "Com o Urbi",
+        "handleLabel": "Comparar antes e depois do Urbi",
+        "before": {
+          "phoneMeta": "Telefonema · 09:40",
+          "phone": "D. Rosa ligou por causa do buraco na Rua da Escola. Ligar de volta?",
+          "emailMeta": "4 respostas · sem responsável",
+          "email": "RE: RE: Fwd: candeeiro apagado",
+          "noReply": "Sem resposta há 3 semanas",
+          "socialMeta": "Redes sociais · 23 comentários",
+          "social": "Alguém sabe a quem se reclama do contentor? Já é a 3.ª vez este mês 😤",
+          "duplicate": "Duplicado?",
+          "sheet": "ocorrencias_2026_FINAL_v3.xlsx",
+          "counter": "Senha 047 · Balcão",
+          "counterMeta": "Pedido em papel, por arquivar"
+        },
+        "after": {
+          "title": "Ocorrências",
+          "subtitle": "Todos os canais na mesma lista, cada uma com estado e responsável.",
+          "rows": [
+            {
+              "subject": "Buraco na via",
+              "ref": "OC-2026-0142",
+              "origin": "Telefone"
+            },
+            {
+              "subject": "Candeeiro avariado / apagado",
+              "ref": "OC-2026-0141",
+              "origin": "Email"
+            },
+            {
+              "subject": "Contentor a transbordar",
+              "ref": "OC-2026-0138",
+              "origin": "Redes sociais"
+            },
+            {
+              "subject": "Banco danificado",
+              "ref": "OC-2026-0131",
+              "origin": "Presencial"
+            }
+          ],
+          "toast": "Quem reportou foi avisado: «Buraco na via» passou a Em Análise."
+        }
       }
     }
   },
@@ -444,6 +867,24 @@
     "contact": {
       "title": "Contacto e Pedidos de Dados",
       "body": "Para exercer qualquer um dos seus direitos, colocar questões sobre esta Política de Privacidade ou submeter um pedido de dados, contacte-nos através de: proxiosolutions@gmail.com. Responderemos no prazo de 30 dias."
+    }
+  },
+  "insights": {
+    "title": "Artigos",
+    "hero": {
+      "label": "Artigos",
+      "title": "O que aprendemos a construir software",
+      "subtitle": "Notas práticas sobre transformação digital nas autarquias e sobre como pensar um produto antes de o construir."
+    },
+    "minutes_one": "{{count}} min de leitura",
+    "minutes_other": "{{count}} min de leitura",
+    "read": "Ler artigo",
+    "back": "Todos os artigos",
+    "more": "Continuar a ler",
+    "cta": {
+      "title": "Tens um desafio parecido?",
+      "subtitle": "Conta-nos o que precisas. Respondemos com ideias concretas, não com um formulário genérico.",
+      "button": "Falar connosco"
     }
   }
 }

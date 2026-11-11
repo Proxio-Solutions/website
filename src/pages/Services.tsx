@@ -1,141 +1,118 @@
-import HighlightedText from '@components/HighlightedText';
-import Reveal from '@components/Reveal';
+import { revealServiceCards, serviceIllustrations } from '@components/home/ServicesSection';
+import ProcessTimeline from '@components/home/ProcessTimeline';
+import CtaSection from '@components/motion/CtaSection';
+import PageHero from '@components/motion/PageHero';
+import SectionHeader from '@components/motion/SectionHeader';
+import SpotlightCard from '@components/motion/SpotlightCard';
 import SEO from '@components/SEO';
-import { Check, Code2, Globe, Lightbulb, PenLine, Rocket, Search, Smartphone } from 'lucide-react';
+import { gsap, motion, MOTION_OK, useGSAP } from '@/lib/gsap';
+import { Check } from 'lucide-react';
+import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
-const serviceIcons = { web: Globe, mobile: Smartphone, consulting: Lightbulb } as const;
+const serviceKeys = ['web', 'mobile', 'consulting'] as const;
 
 const heroHighlights: Record<string, string[]> = {
   pt: ['Ideias', 'Software'],
   en: ['Ideas', 'Software'],
 };
 
-const processSteps = [
-  { key: 'discover', icon: Search, step: '01' },
-  { key: 'design', icon: PenLine, step: '02' },
-  { key: 'build', icon: Code2, step: '03' },
-  { key: 'launch', icon: Rocket, step: '04' },
-] as const;
-
 export default function Services() {
   const { t, i18n } = useTranslation();
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.matchMedia().add(MOTION_OK, () => {
+        revealServiceCards(gsap.utils.toArray<HTMLElement>('.service-card'));
+        gsap.utils.toArray<HTMLElement>('.service-card').forEach((card) => {
+          gsap.from(card.querySelectorAll('.feature-item'), {
+            x: -12,
+            opacity: 0,
+            duration: motion.duration.fast,
+            stagger: motion.stagger.normal,
+            ease: motion.ease.out,
+            scrollTrigger: { trigger: card, start: 'top 70%' },
+          });
+        });
+      });
+    },
+    { scope: cardsRef },
+  );
 
   return (
     <>
       <SEO title={t('services.title')} description={t('services.hero.subtitle')} />
 
       <main>
-        {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
-          <div className="hero-glow pointer-events-none absolute inset-0" aria-hidden="true" />
-          <Reveal className="relative mx-auto max-w-7xl px-4 py-28 sm:px-6 lg:px-8">
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
-                {t('services.hero.label')}
-              </span>
-              <h1 className="text-proxio-text-main mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">
-                <HighlightedText
-                  text={t('services.hero.title')}
-                  words={heroHighlights[i18n.language] ?? heroHighlights.en}
-                />
-              </h1>
-              <p className="text-proxio-text-muted mt-6 text-xl leading-relaxed">
-                {t('services.hero.subtitle')}
-              </p>
-            </div>
-          </Reveal>
-        </section>
+        <PageHero
+          label={t('services.hero.label')}
+          title={t('services.hero.title')}
+          highlights={heroHighlights[i18n.language] ?? heroHighlights.en}
+          subtitle={t('services.hero.subtitle')}
+        />
 
-        {/* Service Cards */}
-        <section className="bg-proxio-dark border-proxio-dark-border border-y py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Service cards */}
+        <section className="bg-proxio-dark border-proxio-dark-border border-y py-24">
+          <div ref={cardsRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              index="01"
+              label={t('home.services.label')}
+              title={t('home.services.title')}
+            />
+
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              {(Object.keys(serviceIcons) as Array<keyof typeof serviceIcons>).map((key, index) => {
-                const Icon = serviceIcons[key];
+              {serviceKeys.map((key, index) => {
+                const Illustration = serviceIllustrations[key];
                 const features = t(`services.items.${key}.features`, {
                   returnObjects: true,
                 }) as string[];
                 return (
-                  <Reveal key={key} delay={index * 100}>
-                    <div
-                      id={`service-${key}`}
-                      className="bg-proxio-darker border-proxio-dark-border card-lift flex h-full flex-col rounded-2xl border p-8"
-                    >
-                      <div className="bg-proxio-accent/10 mb-6 inline-flex self-start rounded-xl p-4">
-                        <Icon className="text-proxio-accent h-7 w-7" />
+                  <div key={key} id={`service-${key}`} className="service-card scroll-mt-28">
+                    <SpotlightCard className="group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6 sm:p-8">
+                      <div
+                        className="bg-proxio-dark border-proxio-dark-border mb-6 h-44 rounded-xl border p-4"
+                        aria-hidden="true"
+                      >
+                        <Illustration />
                       </div>
-                      <h2 className="text-proxio-text-main mb-4 text-2xl font-bold">
+                      <span className="text-proxio-text-muted font-mono text-xs">
+                        [0{index + 1}]
+                      </span>
+                      <h2 className="text-proxio-text-main mt-1 mb-4 text-2xl font-bold">
                         {t(`services.items.${key}.title`)}
                       </h2>
                       <p className="text-proxio-text-muted mb-6 leading-relaxed">
                         {t(`services.items.${key}.desc`)}
                       </p>
-                      <ul className="mt-auto space-y-2.5">
+                      <ul className="border-proxio-dark-border mt-auto space-y-3 border-t pt-6">
                         {features.map((feature) => (
                           <li
                             key={feature}
-                            className="text-proxio-text-muted flex items-center gap-2.5 text-sm"
+                            className="feature-item text-proxio-text-main flex items-center gap-3 text-sm font-medium"
                           >
-                            <Check className="text-proxio-accent h-4 w-4 shrink-0" />
+                            <span className="bg-proxio-accent/10 text-proxio-accent flex h-5 w-5 shrink-0 items-center justify-center rounded-full">
+                              <Check className="h-3 w-3" />
+                            </span>
                             {feature}
                           </li>
                         ))}
                       </ul>
-                    </div>
-                  </Reveal>
+                    </SpotlightCard>
+                  </div>
                 );
               })}
             </div>
           </div>
         </section>
 
-        {/* Process */}
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mb-14 text-center">
-            <span className="text-proxio-accent text-sm font-semibold tracking-widest uppercase">
-              {t('services.process.label')}
-            </span>
-            <h2 className="text-proxio-text-main mt-3 text-3xl font-extrabold sm:text-4xl">
-              {t('services.process.title')}
-            </h2>
-          </div>
+        <ProcessTimeline index="02" />
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {processSteps.map(({ key, icon: Icon, step }, index) => (
-              <Reveal key={key} delay={index * 100} className="text-center">
-                <div className="text-proxio-dark-border mb-3 text-5xl font-black">{step}</div>
-                <div className="bg-proxio-accent/10 border-proxio-dark-border mx-auto mb-4 inline-flex rounded-xl border p-3">
-                  <Icon className="text-proxio-accent h-6 w-6" />
-                </div>
-                <h3 className="text-proxio-text-main mb-2 text-lg font-bold">
-                  {t(`services.process.${key}.title`)}
-                </h3>
-                <p className="text-proxio-text-muted text-sm leading-relaxed">
-                  {t(`services.process.${key}.desc`)}
-                </p>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="border-proxio-dark-border bg-proxio-dark rounded-2xl border p-12 text-center">
-            <h2 className="text-proxio-text-main text-3xl font-extrabold sm:text-4xl">
-              {t('services.cta.title')}
-            </h2>
-            <p className="text-proxio-text-muted mt-4 text-lg">{t('services.cta.subtitle')}</p>
-            <Link
-              to="/contact"
-              className="bg-proxio-accent hover:bg-proxio-accent-hover mt-8 inline-block rounded-lg px-8 py-3.5 text-base font-bold text-white transition-colors"
-            >
-              {t('services.cta.button')}
-            </Link>
-          </div>
-        </section>
+        <CtaSection
+          title={t('services.cta.title')}
+          subtitle={t('services.cta.subtitle')}
+          primary={{ to: '/contact', label: t('services.cta.button') }}
+        />
       </main>
     </>
   );

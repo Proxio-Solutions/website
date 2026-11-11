@@ -1,4 +1,5 @@
 import bannerIllustration from '@assets/banner.svg';
+import WordmarkDots from '@components/motion/WordmarkDots';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS } from '../config/navigation';
@@ -20,8 +21,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-1">
-            <Link to="/">
-              <img src={bannerIllustration} alt="Proxio Solutions" className="h-8 w-auto opacity-90" />
+            <Link viewTransition to="/">
+              <img
+                src={bannerIllustration}
+                alt="Proxio Solutions"
+                className="h-8 w-auto opacity-90"
+              />
             </Link>
             <p className="text-proxio-text-muted mt-4 max-w-xs text-sm leading-relaxed">
               {t('footer.tagline')}
@@ -37,6 +42,7 @@ export default function Footer() {
               {NAV_LINKS.map((link) => (
                 <li key={link.translationKey}>
                   <Link
+                    viewTransition
                     to={link.href}
                     className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
                   >
@@ -56,6 +62,7 @@ export default function Footer() {
               {serviceLinks.map(({ key, href }) => (
                 <li key={key}>
                   <Link
+                    viewTransition
                     to={href}
                     className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
                   >
@@ -88,13 +95,19 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Brand signature: the word in the hero's dot language */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="h-[clamp(72px,12vw,170px)] w-full pb-6">
+          <WordmarkDots />
+        </div>
+      </div>
+
       {/* Bottom bar */}
       <div className="border-proxio-dark-border border-t">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 sm:flex-row sm:px-6 lg:px-8">
-          <p className="text-proxio-text-muted text-sm">
-            {t('footer.copyright', { year })}
-          </p>
+          <p className="text-proxio-text-muted text-sm">{t('footer.copyright', { year })}</p>
           <Link
+            viewTransition
             to="/privacy-policy"
             className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
           >

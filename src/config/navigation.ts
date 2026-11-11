@@ -3,5 +3,6 @@ export const NAV_LINKS = [
   { translationKey: 'nav.about', href: '/about' },
   { translationKey: 'nav.projects', href: '/projects' },
   { translationKey: 'nav.services', href: '/services' },
+  { translationKey: 'nav.insights', href: '/insights' },
   { translationKey: 'nav.contact', href: '/contact' },
 ];

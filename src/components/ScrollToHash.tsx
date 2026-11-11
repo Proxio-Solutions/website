@@ -1,3 +1,4 @@
+import { scrollToTarget } from '@/lib/smoothScroll';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -6,16 +7,17 @@ export default function ScrollToHash() {
 
   useEffect(() => {
     if (!hash) {
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      scrollToTarget(0, { immediate: true });
       return;
     }
     const id = hash.replace('#', '');
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      scrollToTarget(el);
     } else {
       const timer = setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        const late = document.getElementById(id);
+        if (late) scrollToTarget(late);
       }, 100);
       return () => clearTimeout(timer);
     }
