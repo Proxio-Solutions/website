@@ -152,7 +152,12 @@ function MapArt() {
         <path d="M96 210 H 158" strokeWidth="9" />
         <path d="M30 160 V 240" strokeWidth="8" />
       </g>
-      <g fill="#8A97AB" fontSize="7" fontFamily="Plus Jakarta Sans, sans-serif" fontWeight="600">
+      <g
+        fill="#8A97AB"
+        fontSize="7"
+        fontFamily="Plus Jakarta Sans Variable, sans-serif"
+        fontWeight="600"
+      >
         <text x="112" y="88">
           Rua da Escola
         </text>
