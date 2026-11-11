@@ -1,5 +1,5 @@
 /**
- * Build-time pre-rendering: renders every route in `prerenderPaths` to static HTML so the
+ * Build-time pre-rendering: renders every page in `prerenderPages` (src/entry-server.tsx) to static HTML so the
  * first paint does not wait for the JS bundle. Runs after the client and SSR builds:
  *
  *   vite build                       -> dist/ (client, with .vite/manifest.json)
@@ -18,23 +18,15 @@ const ssrDir = path.join(root, 'dist-ssr');
 
 const template = await readFile(path.join(dist, 'index.html'), 'utf8');
 const manifest = JSON.parse(await readFile(path.join(dist, '.vite', 'manifest.json'), 'utf8'));
-const { render, prerenderPaths } = await import(
+const { render, prerenderPages } = await import(
   pathToFileURL(path.join(ssrDir, 'entry-server.js')).href
 );
 
-/** Source file of each lazy page, so its chunk can be preloaded instead of found after the bundle runs. */
-const pageSources = {
-  '/about': 'src/pages/About.tsx',
-  '/projects': 'src/pages/Projects.tsx',
-  '/services': 'src/pages/Services.tsx',
-  '/contact': 'src/pages/Contact.tsx',
-  '/privacy-policy': 'src/pages/PrivacyPolicy.tsx',
-  '/case-studies/urbi': 'src/pages/CaseStudyUrbi.tsx',
-};
-
-/** JS chunks (and CSS) the page needs on top of the entry, from the client build manifest. */
-function pagePreloads(routePath) {
-  const source = pageSources[routePath];
+/**
+ * JS chunks (and CSS) a lazy page needs on top of the entry, from the client build manifest,
+ * so they download with the HTML instead of being found after the bundle runs.
+ */
+function pagePreloads(source) {
   if (!source) return [];
   if (!manifest[source]) throw new Error(`No client chunk for ${source} in the Vite manifest`);
 
@@ -67,7 +59,7 @@ function headKey(tag) {
   return key ? `meta:${key}` : null;
 }
 
-function buildPage(routePath, appHtml) {
+function buildPage({ path: routePath, source }, appHtml) {
   // React renders the SEO component's <title>/<meta>/<link> inline and hoists them into <head>
   // on the client. Do the same here, replacing the template's site-wide defaults.
   const pageTags = new Map();
@@ -80,7 +72,7 @@ function buildPage(routePath, appHtml) {
     const key = headKey(tag.replace(/\s+/g, ' '));
     return key && pageTags.has(key) ? '' : tag;
   });
-  const head = [...pageTags.values(), ...pagePreloads(routePath)];
+  const head = [...pageTags.values(), ...pagePreloads(source)];
   html = html.replace('</head>', `  ${head.join('\n    ')}\n  </head>`);
   html = html.replace(
     '<div id="root"></div>',
@@ -99,8 +91,9 @@ async function write(file, html) {
 // so it must not carry another route's markup
 await writeFile(path.join(dist, '404.html'), template);
 
-for (const routePath of prerenderPaths) {
-  const html = buildPage(routePath, await render(routePath));
+for (const page of prerenderPages) {
+  const routePath = page.path;
+  const html = buildPage(page, await render(routePath));
   if (routePath === '/') {
     await write(path.join(dist, 'index.html'), html);
   } else {

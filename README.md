@@ -148,9 +148,9 @@ The generated files are placed in the `dist/` folder and served as a static site
 
 1. `vite build` produces the client bundle in `dist/`.
 2. `vite build --ssr src/entry-server.tsx` produces a Node build of the same routes (`src/routes.tsx`).
-3. `scripts/prerender.mjs` renders each path in `prerenderPaths` with React Router's static handler and writes `dist/<route>.html` (served by GitHub Pages at `/<route>`), `dist/<route>/index.html` (for directory-only static servers) and a plain `dist/404.html` shell.
+3. `scripts/prerender.mjs` renders each page in `prerenderPages` (`src/entry-server.tsx`) with React Router's static handler and writes `dist/<route>.html` (served by GitHub Pages at `/<route>`), `dist/<route>/index.html` (for directory-only static servers) and a plain `dist/404.html` shell.
 
-In the browser, `src/main.tsx` hydrates that HTML when it belongs to the current URL and the language is Portuguese; otherwise (`?lang=en`, English saved in `localStorage`, the 404 shell) it renders from scratch. To add a page, add its route in `src/routes.tsx`, its path to `prerenderPaths` and its source file to `pageSources` in `scripts/prerender.mjs`. Code that touches `window`/`document` must run inside effects, since pages are also rendered in Node.
+In the browser, `src/main.tsx` hydrates that HTML when it belongs to the current URL and the language is Portuguese; otherwise (`?lang=en`, English saved in `localStorage`, the 404 shell) it renders from scratch. To add a page, add its route in `src/routes.tsx` and its path and source file to `prerenderPages` in `src/entry-server.tsx` (Insights articles are added automatically from `src/content/insights.ts`). Code that touches `window`/`document` must run inside effects, since pages are also rendered in Node.
 
 ---
 

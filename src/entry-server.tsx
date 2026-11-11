@@ -1,11 +1,33 @@
+import { ARTICLES } from '@/content/insights';
 import i18n from '@/i18n';
-import { routes, prerenderPaths } from '@/routes';
+import { caseStudyUrbiEnabled, routes } from '@/routes';
 import ErrorBoundary from '@components/ErrorBoundary';
 import { StrictMode } from 'react';
 import { prerender } from 'react-dom/static';
 import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'react-router-dom';
 
-export { prerenderPaths };
+/**
+ * Pages rendered to static HTML at build time (see scripts/prerender.mjs). `source` is the lazy
+ * page module, so its chunk can be preloaded; Home is in the entry bundle and needs none.
+ * Lives here, not in src/routes.tsx, so the article list stays out of the client bundle.
+ */
+export const prerenderPages: { path: string; source?: string }[] = [
+  { path: '/' },
+  { path: '/about', source: 'src/pages/About.tsx' },
+  { path: '/projects', source: 'src/pages/Projects.tsx' },
+  { path: '/services', source: 'src/pages/Services.tsx' },
+  { path: '/contact', source: 'src/pages/Contact.tsx' },
+  { path: '/insights', source: 'src/pages/Insights.tsx' },
+  // New articles are picked up automatically
+  ...ARTICLES.map(({ slug }) => ({
+    path: `/insights/${slug}`,
+    source: 'src/pages/InsightArticle.tsx',
+  })),
+  { path: '/privacy-policy', source: 'src/pages/PrivacyPolicy.tsx' },
+  ...(caseStudyUrbiEnabled
+    ? [{ path: '/case-studies/urbi', source: 'src/pages/CaseStudyUrbi.tsx' }]
+    : []),
+];
 
 /** Renders one route to HTML at build time, always in Portuguese (the default language). */
 export async function render(path: string) {

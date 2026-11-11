@@ -63,6 +63,7 @@ export default function PageHero({
         // Pre-rendered first load: the text is already painted (and is the LCP), so leave it
         // in place and only draw the underline, which CSS keeps hidden until now
         if (alreadyPainted) {
+          if (!highlights.length) return;
           gsap.fromTo(
             '.highlight-underline path',
             { strokeDasharray: 1, strokeDashoffset: 1 },
