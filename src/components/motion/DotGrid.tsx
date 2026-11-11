@@ -5,6 +5,8 @@ const BASE_RADIUS = 1.1;
 const HOVER_RADIUS = 150;
 const MAX_PUSH = 10;
 const WAVE_BUCKETS = 8;
+/** The ambient wave is slow enough that ~30fps looks the same; full rate only near the pointer. */
+const AMBIENT_FRAME_MS = 32;
 
 /** [r, g, b, base alpha] for idle dots and [r, g, b] for dots near the pointer. */
 const TONES = {
@@ -36,7 +38,8 @@ export default function DotGrid({ className = '', tone = 'light' }: DotGridProps
     let width = 0;
     let height = 0;
     let frame = 0;
-    let visible = true;
+    let visible = false;
+    let lastDraw = 0;
 
     // Idle dots are batched into a few alpha buckets (one fill each) instead of one fill per dot
     const idleStyles = Array.from(
@@ -88,7 +91,8 @@ export default function DotGrid({ className = '', tone = 'light' }: DotGridProps
     };
 
     const resize = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      // Tiny dots gain nothing from a 2x/3x backing store, but cost 2-4x the fill work
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       width = canvas.clientWidth;
       height = canvas.clientHeight;
       canvas.width = width * dpr;
@@ -97,8 +101,20 @@ export default function DotGrid({ className = '', tone = 'light' }: DotGridProps
       if (reduceMotion) draw(0);
     };
 
+    const pointerOver = () =>
+      smooth.x > -HOVER_RADIUS &&
+      smooth.x < width + HOVER_RADIUS &&
+      smooth.y > -HOVER_RADIUS &&
+      smooth.y < height + HOVER_RADIUS;
+
+    // Runs only while the canvas is on screen
     const loop = (time: number) => {
-      if (visible) draw(time);
+      frame = 0;
+      if (!visible) return;
+      if (pointerOver() || time - lastDraw >= AMBIENT_FRAME_MS) {
+        draw(time);
+        lastDraw = time;
+      }
       frame = requestAnimationFrame(loop);
     };
 
@@ -124,11 +140,11 @@ export default function DotGrid({ className = '', tone = 'light' }: DotGridProps
 
     const visibilityObserver = new IntersectionObserver(([entry]) => {
       visible = entry.isIntersecting;
+      if (visible && !frame) frame = requestAnimationFrame(loop);
     });
     visibilityObserver.observe(canvas);
     window.addEventListener('pointermove', onPointerMove, { passive: true });
     document.documentElement.addEventListener('pointerleave', onPointerLeave);
-    frame = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(frame);

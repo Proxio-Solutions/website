@@ -1,4 +1,4 @@
-import potholeStreet from '@/assets/urbi/pothole-street.jpg';
+import potholeStreet from '@/assets/urbi/pothole-street.webp';
 import {
   Armchair,
   Bell,

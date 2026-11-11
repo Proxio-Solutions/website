@@ -1,5 +1,5 @@
-import potholeClose from '@/assets/urbi/pothole-close.jpg';
-import potholeStreet from '@/assets/urbi/pothole-street.jpg';
+import potholeClose from '@/assets/urbi/pothole-close.webp';
+import potholeStreet from '@/assets/urbi/pothole-street.webp';
 import urbiLogo from '@/assets/urbi-logo.svg';
 import {
   Bell,
