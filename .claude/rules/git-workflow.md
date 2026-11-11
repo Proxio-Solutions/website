@@ -36,7 +36,7 @@ docs/git-workflow
 ```
 
 Branches created by Claude Code worktrees (`claude/<random-name>`) are local only: rename them
-before pushing (`git branch -m feat/<slug>`). Never push a branch under any other name.
+before pushing (`git branch -m feat/<slug>`). The `pre-push` hook rejects any other name.
 
 ## Commit messages: Conventional Commits
 
@@ -109,9 +109,21 @@ failure as caused by your change.
 
 ## Enforcement
 
-Nothing enforces this automatically: there are no git hooks, and GitHub has no branch protection
-on this repo. These rules are the only guard, so check the branch and the message before every
-commit, and merge a PR only once its checks are green.
+Git hooks in `.githooks/` are switched on by `npm install` (the `prepare` script sets
+`core.hooksPath`). In a clone that has not run `npm install` since they were added, run
+`git config core.hooksPath .githooks` once.
+
+| Hook         | Rejects                                                               |
+| ------------ | --------------------------------------------------------------------- |
+| `commit-msg` | Messages that are not Conventional Commits, or summaries over 72      |
+| `pre-commit` | Commits made directly on `main` or `dev` (concluding a merge is fine) |
+| `pre-push`   | Pushes to `main` or `dev`, and branch names outside `<type>/<slug>`   |
+
+Messages git writes itself (`Merge …`, `Revert "…"`, `fixup!`, `squash!`) are accepted. Branches
+without `.githooks/` (older than this file) run no hooks.
+
+GitHub does not enforce any of this (no branch protection), so the hooks and these rules are the
+only guard. Merge a PR only once its checks are green.
 
 ## Hard rules for Claude
 
