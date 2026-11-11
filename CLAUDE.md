@@ -59,7 +59,8 @@ src/
 ├── assets/       # Images bundled by Vite
 └── index.css     # Tailwind theme tokens and global styles
 public/           # Copied as-is: CNAME, robots.txt, sitemap.xml, icons, og image
-.github/workflows # deploy.yml: builds and publishes main to GitHub Pages
+.github/workflows # deploy.yml publishes main to GitHub Pages; on PRs, checks.yml (lint, Prettier)
+                  # and lighthouse.yml (build + performance budgets in lighthouserc.json)
 ```
 
 When a change alters this structure, the commands or the stack, update this file in the same PR.
