@@ -234,6 +234,14 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
     }
   };
 
+  /** A plain message carries no brief, so drop any choices made before coming back here. */
+  const skipToMessage = () => {
+    setBrief(EMPTY);
+    setStatus('idle');
+    // Index of "contact" in the full four-step list, which is what an empty brief shows
+    goTo(3);
+  };
+
   const restart = () => {
     setBrief(EMPTY);
     hasMoved.current = false;
@@ -309,7 +317,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                 {step === 'type' && (
                   <button
                     type="button"
-                    onClick={() => goTo(steps.length - 1)}
+                    onClick={skipToMessage}
                     className="text-proxio-text-muted hover:text-proxio-accent text-xs font-medium underline-offset-4 transition-colors hover:underline"
                   >
                     {t(`${b}.nav.skip`)}
@@ -554,7 +562,11 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                   disabled={status === 'sending' || !emailConfigured}
                   className="group bg-proxio-accent hover:bg-proxio-accent-hover flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors disabled:opacity-60"
                 >
-                  {status === 'sending' ? t('contact.form.sending') : t(`${b}.nav.submit`)}
+                  {status === 'sending'
+                    ? t('contact.form.sending')
+                    : brief.type
+                      ? t(`${b}.nav.submit`)
+                      : t('contact.form.submit')}
                   {status !== 'sending' && (
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   )}
