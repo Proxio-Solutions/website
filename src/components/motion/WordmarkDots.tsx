@@ -141,23 +141,45 @@ export default function WordmarkDots({ className = '' }: { className?: string })
       if (!frame) frame = requestAnimationFrame(loop);
     };
 
-    const onPointerMove = (e: PointerEvent) => {
-      const rect = canvas.getBoundingClientRect();
-      pointer.x = e.clientX - rect.left;
-      pointer.y = e.clientY - rect.top;
-      if (smooth.x < -999) {
-        smooth.x = pointer.x;
-        smooth.y = pointer.y;
-      }
-      kick();
-    };
-    const onPointerLeave = () => {
+    // Last pointer position in viewport coordinates, kept so a scroll can re-place it
+    let client: { x: number; y: number } | null = null;
+
+    const clear = () => {
+      if (pointer.x < -999) return;
       pointer.x = -9999;
       pointer.y = -9999;
       smooth.x = -9999;
       smooth.y = -9999;
       kick();
     };
+    /** Maps the last viewport position onto the canvas, or clears it while it is outside. */
+    const place = () => {
+      if (!client) return;
+      const rect = canvas.getBoundingClientRect();
+      const x = client.x - rect.left;
+      const y = client.y - rect.top;
+      if (x < 0 || y < 0 || x > rect.width || y > rect.height) {
+        clear();
+        return;
+      }
+      pointer.x = x;
+      pointer.y = y;
+      if (smooth.x < -999) {
+        smooth.x = x;
+        smooth.y = y;
+      }
+      kick();
+    };
+    const onPointerMove = (e: PointerEvent) => {
+      client = { x: e.clientX, y: e.clientY };
+      place();
+    };
+    const onPointerLeave = () => {
+      client = null;
+      clear();
+    };
+    // Scrolling moves the word under a still pointer without firing pointer events
+    const onScroll = () => place();
 
     const visibilityObserver = new IntersectionObserver(
       ([entry]) => {
@@ -167,13 +189,16 @@ export default function WordmarkDots({ className = '' }: { className?: string })
             revealStart = performance.now();
           }
           if (!reduceMotion) {
-            canvas.addEventListener('pointermove', onPointerMove, { passive: true });
-            canvas.addEventListener('pointerleave', onPointerLeave);
+            window.addEventListener('pointermove', onPointerMove, { passive: true });
+            document.documentElement.addEventListener('pointerleave', onPointerLeave);
+            window.addEventListener('scroll', onScroll, { passive: true });
           }
           kick();
         } else {
-          canvas.removeEventListener('pointermove', onPointerMove);
-          canvas.removeEventListener('pointerleave', onPointerLeave);
+          window.removeEventListener('pointermove', onPointerMove);
+          document.documentElement.removeEventListener('pointerleave', onPointerLeave);
+          window.removeEventListener('scroll', onScroll);
+          clear();
         }
       },
       { threshold: 0.25 },
@@ -196,8 +221,9 @@ export default function WordmarkDots({ className = '' }: { className?: string })
       cancelAnimationFrame(frame);
       resizeObserver.disconnect();
       visibilityObserver.disconnect();
-      canvas.removeEventListener('pointermove', onPointerMove);
-      canvas.removeEventListener('pointerleave', onPointerLeave);
+      window.removeEventListener('pointermove', onPointerMove);
+      document.documentElement.removeEventListener('pointerleave', onPointerLeave);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 
