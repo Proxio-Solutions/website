@@ -13,5 +13,5 @@ export function useLanguageFromUrl() {
     if (lang && SUPPORTED_LANGS.includes(lang) && lang !== i18n.language) {
       i18n.changeLanguage(lang);
     }
-  }, [searchParams]);
+  }, [searchParams, i18n]);
 }

@@ -31,10 +31,13 @@ export default function Navbar() {
     );
   };
 
-  // Close menu on route change
-  useEffect(() => {
+  // A new page closes the menu and starts with the bar in view
+  const [pathname, setPathname] = useState(location.pathname);
+  if (pathname !== location.pathname) {
+    setPathname(location.pathname);
     setIsMenuOpen(false);
-  }, [location.pathname]);
+    setHidden(false);
+  }
 
   // Close menu on outside click
   useEffect(() => {
@@ -75,8 +78,6 @@ export default function Navbar() {
       if (!frame) frame = requestAnimationFrame(update);
     };
 
-    // A new page always starts with the bar in view
-    setHidden(false);
     update();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => {

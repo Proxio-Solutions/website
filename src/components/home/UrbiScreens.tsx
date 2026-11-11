@@ -492,5 +492,3 @@ export function FollowScreen() {
     </PhoneFrame>
   );
 }
-
-export const urbiScreens = [ReportScreen, TriageScreen, FieldScreen, FollowScreen];

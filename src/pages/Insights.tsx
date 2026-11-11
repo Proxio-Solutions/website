@@ -3,7 +3,7 @@ import PageHero from '@components/motion/PageHero';
 import SpotlightCard from '@components/motion/SpotlightCard';
 import Reveal from '@components/Reveal';
 import SEO from '@components/SEO';
-import { ARTICLES, readingMinutes, type Article } from '@/content/insights';
+import { ARTICLES, formatDate, readingMinutes, type Article } from '@/content/insights';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -12,14 +12,6 @@ const heroHighlights: Record<string, string[]> = {
   pt: ['aprendemos'],
   en: ['learn'],
 };
-
-export function formatDate(date: string, language: string) {
-  return new Intl.DateTimeFormat(language === 'en' ? 'en-GB' : 'pt-PT', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  }).format(new Date(`${date}T12:00:00`));
-}
 
 export function ArticleCard({ article }: { article: Article }) {
   const { t, i18n } = useTranslation();

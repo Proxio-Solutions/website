@@ -1,4 +1,5 @@
-import { HighlightUnderline, splitHighlights } from '@components/motion/Highlight';
+import { HighlightUnderline } from '@components/motion/Highlight';
+import { splitHighlights } from '@/lib/highlight';
 import { gsap, motion, MOTION_OK, useGSAP } from '@/lib/gsap';
 import { useMountedFromPrerender } from '@/lib/hydration';
 import { useRef, type ReactNode } from 'react';
