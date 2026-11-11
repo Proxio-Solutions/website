@@ -5,9 +5,7 @@
  */
 
 export type Block =
-  | { type: 'p'; text: string }
-  | { type: 'h2'; text: string }
-  | { type: 'ul'; items: string[] };
+  { type: 'p'; text: string } | { type: 'h2'; text: string } | { type: 'ul'; items: string[] };
 
 export interface ArticleCopy {
   title: string;
