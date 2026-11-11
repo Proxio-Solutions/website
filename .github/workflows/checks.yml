@@ -1,0 +1,36 @@
+name: Checks
+
+# Lint and formatting on every pull request, so they cannot quietly break again. Types and the
+# build already run in the Lighthouse workflow (`npm run build` type-checks first).
+on:
+  pull_request:
+    branches: ['main', 'dev']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Formatting
+        run: npx prettier --check .
