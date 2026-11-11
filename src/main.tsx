@@ -27,6 +27,8 @@ const router = createBrowserRouter([
       { path: '/projects', lazy: page(() => import('@pages/Projects.tsx')) },
       { path: '/services', lazy: page(() => import('@pages/Services.tsx')) },
       { path: '/contact', lazy: page(() => import('@pages/Contact.tsx')) },
+      { path: '/insights', lazy: page(() => import('@pages/Insights.tsx')) },
+      { path: '/insights/:slug', lazy: page(() => import('@pages/InsightArticle.tsx')) },
       { path: '/privacy-policy', lazy: page(() => import('@pages/PrivacyPolicy.tsx')) },
       ...(caseStudyUrbiEnabled
         ? [{ path: '/case-studies/urbi', lazy: page(() => import('@pages/CaseStudyUrbi.tsx')) }]

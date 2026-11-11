@@ -4,6 +4,7 @@
     "about": "About Us",
     "projects": "Projects",
     "services": "Services",
+    "insights": "Insights",
     "contact": "Contact",
     "cta": "Let's Talk",
     "closeMenu": "Close menu",
@@ -866,6 +867,24 @@
     "contact": {
       "title": "Contact & Data Requests",
       "body": "To exercise any of your rights, ask questions about this Privacy Policy, or submit a data request, please contact us at: proxiosolutions@gmail.com. We will respond within 30 days."
+    }
+  },
+  "insights": {
+    "title": "Insights",
+    "hero": {
+      "label": "Insights",
+      "title": "What we learn building software",
+      "subtitle": "Practical notes on digital transformation in local government, and on how to think a product through before building it."
+    },
+    "minutes_one": "{{count}} min read",
+    "minutes_other": "{{count}} min read",
+    "read": "Read article",
+    "back": "All articles",
+    "more": "Keep reading",
+    "cta": {
+      "title": "Facing a similar challenge?",
+      "subtitle": "Tell us what you need. We reply with concrete ideas, not a generic form.",
+      "button": "Get in touch"
     }
   }
 }

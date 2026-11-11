@@ -4,6 +4,7 @@
     "about": "Sobre Nós",
     "projects": "Projetos",
     "services": "Serviços",
+    "insights": "Artigos",
     "contact": "Contactos",
     "cta": "Fala Connosco",
     "closeMenu": "Fechar menu",
@@ -866,6 +867,24 @@
     "contact": {
       "title": "Contacto e Pedidos de Dados",
       "body": "Para exercer qualquer um dos seus direitos, colocar questões sobre esta Política de Privacidade ou submeter um pedido de dados, contacte-nos através de: proxiosolutions@gmail.com. Responderemos no prazo de 30 dias."
+    }
+  },
+  "insights": {
+    "title": "Artigos",
+    "hero": {
+      "label": "Artigos",
+      "title": "O que aprendemos a construir software",
+      "subtitle": "Notas práticas sobre transformação digital nas autarquias e sobre como pensar um produto antes de o construir."
+    },
+    "minutes_one": "{{count}} min de leitura",
+    "minutes_other": "{{count}} min de leitura",
+    "read": "Ler artigo",
+    "back": "Todos os artigos",
+    "more": "Continuar a ler",
+    "cta": {
+      "title": "Tens um desafio parecido?",
+      "subtitle": "Conta-nos o que precisas. Respondemos com ideias concretas, não com um formulário genérico.",
+      "button": "Falar connosco"
     }
   }
 }

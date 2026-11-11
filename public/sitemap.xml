@@ -37,6 +37,30 @@
   </url>
 
   <url>
+    <loc>https://proxiosolutions.com/insights</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/insights/porque-se-perdem-as-ocorrencias</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/insights/avisar-antes-de-perguntarem</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/insights/software-a-medida-por-onde-comecar</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
     <loc>https://proxiosolutions.com/privacy-policy</loc>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
