@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 
 const WORD = 'Proxio';
-const FONT = '"Plus Jakarta Sans", sans-serif';
+const FONT = '"Plus Jakarta Sans Variable", sans-serif';
 const HOVER_RADIUS = 120;
 const MAX_PUSH = 8;
 const REVEAL_MS = 1400;
