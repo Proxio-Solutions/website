@@ -121,7 +121,7 @@ function SubjectIcon({ size = 'md' }: { size?: 'sm' | 'md' }) {
   );
 }
 
-/* 1 — Resident reports: the 3-step wizard (Categoria → Localização → Detalhes), on its last step */
+/* 1 — Resident reports: the 3-step wizard (Localização → Categoria → Detalhes), on its last step */
 export function ReportScreen() {
   const { t } = useTranslation();
   const m = 'home.urbi.mock.report';

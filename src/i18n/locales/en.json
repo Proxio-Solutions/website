@@ -44,7 +44,7 @@
       "steps": {
         "report": {
           "title": "A resident reports it",
-          "desc": "Category, a pin on the map and photos, in three steps. If the same issue was already reported nearby, Urbi suggests supporting it instead of creating another."
+          "desc": "A pin on the map, a category and photos, in three steps. If the same issue was already reported nearby, Urbi suggests supporting it instead of creating another."
         },
         "triage": {
           "title": "The parish triages it",
@@ -74,8 +74,8 @@
         "report": {
           "header": "Report an issue",
           "steps": [
-            "Category",
             "Location",
+            "Category",
             "Details"
           ],
           "subject": "Pothole",

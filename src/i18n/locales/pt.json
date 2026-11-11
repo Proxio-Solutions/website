@@ -44,7 +44,7 @@
       "steps": {
         "report": {
           "title": "O residente reporta",
-          "desc": "Categoria, ponto no mapa e fotografias, em três passos. Se já houver uma ocorrência igual ali perto, o Urbi sugere apoiá-la em vez de criar outra."
+          "desc": "Ponto no mapa, categoria e fotografias, em três passos. Se já houver uma ocorrência igual ali perto, o Urbi sugere apoiá-la em vez de criar outra."
         },
         "triage": {
           "title": "A junta faz a triagem",
@@ -74,8 +74,8 @@
         "report": {
           "header": "Reportar ocorrência",
           "steps": [
-            "Categoria",
             "Localização",
+            "Categoria",
             "Detalhes"
           ],
           "subject": "Buraco na via",
