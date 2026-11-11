@@ -23,14 +23,16 @@ export default function HeroSection() {
     >
       <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
         <Magnetic className="w-full sm:w-auto">
-          <Link viewTransition
+          <Link
+            viewTransition
             to="/contact"
             className="bg-proxio-accent hover:bg-proxio-accent-hover shadow-proxio-accent/30 w-full rounded-lg px-8 py-3.5 text-center text-base font-bold text-white shadow-lg transition-colors"
           >
             {t('home.hero.cta')}
           </Link>
         </Magnetic>
-        <Link viewTransition
+        <Link
+          viewTransition
           to="/projects"
           className="border-proxio-dark-border bg-proxio-darker/70 text-proxio-text-main hover:border-proxio-accent hover:text-proxio-accent group flex w-full items-center justify-center gap-2 rounded-lg border px-8 py-3.5 text-base font-bold backdrop-blur transition-colors sm:w-auto"
         >

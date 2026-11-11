@@ -130,7 +130,8 @@ export default function Projects() {
                     <div className="flex flex-wrap items-center gap-3">
                       {caseStudyUrbiEnabled && (
                         <Magnetic>
-                          <Link viewTransition
+                          <Link
+                            viewTransition
                             to="/case-studies/urbi"
                             className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors"
                           >
@@ -196,7 +197,8 @@ export default function Projects() {
                     {t('projects.next.desc')}
                   </p>
                   <Magnetic>
-                    <Link viewTransition
+                    <Link
+                      viewTransition
                       to="/contact"
                       className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors"
                     >

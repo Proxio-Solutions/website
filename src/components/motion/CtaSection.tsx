@@ -67,7 +67,8 @@ export default function CtaSection({ title, subtitle, primary, secondary }: CtaS
           )}
           <div className="cta-fade mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Magnetic>
-              <Link viewTransition
+              <Link
+                viewTransition
                 to={primary.to}
                 className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex items-center gap-2 rounded-lg px-8 py-3.5 text-base font-bold text-white shadow-lg shadow-blue-600/30 transition-colors"
               >

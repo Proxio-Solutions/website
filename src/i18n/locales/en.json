@@ -74,11 +74,7 @@
         },
         "report": {
           "header": "Report an issue",
-          "steps": [
-            "Location",
-            "Category",
-            "Details"
-          ],
+          "steps": ["Location", "Category", "Details"],
           "subject": "Pothole",
           "area": "Roads and pavements",
           "location": "Rua da Escola, 14",
@@ -101,12 +97,7 @@
             "status": "Status",
             "priority": "Priority"
           },
-          "origins": [
-            "App",
-            "Phone",
-            "Email",
-            "In person"
-          ],
+          "origins": ["App", "Phone", "Email", "In person"],
           "rows": [
             {
               "ref": "OC-2026-0142",
@@ -131,10 +122,7 @@
         },
         "field": {
           "header": "My work",
-          "tabs": [
-            "Active · 3",
-            "Concluded"
-          ],
+          "tabs": ["Active · 3", "Concluded"],
           "ref": "OC-2026-0142",
           "subject": "Pothole",
           "location": "Rua da Escola, 14 · 1.2 km away",
@@ -152,12 +140,7 @@
           "meta": "Rua da Escola, 14 · Roads and pavements",
           "supports": "12 supports",
           "historyTitle": "Status history",
-          "times": [
-            "3 Nov, 09:12",
-            "3 Nov, 11:40",
-            "4 Nov, 08:30",
-            "5 Nov, 16:05"
-          ],
+          "times": ["3 Nov, 09:12", "3 Nov, 11:40", "4 Nov, 08:30", "5 Nov, 16:05"],
           "replyAuthor": "Parish council",
           "reply": "The potholes were filled by the roads team. Thanks for helping look after the parish!",
           "evaluationTitle": "How did it go?",
@@ -222,37 +205,22 @@
           "title": "Report submitted",
           "message": "Report {{ref}} was submitted successfully.",
           "follow": "Progress",
-          "times": [
-            "Now",
-            "Today, 2 hours later",
-            "Tomorrow, 9:30",
-            "3 days later"
-          ],
+          "times": ["Now", "Today, 2 hours later", "Tomorrow, 9:30", "3 days later"],
           "notification": "Report {{ref}} is now “{{status}}”.",
           "restart": "Report another"
         },
         "taxonomy": [
           {
             "name": "Roads and Pavements",
-            "subjects": [
-              "Pothole",
-              "Damaged pavement",
-              "Faded road markings"
-            ]
+            "subjects": ["Pothole", "Damaged pavement", "Faded road markings"]
           },
           {
             "name": "Street Lighting",
-            "subjects": [
-              "Broken / unlit street lamp",
-              "Damaged lamp post"
-            ]
+            "subjects": ["Broken / unlit street lamp", "Damaged lamp post"]
           },
           {
             "name": "Street Cleaning and Waste",
-            "subjects": [
-              "Litter on the street",
-              "Damaged / overflowing bin"
-            ]
+            "subjects": ["Litter on the street", "Damaged / overflowing bin"]
           },
           {
             "name": "Green Spaces",
@@ -264,11 +232,7 @@
           },
           {
             "name": "Drains and Rainwater",
-            "subjects": [
-              "Blocked drain",
-              "Burst pipe or water leak",
-              "Standing water / flooding"
-            ]
+            "subjects": ["Blocked drain", "Burst pipe or water leak", "Standing water / flooding"]
           },
           {
             "name": "Street Furniture",
@@ -369,29 +333,17 @@
       "web": {
         "title": "Web Application Development",
         "desc": "From simple websites to complex SaaS platforms, we build web applications that are fast, reliable, and scalable.",
-        "features": [
-          "Custom UI/UX Design",
-          "REST API's",
-          "Performance Optimization"
-        ]
+        "features": ["Custom UI/UX Design", "REST API's", "Performance Optimization"]
       },
       "mobile": {
         "title": "Mobile App Development",
         "desc": "We develop cross-platform mobile applications, delivering a native experience on both iOS and Android.",
-        "features": [
-          "Custom UI/UX Design",
-          "iOS & Android",
-          "App Store Publishing"
-        ]
+        "features": ["Custom UI/UX Design", "iOS & Android", "App Store Publishing"]
       },
       "consulting": {
         "title": "Technology Consulting",
         "desc": "Not sure which path to take? We help teams make the right technology choices, from architecture reviews to full product strategy.",
-        "features": [
-          "Tech Stack Selection",
-          "Architecture Review",
-          "Product Road-mapping"
-        ]
+        "features": ["Tech Stack Selection", "Architecture Review", "Product Road-mapping"]
       }
     },
     "process": {
@@ -826,11 +778,7 @@
     "dataCollected": {
       "title": "What Data We Collect",
       "body": "We only collect personal data that you voluntarily provide when using our contact form. This may include:",
-      "items": [
-        "Full name",
-        "Email address",
-        "Subject and message content you submit"
-      ]
+      "items": ["Full name", "Email address", "Subject and message content you submit"]
     },
     "usage": {
       "title": "How We Use Your Data",

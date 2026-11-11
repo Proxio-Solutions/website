@@ -36,7 +36,8 @@ export default function ServicesSection() {
             const Illustration = serviceIllustrations[key];
             return (
               <div key={key} className="service-card">
-                <Link viewTransition
+                <Link
+                  viewTransition
                   to="/services"
                   className="card-lift group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6"
                 >

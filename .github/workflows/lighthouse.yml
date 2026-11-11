@@ -8,7 +8,7 @@ name: Lighthouse
 # headroom for runner noise; recalibrate them from CI reports, not local runs.
 on:
   pull_request:
-    branches: ["main", "dev"]
+    branches: ['main', 'dev']
 
 permissions:
   contents: read
@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 24
-          cache: "npm"
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
