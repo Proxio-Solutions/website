@@ -1,0 +1,17 @@
+#!/bin/sh
+# Blocks commits made directly on main or dev: work happens on <type>/<slug> branches and
+# reaches them through PRs. Concluding a merge (MERGE_HEAD present) is allowed.
+# See .claude/rules/git-workflow.md.
+
+branch=$(git symbolic-ref --short -q HEAD)
+
+case "$branch" in
+  main | dev)
+    if git rev-parse -q --verify MERGE_HEAD >/dev/null; then
+      exit 0
+    fi
+    echo "✖ Do not commit directly on '$branch'." >&2
+    echo "  Create a work branch from dev: git switch -c feat/<slug>" >&2
+    exit 1
+    ;;
+esac

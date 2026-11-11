@@ -25,3 +25,8 @@ dist-ssr
 
 # Lighthouse CI reports
 .lighthouseci
+
+# Claude Code: rules and CLAUDE.md are shared; personal settings and worktrees are not
+.claude/settings.local.json
+.claude/worktrees/
+.claude/launch.json

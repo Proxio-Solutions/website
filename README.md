@@ -156,8 +156,11 @@ In the browser, `src/main.tsx` hydrates that HTML when it belongs to the current
 
 ## Contributing
 
-1. Create a branch from `dev`: `git checkout -b feature/feature-name`
-2. Commit your changes with clear and descriptive messages
-3. Open a Pull Request for review before merging
+The full rules are in [`.claude/rules/git-workflow.md`](.claude/rules/git-workflow.md). In short:
+
+1. Branch from `dev`: `git switch dev && git pull && git switch -c feat/<short-slug>`
+   (types: `feat`, `fix`, `perf`, `refactor`, `style`, `docs`, `test`, `build`, `ci`, `chore`)
+2. Commit with [Conventional Commits](https://www.conventionalcommits.org/): `feat(contact): add a project brief`
+3. Open a Pull Request into `dev`; test there, then release with a PR from `dev` into `main`
 
 ---
