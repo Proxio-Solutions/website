@@ -1,7 +1,9 @@
 name: Lighthouse
 
-# Performance budget on every pull request: a new animation or dependency that pushes
-# LCP, blocking time, layout shift or the JS weight past the limits in lighthouserc.json fails the check.
+# Performance budget on every pull request: a new animation or dependency that pushes LCP,
+# layout shift or the JS weight past the limits in lighthouserc.json fails the check.
+# Blocking time and the performance score only warn: on GitHub's shared runners they vary too much
+# between runs of the same code (TBT 360–600 ms on /) to gate a merge.
 on:
   pull_request:
     branches: ["main", "dev"]
