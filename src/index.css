@@ -25,6 +25,15 @@ html {
   color: #ffffff;
 }
 
+/* Pre-rendered HTML, before hydration: keep the hero underline undrawn so GSAP can draw it
+   without a flash (src/lib/hydration.ts removes the attribute once hydrated) */
+@media (prefers-reduced-motion: no-preference) {
+  #root[data-prerendered] .highlight-underline path {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+}
+
 /* Scroll-in animation, driven by the Reveal component */
 .reveal {
   opacity: 0;

@@ -105,7 +105,10 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-proxio-dark-border border-t">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-5 sm:flex-row sm:px-6 lg:px-8">
-          <p className="text-proxio-text-muted text-sm">{t('footer.copyright', { year })}</p>
+          {/* The pre-rendered HTML carries the build year; the client may be in a newer one */}
+          <p className="text-proxio-text-muted text-sm" suppressHydrationWarning>
+            {t('footer.copyright', { year })}
+          </p>
           <Link
             viewTransition
             to="/privacy-policy"

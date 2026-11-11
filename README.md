@@ -90,7 +90,7 @@ The development server will be available at `http://localhost:5173` with Hot Mod
 | Command           | Description                                        |
 | ----------------- | -------------------------------------------------- |
 | `npm run dev`     | Starts the development server                      |
-| `npm run build`   | Compiles TypeScript and generates the production bundle |
+| `npm run build`   | Compiles TypeScript, builds the bundle and pre-renders each route to static HTML |
 | `npm run preview` | Serves the production bundle locally               |
 | `npm run lint`    | Runs ESLint across all files                       |
 
@@ -141,6 +141,16 @@ npm run build
 ```
 
 The generated files are placed in the `dist/` folder and served as a static site. The `CNAME` file defines the custom domain `proxiosolutions.com`.
+
+### Pre-rendering
+
+`npm run build` also renders every route to static HTML (in Portuguese), so the first paint does not wait for the JavaScript bundle:
+
+1. `vite build` produces the client bundle in `dist/`.
+2. `vite build --ssr src/entry-server.tsx` produces a Node build of the same routes (`src/routes.tsx`).
+3. `scripts/prerender.mjs` renders each page in `prerenderPages` (`src/entry-server.tsx`) with React Router's static handler and writes `dist/<route>.html` (served by GitHub Pages at `/<route>`), `dist/<route>/index.html` (for directory-only static servers) and a plain `dist/404.html` shell.
+
+In the browser, `src/main.tsx` hydrates that HTML when it belongs to the current URL and the language is Portuguese; otherwise (`?lang=en`, English saved in `localStorage`, the 404 shell) it renders from scratch. To add a page, add its route in `src/routes.tsx` and its path and source file to `prerenderPages` in `src/entry-server.tsx` (Insights articles are added automatically from `src/content/insights.ts`). Code that touches `window`/`document` must run inside effects, since pages are also rendered in Node.
 
 ---
 

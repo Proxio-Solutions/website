@@ -39,7 +39,7 @@ Personal preferences that are not about this repo belong in Claude's memory, not
 ```bash
 npm install                    # dependencies
 npm run dev                    # Vite dev server
-npm run build                  # tsc -b && vite build (what the deploy runs)
+npm run build                  # type-check, bundle and pre-render every route (what the deploy runs)
 npm run preview                # serve the production build
 npx tsc -b                     # type-check only
 npx prettier --check <files>   # formatting (config in .prettierrc)
@@ -52,7 +52,7 @@ found"); it is not caused by your change.
 
 ```
 src/
-├── pages/        # One component per route; routes are declared in main.tsx
+├── pages/        # One component per route; routes are declared in routes.tsx
 ├── components/   # Shared components (Navbar, Footer, SEO, Reveal, …)
 ├── config/       # Navigation links (menu and footer) and external links
 ├── hooks/        # Custom hooks (language from the ?lang= query)
@@ -68,7 +68,8 @@ When a change alters this structure, the commands or the stack, update this file
 
 ## Conventions
 
-- **Routing:** add a page in `src/pages/` and its route in `src/main.tsx` (before the `*` route).
+- **Routing:** add a page in `src/pages/`, its route in `src/routes.tsx` (before the `*` route)
+  and its path in `prerenderPages` in `src/entry-server.tsx`, so it is rendered to static HTML.
   Public pages also go in `public/sitemap.xml`, and in `src/config/navigation.ts` if they belong
   in the menu and footer.
 - **SEO:** every page renders `<SEO title description />` from `src/components/SEO.tsx`.

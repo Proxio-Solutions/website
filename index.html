@@ -12,8 +12,8 @@
 
     <!--
       Static social-share metadata. Crawlers (WhatsApp, Facebook, LinkedIn, X…)
-      don't run JS, so these defaults must live in the HTML — the SEO component
-      only enhances the tab title and JS-capable consumers.
+      don't run JS, so these defaults must live in the HTML. scripts/prerender.mjs
+      replaces them per route with the SEO component's tags at build time.
     -->
     <meta
       name="description"
