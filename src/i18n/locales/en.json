@@ -386,17 +386,14 @@
       "subtitle": "Whatever brings you here, we're available. Reach out and let's start a conversation."
     },
     "form": {
-      "name": "Full Name",
+      "name": "Name",
       "namePlaceholder": "John Smith",
-      "email": "Email Address",
+      "email": "Email",
       "emailPlaceholder": "john@company.com",
-      "subject": "Subject",
-      "subjectPlaceholder": "Project enquiry",
       "message": "Message",
       "messagePlaceholder": "Tell us about your project, idea, or question...",
-      "submit": "Send Message",
+      "submit": "Send message",
       "sending": "Sending...",
-      "success": "Message sent! We'll get back to you shortly.",
       "error": "Something went wrong. Please try again or email us directly.",
       "sendAnother": "Send another message",
       "notConfigured": "Form not configured. Please contact us directly by email."
@@ -416,11 +413,15 @@
       }
     },
     "brief": {
+      "mode": {
+        "label": "What brings you here?",
+        "project": "I have a project",
+        "question": "I just have a question"
+      },
       "stepOf": "Step {{current}} of {{total}}",
       "steps": {
         "type": "Type",
-        "features": "Features",
-        "timing": "Timing and budget",
+        "details": "The project",
         "contact": "Contact"
       },
       "type": {
@@ -445,9 +446,14 @@
           }
         }
       },
+      "details": {
+        "title": "Tell us about the project",
+        "subtitle": "A few lines are enough. We'll fill in the rest when we talk.",
+        "descriptionLabel": "The idea, in a few words",
+        "descriptionPlaceholder": "E.g. a platform where our customers can follow the requests they send us.",
+        "featuresLabel": "What does it need?"
+      },
       "features": {
-        "title": "What does it need?",
-        "subtitle": "Tick whatever applies. Leaving it all blank is fine.",
         "options": {
           "accounts": {
             "title": "Accounts and sign-in",
@@ -476,8 +482,6 @@
         }
       },
       "timing": {
-        "title": "When, and on what budget?",
-        "subtitle": "It helps us gauge the scale. It's not a commitment.",
         "timelineLabel": "Timeline",
         "budgetLabel": "Expected budget",
         "timeline": {
@@ -501,15 +505,24 @@
         "companyPlaceholder": "Organisation name",
         "optional": "(optional)"
       },
+      "question": {
+        "title": "What's your question?",
+        "subtitle": "Write to us and we'll reply within 24 hours."
+      },
+      "errors": {
+        "type": "Pick the type of project that comes closest.",
+        "description": "Write a sentence or two about the idea.",
+        "timeline": "Pick a timeline, even if it's flexible.",
+        "budget": "Pick a budget range, or “Not sure yet”."
+      },
+      "privacy": "By sending this, you agree to our <link>privacy policy</link>.",
       "nav": {
         "back": "Back",
         "next": "Continue",
-        "noneOfThese": "None of these",
-        "submit": "Send brief",
-        "skip": "I'd rather just write a message →"
+        "submit": "Send request"
       },
       "summary": {
-        "title": "Your brief",
+        "title": "Your request",
         "type": "Type",
         "features": "Features",
         "timeline": "Timeline",
@@ -518,23 +531,25 @@
         "featureCount_other": "{{count}} selected",
         "none": "none",
         "language": "Site language",
-        "empty": "Pick a project type to see an estimated duration.",
         "estimateLabel": "Estimated duration",
         "weeks": "{{min}}–{{max}} weeks",
-        "level": {
-          "1": "Simple",
-          "2": "Medium",
-          "3": "Complex"
-        },
-        "tight": "That's a tight timeline for this. We could start with a smaller first version and grow from there.",
-        "disclaimer": "An indicative estimate based on your choices. We'll confirm once we've talked."
+        "tight": "Note: the requested timeline is short for the chosen scope.",
+        "disclaimer": "None of this is a commitment: we'll go over it all with you when we talk."
+      },
+      "success": "Request received!",
+      "successSub": "Thanks for telling us about your idea.",
+      "questionSuccess": "Message sent!",
+      "questionSuccessSub": "Thank you. We'll reply within 24 hours.",
+      "next": {
+        "title": "What happens next",
+        "step1": "We read your request and reply within 24 hours.",
+        "step2": "We set up a short call to understand the project.",
+        "step3": "We send you a proposal with scope, timeline and cost."
       },
       "email": {
         "subject": "Brief: {{type}} · {{who}}",
         "general": "General message"
-      },
-      "success": "Brief received!",
-      "successSub": "Thank you. We'll reply within 24 hours with a first read and next steps."
+      }
     }
   },
   "projects": {
