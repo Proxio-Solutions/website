@@ -4,14 +4,15 @@ import { setScrollLocked } from '@/lib/smoothScroll';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link, NavLink, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, NavLink } from '@components/LocalizedLink';
+import { languageFromPath, localizePath, stripLanguage } from '@/i18n/paths';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { NAV_LINKS } from '../config/navigation';
 
 const HIDE_AFTER = 160;
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation();
-  const [, setSearchParams] = useSearchParams();
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -19,22 +20,23 @@ export default function Navbar() {
   const progressRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'pt' ? 'en' : 'pt';
-    i18n.changeLanguage(newLang);
-    setSearchParams(
-      (prev) => {
-        prev.set('lang', newLang);
-        return prev;
-      },
-      { replace: true },
-    );
+  // The language switch is a link to this same page in the other language
+  const otherLanguage = languageFromPath(location.pathname) === 'pt' ? 'en' : 'pt';
+  const otherLanguageTo = {
+    pathname: localizePath(stripLanguage(location.pathname), otherLanguage),
+    search: location.search,
+    hash: location.hash,
+  };
+  const languageLinkProps = {
+    to: otherLanguageTo,
+    hrefLang: otherLanguage,
+    'aria-label': t('nav.switchLanguage'),
   };
 
   // A new page closes the menu and starts with the bar in view
-  const [pathname, setPathname] = useState(location.pathname);
-  if (pathname !== location.pathname) {
-    setPathname(location.pathname);
+  const [pathname, setPathname] = useState(stripLanguage(location.pathname));
+  if (pathname !== stripLanguage(location.pathname)) {
+    setPathname(stripLanguage(location.pathname));
     setIsMenuOpen(false);
     setHidden(false);
   }
@@ -141,12 +143,12 @@ export default function Navbar() {
               </Link>
             </Magnetic>
 
-            <button
-              onClick={toggleLanguage}
+            <RouterLink
+              {...languageLinkProps}
               className="text-proxio-text-muted hover:text-proxio-text-main font-mono text-xs font-medium uppercase transition-colors"
             >
-              {i18n.language === 'pt' ? 'EN' : 'PT'}
-            </button>
+              {otherLanguage.toUpperCase()}
+            </RouterLink>
           </div>
 
           {/* Mobile hamburger button */}
@@ -205,15 +207,13 @@ export default function Navbar() {
               {t('nav.cta')}
             </Link>
 
-            <button
-              onClick={() => {
-                toggleLanguage();
-                setIsMenuOpen(false);
-              }}
+            <RouterLink
+              {...languageLinkProps}
+              onClick={() => setIsMenuOpen(false)}
               className="text-proxio-text-muted hover:text-proxio-text-main border-proxio-dark-border rounded-md border px-4 py-3 font-mono text-sm font-medium uppercase transition-colors"
             >
-              {i18n.language === 'pt' ? 'EN' : 'PT'}
-            </button>
+              {otherLanguage.toUpperCase()}
+            </RouterLink>
           </div>
         </div>
       </div>

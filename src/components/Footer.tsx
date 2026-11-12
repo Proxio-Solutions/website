@@ -1,7 +1,7 @@
 import bannerIllustration from '@assets/banner.svg';
 import WordmarkDots from '@components/motion/WordmarkDots';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 import { NAV_LINKS } from '../config/navigation';
 
 const serviceLinks = [

@@ -2,7 +2,7 @@ import Magnetic from '@components/motion/Magnetic';
 import PageHero from '@components/motion/PageHero';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 
 const heroHighlights: Record<string, string[]> = {
   pt: ['Soluções Digitais', 'Diferença'],

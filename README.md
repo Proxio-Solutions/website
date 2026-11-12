@@ -144,13 +144,13 @@ The generated files are placed in the `dist/` folder and served as a static site
 
 ### Pre-rendering
 
-`npm run build` also renders every route to static HTML (in Portuguese), so the first paint does not wait for the JavaScript bundle:
+`npm run build` also renders every route to static HTML, in Portuguese (`/about`) and in English (`/en/about`), so the first paint does not wait for the JavaScript bundle:
 
 1. `vite build` produces the client bundle in `dist/`.
 2. `vite build --ssr src/entry-server.tsx` produces a Node build of the same routes (`src/routes.tsx`).
 3. `scripts/prerender.mjs` renders each page in `prerenderPages` (`src/entry-server.tsx`) with React Router's static handler and writes `dist/<route>.html` (served by GitHub Pages at `/<route>`), `dist/<route>/index.html` (for directory-only static servers) and a plain `dist/404.html` shell.
 
-In the browser, `src/main.tsx` hydrates that HTML when it belongs to the current URL and the language is Portuguese; otherwise (`?lang=en`, English saved in `localStorage`, the 404 shell) it renders from scratch. To add a page, add its route in `src/routes.tsx` and its path and source file to `prerenderPages` in `src/entry-server.tsx` (Insights articles are added automatically from `src/content/insights.ts`). Code that touches `window`/`document` must run inside effects, since pages are also rendered in Node.
+The language is part of the URL (`src/i18n/paths.ts`): English pages live under `/en`, and old `?lang=en` links are moved there on load. In the browser, `src/main.tsx` hydrates the pre-rendered HTML when it belongs to the current URL; otherwise (the 404 shell, a moved `?lang=` link) it renders from scratch. To add a page, add its route in `pages()` in `src/routes.tsx` and its path and source file to `pages` in `src/entry-server.tsx`; it is rendered in both languages (Insights articles are added automatically from `src/content/insights.ts`). Code that touches `window`/`document` must run inside effects, since pages are also rendered in Node.
 
 ---
 

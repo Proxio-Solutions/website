@@ -3,7 +3,7 @@ import DotGrid from '@components/motion/DotGrid';
 import Magnetic from '@components/motion/Magnetic';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 
 export default function NotFound() {
   const { t } = useTranslation();

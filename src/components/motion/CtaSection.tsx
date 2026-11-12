@@ -1,7 +1,7 @@
 import { gsap, motion, MOTION_OK, useGSAP } from '@/lib/gsap';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 import DotGrid from './DotGrid';
 import Magnetic from './Magnetic';
 import SplitWords from './SplitWords';

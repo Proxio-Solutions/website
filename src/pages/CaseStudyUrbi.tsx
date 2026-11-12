@@ -26,7 +26,7 @@ import {
 } from 'lucide-react';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 
 const problemCards = [
   { icon: Shuffle, key: 'card1' },

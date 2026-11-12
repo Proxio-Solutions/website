@@ -6,6 +6,8 @@
  *   vite build --ssr ... dist-ssr/   -> dist-ssr/entry-server.js
  *   node scripts/prerender.mjs       -> dist/<route>.html, dist/<route>/index.html, dist/404.html
  *
+ * Each page is rendered twice: in Portuguese at its path and in English under /en.
+ *
  * The client (src/main.tsx) hydrates this HTML when it matches the URL and language.
  */
 import { mkdir, readFile, rm, writeFile } from 'node:fs/promises';
@@ -55,13 +57,18 @@ const HEAD_TAG = /<title>[\s\S]*?<\/title>|<(?:meta|link)\b[^>]*>/g;
 /** Key a head tag by what it describes, so the page's tag replaces the template's default. */
 function headKey(tag) {
   if (tag.startsWith('<title')) return 'title';
-  const attr = (name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1];
-  if (tag.startsWith('<link')) return attr('rel') === 'canonical' ? 'canonical' : null;
+  // Case-insensitive like HTML itself: React writes `hrefLang`
+  const attr = (name) => tag.match(new RegExp(`\\b${name}="([^"]*)"`, 'i'))?.[1];
+  if (tag.startsWith('<link')) {
+    if (attr('rel') === 'canonical') return 'canonical';
+    if (attr('rel') === 'alternate' && attr('hreflang')) return `alternate:${attr('hreflang')}`;
+    return null;
+  }
   const key = attr('name') ?? attr('property');
   return key ? `meta:${key}` : null;
 }
 
-function buildPage({ path: routePath, source }, appHtml) {
+function buildPage({ path: routePath, lang, source }, appHtml) {
   // React renders the SEO component's <title>/<meta>/<link> inline and hoists them into <head>
   // on the client. Do the same here, replacing the template's site-wide defaults.
   const pageTags = new Map();
@@ -80,6 +87,8 @@ function buildPage({ path: routePath, source }, appHtml) {
     '<div id="root"></div>',
     `<div id="root" data-prerendered="${routePath}">${body}</div>`,
   );
+  // The template is Portuguese; English pages (/en/...) declare their own language
+  html = html.replace(/<html lang="[^"]*">/, `<html lang="${lang}">`);
   // Collapse the blank lines left behind by removed template tags
   return html.replace(/\n(\s*\n)+/g, '\n');
 }

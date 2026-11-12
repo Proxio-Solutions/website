@@ -67,10 +67,14 @@ When a change alters this structure, the commands or the stack, update this file
 
 ## Conventions
 
-- **Routing:** add a page in `src/pages/`, its route in `src/routes.tsx` (before the `*` route)
-  and its path in `prerenderPages` in `src/entry-server.tsx`, so it is rendered to static HTML.
+- **Routing:** add a page in `src/pages/`, its route in `pages()` in `src/routes.tsx` (before the
+  `*` route) and its path in `pages` in `src/entry-server.tsx`, so it is rendered to static HTML.
   Public pages also go in `public/sitemap.xml`, and in `src/config/navigation.ts` if they belong
   in the menu and footer.
+- **Languages in the URL:** Portuguese at `/about`, English at `/en/about` (`src/i18n/paths.ts`).
+  Every route exists in both languages and is pre-rendered in both. Import `Link`/`NavLink` from
+  `@components/LocalizedLink` and write the plain path (`/contact`); it adds `/en` on English
+  pages. In the sitemap, a page has two `<url>` entries linked with `xhtml:link` hreflang.
 - **SEO:** every page renders `<SEO title description />` from `src/components/SEO.tsx`.
 - **Copy:** never hard-code user-facing text; see `.claude/rules/content.md`.
 - **Environment:** only `VITE_`-prefixed variables reach the client; never put secrets in them.
