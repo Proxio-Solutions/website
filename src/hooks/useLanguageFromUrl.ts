@@ -1,17 +1,18 @@
-import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { languageFromPath } from '@/i18n/paths';
+import { useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
-const SUPPORTED_LANGS = ['pt', 'en'];
-
+/**
+ * Keeps i18next on the language of the URL (`/en/...` is English, anything else Portuguese).
+ * main.tsx sets it before the first render; this follows client-side navigation, before paint.
+ */
 export function useLanguageFromUrl() {
-  const [searchParams] = useSearchParams();
+  const { pathname } = useLocation();
   const { i18n } = useTranslation();
+  const language = languageFromPath(pathname);
 
-  useEffect(() => {
-    const lang = searchParams.get('lang');
-    if (lang && SUPPORTED_LANGS.includes(lang) && lang !== i18n.language) {
-      i18n.changeLanguage(lang);
-    }
-  }, [searchParams, i18n]);
+  useLayoutEffect(() => {
+    if (i18n.resolvedLanguage !== language) void i18n.changeLanguage(language);
+  }, [language, i18n]);
 }

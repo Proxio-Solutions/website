@@ -11,7 +11,7 @@ import { getFeaturedProject } from '@/services/projectService';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 
 const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
 

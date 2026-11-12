@@ -8,7 +8,8 @@
     "contact": "Contact",
     "cta": "Let's Talk",
     "closeMenu": "Close menu",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "switchLanguage": "PT, ver em português"
   },
   "home": {
     "hero": {
@@ -557,8 +558,10 @@
     "viewCaseStudy": "Read the case study"
   },
   "notFound": {
+    "label": "Error 404",
     "title": "Page not found",
     "description": "Sorry, we couldn't find the page you're looking for.",
+    "imageAlt": "Illustration of an empty space",
     "backHome": "Go back home"
   },
   "footer": {

@@ -3,7 +3,7 @@ import DotGrid from '@components/motion/DotGrid';
 import Magnetic from '@components/motion/Magnetic';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 
 export default function NotFound() {
   const { t } = useTranslation();
@@ -16,7 +16,8 @@ export default function NotFound() {
 
       <div className="relative flex flex-col items-center text-center">
         <p className="text-proxio-accent font-mono text-sm font-medium tracking-[0.2em] uppercase">
-          <span className="opacity-60">// </span>Erro 404
+          <span className="opacity-60">// </span>
+          {t('notFound.label')}
         </p>
 
         <h1 className="text-proxio-text-main mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
@@ -25,7 +26,7 @@ export default function NotFound() {
 
         <img
           src={voidIllustration}
-          alt="Página não encontrada - Void"
+          alt={t('notFound.imageAlt')}
           className="float my-8 w-44 opacity-95 md:w-48 lg:w-60"
         />
 

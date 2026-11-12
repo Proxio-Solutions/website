@@ -7,7 +7,8 @@
         "http://localhost:4318/",
         "http://localhost:4318/services",
         "http://localhost:4318/projects",
-        "http://localhost:4318/contact"
+        "http://localhost:4318/contact",
+        "http://localhost:4318/en"
       ],
       "numberOfRuns": 3
     },

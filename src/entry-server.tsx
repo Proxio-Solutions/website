@@ -1,5 +1,6 @@
 import { ARTICLES } from '@/content/insights';
 import i18n from '@/i18n';
+import { LANGUAGES, languageFromPath, localizePath, type Language } from '@/i18n/paths';
 import { caseStudyUrbiEnabled, routes } from '@/routes';
 import ErrorBoundary from '@components/ErrorBoundary';
 import { StrictMode } from 'react';
@@ -7,11 +8,12 @@ import { prerender } from 'react-dom/static';
 import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'react-router-dom';
 
 /**
- * Pages rendered to static HTML at build time (see scripts/prerender.mjs). `source` is the lazy
- * page module, so its chunk can be preloaded; Home is in the entry bundle and needs none.
- * Lives here, not in src/routes.tsx, so the article list stays out of the client bundle.
+ * Pages rendered to static HTML at build time (see scripts/prerender.mjs), by their Portuguese
+ * path. `source` is the lazy page module, so its chunk can be preloaded; Home is in the entry
+ * bundle and needs none. Lives here, not in src/routes.tsx, so the article list stays out of the
+ * client bundle.
  */
-export const prerenderPages: { path: string; source?: string }[] = [
+const pages: { path: string; source?: string }[] = [
   { path: '/' },
   { path: '/about', source: 'src/pages/About.tsx' },
   { path: '/projects', source: 'src/pages/Projects.tsx' },
@@ -29,9 +31,15 @@ export const prerenderPages: { path: string; source?: string }[] = [
     : []),
 ];
 
-/** Renders one route to HTML at build time, always in Portuguese (the default language). */
+/** Every page once per language: `/about` in Portuguese and `/en/about` in English. */
+export const prerenderPages: { path: string; lang: Language; source?: string }[] =
+  LANGUAGES.flatMap((lang) =>
+    pages.map((page) => ({ ...page, path: localizePath(page.path, lang), lang })),
+  );
+
+/** Renders one route to HTML at build time, in the language of its path. */
 export async function render(path: string) {
-  await i18n.changeLanguage('pt');
+  await i18n.changeLanguage(languageFromPath(path));
 
   const handler = createStaticHandler(routes);
   const context = await handler.query(new Request(`https://proxiosolutions.com${path}`));

@@ -2,6 +2,7 @@ import Footer from '@components/Footer';
 import PageTransition from '@components/motion/PageTransition';
 import Navbar from '@components/Navbar';
 import ScrollToHash from '@components/ScrollToHash';
+import { stripLanguage } from '@/i18n/paths';
 import { useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useLanguageFromUrl } from './hooks/useLanguageFromUrl';
@@ -22,7 +23,8 @@ export default function App() {
       <Navbar />
 
       <div className="flex flex-1 flex-col">
-        <PageTransition key={pathname}>
+        {/* Switching language keeps the page in place: only a new page plays the transition */}
+        <PageTransition key={stripLanguage(pathname)}>
           <Outlet />
         </PageTransition>
       </div>

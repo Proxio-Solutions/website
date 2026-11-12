@@ -1,67 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Every page in Portuguese and in English (/en), linked to each other with hreflang -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://proxiosolutions.com/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
+
+  <url>
+    <loc>https://proxiosolutions.com/en</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
   <url>
     <loc>https://proxiosolutions.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/about</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/about"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/about"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/services</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/services"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/services</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/services"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/services"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/services"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/contact</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/contact"/>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/projects</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/projects"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/projects"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/projects</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/projects"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/projects"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/projects"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/case-studies/urbi</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/case-studies/urbi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/case-studies/urbi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/case-studies/urbi"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/case-studies/urbi</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/case-studies/urbi"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/case-studies/urbi"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/case-studies/urbi"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/insights</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/insights"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/insights"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/insights"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/insights</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/insights"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/insights"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/insights"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/insights/porque-se-perdem-as-ocorrencias</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/insights/porque-se-perdem-as-ocorrencias"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/insights/porque-se-perdem-as-ocorrencias"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/insights/porque-se-perdem-as-ocorrencias"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/insights/porque-se-perdem-as-ocorrencias</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/insights/porque-se-perdem-as-ocorrencias"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/insights/porque-se-perdem-as-ocorrencias"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/insights/porque-se-perdem-as-ocorrencias"/>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/insights/avisar-antes-de-perguntarem</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/insights/avisar-antes-de-perguntarem"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/insights/avisar-antes-de-perguntarem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/insights/avisar-antes-de-perguntarem"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/insights/avisar-antes-de-perguntarem</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/insights/avisar-antes-de-perguntarem"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/insights/avisar-antes-de-perguntarem"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/insights/avisar-antes-de-perguntarem"/>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/insights/software-a-medida-por-onde-comecar</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/insights/software-a-medida-por-onde-comecar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/insights/software-a-medida-por-onde-comecar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/insights/software-a-medida-por-onde-comecar"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/insights/software-a-medida-por-onde-comecar</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/insights/software-a-medida-por-onde-comecar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/insights/software-a-medida-por-onde-comecar"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/insights/software-a-medida-por-onde-comecar"/>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://proxiosolutions.com/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/privacy-policy"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://proxiosolutions.com/en/privacy-policy</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://proxiosolutions.com/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://proxiosolutions.com/en/privacy-policy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://proxiosolutions.com/privacy-policy"/>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

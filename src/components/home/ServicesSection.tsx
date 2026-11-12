@@ -2,7 +2,7 @@ import { gsap, MOTION_OK, useGSAP } from '@/lib/gsap';
 import { ArrowRight } from 'lucide-react';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 import SectionHeader from '@components/motion/SectionHeader';
 import { revealServiceCards, serviceIllustrations } from './serviceCards';
 

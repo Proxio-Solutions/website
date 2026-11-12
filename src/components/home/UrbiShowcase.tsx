@@ -3,7 +3,7 @@ import { scrollToTarget } from '@/lib/smoothScroll';
 import { ArrowRight, Check, MousePointer2 } from 'lucide-react';
 import { lazy, Suspense, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
 import CountUp from '@components/motion/CountUp';
 import SectionLabel from '@components/motion/SectionLabel';
 import { FieldScreen, FollowScreen, ReportScreen, TriageScreen } from './UrbiScreens';

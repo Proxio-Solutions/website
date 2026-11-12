@@ -5,7 +5,8 @@ import SEO from '@components/SEO';
 import { ARTICLES, formatDate, getArticle, readingMinutes, type Block } from '@/content/insights';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from '@components/LocalizedLink';
+import { useParams } from 'react-router-dom';
 import { ArticleCard } from './Insights';
 import NotFound from './NotFound';
 
