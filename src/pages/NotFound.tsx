@@ -10,6 +10,9 @@ export default function NotFound() {
 
   return (
     <main className="relative flex grow flex-col items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
+      {/* Not the SEO component: a missing page has no canonical URL or other-language twin */}
+      <title>{`${t('notFound.title')} | Proxio Solutions`}</title>
+      <meta name="robots" content="noindex" />
       <div className="hero-mask pointer-events-none absolute inset-0" aria-hidden="true">
         <DotGrid />
       </div>

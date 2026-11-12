@@ -100,8 +100,15 @@ async function write(file, html) {
 }
 
 // The 404 page stays the plain client shell: GitHub Pages serves it for any unknown URL,
-// so it must not carry another route's markup
-await writeFile(path.join(dist, '404.html'), template);
+// so it must not carry another route's markup, nor the home page's canonical URL
+await writeFile(
+  path.join(dist, '404.html'),
+  template
+    .replace(HEAD_TAG, (tag) =>
+      ['canonical', 'meta:og:url'].includes(headKey(tag.replace(/\s+/g, ' '))) ? '' : tag,
+    )
+    .replace(/\n(\s*\n)+/g, '\n'),
+);
 
 for (const page of prerenderPages) {
   const routePath = page.path;
