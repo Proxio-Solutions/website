@@ -390,17 +390,14 @@
       "subtitle": "Seja qual for o motivo, estamos disponíveis. Entra em contacto e começamos uma conversa."
     },
     "form": {
-      "name": "Nome Completo",
+      "name": "Nome",
       "namePlaceholder": "João Silva",
-      "email": "Endereço de Email",
+      "email": "Email",
       "emailPlaceholder": "joao@empresa.com",
-      "subject": "Assunto",
-      "subjectPlaceholder": "Pedido de projeto",
       "message": "Mensagem",
       "messagePlaceholder": "Fala-nos do teu projeto, ideia ou questão...",
-      "submit": "Enviar Mensagem",
+      "submit": "Enviar mensagem",
       "sending": "A enviar...",
-      "success": "Mensagem enviada! Responderemos em breve.",
       "error": "Algo correu mal. Tenta novamente ou envia-nos um email diretamente.",
       "sendAnother": "Enviar outra mensagem",
       "notConfigured": "Formulário não configurado. Contacta-nos diretamente por email."
@@ -420,11 +417,15 @@
       }
     },
     "brief": {
+      "mode": {
+        "label": "O que te traz cá?",
+        "project": "Tenho um projeto",
+        "question": "Só quero fazer uma pergunta"
+      },
       "stepOf": "Passo {{current}} de {{total}}",
       "steps": {
         "type": "Tipo",
-        "features": "Funcionalidades",
-        "timing": "Prazo e orçamento",
+        "details": "O projeto",
         "contact": "Contacto"
       },
       "type": {
@@ -449,9 +450,14 @@
           }
         }
       },
+      "details": {
+        "title": "Fala-nos do projeto",
+        "subtitle": "Umas linhas chegam. Afinamos o resto na conversa.",
+        "descriptionLabel": "A ideia, em poucas palavras",
+        "descriptionPlaceholder": "Ex.: uma plataforma onde os nossos clientes acompanham os pedidos que nos fazem.",
+        "featuresLabel": "O que precisa de ter?"
+      },
       "features": {
-        "title": "O que precisa de ter?",
-        "subtitle": "Marca o que se aplica. Podes não marcar nada.",
         "options": {
           "accounts": {
             "title": "Contas e autenticação",
@@ -480,8 +486,6 @@
         }
       },
       "timing": {
-        "title": "Para quando, e com que orçamento?",
-        "subtitle": "Serve para percebermos a escala. Não é um compromisso.",
         "timelineLabel": "Prazo",
         "budgetLabel": "Orçamento previsto",
         "timeline": {
@@ -505,15 +509,24 @@
         "companyPlaceholder": "Nome da organização",
         "optional": "(opcional)"
       },
+      "question": {
+        "title": "Qual é a tua pergunta?",
+        "subtitle": "Escreve-nos e respondemos em 24 horas."
+      },
+      "errors": {
+        "type": "Escolhe o tipo de projeto que está mais perto.",
+        "description": "Escreve uma ou duas frases sobre a ideia.",
+        "timeline": "Escolhe um prazo, mesmo que seja flexível.",
+        "budget": "Escolhe uma faixa de orçamento, ou «Ainda não sei»."
+      },
+      "privacy": "Ao enviar, aceitas a nossa <link>política de privacidade</link>.",
       "nav": {
         "back": "Voltar",
         "next": "Continuar",
-        "noneOfThese": "Nenhuma destas",
-        "submit": "Enviar brief",
-        "skip": "Prefiro só escrever uma mensagem →"
+        "submit": "Enviar pedido"
       },
       "summary": {
-        "title": "O teu brief",
+        "title": "O teu pedido",
         "type": "Tipo",
         "features": "Funcionalidades",
         "timeline": "Prazo",
@@ -522,23 +535,25 @@
         "featureCount_other": "{{count}} selecionadas",
         "none": "nenhuma",
         "language": "Idioma do site",
-        "empty": "Escolhe o tipo de projeto para veres uma estimativa de duração.",
         "estimateLabel": "Duração estimada",
         "weeks": "{{min}}–{{max}} semanas",
-        "level": {
-          "1": "Simples",
-          "2": "Médio",
-          "3": "Complexo"
-        },
-        "tight": "O prazo é curto para isto. Podemos começar por uma primeira versão mais pequena e crescer a partir daí.",
-        "disclaimer": "Estimativa indicativa, calculada a partir das tuas escolhas. Confirmamos depois de falarmos."
+        "tight": "Atenção: o prazo pedido é curto para o âmbito escolhido.",
+        "disclaimer": "Nada disto é um compromisso: revemos tudo contigo na conversa."
+      },
+      "success": "Pedido recebido!",
+      "successSub": "Obrigado por nos contares a tua ideia.",
+      "questionSuccess": "Mensagem enviada!",
+      "questionSuccessSub": "Obrigado. Respondemos em 24 horas.",
+      "next": {
+        "title": "O que acontece a seguir",
+        "step1": "Lemos o teu pedido e respondemos em 24 horas.",
+        "step2": "Marcamos uma conversa curta para perceber o projeto.",
+        "step3": "Enviamos-te uma proposta com âmbito, prazos e custos."
       },
       "email": {
         "subject": "Brief: {{type}} · {{who}}",
         "general": "Mensagem geral"
-      },
-      "success": "Brief recebido!",
-      "successSub": "Obrigado. Respondemos em 24 horas com uma primeira leitura e os próximos passos."
+      }
     }
   },
   "projects": {
