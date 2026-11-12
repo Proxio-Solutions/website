@@ -31,11 +31,23 @@ const pages: { path: string; source?: string }[] = [
     : []),
 ];
 
-/** Every page once per language: `/about` in Portuguese and `/en/about` in English. */
-export const prerenderPages: { path: string; lang: Language; source?: string }[] =
-  LANGUAGES.flatMap((lang) =>
-    pages.map((page) => ({ ...page, path: localizePath(page.path, lang), lang })),
-  );
+/**
+ * Every page once per language: `/about` in Portuguese and `/en/about` in English.
+ * `alternates` is the same page in each language, for the sitemap's hreflang links.
+ */
+export const prerenderPages: {
+  path: string;
+  lang: Language;
+  alternates: Record<Language, string>;
+  source?: string;
+}[] = LANGUAGES.flatMap((lang) =>
+  pages.map((page) => ({
+    ...page,
+    path: localizePath(page.path, lang),
+    lang,
+    alternates: { pt: localizePath(page.path, 'pt'), en: localizePath(page.path, 'en') },
+  })),
+);
 
 /** Renders one route to HTML at build time, in the language of its path. */
 export async function render(path: string) {

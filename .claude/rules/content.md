@@ -36,7 +36,5 @@ Rules for anything a visitor reads on the site. They apply to new and changed co
 ## Articles (Insights)
 
 - One entry in `src/content/insights.ts` per article, with `pt` and `en` copy. The list page,
-  the article page and the reading time derive from it.
-- Add the article to `public/sitemap.xml` in both languages (`/insights/<slug>` and
-  `/en/insights/<slug>`, linked with hreflang like the other pages).
+  the article page, the reading time and the sitemap entries (both languages) derive from it.
 - Articles are drafts until the team has read them; say so when you add one.
