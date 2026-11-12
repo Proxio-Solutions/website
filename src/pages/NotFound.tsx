@@ -16,7 +16,8 @@ export default function NotFound() {
 
       <div className="relative flex flex-col items-center text-center">
         <p className="text-proxio-accent font-mono text-sm font-medium tracking-[0.2em] uppercase">
-          <span className="opacity-60">// </span>Erro 404
+          <span className="opacity-60">// </span>
+          {t('notFound.label')}
         </p>
 
         <h1 className="text-proxio-text-main mt-2 text-4xl font-extrabold tracking-tight sm:text-5xl">
@@ -25,7 +26,7 @@ export default function NotFound() {
 
         <img
           src={voidIllustration}
-          alt="Página não encontrada - Void"
+          alt={t('notFound.imageAlt')}
           className="float my-8 w-44 opacity-95 md:w-48 lg:w-60"
         />
 

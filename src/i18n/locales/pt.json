@@ -562,8 +562,10 @@
     "viewCaseStudy": "Ver caso de estudo"
   },
   "notFound": {
+    "label": "Erro 404",
     "title": "Página não encontrada",
-    "description": "Desculpe, não conseguimos encontrar a página que procura.",
+    "description": "Desculpa, não encontrámos a página que procuras.",
+    "imageAlt": "Ilustração de um espaço vazio",
     "backHome": "Voltar ao início"
   },
   "footer": {
