@@ -15,6 +15,7 @@ export interface ArticleCopy {
 }
 
 export interface Article {
+  /** URL segment, the same in both languages: English, lowercase, kebab-case (see .claude/rules/urls.md). */
   slug: string;
   /** ISO date (YYYY-MM-DD). */
   date: string;
@@ -24,7 +25,7 @@ export interface Article {
 
 export const ARTICLES: Article[] = [
   {
-    slug: 'porque-se-perdem-as-ocorrencias',
+    slug: 'why-reports-get-lost',
     date: '2026-11-11',
     pt: {
       tag: 'Autarquias',
@@ -126,7 +127,7 @@ export const ARTICLES: Article[] = [
     },
   },
   {
-    slug: 'avisar-antes-de-perguntarem',
+    slug: 'tell-residents-before-they-ask',
     date: '2026-11-11',
     pt: {
       tag: 'Autarquias',
@@ -218,7 +219,7 @@ export const ARTICLES: Article[] = [
     },
   },
   {
-    slug: 'software-a-medida-por-onde-comecar',
+    slug: 'custom-software-before-a-quote',
     date: '2026-11-11',
     pt: {
       tag: 'Produto',

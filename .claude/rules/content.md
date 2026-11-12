@@ -37,4 +37,5 @@ Rules for anything a visitor reads on the site. They apply to new and changed co
 
 - One entry in `src/content/insights.ts` per article, with `pt` and `en` copy. The list page,
   the article page, the reading time and the sitemap entries (both languages) derive from it.
+- The `slug` is English in both languages, from the English title (see `.claude/rules/urls.md`).
 - Articles are drafts until the team has read them; say so when you add one.

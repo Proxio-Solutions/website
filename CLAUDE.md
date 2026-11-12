@@ -17,9 +17,11 @@ loaded into every session through the imports below.
 | ------------------------------- | ------------------------------------------------------------------------------------------ |
 | `.claude/rules/git-workflow.md` | Branches (`main` ← `dev` ← `<type>/<slug>`), Conventional Commits, PR flow, git hard rules |
 | `.claude/rules/content.md`      | Copy, translations, confidentiality, no invented social proof, articles                    |
+| `.claude/rules/urls.md`         | URL paths, slugs and anchors always in English; changing live URLs                         |
 
 @.claude/rules/git-workflow.md
 @.claude/rules/content.md
+@.claude/rules/urls.md
 
 ### Adding and changing rules
 
