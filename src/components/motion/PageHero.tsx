@@ -72,29 +72,35 @@ export default function PageHero({
           );
           return;
         }
-        gsap
-          .timeline({ defaults: { ease: motion.ease.expo } })
-          .from('.hero-fade-top', {
+        // Only tween what this hero renders: an empty selector makes GSAP warn
+        const tl = gsap.timeline({ defaults: { ease: motion.ease.expo } });
+        if (badge || label) {
+          tl.from('.hero-fade-top', {
             y: motion.distance.sm,
             opacity: 0,
             duration: motion.duration.normal,
-          })
-          .from(
-            '.hero-word',
-            { yPercent: 115, duration: motion.duration.slow, stagger: motion.stagger.normal },
-            '<0.1',
-          )
-          .fromTo(
+          });
+        }
+        tl.from(
+          '.hero-word',
+          { yPercent: 115, duration: motion.duration.slow, stagger: motion.stagger.normal },
+          '<0.1',
+        );
+        if (highlights.length) {
+          tl.fromTo(
             '.highlight-underline path',
             { strokeDasharray: 1, strokeDashoffset: 1 },
             drawUnderline,
             '-=0.4',
-          )
-          .from(
+          );
+        }
+        if (subtitle || children) {
+          tl.from(
             '.hero-fade',
             { y: 24, opacity: 0, duration: motion.duration.normal, stagger: motion.stagger.loose },
             '<0.1',
           );
+        }
       });
     },
     { scope: root },
