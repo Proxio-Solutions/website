@@ -6,7 +6,8 @@
  *   vite build --ssr ... dist-ssr/   -> dist-ssr/entry-server.js
  *   node scripts/prerender.mjs       -> dist/<route>.html, dist/<route>/index.html, dist/404.html
  *
- * Each page is rendered twice: in Portuguese at its path and in English under /en.
+ * Each page is rendered twice: in Portuguese at its path and in English under /en. The same
+ * list produces dist/sitemap.xml.
  *
  * The client (src/main.tsx) hydrates this HTML when it matches the URL and language.
  */
@@ -115,6 +116,32 @@ for (const page of prerenderPages) {
   }
   console.log(`prerendered ${routePath}`);
 }
+
+// The sitemap lists exactly the pages built above (new articles and feature flags included),
+// each with its other-language twin as an hreflang alternate
+const SITE = 'https://proxiosolutions.com';
+const sitemapEntry = ({ path: routePath, alternates }) =>
+  [
+    '  <url>',
+    `    <loc>${SITE}${routePath}</loc>`,
+    ...Object.entries(alternates).map(
+      ([lang, href]) =>
+        `    <xhtml:link rel="alternate" hreflang="${lang}" href="${SITE}${href}"/>`,
+    ),
+    `    <xhtml:link rel="alternate" hreflang="x-default" href="${SITE}${alternates.pt}"/>`,
+    '  </url>',
+  ].join('\n');
+await writeFile(
+  path.join(dist, 'sitemap.xml'),
+  [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    ...prerenderPages.map(sitemapEntry),
+    '</urlset>',
+    '',
+  ].join('\n'),
+);
+console.log(`sitemap: ${prerenderPages.length} URLs`);
 
 await rm(ssrDir, { recursive: true, force: true });
 await rm(path.join(dist, '.vite'), { recursive: true, force: true });
