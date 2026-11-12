@@ -20,7 +20,12 @@ const heroHighlights: Record<string, string[]> = {
 export default function Contact() {
   const { t, i18n } = useTranslation();
   const infoCards = [
-    { icon: Mail, label: t('contact.info.email.label'), value: t('contact.info.email.value') },
+    {
+      icon: Mail,
+      label: t('contact.info.email.label'),
+      value: t('contact.info.email.value'),
+      href: `mailto:${t('contact.info.email.value')}`,
+    },
     {
       icon: MapPin,
       label: t('contact.info.location.label'),
@@ -49,7 +54,7 @@ export default function Contact() {
         <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
           <Reveal>
             <ProjectBrief
-              aside={infoCards.map(({ icon: Icon, label, value }) => (
+              aside={infoCards.map(({ icon: Icon, label, value, href }) => (
                 <SpotlightCard
                   key={label}
                   className="group bg-proxio-dark border-proxio-dark-border rounded-2xl border p-6"
@@ -62,7 +67,18 @@ export default function Contact() {
                       {label}
                     </span>
                   </div>
-                  <p className="text-proxio-text-main font-semibold break-words">{value}</p>
+                  <p className="text-proxio-text-main font-semibold break-words">
+                    {href ? (
+                      <a
+                        href={href}
+                        className="hover:text-proxio-accent underline-offset-4 transition-colors hover:underline"
+                      >
+                        {value}
+                      </a>
+                    ) : (
+                      value
+                    )}
+                  </p>
                 </SpotlightCard>
               ))}
             />
