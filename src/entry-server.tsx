@@ -13,17 +13,25 @@ import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'r
  * bundle and needs none. Lives here, not in src/routes.tsx, so the article list stays out of the
  * client bundle.
  */
-const pages: { path: string; source?: string }[] = [
+const pages: { path: string; source?: string; lastmod?: string }[] = [
   { path: '/' },
   { path: '/about', source: 'src/pages/About.tsx' },
   { path: '/projects', source: 'src/pages/Projects.tsx' },
   { path: '/services', source: 'src/pages/Services.tsx' },
   { path: '/contact', source: 'src/pages/Contact.tsx' },
-  { path: '/insights', source: 'src/pages/Insights.tsx' },
+  {
+    path: '/insights',
+    source: 'src/pages/Insights.tsx',
+    // The list changes whenever an article does
+    lastmod: ARTICLES.map(({ date, updated }) => updated ?? date)
+      .sort()
+      .at(-1),
+  },
   // New articles are picked up automatically
-  ...ARTICLES.map(({ slug }) => ({
+  ...ARTICLES.map(({ slug, date, updated }) => ({
     path: `/insights/${slug}`,
     source: 'src/pages/InsightArticle.tsx',
+    lastmod: updated ?? date,
   })),
   { path: '/privacy-policy', source: 'src/pages/PrivacyPolicy.tsx' },
   ...(caseStudyUrbiEnabled
@@ -40,6 +48,8 @@ export const prerenderPages: {
   lang: Language;
   alternates: Record<Language, string>;
   source?: string;
+  /** ISO date of the last content change, only where it is known (articles); for the sitemap. */
+  lastmod?: string;
 }[] = LANGUAGES.flatMap((lang) =>
   pages.map((page) => ({
     ...page,
