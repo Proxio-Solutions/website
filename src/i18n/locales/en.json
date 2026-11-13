@@ -859,13 +859,13 @@
   },
   "insights": {
     "seo": {
-      "title": "Articles on local government and custom software"
+      "title": "Articles on product and software"
     },
     "title": "Insights",
     "hero": {
       "label": "Insights",
       "title": "What we learn building software",
-      "subtitle": "Practical notes on digital transformation in local government, and on how to think a product through before building it."
+      "subtitle": "Notes on how to think through, design and build digital products."
     },
     "minutes_one": "{{count}} min read",
     "minutes_other": "{{count}} min read",

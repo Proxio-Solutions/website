@@ -867,13 +867,13 @@
   },
   "insights": {
     "seo": {
-      "title": "Artigos sobre autarquias e software à medida"
+      "title": "Artigos sobre produto e software"
     },
     "title": "Artigos",
     "hero": {
       "label": "Artigos",
       "title": "O que aprendemos a construir software",
-      "subtitle": "Notas práticas sobre transformação digital nas autarquias e sobre como pensar um produto antes de o construir."
+      "subtitle": "Notas sobre como pensar, desenhar e construir produtos digitais."
     },
     "minutes_one": "{{count}} min de leitura",
     "minutes_other": "{{count}} min de leitura",
