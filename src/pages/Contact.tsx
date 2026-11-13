@@ -40,7 +40,7 @@ export default function Contact() {
 
   return (
     <>
-      <SEO title={t('contact.title')} description={t('contact.hero.subtitle')} />
+      <SEO title={t('contact.seo.title')} description={t('contact.seo.description')} />
 
       <main>
         <PageHero
