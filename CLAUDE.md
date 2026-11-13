@@ -54,7 +54,7 @@ npx prettier --check .         # formatting (config in .prettierrc); the whole r
 src/
 ├── pages/        # One component per route; routes are declared in routes.tsx
 ├── components/   # Shared components (Navbar, Footer, SEO, Reveal, …)
-├── config/       # Navigation links (menu and footer) and external links
+├── config/       # Navigation links (menu and footer), external links and feature flags
 ├── hooks/        # Custom hooks (language from the ?lang= query)
 ├── i18n/         # i18next setup and locales/pt.json, locales/en.json
 ├── services/     # Static data for projects and team

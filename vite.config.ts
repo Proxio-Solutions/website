@@ -2,6 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { ARTICLES } from './src/content/insights';
 
 /**
  * Pages arrive pre-rendered, so the JS only hydrates what is already on screen. Fetching it at
@@ -24,6 +25,9 @@ function lowPriorityScripts(): Plugin {
 export default defineConfig({
   plugins: [react(), tailwindcss(), tsconfigPaths(), lowPriorityScripts()],
   base: '/',
+  // The Articles section shows only once there is an article. Decided here, at build time, so
+  // the menu and the router know without pulling the articles into the main bundle.
+  define: { __INSIGHTS_ENABLED__: JSON.stringify(ARTICLES.length > 0) },
   // The manifest lets scripts/prerender.mjs preload each page's lazy chunk (deleted after use)
   build: { manifest: true },
 });

@@ -19,20 +19,25 @@ const pages: { path: string; source?: string; lastmod?: string }[] = [
   { path: '/projects', source: 'src/pages/Projects.tsx' },
   { path: '/services', source: 'src/pages/Services.tsx' },
   { path: '/contact', source: 'src/pages/Contact.tsx' },
-  {
-    path: '/insights',
-    source: 'src/pages/Insights.tsx',
-    // The list changes whenever an article does
-    lastmod: ARTICLES.map(({ date, updated }) => updated ?? date)
-      .sort()
-      .at(-1),
-  },
-  // New articles are picked up automatically
-  ...ARTICLES.map(({ slug, date, updated }) => ({
-    path: `/insights/${slug}`,
-    source: 'src/pages/InsightArticle.tsx',
-    lastmod: updated ?? date,
-  })),
+  // Only once there is an article (the same rule hides the menu link and the route)
+  ...(ARTICLES.length > 0
+    ? [
+        {
+          path: '/insights',
+          source: 'src/pages/Insights.tsx',
+          // The list changes whenever an article does
+          lastmod: ARTICLES.map(({ date, updated }) => updated ?? date)
+            .sort()
+            .at(-1),
+        },
+        // New articles are picked up automatically
+        ...ARTICLES.map(({ slug, date, updated }) => ({
+          path: `/insights/${slug}`,
+          source: 'src/pages/InsightArticle.tsx',
+          lastmod: updated ?? date,
+        })),
+      ]
+    : []),
   { path: '/privacy-policy', source: 'src/pages/PrivacyPolicy.tsx' },
   ...(caseStudyUrbiEnabled
     ? [{ path: '/case-studies/urbi', source: 'src/pages/CaseStudyUrbi.tsx' }]
