@@ -12,6 +12,10 @@
     "switchLanguage": "PT, ver em português"
   },
   "home": {
+    "seo": {
+      "title": "Proxio Solutions | Software studio",
+      "description": "Proxio Solutions is a software studio. From idea to launch, we design and build web and mobile apps that solve real problems."
+    },
     "hero": {
       "badge": "Hi, we're Proxio 👋",
       "title": "We Create Digital Solutions That Make a Difference",

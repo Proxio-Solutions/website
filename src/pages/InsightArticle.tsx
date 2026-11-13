@@ -1,7 +1,8 @@
 import CtaSection from '@components/motion/CtaSection';
 import PageHero from '@components/motion/PageHero';
 import Reveal from '@components/Reveal';
-import SEO from '@components/SEO';
+import SEO, { BASE_URL, SITE_NAME } from '@components/SEO';
+import { localizePath } from '@/i18n/paths';
 import { ARTICLES, formatDate, getArticle, readingMinutes, type Block } from '@/content/insights';
 import { ArrowLeft } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -55,9 +56,9 @@ export default function InsightArticle() {
     description: copy.excerpt,
     datePublished: article.date,
     inLanguage: lang === 'en' ? 'en' : 'pt-PT',
-    author: { '@type': 'Organization', name: 'Proxio Solutions' },
-    publisher: { '@type': 'Organization', name: 'Proxio Solutions' },
-    mainEntityOfPage: `https://proxiosolutions.com/insights/${article.slug}`,
+    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: SITE_NAME },
+    publisher: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: SITE_NAME },
+    mainEntityOfPage: `${BASE_URL}${localizePath(`/insights/${article.slug}`, lang)}`,
   };
 
   return (
