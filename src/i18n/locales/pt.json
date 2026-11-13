@@ -12,6 +12,10 @@
     "switchLanguage": "EN, ver em inglês"
   },
   "home": {
+    "seo": {
+      "title": "Proxio Solutions | Estúdio de software",
+      "description": "A Proxio Solutions é um estúdio de software. Da ideia à entrega, desenhamos e desenvolvemos aplicações web e móveis que resolvem problemas reais."
+    },
     "hero": {
       "badge": "Olá, somos a Proxio 👋",
       "title": "Criamos Soluções Digitais que Fazem a Diferença",
