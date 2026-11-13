@@ -277,6 +277,10 @@
     }
   },
   "about": {
+    "seo": {
+      "title": "Sobre nós: estúdio de software",
+      "description": "Somos um estúdio de software. Criamos produtos digitais apelativos, intuitivos e sustentáveis, que fazem uma diferença real na vida das pessoas."
+    },
     "title": "Sobre Nós",
     "description": "Somos uma equipa apaixonada por transformar ideias complexas em soluções digitais de excelência, impulsionando o futuro do teu negócio.",
     "mission": {
@@ -331,6 +335,10 @@
     }
   },
   "services": {
+    "seo": {
+      "title": "Desenvolvimento web, mobile e software à medida",
+      "description": "Desenhamos, desenvolvemos e fazemos evoluir aplicações web e móveis e software à medida, a pensar em quem os vai usar."
+    },
     "title": "Os Nossos Serviços",
     "description": "Desenhamos, desenvolvemos e escalamos produtos tecnológicos à medida das tuas necessidades, com foco na performance e inovação.",
     "hero": {
@@ -386,6 +394,10 @@
     }
   },
   "contact": {
+    "seo": {
+      "title": "Contacto: pede um orçamento ou faz uma pergunta",
+      "description": "Conta-nos o teu projeto e recebe uma proposta, ou faz-nos só uma pergunta. Respondemos em 24 horas."
+    },
     "title": "Fala Connosco",
     "description": "Tens uma questão, um projeto ou simplesmente queres saber mais sobre o nosso trabalho? Estamos disponíveis e adorávamos ouvir-te.",
     "hero": {
@@ -561,6 +573,9 @@
     }
   },
   "projects": {
+    "seo": {
+      "title": "Projetos: o que estamos a construir"
+    },
     "title": "Projetos",
     "headline": "Da Ideia ao Produto",
     "description": "Não construímos software por construir, resolvemos problemas reais. Conhece o que estamos a criar e o que está a tomar forma.",
@@ -791,6 +806,9 @@
     }
   },
   "privacyPolicy": {
+    "seo": {
+      "description": "Como a Proxio Solutions recolhe, usa e protege os dados pessoais que nos envias através deste site."
+    },
     "title": "Política de Privacidade",
     "lastUpdated": "Última atualização: março de 2026",
     "intro": {
@@ -848,6 +866,9 @@
     }
   },
   "insights": {
+    "seo": {
+      "title": "Artigos sobre autarquias e software à medida"
+    },
     "title": "Artigos",
     "hero": {
       "label": "Artigos",

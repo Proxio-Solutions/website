@@ -53,7 +53,7 @@ export default function Insights() {
 
   return (
     <>
-      <SEO title={t('insights.title')} description={t('insights.hero.subtitle')} />
+      <SEO title={t('insights.seo.title')} description={t('insights.hero.subtitle')} />
 
       <main>
         <PageHero

@@ -76,7 +76,7 @@ export default function Projects() {
 
   return (
     <>
-      <SEO title={t('projects.title')} description={t('projects.description')} />
+      <SEO title={t('projects.seo.title')} description={t('projects.description')} />
 
       <main>
         <PageHero

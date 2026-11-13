@@ -38,7 +38,7 @@ export default function About() {
 
   return (
     <>
-      <SEO title={t('about.title')} description={t('about.mission.desc')} />
+      <SEO title={t('about.seo.title')} description={t('about.seo.description')} />
 
       <main>
         {/* Mission */}

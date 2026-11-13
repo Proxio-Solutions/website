@@ -42,7 +42,7 @@ export default function Services() {
 
   return (
     <>
-      <SEO title={t('services.title')} description={t('services.hero.subtitle')} />
+      <SEO title={t('services.seo.title')} description={t('services.seo.description')} />
 
       <main>
         <PageHero

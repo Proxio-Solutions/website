@@ -273,6 +273,10 @@
     }
   },
   "about": {
+    "seo": {
+      "title": "About us: a software studio",
+      "description": "We're a software studio. We build digital products that are appealing, intuitive and sustainable, and make a real difference in people's lives."
+    },
     "title": "About Us",
     "description": "We are a passionate team dedicated to transforming complex ideas into digital excellence, driving the future of your business.",
     "mission": {
@@ -327,6 +331,10 @@
     }
   },
   "services": {
+    "seo": {
+      "title": "Web, mobile and custom software development",
+      "description": "We design, build and evolve web and mobile apps and custom software, with the people who will use them in mind."
+    },
     "title": "Our Services",
     "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation.",
     "hero": {
@@ -382,6 +390,10 @@
     }
   },
   "contact": {
+    "seo": {
+      "title": "Contact: request a quote or ask a question",
+      "description": "Tell us about your project and get a proposal, or just ask us a question. We reply within 24 hours."
+    },
     "title": "Contact Us",
     "description": "Have a question, a project, or just want to learn more about what we do? We're here and we'd love to hear from you.",
     "hero": {
@@ -557,6 +569,9 @@
     }
   },
   "projects": {
+    "seo": {
+      "title": "Projects: what we're building"
+    },
     "title": "Projects",
     "headline": "From Idea to Product",
     "description": "We don't build software for the sake of it, we solve real problems. Discover what we're creating and what's taking shape.",
@@ -787,6 +802,9 @@
     }
   },
   "privacyPolicy": {
+    "seo": {
+      "description": "How Proxio Solutions collects, uses and protects the personal data you send us through this site."
+    },
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: March 2026",
     "intro": {
@@ -840,6 +858,9 @@
     }
   },
   "insights": {
+    "seo": {
+      "title": "Articles on local government and custom software"
+    },
     "title": "Insights",
     "hero": {
       "label": "Insights",

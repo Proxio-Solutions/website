@@ -127,10 +127,12 @@ for (const page of prerenderPages) {
 // The sitemap lists exactly the pages built above (new articles and feature flags included),
 // each with its other-language twin as an hreflang alternate
 const SITE = 'https://proxiosolutions.com';
-const sitemapEntry = ({ path: routePath, alternates }) =>
+const sitemapEntry = ({ path: routePath, alternates, lastmod }) =>
   [
     '  <url>',
     `    <loc>${SITE}${routePath}</loc>`,
+    // Only where the date is known: a guessed lastmod teaches search engines to ignore it
+    ...(lastmod ? [`    <lastmod>${lastmod}</lastmod>`] : []),
     ...Object.entries(alternates).map(
       ([lang, href]) =>
         `    <xhtml:link rel="alternate" hreflang="${lang}" href="${SITE}${href}"/>`,
