@@ -10,7 +10,7 @@ import { useLocation } from 'react-router-dom';
 
 export const BASE_URL = 'https://proxiosolutions.com';
 export const SITE_NAME = 'Proxio Solutions';
-const OG_IMAGE = `${BASE_URL}/og-image.png`;
+export const OG_IMAGE = `${BASE_URL}/og-image.png`;
 const OG_LOCALE: Record<Language, string> = { pt: 'pt_PT', en: 'en_GB' };
 
 interface SEOProps {

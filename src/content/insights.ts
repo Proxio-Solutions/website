@@ -17,8 +17,10 @@ export interface ArticleCopy {
 export interface Article {
   /** URL segment, the same in both languages: English, lowercase, kebab-case (see .claude/rules/urls.md). */
   slug: string;
-  /** ISO date (YYYY-MM-DD). */
+  /** ISO date (YYYY-MM-DD) of publication. */
   date: string;
+  /** ISO date of the last meaningful edit, when there has been one; feeds dateModified and the sitemap. */
+  updated?: string;
   pt: ArticleCopy;
   en: ArticleCopy;
 }

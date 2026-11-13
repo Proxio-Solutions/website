@@ -1,7 +1,7 @@
 import CtaSection from '@components/motion/CtaSection';
 import PageHero from '@components/motion/PageHero';
 import Reveal from '@components/Reveal';
-import SEO, { BASE_URL, SITE_NAME } from '@components/SEO';
+import SEO, { BASE_URL, OG_IMAGE, SITE_NAME } from '@components/SEO';
 import { localizePath } from '@/i18n/paths';
 import { ARTICLES, formatDate, getArticle, readingMinutes, type Block } from '@/content/insights';
 import { ArrowLeft } from 'lucide-react';
@@ -49,16 +49,44 @@ export default function InsightArticle() {
   const copy = article[lang];
   const others = ARTICLES.filter((other) => other.slug !== article.slug).slice(0, 2);
 
+  const pageUrl = (path: string) => `${BASE_URL}${localizePath(path, lang)}`;
+  const articleUrl = pageUrl(`/insights/${article.slug}`);
+  const organization = {
+    '@type': 'Organization',
+    '@id': `${BASE_URL}/#organization`,
+    name: SITE_NAME,
+  };
+
+  // The article itself, plus the Home › Insights › article trail that search results can show
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: copy.title,
-    description: copy.excerpt,
-    datePublished: article.date,
-    inLanguage: lang === 'en' ? 'en' : 'pt-PT',
-    author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: SITE_NAME },
-    publisher: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: SITE_NAME },
-    mainEntityOfPage: `${BASE_URL}${localizePath(`/insights/${article.slug}`, lang)}`,
+    '@graph': [
+      {
+        '@type': 'Article',
+        headline: copy.title,
+        description: copy.excerpt,
+        image: OG_IMAGE,
+        datePublished: article.date,
+        dateModified: article.updated ?? article.date,
+        inLanguage: lang === 'en' ? 'en' : 'pt-PT',
+        author: organization,
+        publisher: { ...organization, logo: `${BASE_URL}/web-app-manifest-512x512.png` },
+        mainEntityOfPage: articleUrl,
+      },
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: t('nav.home'), item: pageUrl('/') },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: t('insights.title'),
+            item: pageUrl('/insights'),
+          },
+          { '@type': 'ListItem', position: 3, name: copy.title, item: articleUrl },
+        ],
+      },
+    ],
   };
 
   return (
