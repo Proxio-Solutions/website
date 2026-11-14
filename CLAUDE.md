@@ -13,11 +13,11 @@ static site to GitHub Pages from `main`. See `README.md` for setup and environme
 The rules live in `.claude/rules/`, one file per topic. They are as binding as this file and are
 loaded into every session through the imports below.
 
-| File                            | Covers                                                                                     |
-| ------------------------------- | ------------------------------------------------------------------------------------------ |
-| `.claude/rules/git-workflow.md` | Branches (`main` ← `dev` ← `<type>/<slug>`), Conventional Commits, PR flow, git hard rules |
-| `.claude/rules/content.md`      | Copy, translations, confidentiality, no invented social proof, articles                    |
-| `.claude/rules/urls.md`         | URL paths, slugs and anchors always in English; changing live URLs                         |
+| File                            | Covers                                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `.claude/rules/git-workflow.md` | Branches (`main` ← `staging` ← `dev` ← `<type>/<slug>`), Conventional Commits, PR flow, git hard rules |
+| `.claude/rules/content.md`      | Copy, translations, confidentiality, no invented social proof, articles                                |
+| `.claude/rules/urls.md`         | URL paths, slugs and anchors always in English; changing live URLs                                     |
 
 @.claude/rules/git-workflow.md
 @.claude/rules/content.md
