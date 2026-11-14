@@ -4,7 +4,7 @@ name: Checks
 # build already run in the Lighthouse workflow (`npm run build` type-checks first).
 on:
   pull_request:
-    branches: ['main', 'dev']
+    branches: ['main', 'staging', 'dev']
 
 permissions:
   contents: read
