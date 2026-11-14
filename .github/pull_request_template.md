@@ -1,5 +1,5 @@
 <!-- Title: a Conventional Commit, e.g. "feat(insights): add an articles section".
-     Target: dev (a release is dev → main). See .claude/rules/git-workflow.md -->
+     Target: dev (then dev → staging; the release is staging → main). See .claude/rules/git-workflow.md -->
 
 ## Summary
 
