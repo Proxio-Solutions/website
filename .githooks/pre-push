@@ -1,5 +1,5 @@
 #!/bin/sh
-# Blocks pushes to main and dev (they change only through PRs) and branch names outside
+# Blocks pushes to main, staging and dev (they change only through PRs) and branch names outside
 # <type>/<slug>. Deleting a remote branch is allowed. See .claude/rules/git-workflow.md.
 
 zero=0000000000000000000000000000000000000000
@@ -14,7 +14,7 @@ while read -r local_ref local_sha remote_ref remote_sha; do
   esac
 
   case "$branch" in
-    main | dev)
+    main | staging | dev)
       echo "✖ Do not push to '$branch'. Open a PR instead." >&2
       status=1
       ;;
