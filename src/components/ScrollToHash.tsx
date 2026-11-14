@@ -1,21 +1,26 @@
+import { stripLanguage } from '@/i18n/paths';
+import { scrollToTarget } from '@/lib/smoothScroll';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 export default function ScrollToHash() {
-  const { hash, pathname } = useLocation();
+  const { hash, pathname: fullPathname } = useLocation();
+  // Switching language (`/about` <-> `/en/about`) keeps the reader where they were
+  const pathname = stripLanguage(fullPathname);
 
   useEffect(() => {
     if (!hash) {
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      scrollToTarget(0, { immediate: true });
       return;
     }
     const id = hash.replace('#', '');
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      scrollToTarget(el);
     } else {
       const timer = setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        const late = document.getElementById(id);
+        if (late) scrollToTarget(late);
       }, 100);
       return () => clearTimeout(timer);
     }

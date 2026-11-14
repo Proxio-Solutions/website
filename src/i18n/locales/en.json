@@ -4,12 +4,18 @@
     "about": "About Us",
     "projects": "Projects",
     "services": "Services",
+    "insights": "Insights",
     "contact": "Contact",
     "cta": "Let's Talk",
     "closeMenu": "Close menu",
-    "openMenu": "Open menu"
+    "openMenu": "Open menu",
+    "switchLanguage": "PT, ver em português"
   },
   "home": {
+    "seo": {
+      "title": "Proxio Solutions | Software studio",
+      "description": "Proxio Solutions is a software studio. From idea to launch, we design and build web and mobile apps that solve real problems."
+    },
     "hero": {
       "badge": "Hi, we're Proxio 👋",
       "title": "We Create Digital Solutions That Make a Difference",
@@ -32,11 +38,217 @@
       "consulting": {
         "title": "Tech Consulting",
         "desc": "Strategic technology guidance to help your business make the right decisions and move faster."
-      }
+      },
+      "cta": "Learn more"
     },
     "featured": {
       "label": "Featured Project",
       "title": "See What We're Building"
+    },
+    "urbi": {
+      "scrollHint": "Scroll to follow one issue from start to finish",
+      "steps": {
+        "report": {
+          "title": "A resident reports it",
+          "desc": "A pin on the map, a category and photos, in three steps. If the same issue was already reported nearby, Urbi suggests supporting it instead of creating another."
+        },
+        "triage": {
+          "title": "The parish triages it",
+          "desc": "App, phone, email or front desk: everything lands in the same list. The parish rules out duplicates, sets the priority and moves the issue into analysis."
+        },
+        "field": {
+          "title": "The team fixes it on site",
+          "desc": "The job reaches the team's phone with its location, deadline and work sheet. The proof of resolution goes back to the parish for validation."
+        },
+        "follow": {
+          "title": "The resident follows and rates it",
+          "desc": "Every status change is logged and sent as a notification. At the end, whoever reported or supported it rates whether the problem was really solved."
+        }
+      },
+      "mock": {
+        "status": {
+          "submitted": "Submitted",
+          "inAnalysis": "In analysis",
+          "inProgress": "In progress",
+          "concluded": "Concluded"
+        },
+        "priority": {
+          "high": "High",
+          "medium": "Medium",
+          "low": "Low"
+        },
+        "report": {
+          "header": "Report an issue",
+          "steps": ["Location", "Category", "Details"],
+          "subject": "Pothole",
+          "area": "Roads and pavements",
+          "location": "Rua da Escola, 14",
+          "duplicateTitle": "A similar issue was reported nearby",
+          "duplicateRef": "OC-2026-0139",
+          "duplicateMeta": "40 m away · 6 supports",
+          "support": "Support it",
+          "photos": "Photos",
+          "description": "Two potholes by the parking spaces. When it rains they fill up and you can't see them.",
+          "back": "Back",
+          "submit": "Submit"
+        },
+        "triage": {
+          "url": "urbi.proxiosolutions.com/manage/occurrences",
+          "title": "Issues",
+          "subtitle": "Manage the status, priority and assignment of each one.",
+          "columns": {
+            "subject": "Subject",
+            "origin": "Origin",
+            "status": "Status",
+            "priority": "Priority"
+          },
+          "origins": ["App", "Phone", "Email", "In person"],
+          "rows": [
+            {
+              "ref": "OC-2026-0142",
+              "subject": "Pothole"
+            },
+            {
+              "ref": "OC-2026-0141",
+              "subject": "Street light out"
+            },
+            {
+              "ref": "OC-2026-0138",
+              "subject": "Overflowing bin"
+            },
+            {
+              "ref": "OC-2026-0135",
+              "subject": "Tree at risk of falling"
+            }
+          ],
+          "duplicateBadge": "Possible duplicate",
+          "priorityLabel": "Priority",
+          "advance": "Move to analysis"
+        },
+        "field": {
+          "header": "My work",
+          "tabs": ["Active · 3", "Concluded"],
+          "ref": "OC-2026-0142",
+          "subject": "Pothole",
+          "location": "Rua da Escola, 14 · 1.2 km away",
+          "deadline": "Deadline: tomorrow",
+          "notes": "Notes",
+          "workSheet": "Work sheet",
+          "workSheetStatus": "Submitted",
+          "proofTitle": "Proof of resolution",
+          "proofHint": "Photograph the site after the job. The parish validates it before closing.",
+          "submitProof": "Submit proof"
+        },
+        "follow": {
+          "header": "OC-2026-0142",
+          "subject": "Pothole",
+          "meta": "Rua da Escola, 14 · Roads and pavements",
+          "supports": "12 supports",
+          "historyTitle": "Status history",
+          "times": ["3 Nov, 09:12", "3 Nov, 11:40", "4 Nov, 08:30", "5 Nov, 16:05"],
+          "replyAuthor": "Parish council",
+          "reply": "The potholes were filled by the roads team. Thanks for helping look after the parish!",
+          "evaluationTitle": "How did it go?",
+          "evaluationBody": "Your answer helps the parish understand what worked.",
+          "evaluationCta": "Rate the resolution"
+        }
+      },
+      "demo": {
+        "label": "Try it",
+        "title": "Report an issue, as a resident would",
+        "text": "A simulation of the app's real wizard: drop a pin on the map, pick a category and describe the problem. Then see what the resident receives while the parish council handles it.",
+        "points": [
+          "The same categories a parish council gets by default",
+          "Every report gets a reference and a status",
+          "Residents are notified at every change, without having to ask"
+        ],
+        "note": "Simulation: nothing is sent to any parish council.",
+        "header": "Report an issue",
+        "steps": {
+          "location": "Location",
+          "category": "Category",
+          "details": "Details"
+        },
+        "questions": {
+          "location": "Tell us where the issue is",
+          "category": "What kind of problem are you reporting?",
+          "details": "Describe the situation and add photos"
+        },
+        "location": {
+          "mapLabel": "Map: tap or use the arrow keys to move the pin",
+          "tapHint": "Tap the map to move the pin",
+          "hint": "Place the pin on the exact spot and confirm to fill in the address.",
+          "confirm": "Confirm position",
+          "resolving": "Looking up the address…",
+          "confirmed": "Position confirmed",
+          "addresses": [
+            "Rua das Flores, 21",
+            "Rua da Escola, 14",
+            "Travessa do Rio, 3",
+            "Avenida Central, 120"
+          ]
+        },
+        "category": {
+          "backToAreas": "Back to areas",
+          "subjectCount_one": "{{count}} subject",
+          "subjectCount_other": "{{count}} subjects"
+        },
+        "details": {
+          "descriptionLabel": "Description",
+          "descriptionPlaceholder": "Describe the issue in as much detail as you can",
+          "photos": "Photos",
+          "photosHint": "Up to 6 photos. JPG or PNG.",
+          "addPhoto": "Add photo",
+          "removePhoto": "Remove photo"
+        },
+        "nav": {
+          "back": "Back",
+          "next": "Next",
+          "submit": "Submit"
+        },
+        "done": {
+          "title": "Report submitted",
+          "message": "Report {{ref}} was submitted successfully.",
+          "follow": "Progress",
+          "times": ["Now", "Today, 2 hours later", "Tomorrow, 9:30", "3 days later"],
+          "notification": "Report {{ref}} is now “{{status}}”.",
+          "restart": "Report another"
+        },
+        "taxonomy": [
+          {
+            "name": "Roads and Pavements",
+            "subjects": ["Pothole", "Damaged pavement", "Faded road markings"]
+          },
+          {
+            "name": "Street Lighting",
+            "subjects": ["Broken / unlit street lamp", "Damaged lamp post"]
+          },
+          {
+            "name": "Street Cleaning and Waste",
+            "subjects": ["Litter on the street", "Damaged / overflowing bin"]
+          },
+          {
+            "name": "Green Spaces",
+            "subjects": [
+              "Tree at risk of falling",
+              "Tree pruning / upkeep",
+              "Overgrown grass / weeds"
+            ]
+          },
+          {
+            "name": "Drains and Rainwater",
+            "subjects": ["Blocked drain", "Burst pipe or water leak", "Standing water / flooding"]
+          },
+          {
+            "name": "Street Furniture",
+            "subjects": [
+              "Damaged bench or litter bin",
+              "Damaged bus shelter",
+              "Damaged playground equipment"
+            ]
+          }
+        ]
+      }
     },
     "values": {
       "label": "Our Principles",
@@ -61,6 +273,10 @@
     }
   },
   "about": {
+    "seo": {
+      "title": "About us: a software studio",
+      "description": "We're a software studio. We build digital products that are appealing, intuitive and sustainable, and make a real difference in people's lives."
+    },
     "title": "About Us",
     "description": "We are a passionate team dedicated to transforming complex ideas into digital excellence, driving the future of your business.",
     "mission": {
@@ -115,6 +331,10 @@
     }
   },
   "services": {
+    "seo": {
+      "title": "Web, mobile and custom software development",
+      "description": "We design, build and evolve web and mobile apps and custom software, with the people who will use them in mind."
+    },
     "title": "Our Services",
     "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation.",
     "hero": {
@@ -170,6 +390,10 @@
     }
   },
   "contact": {
+    "seo": {
+      "title": "Contact: request a quote or ask a question",
+      "description": "Tell us about your project and get a proposal, or just ask us a question. We reply within 24 hours."
+    },
     "title": "Contact Us",
     "description": "Have a question, a project, or just want to learn more about what we do? We're here and we'd love to hear from you.",
     "hero": {
@@ -178,17 +402,14 @@
       "subtitle": "Whatever brings you here, we're available. Reach out and let's start a conversation."
     },
     "form": {
-      "name": "Full Name",
+      "name": "Name",
       "namePlaceholder": "John Smith",
-      "email": "Email Address",
+      "email": "Email",
       "emailPlaceholder": "john@company.com",
-      "subject": "Subject",
-      "subjectPlaceholder": "Project enquiry",
       "message": "Message",
       "messagePlaceholder": "Tell us about your project, idea, or question...",
-      "submit": "Send Message",
+      "submit": "Send message",
       "sending": "Sending...",
-      "success": "Message sent! We'll get back to you shortly.",
       "error": "Something went wrong. Please try again or email us directly.",
       "sendAnother": "Send another message",
       "notConfigured": "Form not configured. Please contact us directly by email."
@@ -206,9 +427,151 @@
         "label": "Response Time",
         "value": "Within 24 hours"
       }
+    },
+    "brief": {
+      "mode": {
+        "label": "What brings you here?",
+        "project": "I have a project",
+        "question": "I just have a question"
+      },
+      "stepOf": "Step {{current}} of {{total}}",
+      "steps": {
+        "type": "Type",
+        "details": "The project",
+        "contact": "Contact"
+      },
+      "type": {
+        "title": "What do you want to build?",
+        "subtitle": "Pick the closest match. We'll fine-tune the rest when we talk.",
+        "options": {
+          "website": {
+            "title": "Website or landing page",
+            "desc": "Company presence, a campaign or a product showcase."
+          },
+          "webapp": {
+            "title": "Web app or platform",
+            "desc": "Customer area, back office, SaaS or an internal tool."
+          },
+          "mobile": {
+            "title": "Mobile app",
+            "desc": "iOS and Android, with or without a web platform behind it."
+          },
+          "consulting": {
+            "title": "Consulting or other",
+            "desc": "Technical audit, architecture or an idea still taking shape."
+          }
+        }
+      },
+      "details": {
+        "title": "Tell us about the project",
+        "subtitle": "A few lines are enough. We'll fill in the rest when we talk.",
+        "descriptionLabel": "The idea, in a few words",
+        "descriptionPlaceholder": "E.g. a platform where our customers can follow the requests they send us.",
+        "featuresLabel": "What does it need?"
+      },
+      "features": {
+        "options": {
+          "accounts": {
+            "title": "Accounts and sign-in",
+            "desc": "Sign-up, login and profiles with permissions."
+          },
+          "payments": {
+            "title": "Payments",
+            "desc": "Checkout, subscriptions or invoicing."
+          },
+          "backoffice": {
+            "title": "Admin panel",
+            "desc": "A back office to manage content, orders or users."
+          },
+          "integrations": {
+            "title": "Integrations",
+            "desc": "Connecting to ERP, CRM, APIs or systems you already use."
+          },
+          "multilang": {
+            "title": "Multiple languages",
+            "desc": "Content and interface in more than one language."
+          },
+          "design": {
+            "title": "Design from scratch",
+            "desc": "Identity and interface designed from the ground up."
+          }
+        }
+      },
+      "timing": {
+        "timelineLabel": "Timeline",
+        "budgetLabel": "Expected budget",
+        "timeline": {
+          "urgent": "Under 1 month",
+          "short": "1 to 3 months",
+          "medium": "3 to 6 months",
+          "flexible": "Flexible"
+        },
+        "budget": {
+          "lt5": "Up to €5k",
+          "from5to15": "€5k–15k",
+          "from15to40": "€15k–40k",
+          "gt40": "Over €40k",
+          "unsure": "Not sure yet"
+        }
+      },
+      "contact": {
+        "title": "How do we reach you?",
+        "subtitle": "We reply within 24 hours with concrete next steps.",
+        "company": "Company or organisation",
+        "companyPlaceholder": "Organisation name",
+        "optional": "(optional)"
+      },
+      "question": {
+        "title": "What's your question?",
+        "subtitle": "Write to us and we'll reply within 24 hours."
+      },
+      "errors": {
+        "type": "Pick the type of project that comes closest.",
+        "description": "Write a sentence or two about the idea.",
+        "timeline": "Pick a timeline, even if it's flexible.",
+        "budget": "Pick a budget range, or “Not sure yet”."
+      },
+      "privacy": "By sending this, you agree to our <link>privacy policy</link>.",
+      "nav": {
+        "back": "Back",
+        "next": "Continue",
+        "submit": "Send request"
+      },
+      "summary": {
+        "title": "Your request",
+        "type": "Type",
+        "features": "Features",
+        "timeline": "Timeline",
+        "budget": "Budget",
+        "featureCount_one": "{{count}} selected",
+        "featureCount_other": "{{count}} selected",
+        "none": "none",
+        "language": "Site language",
+        "estimateLabel": "Estimated duration",
+        "weeks": "{{min}}–{{max}} weeks",
+        "tight": "Note: the requested timeline is short for the chosen scope.",
+        "disclaimer": "None of this is a commitment: we'll go over it all with you when we talk."
+      },
+      "success": "Request received!",
+      "successSub": "Thanks for telling us about your idea.",
+      "questionSuccess": "Message sent!",
+      "questionSuccessSub": "Thank you. We'll reply within 24 hours.",
+      "next": {
+        "title": "What happens next",
+        "step1": "We read your request and reply within 24 hours.",
+        "step2": "We set up a short call to understand the project.",
+        "step3": "We send you a proposal with scope, timeline and cost."
+      },
+      "email": {
+        "subject": "Brief: {{type}} · {{who}}",
+        "general": "General message"
+      }
     }
   },
   "projects": {
+    "seo": {
+      "title": "Projects: what we're building"
+    },
     "title": "Projects",
     "headline": "From Idea to Product",
     "description": "We don't build software for the sake of it, we solve real problems. Discover what we're creating and what's taking shape.",
@@ -229,8 +592,10 @@
     "viewCaseStudy": "Read the case study"
   },
   "notFound": {
+    "label": "Error 404",
     "title": "Page not found",
     "description": "Sorry, we couldn't find the page you're looking for.",
+    "imageAlt": "Illustration of an empty space",
     "backHome": "Go back home"
   },
   "footer": {
@@ -386,10 +751,60 @@
         "body": "Whether you represent a parish council or you're simply curious about the project — we love talking about Urbi. And soon it will have a website of its own.",
         "button": "Talk to Us",
         "secondary": "Visit the Urbi website"
+      },
+      "compare": {
+        "title": "The same day at a parish council, before and after Urbi",
+        "hint": "← Drag to compare →",
+        "beforeLabel": "Before",
+        "afterLabel": "With Urbi",
+        "handleLabel": "Compare before and after Urbi",
+        "before": {
+          "phoneMeta": "Phone call · 09:40",
+          "phone": "Mrs Rosa called about the pothole on Rua da Escola. Call her back?",
+          "emailMeta": "4 replies · no owner",
+          "email": "RE: RE: Fwd: street light out",
+          "noReply": "No reply for 3 weeks",
+          "socialMeta": "Social media · 23 comments",
+          "social": "Does anyone know who to complain to about the bin? Third time this month 😤",
+          "duplicate": "Duplicate?",
+          "sheet": "issues_2026_FINAL_v3.xlsx",
+          "counter": "Ticket 047 · Front desk",
+          "counterMeta": "Paper request, not yet filed"
+        },
+        "after": {
+          "title": "Issues",
+          "subtitle": "Every channel in one list, each issue with a status and an owner.",
+          "rows": [
+            {
+              "subject": "Pothole",
+              "ref": "OC-2026-0142",
+              "origin": "Phone"
+            },
+            {
+              "subject": "Street light out",
+              "ref": "OC-2026-0141",
+              "origin": "Email"
+            },
+            {
+              "subject": "Overflowing bin",
+              "ref": "OC-2026-0138",
+              "origin": "Social media"
+            },
+            {
+              "subject": "Damaged bench",
+              "ref": "OC-2026-0131",
+              "origin": "In person"
+            }
+          ],
+          "toast": "The resident was notified: “Pothole” moved to In analysis."
+        }
       }
     }
   },
   "privacyPolicy": {
+    "seo": {
+      "description": "How Proxio Solutions collects, uses and protects the personal data you send us through this site."
+    },
     "title": "Privacy Policy",
     "lastUpdated": "Last updated: March 2026",
     "intro": {
@@ -440,6 +855,27 @@
     "contact": {
       "title": "Contact & Data Requests",
       "body": "To exercise any of your rights, ask questions about this Privacy Policy, or submit a data request, please contact us at: proxiosolutions@gmail.com. We will respond within 30 days."
+    }
+  },
+  "insights": {
+    "seo": {
+      "title": "Articles on product and software"
+    },
+    "title": "Insights",
+    "hero": {
+      "label": "Insights",
+      "title": "What we learn building software",
+      "subtitle": "Notes on how to think through, design and build digital products."
+    },
+    "minutes_one": "{{count}} min read",
+    "minutes_other": "{{count}} min read",
+    "read": "Read article",
+    "back": "All articles",
+    "more": "Keep reading",
+    "cta": {
+      "title": "Facing a similar challenge?",
+      "subtitle": "Tell us what you need. We reply with concrete ideas, not a generic form.",
+      "button": "Get in touch"
     }
   }
 }
