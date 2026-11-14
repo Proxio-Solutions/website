@@ -1,0 +1,31 @@
+#!/bin/sh
+# Blocks pushes to main, staging and dev (they change only through PRs) and branch names outside
+# <type>/<slug>. Deleting a remote branch is allowed. See .claude/rules/git-workflow.md.
+
+zero=0000000000000000000000000000000000000000
+types='feat|fix|perf|refactor|style|docs|test|build|ci|chore|revert'
+status=0
+
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue
+  case "$remote_ref" in
+    refs/heads/*) branch=${remote_ref#refs/heads/} ;;
+    *) continue ;;
+  esac
+
+  case "$branch" in
+    main | staging | dev)
+      echo "✖ Do not push to '$branch'. Open a PR instead." >&2
+      status=1
+      ;;
+    *)
+      if ! printf '%s\n' "$branch" | grep -Eq "^($types)/[a-z0-9]+(-[a-z0-9]+)*$"; then
+        echo "✖ Branch '$branch' does not follow <type>/<kebab-slug>." >&2
+        echo "  Rename it: git branch -m <type>/<slug>   (types: $types)" >&2
+        status=1
+      fi
+      ;;
+  esac
+done
+
+exit $status

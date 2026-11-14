@@ -65,11 +65,11 @@ Create a `.env` file in the project root based on `.env.example`:
 cp .env.example .env
 ```
 
-| Variable                   | Description             | Required |
-| -------------------------- | ----------------------- | -------- |
-| `VITE_EMAILJS_SERVICE_ID`  | EmailJS service ID      | Yes      |
-| `VITE_EMAILJS_TEMPLATE_ID` | EmailJS template ID     | Yes      |
-| `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key      | Yes      |
+| Variable                   | Description         | Required |
+| -------------------------- | ------------------- | -------- |
+| `VITE_EMAILJS_SERVICE_ID`  | EmailJS service ID  | Yes      |
+| `VITE_EMAILJS_TEMPLATE_ID` | EmailJS template ID | Yes      |
+| `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key  | Yes      |
 
 > Variables prefixed with `VITE_` are exposed to the client. Never place secrets without this prefix in Vite environment variables.
 
@@ -87,12 +87,12 @@ The development server will be available at `http://localhost:5173` with Hot Mod
 
 ## Available Scripts
 
-| Command           | Description                                        |
-| ----------------- | -------------------------------------------------- |
-| `npm run dev`     | Starts the development server                      |
-| `npm run build`   | Compiles TypeScript and generates the production bundle |
-| `npm run preview` | Serves the production bundle locally               |
-| `npm run lint`    | Runs ESLint across all files                       |
+| Command           | Description                                                                      |
+| ----------------- | -------------------------------------------------------------------------------- |
+| `npm run dev`     | Starts the development server                                                    |
+| `npm run build`   | Compiles TypeScript, builds the bundle and pre-renders each route to static HTML |
+| `npm run preview` | Serves the production bundle locally                                             |
+| `npm run lint`    | Runs ESLint across all files                                                     |
 
 ---
 
@@ -142,12 +142,25 @@ npm run build
 
 The generated files are placed in the `dist/` folder and served as a static site. The `CNAME` file defines the custom domain `proxiosolutions.com`.
 
+### Pre-rendering
+
+`npm run build` also renders every route to static HTML, in Portuguese (`/about`) and in English (`/en/about`), so the first paint does not wait for the JavaScript bundle:
+
+1. `vite build` produces the client bundle in `dist/`.
+2. `vite build --ssr src/entry-server.tsx` produces a Node build of the same routes (`src/routes.tsx`).
+3. `scripts/prerender.mjs` renders each page in `prerenderPages` (`src/entry-server.tsx`) with React Router's static handler and writes `dist/<route>.html` (served by GitHub Pages at `/<route>`), `dist/<route>/index.html` (for directory-only static servers) and a plain `dist/404.html` shell.
+
+The language is part of the URL (`src/i18n/paths.ts`): English pages live under `/en`, and old `?lang=en` links are moved there on load. In the browser, `src/main.tsx` hydrates the pre-rendered HTML when it belongs to the current URL; otherwise (the 404 shell, a moved `?lang=` link) it renders from scratch. To add a page, add its route in `pages()` in `src/routes.tsx` and its path and source file to `pages` in `src/entry-server.tsx`; it is rendered in both languages (Insights articles are added automatically from `src/content/insights.ts`). Code that touches `window`/`document` must run inside effects, since pages are also rendered in Node.
+
 ---
 
 ## Contributing
 
-1. Create a branch from `dev`: `git checkout -b feature/feature-name`
-2. Commit your changes with clear and descriptive messages
-3. Open a Pull Request for review before merging
+The full rules are in [`.claude/rules/git-workflow.md`](.claude/rules/git-workflow.md). In short:
+
+1. Branch from `dev`: `git switch dev && git pull && git switch -c feat/<short-slug>`
+   (types: `feat`, `fix`, `perf`, `refactor`, `style`, `docs`, `test`, `build`, `ci`, `chore`)
+2. Commit with [Conventional Commits](https://www.conventionalcommits.org/): `feat(contact): add a project brief`
+3. Open a Pull Request into `dev`; test there, then release with a PR from `dev` into `main`
 
 ---
