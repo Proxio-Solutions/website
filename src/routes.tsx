@@ -37,11 +37,13 @@ const pages = (): RouteObject[] => [
   { path: '*', lazy: page(() => import('@pages/NotFound.tsx')) },
 ];
 
-// Portuguese at the root, English under /en (see src/i18n/paths.ts)
+// Portuguese at the root, English under /en (see src/i18n/paths.ts). The Portuguese pages sit
+// under a pathless route so both languages have the same depth: switching language then
+// re-renders the same page with new words instead of mounting it again from scratch.
 export const routes: RouteObject[] = [
   {
     path: '/',
     element: <App />,
-    children: [...pages(), { path: 'en', children: pages() }],
+    children: [{ children: pages() }, { path: 'en', children: pages() }],
   },
 ];

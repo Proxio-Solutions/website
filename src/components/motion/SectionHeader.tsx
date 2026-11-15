@@ -24,16 +24,22 @@ export default function SectionHeader({
   className = 'mb-14',
 }: SectionHeaderProps) {
   const root = useRef<HTMLDivElement>(null);
+  // Set once the entrance has started, so a language switch never hides the heading again
+  const revealed = useRef(false);
   const centered = align === 'center';
   const dark = tone === 'dark';
 
   useGSAP(
     () => {
+      if (revealed.current) return;
       gsap.matchMedia().add(MOTION_OK, () => {
         const tl = gsap
           .timeline({
             defaults: { ease: motion.ease.expo },
             scrollTrigger: { trigger: root.current, start: 'top 85%' },
+            onStart: () => {
+              revealed.current = true;
+            },
           })
           .from('.section-label', { opacity: 0, y: 12, duration: motion.duration.fast })
           .from(
@@ -51,7 +57,10 @@ export default function SectionHeader({
         }
       });
     },
-    { scope: root, dependencies: [subtitle] },
+    // Switching language keeps the page mounted but swaps the words: revert the old timeline
+    // (and its hidden from-state), then animate the new words only if the heading was not
+    // revealed yet
+    { scope: root, dependencies: [title, subtitle], revertOnUpdate: true },
   );
 
   return (

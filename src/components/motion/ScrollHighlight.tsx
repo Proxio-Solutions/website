@@ -30,7 +30,7 @@ export default function ScrollHighlight({ text, className = '' }: ScrollHighligh
         );
       });
     },
-    { scope: root, dependencies: [text] },
+    { scope: root, dependencies: [text], revertOnUpdate: true },
   );
 
   return (
