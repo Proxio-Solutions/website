@@ -1,6 +1,6 @@
 import bannerIllustration from '@assets/banner.svg';
 import Magnetic from '@components/motion/Magnetic';
-import { setScrollLocked } from '@/lib/smoothScroll';
+import { holdPageForLanguageSwitch, setScrollLocked } from '@/lib/smoothScroll';
 import { Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -31,6 +31,7 @@ export default function Navbar() {
     to: otherLanguageTo,
     hrefLang: otherLanguage,
     'aria-label': t('nav.switchLanguage'),
+    onClick: holdPageForLanguageSwitch,
   };
 
   // A new page closes the menu and starts with the bar in view
@@ -209,7 +210,10 @@ export default function Navbar() {
 
             <RouterLink
               {...languageLinkProps}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(event) => {
+                holdPageForLanguageSwitch(event);
+                setIsMenuOpen(false);
+              }}
               className="text-proxio-text-muted hover:text-proxio-text-main border-proxio-dark-border rounded-md border px-4 py-3 font-mono text-sm font-medium uppercase transition-colors"
             >
               {otherLanguage.toUpperCase()}
