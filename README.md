@@ -71,6 +71,15 @@ cp .env.example .env
 | `VITE_EMAILJS_TEMPLATE_ID` | EmailJS template ID | Yes      |
 | `VITE_EMAILJS_PUBLIC_KEY`  | EmailJS public key  | Yes      |
 
+Two feature flags live in the committed `.env` (development) and `.env.production` (the deploy):
+
+| Variable                      | Effect when `true`                                                                 |
+| ----------------------------- | ---------------------------------------------------------------------------------- |
+| `VITE_SHOW_URBI`              | Full Urbi presentation: Home section with screens and demo, project card with link |
+| `VITE_ENABLE_CASE_STUDY_URBI` | The `/case-studies/urbi` page (only with `VITE_SHOW_URBI` on as well)              |
+
+`VITE_SHOW_URBI` is off in both while Urbi has no clients to show; Projects then shows a short card.
+
 > Variables prefixed with `VITE_` are exposed to the client. Never place secrets without this prefix in Vite environment variables.
 
 ---

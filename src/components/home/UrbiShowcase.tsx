@@ -1,3 +1,4 @@
+import { caseStudyUrbiEnabled } from '@/config/features';
 import { gsap, MOTION_OK, ScrollTrigger, useGSAP } from '@/lib/gsap';
 import { scrollToTarget } from '@/lib/smoothScroll';
 import { ArrowRight, Check, MousePointer2 } from 'lucide-react';
@@ -12,8 +13,6 @@ const urbiScreens = [ReportScreen, TriageScreen, FieldScreen, FollowScreen];
 
 // Below the fold and only played by some visitors: keep it out of the main bundle
 const UrbiDemo = lazy(() => import('./UrbiDemo'));
-
-const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
 
 const steps = ['report', 'triage', 'field', 'follow'] as const;
 const stats = ['stat1', 'stat2', 'stat3', 'stat4'] as const;

@@ -1,3 +1,4 @@
+import { urbiShowcaseEnabled } from '@/config/features';
 import HeroSection from '@components/home/HeroSection';
 import ProcessTimeline from '@components/home/ProcessTimeline';
 import ServicesSection from '@components/home/ServicesSection';
@@ -46,8 +47,8 @@ export default function Home() {
       <main>
         <HeroSection />
         <ServicesSection />
-        <UrbiShowcase />
-        <ProcessTimeline />
+        {urbiShowcaseEnabled && <UrbiShowcase />}
+        <ProcessTimeline index={urbiShowcaseEnabled ? '03' : '02'} />
         <CtaSection
           title={t('home.cta.title')}
           subtitle={t('home.cta.subtitle')}

@@ -1,10 +1,8 @@
 import App from '@/App.tsx';
-import { insightsEnabled } from '@/config/features';
+import { caseStudyUrbiEnabled, insightsEnabled } from '@/config/features';
 import Home from '@pages/Home.tsx';
 import type { ComponentType } from 'react';
 import type { RouteObject } from 'react-router-dom';
-
-export const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
 
 /** Loads a page in its own chunk; the router fetches it before navigating, so there is no blank fallback. */
 const page = (load: () => Promise<{ default: ComponentType }>) => async () => ({

@@ -581,7 +581,8 @@
       "research": "In Research"
     },
     "urbi": {
-      "description": "Have you ever reported a problem in your city and felt like you were talking to a wall? Urbi was born from exactly that feeling, of not being heard. On the other side, municipalities face the daily chaos of managing hundreds of reports with no proper tools. Urbi solves both ends: simple for those who report, powerful for those who manage."
+      "description": "Have you ever reported a problem in your city and felt like you were talking to a wall? Urbi was born from exactly that feeling, of not being heard. On the other side, municipalities face the daily chaos of managing hundreds of reports with no proper tools. Urbi solves both ends: simple for those who report, powerful for those who manage.",
+      "teaser": "A platform that connects the people who live in a place with the people who look after it: report a problem on your street and follow it until it is fixed. It is still in development; more soon."
     },
     "next": {
       "label": "In Incubation",
