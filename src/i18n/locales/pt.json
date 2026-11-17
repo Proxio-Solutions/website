@@ -585,7 +585,8 @@
       "research": "Em Investigação"
     },
     "urbi": {
-      "description": "Já reportaste um problema na tua cidade e sentiste que estavas a falar para o vazio? O Urbi nasceu exatamente dessa sensação, a de não ser ouvido. Do outro lado, os municípios enfrentam diariamente o caos de gerir centenas de ocorrências sem ferramentas adequadas. O Urbi resolve os dois lados: simples para quem reporta, poderosa para quem gere."
+      "description": "Já reportaste um problema na tua cidade e sentiste que estavas a falar para o vazio? O Urbi nasceu exatamente dessa sensação, a de não ser ouvido. Do outro lado, os municípios enfrentam diariamente o caos de gerir centenas de ocorrências sem ferramentas adequadas. O Urbi resolve os dois lados: simples para quem reporta, poderosa para quem gere.",
+      "teaser": "Uma plataforma que liga quem vive num sítio a quem cuida dele: reportas um problema na rua e acompanhas até estar resolvido. Ainda está em desenvolvimento; em breve contamos mais."
     },
     "next": {
       "label": "Em Incubação",
