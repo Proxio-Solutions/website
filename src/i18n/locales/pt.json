@@ -483,9 +483,45 @@
             "title": "Pagamentos",
             "desc": "Checkout, subscrições ou faturação."
           },
+          "shop": {
+            "title": "Loja online",
+            "desc": "Catálogo, carrinho e encomendas."
+          },
           "backoffice": {
             "title": "Painel de gestão",
             "desc": "Backoffice para gerir conteúdos, pedidos ou utilizadores."
+          },
+          "cms": {
+            "title": "Gestão de conteúdos",
+            "desc": "Blog, notícias ou páginas que editas sem programar."
+          },
+          "booking": {
+            "title": "Marcações e reservas",
+            "desc": "Agenda, disponibilidade e confirmações."
+          },
+          "notifications": {
+            "title": "Notificações",
+            "desc": "Email, push ou SMS quando algo acontece."
+          },
+          "messaging": {
+            "title": "Chat e mensagens",
+            "desc": "Conversas entre utilizadores ou com a tua equipa."
+          },
+          "maps": {
+            "title": "Mapas e localização",
+            "desc": "Moradas, mapas e pesquisa por proximidade."
+          },
+          "files": {
+            "title": "Ficheiros e documentos",
+            "desc": "Envio, partilha e gestão de ficheiros."
+          },
+          "reports": {
+            "title": "Relatórios e estatísticas",
+            "desc": "Gráficos, indicadores e exportações."
+          },
+          "ai": {
+            "title": "Inteligência artificial",
+            "desc": "Assistentes, pesquisa inteligente ou automação."
           },
           "integrations": {
             "title": "Integrações",
@@ -508,15 +544,23 @@
           "urgent": "Menos de 1 mês",
           "short": "1 a 3 meses",
           "medium": "3 a 6 meses",
-          "flexible": "Flexível"
+          "flexible": "Flexível",
+          "custom": "Data específica"
         },
         "budget": {
           "lt5": "Até 5 mil €",
           "from5to15": "5–15 mil €",
           "from15to40": "15–40 mil €",
           "gt40": "Mais de 40 mil €",
-          "unsure": "Ainda não sei"
-        }
+          "unsure": "Ainda não sei",
+          "custom": "Outro valor"
+        },
+        "deadlineLabel": "Data limite",
+        "deadlineHint_one": "Daqui a cerca de {{count}} semana",
+        "deadlineHint_other": "Daqui a cerca de {{count}} semanas",
+        "budgetTextLabel": "Quanto prevês investir?",
+        "budgetTextPlaceholder": "Ex.: 12 000 €, 8k ou 10–20 mil €",
+        "budgetTextHint": "Lemos: {{value}}"
       },
       "contact": {
         "title": "Como te contactamos?",
@@ -533,7 +577,20 @@
         "type": "Escolhe o tipo de projeto que está mais perto.",
         "description": "Escreve uma ou duas frases sobre a ideia.",
         "timeline": "Escolhe um prazo, mesmo que seja flexível.",
-        "budget": "Escolhe uma faixa de orçamento, ou «Ainda não sei»."
+        "budget": "Escolhe uma faixa de orçamento, ou «Ainda não sei».",
+        "deadline": {
+          "empty": "Escolhe a data em que precisas do projeto pronto.",
+          "invalid": "Essa data não existe. Confirma o dia e o mês.",
+          "tooSoon": "Escolhe uma data a pelo menos uma semana de hoje.",
+          "tooFar": "Escolhe uma data nos próximos {{years}} anos, ou «Flexível»."
+        },
+        "budgetText": {
+          "empty": "Escreve um valor, ou escolhe «Ainda não sei».",
+          "invalid": "Escreve só um valor ou um intervalo em euros, por exemplo 12 000 € ou 10–20 mil €.",
+          "tooLow": "O valor mínimo é {{min}}. Se ainda não sabes, escolhe «Ainda não sei».",
+          "tooHigh": "Esse valor parece-nos alto demais. Confirma os zeros.",
+          "range": "No intervalo, escreve primeiro o valor mais baixo."
+        }
       },
       "privacy": "Ao enviar, aceitas a nossa <link>política de privacidade</link>.",
       "nav": {

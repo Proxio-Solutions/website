@@ -479,9 +479,45 @@
             "title": "Payments",
             "desc": "Checkout, subscriptions or invoicing."
           },
+          "shop": {
+            "title": "Online shop",
+            "desc": "Catalogue, cart and orders."
+          },
           "backoffice": {
             "title": "Admin panel",
             "desc": "A back office to manage content, orders or users."
+          },
+          "cms": {
+            "title": "Content management",
+            "desc": "Blog, news or pages you edit without code."
+          },
+          "booking": {
+            "title": "Bookings",
+            "desc": "Calendar, availability and confirmations."
+          },
+          "notifications": {
+            "title": "Notifications",
+            "desc": "Email, push or SMS when something happens."
+          },
+          "messaging": {
+            "title": "Chat and messaging",
+            "desc": "Conversations between users or with your team."
+          },
+          "maps": {
+            "title": "Maps and location",
+            "desc": "Addresses, maps and nearby search."
+          },
+          "files": {
+            "title": "Files and documents",
+            "desc": "Uploading, sharing and managing files."
+          },
+          "reports": {
+            "title": "Reports and analytics",
+            "desc": "Charts, metrics and exports."
+          },
+          "ai": {
+            "title": "AI features",
+            "desc": "Assistants, smart search or automation."
           },
           "integrations": {
             "title": "Integrations",
@@ -504,15 +540,23 @@
           "urgent": "Under 1 month",
           "short": "1 to 3 months",
           "medium": "3 to 6 months",
-          "flexible": "Flexible"
+          "flexible": "Flexible",
+          "custom": "A specific date"
         },
         "budget": {
           "lt5": "Up to €5k",
           "from5to15": "€5k–15k",
           "from15to40": "€15k–40k",
           "gt40": "Over €40k",
-          "unsure": "Not sure yet"
-        }
+          "unsure": "Not sure yet",
+          "custom": "Another amount"
+        },
+        "deadlineLabel": "Deadline",
+        "deadlineHint_one": "About {{count}} week from now",
+        "deadlineHint_other": "About {{count}} weeks from now",
+        "budgetTextLabel": "How much do you plan to invest?",
+        "budgetTextPlaceholder": "E.g. €12,000, 8k or €10k–20k",
+        "budgetTextHint": "We read: {{value}}"
       },
       "contact": {
         "title": "How do we reach you?",
@@ -529,7 +573,20 @@
         "type": "Pick the type of project that comes closest.",
         "description": "Write a sentence or two about the idea.",
         "timeline": "Pick a timeline, even if it's flexible.",
-        "budget": "Pick a budget range, or “Not sure yet”."
+        "budget": "Pick a budget range, or “Not sure yet”.",
+        "deadline": {
+          "empty": "Pick the date you need the project ready by.",
+          "invalid": "That date doesn't exist. Check the day and month.",
+          "tooSoon": "Pick a date at least a week from today.",
+          "tooFar": "Pick a date within the next {{years}} years, or “Flexible”."
+        },
+        "budgetText": {
+          "empty": "Write an amount, or pick “Not sure yet”.",
+          "invalid": "Write just an amount or a range in euros, for example €12,000 or €10k–20k.",
+          "tooLow": "The minimum is {{min}}. If you're not sure yet, pick “Not sure yet”.",
+          "tooHigh": "That amount looks too high. Check the zeros.",
+          "range": "In a range, write the lower amount first."
+        }
       },
       "privacy": "By sending this, you agree to our <link>privacy policy</link>.",
       "nav": {

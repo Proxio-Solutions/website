@@ -6,9 +6,15 @@ import { ArrowLeft, ArrowRight, Check, MessageSquare, Sparkles } from 'lucide-re
 import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import {
+  BUDGET_MIN,
   BUDGETS,
+  checkDeadline,
+  DEADLINE_MAX_YEARS,
+  deadlineBounds,
   estimate,
   FEATURES,
+  formatBudget,
+  parseBudget,
   PROJECT_TYPES,
   TIMELINES,
   type Brief,
@@ -24,7 +30,14 @@ const emailConfigured =
   Boolean(EMAILJS_SERVICE_ID) && Boolean(EMAILJS_TEMPLATE_ID) && Boolean(EMAILJS_PUBLIC_KEY);
 
 const b = 'contact.brief';
-const EMPTY: Brief = { type: null, features: [], timeline: null, budget: null };
+const EMPTY: Brief = {
+  type: null,
+  features: [],
+  timeline: null,
+  deadline: '',
+  budget: null,
+  budgetText: '',
+};
 /** Long enough for the chosen card to show as selected before the next step slides in. */
 const AUTO_ADVANCE_MS = 220;
 
@@ -110,13 +123,39 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
   const step = STEPS[stepIndex];
   const isProject = mode === 'project';
   const isLast = !isProject || step === 'contact';
+  // The free date and amount are checked as typed; the summary and the email use what they mean
+  const deadline = brief.timeline === 'custom' ? checkDeadline(brief.deadline) : null;
+  const budgetRange = brief.budget === 'custom' ? parseBudget(brief.budgetText) : null;
+  const deadlineError = deadline && 'error' in deadline ? deadline.error : null;
+  const budgetError = budgetRange && 'error' in budgetRange ? budgetRange.error : null;
+  const deadlineText = (lng = i18n.language) =>
+    deadline && 'weeks' in deadline
+      ? new Date(`${brief.deadline}T00:00`).toLocaleDateString(lng === 'en' ? 'en-GB' : 'pt-PT', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        })
+      : null;
+  const budgetValue = (lng = i18n.language) =>
+    budgetRange && 'min' in budgetRange ? formatBudget(budgetRange, lng) : null;
+
   const missing: Record<Field, boolean> = {
     type: brief.type === null,
     description: description.trim() === '',
-    timeline: brief.timeline === null,
-    budget: brief.budget === null,
+    timeline: brief.timeline === null || deadlineError !== null,
+    budget: brief.budget === null || budgetError !== null,
   };
   const showError = (field: Field) => attempted && missing[field];
+  /** The message under a group: why the free value is not usable, or that nothing was picked. */
+  const errorText = (field: 'timeline' | 'budget') => {
+    if (field === 'timeline' && deadlineError)
+      return t(`${b}.errors.deadline.${deadlineError}`, { years: DEADLINE_MAX_YEARS });
+    if (field === 'budget' && budgetError)
+      return t(`${b}.errors.budgetText.${budgetError}`, {
+        min: formatBudget({ min: BUDGET_MIN, max: BUDGET_MIN }, i18n.language),
+      });
+    return t(`${b}.errors.${field}`);
+  };
 
   const goTo = (index: number) => {
     direction.current = index > stepIndex ? 1 : -1;
@@ -196,9 +235,17 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
       lines.push(`${pt(`${b}.summary.features`)}: ${names.join(', ') || pt(`${b}.summary.none`)}`);
     }
     if (brief.timeline)
-      lines.push(`${pt(`${b}.summary.timeline`)}: ${pt(`${b}.timing.timeline.${brief.timeline}`)}`);
+      lines.push(
+        `${pt(`${b}.summary.timeline`)}: ${deadlineText('pt') ?? pt(`${b}.timing.timeline.${brief.timeline}`)}`,
+      );
     if (brief.budget)
-      lines.push(`${pt(`${b}.summary.budget`)}: ${pt(`${b}.timing.budget.${brief.budget}`)}`);
+      lines.push(
+        `${pt(`${b}.summary.budget`)}: ${
+          brief.budget === 'custom'
+            ? `${budgetValue('pt')} (“${brief.budgetText.trim()}”)`
+            : pt(`${b}.timing.budget.${brief.budget}`)
+        }`,
+      );
     if (result) {
       lines.push(
         `${pt(`${b}.summary.estimateLabel`)}: ${pt(`${b}.summary.weeks`, { min: result.min, max: result.max })}`,
@@ -272,11 +319,21 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
         ]),
     {
       label: t(`${b}.summary.timeline`),
-      value: brief.timeline ? t(`${b}.timing.timeline.${brief.timeline}`) : null,
+      value:
+        brief.timeline === 'custom'
+          ? deadlineText()
+          : brief.timeline
+            ? t(`${b}.timing.timeline.${brief.timeline}`)
+            : null,
     },
     {
       label: t(`${b}.summary.budget`),
-      value: brief.budget ? t(`${b}.timing.budget.${brief.budget}`) : null,
+      value:
+        brief.budget === 'custom'
+          ? budgetValue()
+          : brief.budget
+            ? t(`${b}.timing.budget.${brief.budget}`)
+            : null,
     },
   ];
 
@@ -335,19 +392,87 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
           <Choice
             key={id}
             selected={value === id}
-            onSelect={() => onChange(id)}
+            onSelect={() => {
+              onChange(id);
+              // Opening the free field: move straight into it
+              if (id === 'custom' && value !== 'custom')
+                requestAnimationFrame(() =>
+                  root.current?.querySelector<HTMLElement>(`input[data-field="${field}"]`)?.focus(),
+                );
+            }}
             className="text-proxio-text-main px-4 py-2.5 text-sm font-semibold tabular-nums"
           >
-            {/* The first option takes focus when this group is the first thing missing */}
-            <span data-field={i === 0 ? field : undefined}>{t(`${b}.timing.${field}.${id}`)}</span>
+            {/* The first option takes focus when this group is the first thing missing,
+                unless the free field below is open: then the field does */}
+            <span data-field={i === 0 && value !== 'custom' ? field : undefined}>
+              {t(`${b}.timing.${field}.${id}`)}
+            </span>
           </Choice>
         ))}
       </div>
+      {value === 'custom' && freeField(field)}
       <FieldError id={`brief-error-${field}`} show={showError(field)}>
-        {t(`${b}.errors.${field}`)}
+        {errorText(field)}
       </FieldError>
     </fieldset>
   );
+
+  /** The date or amount the visitor writes when no option fits, with what we understood. */
+  const freeField = (field: 'timeline' | 'budget') => {
+    const isDate = field === 'timeline';
+    const invalid = showError(field) || undefined;
+    const describedBy = showError(field) ? `brief-error-${field}` : `brief-hint-${field}`;
+    const hint = isDate
+      ? deadline && 'weeks' in deadline
+        ? t(`${b}.timing.deadlineHint`, { count: Math.max(1, deadline.weeks) })
+        : null
+      : budgetValue()
+        ? t(`${b}.timing.budgetTextHint`, { value: budgetValue() })
+        : null;
+    return (
+      <label className="mt-4 block max-w-sm">
+        <span className="text-proxio-text-main mb-1.5 block text-sm font-semibold">
+          {t(`${b}.timing.${isDate ? 'deadlineLabel' : 'budgetTextLabel'}`)}
+        </span>
+        {isDate ? (
+          <input
+            data-field={field}
+            type="date"
+            {...deadlineBounds()}
+            value={brief.deadline}
+            onChange={(e) => setBrief((prev) => ({ ...prev, deadline: e.target.value }))}
+            aria-invalid={invalid}
+            aria-describedby={describedBy}
+            className={inputClass}
+          />
+        ) : (
+          <input
+            data-field={field}
+            type="text"
+            inputMode="text"
+            autoComplete="off"
+            maxLength={60}
+            value={brief.budgetText}
+            onChange={(e) => setBrief((prev) => ({ ...prev, budgetText: e.target.value }))}
+            placeholder={t(`${b}.timing.budgetTextPlaceholder`)}
+            aria-invalid={invalid}
+            aria-describedby={describedBy}
+            className={inputClass}
+          />
+        )}
+        {hint && !showError(field) && (
+          <p
+            id={`brief-hint-${field}`}
+            className="text-proxio-text-muted mt-2 text-xs"
+            aria-live="polite"
+          >
+            <Check className="text-proxio-accent mr-1 inline h-3.5 w-3.5" strokeWidth={3} />
+            {hint}
+          </p>
+        )}
+      </label>
+    );
+  };
 
   const nextSteps = (
     <ol className="mt-8 w-full max-w-md space-y-3 text-left">
