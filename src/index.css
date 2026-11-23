@@ -253,6 +253,14 @@ html {
   mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 20%, transparent 85%);
 }
 
+/* Keyboard focus: a clear accent ring on anything without its own (utilities still override) */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-proxio-accent);
+    outline-offset: 2px;
+  }
+}
+
 /* Contact form: accent line that draws under the focused field */
 .field {
   position: relative;

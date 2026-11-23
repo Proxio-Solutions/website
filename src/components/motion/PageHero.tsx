@@ -123,7 +123,7 @@ export default function PageHero({
           {badge && (
             <span className="hero-fade-top bg-proxio-darker/80 border-proxio-dark-border text-proxio-text-muted inline-flex items-center gap-2.5 rounded-full border px-4 py-1.5 font-mono text-xs font-medium shadow-sm backdrop-blur">
               <span className="relative flex h-2 w-2">
-                <span className="bg-proxio-accent absolute inline-flex h-full w-full animate-ping rounded-full opacity-60" />
+                <span className="bg-proxio-accent absolute inline-flex h-full w-full rounded-full opacity-60 motion-safe:animate-ping" />
                 <span className="bg-proxio-accent relative inline-flex h-2 w-2 rounded-full" />
               </span>
               {badge}

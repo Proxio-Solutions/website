@@ -1,4 +1,5 @@
 import urbiLogo from '@/assets/urbi-logo.svg';
+import CtaSection from '@/components/motion/CtaSection';
 import Magnetic from '@/components/motion/Magnetic';
 import PageHero from '@/components/motion/PageHero';
 import SectionLabel from '@/components/motion/SectionLabel';
@@ -104,7 +105,7 @@ export default function Projects() {
                   >
                     <div className="bg-proxio-darker text-proxio-accent border-proxio-dark-border mb-6 inline-flex w-max items-center rounded-full border px-3 py-1 text-xs font-medium">
                       <span className="relative mr-2 flex h-2 w-2">
-                        <span className="bg-proxio-accent absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></span>
+                        <span className="bg-proxio-accent absolute inline-flex h-full w-full rounded-full opacity-75 motion-safe:animate-ping"></span>
                         <span className="bg-proxio-accent relative inline-flex h-2 w-2 rounded-full"></span>
                       </span>
                       {t(`projects.status.${featuredProject.status}`)}
@@ -190,7 +191,7 @@ export default function Projects() {
           {/* What's Next */}
           <section>
             <Reveal>
-              <SectionLabel index="02" className="!text-proxio-text-muted mb-6">
+              <SectionLabel index="02" className="mb-6">
                 {t('projects.next.label')}
               </SectionLabel>
             </Reveal>
@@ -202,24 +203,20 @@ export default function Projects() {
                   <h2 className="text-proxio-text-main mb-4 text-3xl font-extrabold">
                     {t('projects.next.title')}
                   </h2>
-                  <p className="text-proxio-text-muted mb-8 text-lg leading-relaxed">
+                  <p className="text-proxio-text-muted text-lg leading-relaxed">
                     {t('projects.next.desc')}
                   </p>
-                  <Magnetic>
-                    <Link
-                      viewTransition
-                      to="/contact"
-                      className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors"
-                    >
-                      {t('projects.next.cta')}
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Magnetic>
                 </div>
               </div>
             </Reveal>
           </section>
         </div>
+
+        <CtaSection
+          title={t('home.cta.title')}
+          subtitle={t('home.cta.subtitle')}
+          primary={{ to: '/contact', label: t('home.cta.button') }}
+        />
       </main>
     </>
   );
