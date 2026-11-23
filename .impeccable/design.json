@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-23T11:12:48+00:00",
+  "title": "Design System: Proxio Solutions",
+  "extensions": {
+    "colorMeta": {
+      "signal-blue": {
+        "role": "primary",
+        "displayName": "Signal Blue",
+        "canonical": "#2563eb",
+        "tonalRamp": [
+          "#1e3a8a",
+          "#1e40af",
+          "#1d4ed8",
+          "#2563eb",
+          "#3b82f6",
+          "#60a5fa",
+          "#93c5fd",
+          "#dbeafe"
+        ]
+      },
+      "signal-blue-deep": {
+        "role": "primary",
+        "displayName": "Signal Blue Deep",
+        "canonical": "#1d4ed8",
+        "tonalRamp": [
+          "#1e3a8a",
+          "#1e40af",
+          "#1d4ed8",
+          "#2563eb",
+          "#3b82f6",
+          "#60a5fa",
+          "#93c5fd",
+          "#dbeafe"
+        ]
+      },
+      "signal-wash": {
+        "role": "primary",
+        "displayName": "Signal Wash",
+        "canonical": "#eff6ff",
+        "tonalRamp": [
+          "#1e3a8a",
+          "#1e40af",
+          "#1d4ed8",
+          "#2563eb",
+          "#3b82f6",
+          "#60a5fa",
+          "#93c5fd",
+          "#dbeafe"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#0f172a",
+        "tonalRamp": [
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8",
+          "#cbd5e1",
+          "#f1f5f9"
+        ]
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "canonical": "#64748b",
+        "tonalRamp": [
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8",
+          "#cbd5e1",
+          "#f1f5f9"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8",
+          "#cbd5e1",
+          "#f1f5f9"
+        ]
+      },
+      "mist": {
+        "role": "neutral",
+        "displayName": "Mist",
+        "canonical": "#f8fafc",
+        "tonalRamp": [
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8",
+          "#cbd5e1",
+          "#f1f5f9"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#e2e8f0",
+        "tonalRamp": [
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8",
+          "#cbd5e1",
+          "#f1f5f9"
+        ]
+      },
+      "night-panel": {
+        "role": "neutral",
+        "displayName": "Night Panel",
+        "canonical": "#0b1120",
+        "tonalRamp": [
+          "#030712",
+          "#0b1120",
+          "#111827",
+          "#1e293b",
+          "#334155",
+          "#475569",
+          "#64748b",
+          "#94a3b8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline on each page; 2.25rem on phones up to 4.5rem."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles; 1.875rem on phones, 3rem from sm."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card, service and form step titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Lead paragraphs (1.125rem) and card text (1rem), slate muted."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Mono, uppercase section eyebrows: // 01 — Label."
+      }
+    },
+    "shadows": [
+      {
+        "name": "lift",
+        "value": "0 16px 40px -16px rgb(37 99 235 / 0.18)",
+        "purpose": "Card hover, with translateY(-4px)."
+      },
+      {
+        "name": "action-glow",
+        "value": "0 10px 15px -3px rgb(37 99 235 / 0.3), 0 4px 6px -4px rgb(37 99 235 / 0.3)",
+        "purpose": "Under filled primary buttons."
+      },
+      {
+        "name": "nav-scrolled",
+        "value": "0 8px 30px -12px rgb(15 23 42 / 0.12)",
+        "purpose": "Navbar once the page scrolls."
+      },
+      {
+        "name": "node-ring",
+        "value": "0 0 0 6px rgb(37 99 235 / 0.15)",
+        "purpose": "Process timeline node once reached."
+      }
+    ],
+    "motion": [
+      {
+        "name": "duration-fast",
+        "value": "0.35s",
+        "purpose": "Step transitions, small reveals (motion.duration.fast)."
+      },
+      {
+        "name": "duration-normal",
+        "value": "0.8s",
+        "purpose": "Headline word reveals, section entrances (motion.duration.normal)."
+      },
+      {
+        "name": "duration-slow",
+        "value": "1s",
+        "purpose": "Large entrances (motion.duration.slow)."
+      },
+      {
+        "name": "ease-out",
+        "value": "power3.out",
+        "purpose": "Default GSAP easing (motion.ease.out)."
+      },
+      {
+        "name": "ease-expo",
+        "value": "power4.out",
+        "purpose": "Headline reveals (motion.ease.expo)."
+      },
+      {
+        "name": "ease-css",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "CSS reveals, nav underline, field focus line."
+      },
+      {
+        "name": "stagger",
+        "value": "0.05s / 0.08s / 0.12s",
+        "purpose": "Tight, normal and loose staggers (motion.stagger)."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main action on every page: start a project, send the brief.",
+      "html": "<button class=\"ds-btn-primary\">Fala Connosco <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:8px;background:#2563eb;color:#fff;font-family:'Plus Jakarta Sans Variable', sans-serif;font-weight:700;font-size:16px;padding:14px 32px;border:0;border-radius:8px;box-shadow:0 10px 15px -3px rgb(37 99 235 / .3),0 4px 6px -4px rgb(37 99 235 / .3);cursor:pointer;transition:background-color .2s} .ds-btn-primary svg{transition:transform .2s} .ds-btn-primary:hover{background:#1d4ed8} .ds-btn-primary:hover svg{transform:translateX(4px)} .ds-btn-primary:focus-visible{outline:2px solid rgb(59 130 246 / .5);outline-offset:2px}"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Second choice next to a primary CTA.",
+      "html": "<button class=\"ds-btn-secondary\">Ver o Nosso Trabalho <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:rgb(255 255 255 / .7);color:#0f172a;font-family:'Plus Jakarta Sans Variable', sans-serif;font-weight:700;font-size:16px;padding:14px 32px;border:1px solid #e2e8f0;border-radius:8px;cursor:pointer;transition:color .2s,border-color .2s} .ds-btn-secondary svg{transition:transform .2s} .ds-btn-secondary:hover{color:#2563eb;border-color:#2563eb} .ds-btn-secondary:hover svg{transform:translateX(4px)} .ds-btn-secondary:focus-visible{outline:2px solid rgb(59 130 246 / .5);outline-offset:2px}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Form fields in the contact brief.",
+      "html": "<label class=\"ds-field\"><span>Nome</span><input placeholder=\"O teu nome\" /></label>",
+      "css": ".ds-field{display:block;font-family:'Plus Jakarta Sans Variable', sans-serif;max-width:320px} .ds-field span{display:block;margin-bottom:6px;font-size:14px;font-weight:600;color:#0f172a} .ds-field input{width:100%;box-sizing:border-box;background:#fff;color:#0f172a;border:1px solid #e2e8f0;border-radius:8px;padding:12px 16px;font:inherit;font-size:14px;outline:none;transition:border-color .2s} .ds-field input::placeholder{color:rgb(100 116 139 / .7)} .ds-field input:hover{border-color:#cbd5e1} .ds-field input:focus{border-color:rgb(37 99 235 / .4)}"
+    },
+    {
+      "name": "Choice Pill",
+      "kind": "chip",
+      "refersTo": "choice",
+      "description": "Selectable option in the brief (features, deadline, budget).",
+      "html": "<div class=\"ds-choices\"><button class=\"ds-choice\">Pagamentos</button><button class=\"ds-choice is-selected\" aria-pressed=\"true\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg> Notificações</button></div>",
+      "css": ".ds-choices{display:flex;flex-wrap:wrap;gap:8px} .ds-choice{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#0f172a;font-family:'Plus Jakarta Sans Variable', sans-serif;font-weight:600;font-size:14px;padding:10px 16px;border:1px solid #e2e8f0;border-radius:12px;cursor:pointer;transition:border-color .2s,background-color .2s,box-shadow .2s} .ds-choice:hover{border-color:#cbd5e1} .ds-choice.is-selected{border-color:#2563eb;background:#eff6ff;box-shadow:0 0 0 1px #2563eb} .ds-choice.is-selected svg{color:#2563eb} .ds-choice:focus-visible{outline:2px solid rgb(59 130 246 / .5);outline-offset:2px}"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Bordered card that lifts on hover.",
+      "html": "<article class=\"ds-card\"><span class=\"ds-card-idx\">[01]</span><h3>Desenvolvimento Web</h3><p>Aplicações web performativas e escaláveis.</p><a>Saber mais <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></article>",
+      "css": ".ds-card{max-width:300px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;padding:24px;font-family:'Plus Jakarta Sans Variable', sans-serif;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease} .ds-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px -16px rgb(37 99 235 / .18);border-color:color-mix(in srgb,#2563eb 35%,#e2e8f0)} .ds-card-idx{font-family:'JetBrains Mono', ui-monospace, monospace;font-size:12px;color:#64748b} .ds-card h3{margin:4px 0 0;font-size:20px;font-weight:700;color:#0f172a} .ds-card p{margin:8px 0 0;color:#64748b;line-height:1.625} .ds-card a{display:inline-flex;align-items:center;gap:6px;margin-top:24px;font-size:14px;font-weight:700;color:#2563eb}"
+    },
+    {
+      "name": "Section Label",
+      "kind": "custom",
+      "refersTo": "section-label",
+      "description": "Mono eyebrow that opens every section.",
+      "html": "<span class=\"ds-label\"><span>// 01 — </span>O Que Fazemos</span>",
+      "css": ".ds-label{font-family:'JetBrains Mono', ui-monospace, monospace;font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#2563eb} .ds-label span{opacity:.6}"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Top bar link with a growing underline.",
+      "html": "<nav class=\"ds-nav\"><a class=\"is-active\">Início</a><a>Sobre Nós</a><a>Projetos</a></nav>",
+      "css": ".ds-nav{display:flex;gap:24px;font-family:'Plus Jakarta Sans Variable', sans-serif} .ds-nav a{position:relative;padding:8px 12px;font-size:14px;font-weight:500;color:#0f172a;cursor:pointer;transition:color .2s} .ds-nav a::after{content:'';position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;background:#2563eb;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)} .ds-nav a:hover,.ds-nav a.is-active{color:#2563eb} .ds-nav a:hover::after,.ds-nav a.is-active::after{transform:scaleX(1)}"
+    },
+    {
+      "name": "CTA Panel",
+      "kind": "custom",
+      "refersTo": "cta-panel",
+      "description": "Dark closing panel on each page.",
+      "html": "<section class=\"ds-cta\"><h2>Tens um Projeto em Mente?</h2><p>Vamos conversar sobre o que podemos construir juntos.</p><button>Fala Connosco <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></section>",
+      "css": ".ds-cta{position:relative;overflow:hidden;background:#0b1120;border-radius:24px;padding:80px 48px;text-align:center;font-family:'Plus Jakarta Sans Variable', sans-serif} .ds-cta::before{content:'';position:absolute;top:-50%;left:50%;width:66%;height:100%;transform:translateX(-50%);border-radius:9999px;background:radial-gradient(closest-side,rgb(37 99 235 / .25),transparent);pointer-events:none} .ds-cta h2{position:relative;margin:0;color:#fff;font-size:48px;font-weight:800;letter-spacing:-.025em} .ds-cta p{position:relative;margin:20px auto 0;max-width:36rem;color:rgb(255 255 255 / .6);font-size:18px;line-height:1.625} .ds-cta button{position:relative;margin-top:40px;display:inline-flex;align-items:center;gap:8px;background:#2563eb;color:#fff;font:inherit;font-weight:700;padding:14px 32px;border:0;border-radius:8px;box-shadow:0 10px 15px -3px rgb(37 99 235 / .3);cursor:pointer} .ds-cta button:hover{background:#1d4ed8}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Clarity with Warmth",
+    "overview": "The site has a technical spine and warm skin:\n- **Structure is engineered.** A disciplined grid, generous white space, and mono section labels\n  that read like code comments (`// 01 — O Que Fazemos`).\n- **The surface is warm and responsive.** Cards lift when you reach for them, a soft blue light\n  follows the pointer, buttons lean towards the cursor, and content rises into view as you\n  scroll. The site should feel like a studio that answers back, which is what proximity looks\n  like on screen.\n\nLight, airy and confident:\n- **Colour:** white and near-white surfaces, deep slate ink, and one saturated blue that carries\n  every action and highlight.\n- **Contrast:** a single dark panel (the closing CTA) gives each page its moment of contrast.\n- **Motion:** lively and tactile by choice. It is always tied to an element's entrance, a state\n  or the pointer, and every movement respects `prefers-reduced-motion`.\n\nIt must never look like a corporate consultancy (stock photography, rigid navy, cold distance) or\na generic SaaS template (purple gradients, 3D icon packs, interchangeable sections).",
+    "keyCharacteristics": [
+      "One accent: signal blue on white, slate for everything quiet.",
+      "Mono labels and `//` markers as the technical signature.",
+      "Large, extra-bold, tightly tracked headlines.",
+      "Rounded, bordered surfaces that respond to the pointer.",
+      "Motion everywhere, with purpose, and fully reduced when asked."
+    ],
+    "rules": [
+      {
+        "name": "The One Signal Rule",
+        "body": "Blue is the only hue with meaning. Actions, focus, selection and progress are blue; everything else is slate on white. Don't introduce a second accent colour for emphasis.",
+        "section": "colors"
+      },
+      {
+        "name": "The Legacy Names Rule",
+        "body": "In code, `proxio-darker` is white and `proxio-dark` is the light grey band. Use the tokens as they are and don't add raw hex values for the same colours.",
+        "section": "colors"
+      },
+      {
+        "name": "The Comment Marker Rule",
+        "body": "Section eyebrows are mono, uppercase, tracked and prefixed with `//` and a two-digit index. Indices count the visible sections in order; when a section is hidden, renumber the rest.",
+        "section": "typography"
+      },
+      {
+        "name": "The Extra-Bold Headline Rule",
+        "body": "Headlines are 800 weight with tight tracking. Don't set a headline in regular or light weight.",
+        "section": "typography"
+      },
+      {
+        "name": "The Earned Shadow Rule",
+        "body": "Surfaces are flat at rest. A shadow appears only as the answer to hover, scroll or progress, and it is tinted blue or ink, never neutral black.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep Signal Blue (#2563eb) as the only accent: actions, focus, selection, progress.",
+      "Do open sections with the mono `// NN — Label` eyebrow, numbered in visible order.",
+      "Do set headlines in Plus Jakarta Sans 800 with tight tracking, and body text in slate muted.",
+      "Do make surfaces respond: Lift on card hover (`translateY(-4px)` plus a blue-tinted shadow), arrow nudges on CTAs, the magnetic pull on primary buttons for fine pointers.",
+      "Do pull every timing from the shared motion tokens (`src/lib/gsap.ts`), and give every animation a reduced-motion fallback that shows the final state.",
+      "Do use the existing tokens (`proxio-*`) instead of raw hex values."
+    ],
+    "donts": [
+      "Don't drift towards a corporate consultancy look: no stock photography, no rigid navy palettes, no cold, distant layouts.",
+      "Don't fall into a generic SaaS template: no purple or rainbow gradients, no 3D icon packs, no interchangeable hero-features-pricing sections.",
+      "Don't add a second accent hue or neutral black shadows.",
+      "Don't add motion that loops for decoration on content areas. Idle loops are reserved for small illustrative accents (the orbit, the float).",
+      "Don't fill space with invented proof such as testimonials, client logos or metrics (see PRODUCT.md): an honest, shorter page beats a padded one."
+    ]
+  }
+}
