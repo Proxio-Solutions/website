@@ -1,5 +1,17 @@
 import SEO from '@components/SEO';
-import { useTranslation } from 'react-i18next';
+import { CONTACT_EMAIL } from '@/config/links';
+import { Trans, useTranslation } from 'react-i18next';
+
+const linkClass =
+  'text-proxio-text-main hover:text-proxio-accent underline underline-offset-2 transition-colors';
+
+/** Tags the copy may use: <email> for our address, <cnpd> for the data protection authority. */
+const components = {
+  email: <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass} />,
+  cnpd: (
+    <a href="https://www.cnpd.pt" target="_blank" rel="noopener noreferrer" className={linkClass} />
+  ),
+};
 
 export default function PrivacyPolicy() {
   const { t } = useTranslation();
@@ -40,12 +52,21 @@ export default function PrivacyPolicy() {
                   {t(`privacyPolicy.${section}.title`)}
                 </h2>
                 <p className="text-proxio-text-muted leading-relaxed">
-                  {t(`privacyPolicy.${section}.body`)}
+                  <Trans
+                    i18nKey={`privacyPolicy.${section}.body`}
+                    values={{ email: CONTACT_EMAIL }}
+                    components={components}
+                  />
                 </p>
                 {Array.isArray(items) && items.length > 0 && (
-                  <ul className="text-proxio-text-muted mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
-                    {items.map((item) => (
-                      <li key={item}>{item}</li>
+                  <ul className="text-proxio-text-muted mt-3 list-disc space-y-1.5 pl-5 leading-relaxed">
+                    {items.map((_, i) => (
+                      <li key={i}>
+                        <Trans
+                          i18nKey={`privacyPolicy.${section}.items.${i}`}
+                          components={components}
+                        />
+                      </li>
                     ))}
                   </ul>
                 )}
