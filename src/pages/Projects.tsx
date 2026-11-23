@@ -5,6 +5,7 @@ import SectionLabel from '@/components/motion/SectionLabel';
 import SpotlightCard from '@/components/motion/SpotlightCard';
 import Reveal from '@/components/Reveal';
 import SEO from '@/components/SEO';
+import { caseStudyUrbiEnabled, urbiShowcaseEnabled } from '@/config/features';
 import { URBI_WEBSITE_URL } from '@/config/links';
 import { FINE_POINTER, gsap, MOTION_OK, useGSAP } from '@/lib/gsap';
 import { getFeaturedProject } from '@/services/projectService';
@@ -12,8 +13,6 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from '@components/LocalizedLink';
-
-const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
 
 const headlineHighlights: Record<string, string[]> = {
   pt: ['Ideia', 'Produto'],
@@ -99,8 +98,10 @@ export default function Projects() {
             <Reveal>
               <SpotlightCard className="bg-proxio-dark border-proxio-dark-border overflow-hidden rounded-3xl border">
                 <div className="flex flex-col md:flex-row">
-                  {/* Left — content */}
-                  <div className="flex flex-col justify-center p-8 md:w-3/5 md:p-12">
+                  {/* Left — content (the whole card while Urbi keeps a low profile) */}
+                  <div
+                    className={`flex flex-col justify-center p-8 md:p-12 ${urbiShowcaseEnabled ? 'md:w-3/5' : 'max-w-3xl'}`}
+                  >
                     <div className="bg-proxio-darker text-proxio-accent border-proxio-dark-border mb-6 inline-flex w-max items-center rounded-full border px-3 py-1 text-xs font-medium">
                       <span className="relative mr-2 flex h-2 w-2">
                         <span className="bg-proxio-accent absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></span>
@@ -113,10 +114,14 @@ export default function Projects() {
                       {featuredProject.title}
                     </h2>
                     <p className="text-proxio-text-muted mb-8 text-lg leading-relaxed">
-                      {t(featuredProject.descriptionKey)}
+                      {t(
+                        urbiShowcaseEnabled
+                          ? featuredProject.descriptionKey
+                          : 'projects.urbi.teaser',
+                      )}
                     </p>
 
-                    <div className="mb-8 flex flex-wrap gap-2">
+                    <div className={`flex flex-wrap gap-2 ${urbiShowcaseEnabled ? 'mb-8' : ''}`}>
                       {featuredProject.tags.map((tag) => (
                         <span
                           key={tag}
@@ -127,52 +132,56 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-3">
-                      {caseStudyUrbiEnabled && (
-                        <Magnetic>
-                          <Link
-                            viewTransition
-                            to="/case-studies/urbi"
-                            className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors"
-                          >
-                            {t('projects.viewCaseStudy')}
-                            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                          </Link>
-                        </Magnetic>
-                      )}
-                      <a
-                        href={URBI_WEBSITE_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="border-proxio-dark-border text-proxio-text-main hover:border-proxio-accent hover:text-proxio-accent group inline-flex w-max items-center gap-2 rounded-lg border px-6 py-3 text-sm font-bold transition-colors"
-                      >
-                        {t('caseStudies.urbi.hero.visitSite')}
-                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </a>
-                    </div>
+                    {urbiShowcaseEnabled && (
+                      <div className="flex flex-wrap items-center gap-3">
+                        {caseStudyUrbiEnabled && (
+                          <Magnetic>
+                            <Link
+                              viewTransition
+                              to="/case-studies/urbi"
+                              className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors"
+                            >
+                              {t('projects.viewCaseStudy')}
+                              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                            </Link>
+                          </Magnetic>
+                        )}
+                        <a
+                          href={URBI_WEBSITE_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="border-proxio-dark-border text-proxio-text-main hover:border-proxio-accent hover:text-proxio-accent group inline-flex w-max items-center gap-2 rounded-lg border px-6 py-3 text-sm font-bold transition-colors"
+                        >
+                          {t('caseStudies.urbi.hero.visitSite')}
+                          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </a>
+                      </div>
+                    )}
                   </div>
 
                   {/* Right — logo, tilts towards the pointer */}
-                  <div
-                    ref={tiltRef}
-                    className="border-proxio-dark-border relative flex min-h-64 items-center justify-center overflow-hidden border-t p-12 md:w-2/5 md:border-t-0 md:border-l"
-                    style={{
-                      background:
-                        'radial-gradient(ellipse at center, rgba(37, 99, 235, 0.14) 0%, transparent 70%)',
-                    }}
-                  >
+                  {urbiShowcaseEnabled && (
                     <div
-                      className="hero-grid pointer-events-none absolute inset-0"
-                      aria-hidden="true"
-                    />
-                    <div className="float relative w-full max-w-xs">
-                      <img
-                        src={urbiLogo}
-                        alt="Urbi"
-                        className="max-h-40 w-full object-contain drop-shadow-[0_20px_30px_rgb(37_99_235/0.25)]"
+                      ref={tiltRef}
+                      className="border-proxio-dark-border relative flex min-h-64 items-center justify-center overflow-hidden border-t p-12 md:w-2/5 md:border-t-0 md:border-l"
+                      style={{
+                        background:
+                          'radial-gradient(ellipse at center, rgba(37, 99, 235, 0.14) 0%, transparent 70%)',
+                      }}
+                    >
+                      <div
+                        className="hero-grid pointer-events-none absolute inset-0"
+                        aria-hidden="true"
                       />
+                      <div className="float relative w-full max-w-xs">
+                        <img
+                          src={urbiLogo}
+                          alt="Urbi"
+                          className="max-h-40 w-full object-contain drop-shadow-[0_20px_30px_rgb(37_99_235/0.25)]"
+                        />
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </SpotlightCard>
             </Reveal>

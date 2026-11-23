@@ -1,10 +1,8 @@
 import App from '@/App.tsx';
-import { insightsEnabled } from '@/config/features';
+import { caseStudyUrbiEnabled, insightsEnabled } from '@/config/features';
 import Home from '@pages/Home.tsx';
 import type { ComponentType } from 'react';
 import type { RouteObject } from 'react-router-dom';
-
-export const caseStudyUrbiEnabled = import.meta.env.VITE_ENABLE_CASE_STUDY_URBI === 'true';
 
 /** Loads a page in its own chunk; the router fetches it before navigating, so there is no blank fallback. */
 const page = (load: () => Promise<{ default: ComponentType }>) => async () => ({
@@ -37,11 +35,13 @@ const pages = (): RouteObject[] => [
   { path: '*', lazy: page(() => import('@pages/NotFound.tsx')) },
 ];
 
-// Portuguese at the root, English under /en (see src/i18n/paths.ts)
+// Portuguese at the root, English under /en (see src/i18n/paths.ts). The Portuguese pages sit
+// under a pathless route so both languages have the same depth: switching language then
+// re-renders the same page with new words instead of mounting it again from scratch.
 export const routes: RouteObject[] = [
   {
     path: '/',
     element: <App />,
-    children: [...pages(), { path: 'en', children: pages() }],
+    children: [{ children: pages() }, { path: 'en', children: pages() }],
   },
 ];

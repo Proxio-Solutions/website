@@ -1,4 +1,5 @@
 import Lenis from 'lenis';
+import type { MouseEvent } from 'react';
 import { gsap, ScrollTrigger } from './gsap';
 
 const NAVBAR_OFFSET = -80;
@@ -29,6 +30,36 @@ export function setScrollLocked(locked: boolean) {
   document.body.style.overflow = locked ? 'hidden' : '';
   if (locked) lenis?.stop();
   else lenis?.start();
+}
+
+/*
+ * Switching language keeps the page mounted and swaps its words, which rebuilds the
+ * ScrollTriggers of the headings. Each new trigger measures itself with the pinned sections'
+ * spacing briefly removed: the page gets shorter, the browser clamps the scroll position and
+ * the reader is thrown up the page. Holding the page height through the switch prevents it.
+ */
+let scrollBeforeLanguageSwitch: number | null = null;
+
+/** Called by the language links, right before the page's words change. */
+export function holdPageForLanguageSwitch(event: MouseEvent) {
+  // A modified click opens the other language in a new tab: this page stays as it is
+  if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey)
+    return;
+  scrollBeforeLanguageSwitch = window.scrollY;
+  document.body.style.minHeight = `${document.documentElement.scrollHeight}px`;
+}
+
+/** Called once the new language is committed: lets the page resize and re-measures. */
+export function releasePageAfterLanguageSwitch() {
+  if (scrollBeforeLanguageSwitch === null) return;
+  const y = scrollBeforeLanguageSwitch;
+  scrollBeforeLanguageSwitch = null;
+  requestAnimationFrame(() => {
+    document.body.style.minHeight = '';
+    ScrollTrigger.refresh();
+    // Native, not lenis.scrollTo: Lenis would skip a target it believes it is already at
+    if (Math.abs(window.scrollY - y) > 1) window.scrollTo({ top: y, behavior: 'instant' });
+  });
 }
 
 /** Scrolls to a y position or element, through Lenis when it is running. */

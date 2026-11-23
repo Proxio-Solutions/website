@@ -1,7 +1,8 @@
 import { ARTICLES } from '@/content/insights';
 import i18n from '@/i18n';
 import { LANGUAGES, languageFromPath, localizePath, type Language } from '@/i18n/paths';
-import { caseStudyUrbiEnabled, routes } from '@/routes';
+import { caseStudyUrbiEnabled } from '@/config/features';
+import { routes } from '@/routes';
 import ErrorBoundary from '@components/ErrorBoundary';
 import { StrictMode } from 'react';
 import { prerender } from 'react-dom/static';
