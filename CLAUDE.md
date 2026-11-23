@@ -63,7 +63,25 @@ src/
 public/           # Copied as-is: CNAME, robots.txt, icons, og image (the build writes sitemap.xml)
 .github/workflows # deploy.yml publishes main to GitHub Pages; on PRs, checks.yml (lint, Prettier)
                   # and lighthouse.yml (build + performance budgets in lighthouserc.json)
+.claude/          # rules/ (project rules), skills/impeccable and agents/impeccable-* (design skills)
 ```
+
+## Design skills (Impeccable)
+
+The [Impeccable](https://impeccable.style) design skills are vendored in
+`.claude/skills/impeccable/` and `.claude/agents/impeccable-*.md`, as published (Prettier skips
+them). In a session, `/impeccable <command>` reviews or refines the UI: `audit`, `critique` and
+`polish`, among others. `/impeccable init` writes `PRODUCT.md` and `DESIGN.md`, the product and
+design context every command reads.
+
+- **Project rules win.** The skills suggest; `.claude/rules/` decides. Copy still follows
+  `content.md` (PT-PT with "tu", no invented social proof, i18n for every string).
+- **Update** with `npx impeccable skills update`. It never overwrites `PRODUCT.md` or `DESIGN.md`.
+- **No hooks.** The skills were installed with `--no-hooks`, so nothing runs on every edit. Keep
+  it that way on reinstall:
+  `npx impeccable skills install --project --providers=claude --no-hooks`.
+- The skill downloads its engine binary to `~/.impeccable/` on first use, verified against
+  `scripts/engine-checksums.txt`.
 
 When a change alters this structure, the commands or the stack, update this file in the same PR.
 
