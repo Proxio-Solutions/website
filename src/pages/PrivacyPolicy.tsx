@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
 
   return (
     <>
-      <SEO title={t('privacyPolicy.title')} description={t('privacyPolicy.intro.body')} />
+      <SEO title={t('privacyPolicy.title')} description={t('privacyPolicy.seo.description')} />
 
       <main className="mx-auto max-w-3xl px-4 py-20 sm:px-6 lg:px-8">
         <h1 className="text-proxio-text-main mb-2 text-4xl font-extrabold tracking-tight">

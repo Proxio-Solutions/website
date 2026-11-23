@@ -1,0 +1,48 @@
+name: Lighthouse
+
+# Performance budget on every pull request: a new animation or dependency that pushes first paint,
+# LCP, layout shift or the JS weight past the limits in lighthouserc.json fails the check.
+# Blocking time and the performance score only warn: on GitHub's shared runners they vary too much
+# between runs of the same code (TBT 360–600 ms on /) to gate a merge. The error limits come from
+# CI runs of the pre-rendered build (FCP 2.4–3.2 s, LCP 2.4–3.8 s, CLS ≤ 0.003, JS ≤ 213 kB) plus
+# headroom for runner noise; recalibrate them from CI reports, not local runs.
+on:
+  pull_request:
+    branches: ['main', 'staging', 'dev']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: lighthouse-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build project (Vite)
+        run: npm run build
+
+      - name: Run Lighthouse CI
+        run: npx @lhci/cli@0.14.0 autorun
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: .lighthouseci/reports
+          if-no-files-found: ignore
