@@ -35,9 +35,9 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
+            <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.company')}
-            </h3>
+            </h2>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.translationKey}>
@@ -55,9 +55,9 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
+            <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.services')}
-            </h3>
+            </h2>
             <ul className="space-y-3">
               {serviceLinks.map(({ key, href }) => (
                 <li key={key}>
@@ -75,9 +75,9 @@ export default function Footer() {
 
           {/* Contact & Legal */}
           <div>
-            <h3 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
+            <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.contact')}
-            </h3>
+            </h2>
             <ul className="space-y-3">
               <li>
                 <a

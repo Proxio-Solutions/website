@@ -85,7 +85,7 @@ export function deadlineBounds(today = new Date()) {
   return { min: isoDate(min), max: isoDate(max) };
 }
 
-export type DeadlineError = 'empty' | 'invalid' | 'tooSoon' | 'tooFar';
+export type DeadlineError = 'empty' | 'invalid' | 'past' | 'tooSoon' | 'tooFar';
 
 /** Weeks from today to the deadline, or why the date cannot be used. */
 export function checkDeadline(
@@ -101,6 +101,8 @@ export function checkDeadline(
   if (date.getFullYear() !== year || date.getMonth() !== month - 1 || date.getDate() !== day)
     return { error: 'invalid' };
   const { min, max } = deadlineBounds(today);
+  // A date already gone needs a different word than one that is merely too close
+  if (value < isoDate(today)) return { error: 'past' };
   if (value < min) return { error: 'tooSoon' };
   if (value > max) return { error: 'tooFar' };
   const start = new Date(today.getFullYear(), today.getMonth(), today.getDate());

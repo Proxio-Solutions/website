@@ -38,7 +38,7 @@ export default function ServicesSection() {
               <div key={key} className="service-card">
                 <Link
                   viewTransition
-                  to="/services"
+                  to={`/services#service-${key}`}
                   className="card-lift group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6"
                 >
                   <div

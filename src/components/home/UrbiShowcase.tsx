@@ -108,7 +108,7 @@ export default function UrbiShowcase() {
         <h2 className="text-6xl font-black tracking-tight sm:text-7xl">Urbi</h2>
         <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
           <span className="relative flex h-1.5 w-1.5">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
+            <span className="absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75 motion-safe:animate-ping" />
             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-blue-400" />
           </span>
           {t('projects.status.development')}

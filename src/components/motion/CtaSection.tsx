@@ -66,11 +66,11 @@ export default function CtaSection({ title, subtitle, primary, secondary }: CtaS
             </p>
           )}
           <div className="cta-fade mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Magnetic>
+            <Magnetic className="w-full sm:w-auto">
               <Link
                 viewTransition
                 to={primary.to}
-                className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex items-center gap-2 rounded-lg px-8 py-3.5 text-base font-bold text-white shadow-lg shadow-blue-600/30 transition-colors"
+                className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-full items-center justify-center gap-2 rounded-lg px-8 py-3.5 text-base font-bold text-white shadow-lg shadow-blue-600/30 transition-colors sm:w-auto"
               >
                 {primary.label}
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -81,7 +81,7 @@ export default function CtaSection({ title, subtitle, primary, secondary }: CtaS
                 href={secondary.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-lg border border-white/15 px-8 py-3.5 text-base font-bold text-white transition-colors hover:border-white/40"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-lg border border-white/15 px-8 py-3.5 text-base font-bold text-white transition-colors hover:border-white/40 sm:w-auto"
               >
                 {secondary.label}
                 <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -350,7 +350,7 @@
       "web": {
         "title": "Desenvolvimento de Aplicações Web",
         "desc": "De websites simples a plataformas SaaS complexas, construímos aplicações web rápidas, fiáveis e escaláveis.",
-        "features": ["Design UI/UX Personalizado", "API's REST", "Otimização de Performance"]
+        "features": ["Design UI/UX Personalizado", "APIs REST", "Otimização de Performance"]
       },
       "mobile": {
         "title": "Desenvolvimento de Aplicações Móveis",
@@ -581,6 +581,7 @@
         "deadline": {
           "empty": "Escolhe a data em que precisas do projeto pronto.",
           "invalid": "Essa data não existe. Confirma o dia e o mês.",
+          "past": "Essa data já passou. Escolhe uma data a partir de daqui a uma semana.",
           "tooSoon": "Escolhe uma data a pelo menos uma semana de hoje.",
           "tooFar": "Escolhe uma data nos próximos {{years}} anos, ou «Flexível»."
         },
@@ -590,7 +591,10 @@
           "tooLow": "O valor mínimo é {{min}}. Se ainda não sabes, escolhe «Ainda não sei».",
           "tooHigh": "Esse valor parece-nos alto demais. Confirma os zeros.",
           "range": "No intervalo, escreve primeiro o valor mais baixo."
-        }
+        },
+        "name": "Diz-nos o teu nome.",
+        "email": "Confirma o email, por exemplo nome@empresa.pt.",
+        "message": "Escreve a tua mensagem."
       },
       "privacy": "Ao enviar, aceitas a nossa <link>política de privacidade</link>.",
       "nav": {
@@ -648,8 +652,7 @@
     "next": {
       "label": "Em Incubação",
       "title": "As Próximas Ideias",
-      "desc": "Cada produto que construímos começa com uma pergunta simples. Estamos ativamente a explorar novos problemas para resolver. Se tens uma ideia ou um problema que merece uma solução, queremos ouvir.",
-      "cta": "Fala connosco"
+      "desc": "Cada produto que construímos começa com uma pergunta simples. Estamos ativamente a explorar novos problemas para resolver. Se tens uma ideia ou um problema que merece uma solução, queremos ouvir."
     },
     "viewCaseStudy": "Ver caso de estudo"
   },

@@ -287,7 +287,7 @@
     "story": {
       "label": "Our Story",
       "title": "From Classmates to Founders",
-      "p1": "Proxio was born out of a friendship between two computer engineering classmates. What started as an academic partnership shared assignments, late-night projects, and a lot of code, grew as we realised we held the same views on technology, product, and what it means to do things properly.",
+      "p1": "Proxio was born out of a friendship between two computer engineering classmates. What started as an academic partnership of shared assignments, late-night projects and a lot of code grew as we realised we held the same views on technology, product, and what it means to do things properly.",
       "p2": "We both wanted to change the way relationships between companies and clients work in software. It was with that conviction, and through Urbi, a project we deeply believe in, that we took our first step into the market."
     },
     "values": {
@@ -346,7 +346,7 @@
       "web": {
         "title": "Web Application Development",
         "desc": "From simple websites to complex SaaS platforms, we build web applications that are fast, reliable, and scalable.",
-        "features": ["Custom UI/UX Design", "REST API's", "Performance Optimization"]
+        "features": ["Custom UI/UX Design", "REST APIs", "Performance Optimization"]
       },
       "mobile": {
         "title": "Mobile App Development",
@@ -356,7 +356,7 @@
       "consulting": {
         "title": "Technology Consulting",
         "desc": "Not sure which path to take? We help teams make the right technology choices, from architecture reviews to full product strategy.",
-        "features": ["Tech Stack Selection", "Architecture Review", "Product Road-mapping"]
+        "features": ["Tech Stack Selection", "Architecture Review", "Product Roadmapping"]
       }
     },
     "process": {
@@ -364,7 +364,7 @@
       "title": "How We Work",
       "discover": {
         "title": "Discover",
-        "desc": "We start by deeply understanding your necessities, users, and goals."
+        "desc": "We start by deeply understanding your needs, users, and goals."
       },
       "design": {
         "title": "Design",
@@ -577,6 +577,7 @@
         "deadline": {
           "empty": "Pick the date you need the project ready by.",
           "invalid": "That date doesn't exist. Check the day and month.",
+          "past": "That date has already passed. Pick one at least a week from today.",
           "tooSoon": "Pick a date at least a week from today.",
           "tooFar": "Pick a date within the next {{years}} years, or “Flexible”."
         },
@@ -586,7 +587,10 @@
           "tooLow": "The minimum is {{min}}. If you're not sure yet, pick “Not sure yet”.",
           "tooHigh": "That amount looks too high. Check the zeros.",
           "range": "In a range, write the lower amount first."
-        }
+        },
+        "name": "Tell us your name.",
+        "email": "Check the email, for example name@company.com.",
+        "message": "Write your message."
       },
       "privacy": "By sending this, you agree to our <link>privacy policy</link>.",
       "nav": {
@@ -644,8 +648,7 @@
     "next": {
       "label": "In Incubation",
       "title": "The Next Ideas",
-      "desc": "Every product we build starts with a simple question. We're actively exploring new problems worth solving. If you have an idea or a challenge that deserves a proper solution, we'd love to hear it.",
-      "cta": "Talk to us"
+      "desc": "Every product we build starts with a simple question. We're actively exploring new problems worth solving. If you have an idea or a challenge that deserves a proper solution, we'd love to hear it."
     },
     "viewCaseStudy": "Read the case study"
   },
