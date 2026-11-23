@@ -2,6 +2,7 @@ import bannerIllustration from '@assets/banner.svg';
 import WordmarkDots from '@components/motion/WordmarkDots';
 import { useTranslation } from 'react-i18next';
 import { Link } from '@components/LocalizedLink';
+import { CONTACT_EMAIL } from '../config/links';
 import { NAV_LINKS } from '../config/navigation';
 
 const serviceLinks = [
@@ -81,10 +82,10 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:proxiosolutions@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
                 >
-                  proxiosolutions@gmail.com
+                  {CONTACT_EMAIL}
                 </a>
               </li>
               <li>

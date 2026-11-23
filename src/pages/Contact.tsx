@@ -9,6 +9,7 @@ import PageHero from '@components/motion/PageHero';
 import SpotlightCard from '@components/motion/SpotlightCard';
 import Reveal from '@components/Reveal';
 import SEO from '@components/SEO';
+import { CONTACT_EMAIL } from '@/config/links';
 import { Clock, Mail, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
@@ -23,8 +24,8 @@ export default function Contact() {
     {
       icon: Mail,
       label: t('contact.info.email.label'),
-      value: t('contact.info.email.value'),
-      href: `mailto:${t('contact.info.email.value')}`,
+      value: CONTACT_EMAIL,
+      href: `mailto:${CONTACT_EMAIL}`,
     },
     {
       icon: MapPin,
