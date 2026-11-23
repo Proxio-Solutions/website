@@ -30,3 +30,6 @@ dist-ssr
 .claude/settings.local.json
 .claude/worktrees/
 .claude/launch.json
+
+# Impeccable engine binary, downloaded per machine by the skill launcher
+.claude/skills/impeccable/scripts/bin/
