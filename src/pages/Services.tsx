@@ -6,11 +6,22 @@ import SectionHeader from '@components/motion/SectionHeader';
 import SpotlightCard from '@components/motion/SpotlightCard';
 import SEO from '@components/SEO';
 import { gsap, motion, MOTION_OK, useGSAP } from '@/lib/gsap';
-import { Check } from 'lucide-react';
+import { Link } from '@components/LocalizedLink';
+import { ArrowRight, Check } from 'lucide-react';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const serviceKeys = ['web', 'mobile', 'consulting'] as const;
+
+/**
+ * Where each card's action leads: the brief with the matching project type already chosen.
+ * Web stays open, because the brief asks whether it is a website or a web app.
+ */
+const briefLinks: Record<(typeof serviceKeys)[number], string> = {
+  web: '/contact',
+  mobile: '/contact?type=mobile',
+  consulting: '/contact?type=consulting',
+};
 
 const heroHighlights: Record<string, string[]> = {
   pt: ['Ideias', 'Software'],
@@ -71,7 +82,7 @@ export default function Services() {
                   <div key={key} id={`service-${key}`} className="service-card scroll-mt-28">
                     <SpotlightCard className="group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6 sm:p-8">
                       <div
-                        className="bg-proxio-dark border-proxio-dark-border mb-6 h-44 rounded-xl border p-4"
+                        className="bg-proxio-dark border-proxio-dark-border mb-6 h-28 rounded-xl border p-4 sm:h-44"
                         aria-hidden="true"
                       >
                         <Illustration />
@@ -79,9 +90,9 @@ export default function Services() {
                       <span className="text-proxio-text-muted font-mono text-xs">
                         [0{index + 1}]
                       </span>
-                      <h2 className="text-proxio-text-main mt-1 mb-4 text-2xl font-bold">
+                      <h3 className="text-proxio-text-main mt-1 mb-4 text-2xl font-bold">
                         {t(`services.items.${key}.title`)}
-                      </h2>
+                      </h3>
                       <p className="text-proxio-text-muted mb-6 leading-relaxed">
                         {t(`services.items.${key}.desc`)}
                       </p>
@@ -98,6 +109,14 @@ export default function Services() {
                           </li>
                         ))}
                       </ul>
+                      <Link
+                        viewTransition
+                        to={briefLinks[key]}
+                        className="text-proxio-accent hover:text-proxio-accent-hover group/cta mt-6 inline-flex w-max items-center gap-1.5 text-sm font-bold"
+                      >
+                        {t('services.cardCta')}
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
+                      </Link>
                     </SpotlightCard>
                   </div>
                 );

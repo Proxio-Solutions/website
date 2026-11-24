@@ -387,7 +387,8 @@
       "title": "Ready to Start?",
       "subtitle": "Tell us about your project and let's explore how we can help.",
       "button": "Contact Us"
-    }
+    },
+    "cardCta": "Talk to us about this"
   },
   "contact": {
     "seo": {
