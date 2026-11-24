@@ -1,4 +1,5 @@
 import { urbiShowcaseEnabled } from '@/config/features';
+import { CONTACT_EMAIL } from '@/config/links';
 import HeroSection from '@components/home/HeroSection';
 import ProcessTimeline from '@components/home/ProcessTimeline';
 import ServicesSection from '@components/home/ServicesSection';
@@ -24,7 +25,7 @@ export default function Home() {
         alternateName: 'Proxio',
         url: `${BASE_URL}/`,
         logo: `${BASE_URL}/web-app-manifest-512x512.png`,
-        email: t('contact.info.email.value'),
+        email: CONTACT_EMAIL,
         description: t('home.seo.description'),
       },
       {
