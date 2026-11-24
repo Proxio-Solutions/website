@@ -209,7 +209,7 @@ export default function Projects() {
                   <h2 className="text-proxio-text-main mb-4 text-3xl font-extrabold">
                     {t('projects.next.title')}
                   </h2>
-                  <p className="text-proxio-text-muted text-lg leading-relaxed">
+                  <p className="text-proxio-text-muted max-w-2xl text-lg leading-relaxed">
                     {t('projects.next.desc')}
                   </p>
                 </div>
