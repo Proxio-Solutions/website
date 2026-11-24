@@ -341,11 +341,10 @@
       "title": "Desenvolvimento web, mobile e software à medida",
       "description": "Desenhamos, desenvolvemos e fazemos evoluir aplicações web e móveis e software à medida, a pensar em quem os vai usar."
     },
-    "title": "Os Nossos Serviços",
-    "description": "Desenhamos, desenvolvemos e escalamos produtos tecnológicos à medida das tuas necessidades, com foco na performance e inovação.",
     "hero": {
       "label": "Os Nossos Serviços",
       "title": "Transformamos Ideias em Software",
+      "highlights": ["Ideias", "Software"],
       "subtitle": "Trabalhamos com clientes ambiciosos na conceção, desenvolvimento e evolução de produtos digitais, combinando excelência em engenharia com foco na experiência do utilizador."
     },
     "items": {
@@ -385,10 +384,6 @@
         "title": "Lançamento e Escala",
         "desc": "Publicamos, monitorizamos e damos suporte ao teu produto à medida que cresce."
       }
-    },
-    "stack": {
-      "label": "O Nosso Stack",
-      "title": "Construído com as Melhores Ferramentas"
     },
     "cta": {
       "title": "Pronto para Começar?",

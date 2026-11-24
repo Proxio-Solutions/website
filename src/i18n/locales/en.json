@@ -337,11 +337,10 @@
       "title": "Web, mobile and custom software development",
       "description": "We design, build and evolve web and mobile apps and custom software, with the people who will use them in mind."
     },
-    "title": "Our Services",
-    "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation.",
     "hero": {
       "label": "Our Services",
       "title": "Turning Ideas into Software",
+      "highlights": ["Ideas", "Software"],
       "subtitle": "We work with ambitious clients on the design, development, and evolution of digital products, combining engineering excellence with a strong focus on user experience."
     },
     "items": {
@@ -381,10 +380,6 @@
         "title": "Launch & Scale",
         "desc": "We deploy, monitor, and support your product as it grows."
       }
-    },
-    "stack": {
-      "label": "Our Tech Stack",
-      "title": "Built With the Best Tools"
     },
     "cta": {
       "title": "Ready to Start?",
