@@ -284,6 +284,7 @@
     "mission": {
       "label": "Our Mission",
       "title": "Technology That Connects and Inspires",
+      "highlights": ["Technology", "Connects", "Inspires"],
       "desc": "We believe technology should be appealing, intuitive, and sustainable. Our mission is to turn complex ideas into digital products that make a real difference in people's lives."
     },
     "story": {
@@ -308,7 +309,7 @@
         "desc": "We stay at the forefront of technology so our clients always benefit from the best solutions available."
       },
       "transparency": {
-        "title": "Radical Transparency",
+        "title": "Full Transparency",
         "desc": "Clear communication, honest timelines, and no surprises. We believe trust is built through consistency."
       }
     },

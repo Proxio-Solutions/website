@@ -288,6 +288,7 @@
     "mission": {
       "label": "A Nossa Missão",
       "title": "Tecnologia que Conecta e Inspira",
+      "highlights": ["Tecnologia", "Conecta", "Inspira"],
       "desc": "Acreditamos que a tecnologia deve ser apelativa, intuitiva e sustentável. A nossa missão é transformar ideias complexas em produtos digitais que fazem uma diferença real na vida das pessoas."
     },
     "story": {

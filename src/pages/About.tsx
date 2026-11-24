@@ -5,7 +5,8 @@ import SectionHeader from '@components/motion/SectionHeader';
 import SpotlightCard from '@components/motion/SpotlightCard';
 import Reveal from '@components/Reveal';
 import SEO from '@components/SEO';
-import { Eye, Hammer, Lightbulb, Users } from 'lucide-react';
+import { Link } from '@components/LocalizedLink';
+import { ArrowRight, Eye, Hammer, Lightbulb, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getTeamMembers } from '../services/teamService';
 
@@ -17,10 +18,10 @@ const valueIcons = {
 } as const;
 const teamMembers = getTeamMembers();
 
-const highlightWords: Record<string, string[]> = {
-  pt: ['Tecnologia', 'Conecta', 'Inspira'],
-  en: ['Technology', 'Connects', 'Inspires'],
-};
+const STORY_LINKS = [
+  { href: '/services', translationKey: 'nav.services' },
+  { href: '/projects', translationKey: 'nav.projects' },
+] as const;
 
 /** "Diogo Santos" → "DS" */
 function initials(name: string) {
@@ -34,7 +35,7 @@ function initials(name: string) {
 }
 
 export default function About() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -45,7 +46,7 @@ export default function About() {
         <PageHero
           label={t('about.mission.label')}
           title={t('about.mission.title')}
-          highlights={highlightWords[i18n.language] ?? highlightWords.en}
+          highlights={t('about.mission.highlights', { returnObjects: true }) as string[]}
           subtitle={t('about.mission.desc')}
         />
 
@@ -67,6 +68,23 @@ export default function About() {
                 text={t('about.story.p2')}
                 className="text-proxio-text-main text-xl leading-snug font-medium sm:text-3xl sm:font-semibold"
               />
+              {/* Where the story leads: what we do, and what we are building */}
+              <nav
+                aria-label={t('about.story.label')}
+                className="flex flex-wrap gap-x-8 gap-y-3 pt-2"
+              >
+                {STORY_LINKS.map(({ href, translationKey }) => (
+                  <Link
+                    key={href}
+                    viewTransition
+                    to={href}
+                    className="text-proxio-accent hover:text-proxio-accent-hover group inline-flex items-center gap-1.5 font-bold"
+                  >
+                    {t(translationKey)}
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                ))}
+              </nav>
             </div>
           </div>
         </section>
@@ -86,13 +104,8 @@ export default function About() {
               return (
                 <Reveal key={key} delay={(index % 2) * 100}>
                   <SpotlightCard className="group bg-proxio-dark border-proxio-dark-border h-full rounded-2xl border p-8">
-                    <div className="mb-6 flex items-center justify-between">
-                      <div className="bg-proxio-accent/10 inline-flex rounded-xl p-3">
-                        <Icon className="text-proxio-accent h-6 w-6" />
-                      </div>
-                      <span className="text-proxio-text-muted font-mono text-xs">
-                        [0{index + 1}]
-                      </span>
+                    <div className="bg-proxio-accent/10 mb-6 inline-flex rounded-xl p-3">
+                      <Icon className="text-proxio-accent h-6 w-6" />
                     </div>
                     <h3 className="text-proxio-text-main mb-2 text-xl font-bold">
                       {t(`about.values.${key}.title`)}
