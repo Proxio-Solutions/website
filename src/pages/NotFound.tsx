@@ -1,12 +1,24 @@
 import voidIllustration from '@assets/void.svg';
 import DotGrid from '@components/motion/DotGrid';
 import Magnetic from '@components/motion/Magnetic';
+import { NAV_LINKS } from '@/config/navigation';
 import { ArrowLeft } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from '@components/LocalizedLink';
 
+/** Where a lost visitor most likely wanted to go: every page in the menu except home. */
+const SUGGESTIONS = NAV_LINKS.filter(({ href }) => href !== '/');
+
 export default function NotFound() {
   const { t } = useTranslation();
+  // The address that failed. Read after hydration: the pre-rendered 404 page has no real path.
+  const [path, setPath] = useState<string | null>(null);
+  useEffect(() => {
+    // The URL only exists in the browser, so this sync has to happen in an effect
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPath(decodeURI(window.location.pathname));
+  }, []);
 
   return (
     <main className="relative flex grow flex-col items-center justify-center overflow-hidden px-4 py-32 sm:px-6 lg:px-8">
@@ -19,7 +31,9 @@ export default function NotFound() {
 
       <div className="relative flex flex-col items-center text-center">
         <p className="text-proxio-accent font-mono text-sm font-medium tracking-[0.2em] uppercase">
-          <span className="opacity-60">// </span>
+          <span className="opacity-60" aria-hidden="true">
+            //{' '}
+          </span>
           {t('notFound.label')}
         </p>
 
@@ -27,28 +41,44 @@ export default function NotFound() {
           {t('notFound.title')}
         </h1>
 
-        <img
-          src={voidIllustration}
-          alt={t('notFound.imageAlt')}
-          className="float my-8 w-44 opacity-95 md:w-48 lg:w-60"
-        />
+        <img src={voidIllustration} alt="" className="float my-8 w-44 opacity-95 md:w-48 lg:w-60" />
 
         <p className="text-proxio-text-muted mx-auto mt-4 max-w-md text-lg">
           {t('notFound.description')}
         </p>
+        {path && (
+          <p className="text-proxio-text-muted mt-2 max-w-md font-mono text-sm break-all">{path}</p>
+        )}
 
         <div className="mt-8">
           <Magnetic>
             <Link
               viewTransition
               to="/"
-              className="group text-proxio-darker bg-proxio-accent hover:bg-proxio-accent-hover inline-flex items-center gap-2 rounded-md border border-transparent px-6 py-3 text-base font-bold shadow-sm transition-colors"
+              className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex items-center gap-2 rounded-lg px-8 py-3.5 text-base font-bold text-white shadow-lg shadow-blue-600/30 transition-colors"
             >
               <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
               {t('notFound.backHome')}
             </Link>
           </Magnetic>
         </div>
+
+        <nav aria-label={t('notFound.suggestions')} className="mt-10">
+          <p className="text-proxio-text-muted text-sm">{t('notFound.suggestions')}</p>
+          <ul className="mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2">
+            {SUGGESTIONS.map(({ translationKey, href }) => (
+              <li key={href}>
+                <Link
+                  viewTransition
+                  to={href}
+                  className="text-proxio-text-main hover:text-proxio-accent text-sm font-semibold underline-offset-4 transition-colors hover:underline"
+                >
+                  {t(translationKey)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </main>
   );

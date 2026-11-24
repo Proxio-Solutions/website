@@ -660,8 +660,8 @@
     "label": "Erro 404",
     "title": "Página não encontrada",
     "description": "Desculpa, não encontrámos a página que procuras.",
-    "imageAlt": "Ilustração de um espaço vazio",
-    "backHome": "Voltar ao início"
+    "backHome": "Voltar ao início",
+    "suggestions": "Ou vai diretamente para"
   },
   "footer": {
     "tagline": "A construir produtos digitais modernos com excelência e propósito.",
