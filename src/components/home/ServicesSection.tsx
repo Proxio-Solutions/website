@@ -32,13 +32,16 @@ export default function ServicesSection() {
         />
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {serviceKeys.map((key, i) => {
+          {serviceKeys.map((key) => {
             const Illustration = serviceIllustrations[key];
             return (
               <div key={key} className="service-card">
                 <Link
                   viewTransition
                   to={`/services#service-${key}`}
+                  // Name the link by its title, not by every word in the card
+                  aria-labelledby={`home-service-${key}`}
+                  aria-describedby={`home-service-${key}-desc`}
                   className="card-lift group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6"
                 >
                   <div
@@ -47,11 +50,16 @@ export default function ServicesSection() {
                   >
                     <Illustration />
                   </div>
-                  <span className="text-proxio-text-muted font-mono text-xs">[0{i + 1}]</span>
-                  <h3 className="text-proxio-text-main mt-1 text-xl font-bold">
+                  <h3
+                    id={`home-service-${key}`}
+                    className="text-proxio-text-main text-xl font-bold"
+                  >
                     {t(`home.services.${key}.title`)}
                   </h3>
-                  <p className="text-proxio-text-muted mt-2 flex-1 leading-relaxed">
+                  <p
+                    id={`home-service-${key}-desc`}
+                    className="text-proxio-text-muted mt-2 flex-1 leading-relaxed"
+                  >
                     {t(`home.services.${key}.desc`)}
                   </p>
                   <span className="text-proxio-accent mt-6 inline-flex items-center gap-1.5 text-sm font-bold">

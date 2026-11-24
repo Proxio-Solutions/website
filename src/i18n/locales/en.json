@@ -9,7 +9,8 @@
     "cta": "Let's Talk",
     "closeMenu": "Close menu",
     "openMenu": "Open menu",
-    "switchLanguage": "PT, ver em português"
+    "switchLanguage": "PT, ver em português",
+    "skipToContent": "Skip to content"
   },
   "home": {
     "seo": {
@@ -19,6 +20,7 @@
     "hero": {
       "badge": "Hi, we're Proxio 👋",
       "title": "We Create Digital Solutions That Make a Difference",
+      "highlights": ["Digital Solutions", "Difference"],
       "subtitle": "From idea to deployment, we design and develop modern software that solves real problems and delights users.",
       "cta": "Start a Project",
       "learnMore": "See Our Work"
@@ -282,6 +284,7 @@
     "mission": {
       "label": "Our Mission",
       "title": "Technology That Connects and Inspires",
+      "highlights": ["Technology", "Connects", "Inspires"],
       "desc": "We believe technology should be appealing, intuitive, and sustainable. Our mission is to turn complex ideas into digital products that make a real difference in people's lives."
     },
     "story": {
@@ -306,7 +309,7 @@
         "desc": "We stay at the forefront of technology so our clients always benefit from the best solutions available."
       },
       "transparency": {
-        "title": "Radical Transparency",
+        "title": "Full Transparency",
         "desc": "Clear communication, honest timelines, and no surprises. We believe trust is built through consistency."
       }
     },
@@ -335,11 +338,10 @@
       "title": "Web, mobile and custom software development",
       "description": "We design, build and evolve web and mobile apps and custom software, with the people who will use them in mind."
     },
-    "title": "Our Services",
-    "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation.",
     "hero": {
       "label": "Our Services",
       "title": "Turning Ideas into Software",
+      "highlights": ["Ideas", "Software"],
       "subtitle": "We work with ambitious clients on the design, development, and evolution of digital products, combining engineering excellence with a strong focus on user experience."
     },
     "items": {
@@ -359,6 +361,7 @@
         "features": ["Tech Stack Selection", "Architecture Review", "Product Roadmapping"]
       }
     },
+    "cardCta": "Talk to us about this",
     "process": {
       "label": "Our Process",
       "title": "How We Work",
@@ -379,10 +382,6 @@
         "desc": "We deploy, monitor, and support your product as it grows."
       }
     },
-    "stack": {
-      "label": "Our Tech Stack",
-      "title": "Built With the Best Tools"
-    },
     "cta": {
       "title": "Ready to Start?",
       "subtitle": "Tell us about your project and let's explore how we can help.",
@@ -399,6 +398,7 @@
     "hero": {
       "label": "Get in Touch",
       "title": "Let's Talk",
+      "highlights": ["Let's Talk"],
       "subtitle": "Whatever brings you here, we're available. Reach out and let's start a conversation."
     },
     "form": {
@@ -637,8 +637,7 @@
     "description": "We don't build software for the sake of it, we solve real problems. Discover what we're creating and what's taking shape.",
     "featured": "Featured",
     "status": {
-      "development": "In Development",
-      "research": "In Research"
+      "development": "In Development"
     },
     "urbi": {
       "description": "Have you ever reported a problem in your city and felt like you were talking to a wall? Urbi was born from exactly that feeling, of not being heard. On the other side, municipalities face the daily chaos of managing hundreds of reports with no proper tools. Urbi solves both ends: simple for those who report, powerful for those who manage.",
@@ -655,8 +654,8 @@
     "label": "Error 404",
     "title": "Page not found",
     "description": "Sorry, we couldn't find the page you're looking for.",
-    "imageAlt": "Illustration of an empty space",
-    "backHome": "Go back home"
+    "backHome": "Go back home",
+    "suggestions": "Or go straight to"
   },
   "footer": {
     "tagline": "Building modern digital products with craft and purpose.",
@@ -938,6 +937,7 @@
     "hero": {
       "label": "Insights",
       "title": "What we learn building software",
+      "highlights": ["learn"],
       "subtitle": "Notes on how to think through, design and build digital products."
     },
     "minutes_one": "{{count}} min read",

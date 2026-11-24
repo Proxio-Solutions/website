@@ -57,7 +57,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // 16px on phones, so iOS does not zoom in when a field takes focus
 const inputClass =
-  'border-proxio-dark-border bg-proxio-darker text-proxio-text-main placeholder:text-proxio-text-muted/70 w-full rounded-lg border px-4 py-3 text-base outline-none transition-colors hover:border-slate-300 focus:border-proxio-accent/40 aria-[invalid=true]:border-red-400 sm:text-sm';
+  'border-proxio-dark-border bg-proxio-darker text-proxio-text-main placeholder:text-proxio-text-muted w-full rounded-lg border px-4 py-3 text-base outline-none transition-colors hover:border-slate-300 focus:border-proxio-accent/40 aria-[invalid=true]:border-red-400 sm:text-sm';
 
 /** A selectable card or pill: a radio inside a radiogroup, or a toggle button for multi-select. */
 function Choice({
@@ -92,8 +92,24 @@ function Choice({
 }
 
 /** A short message under a field the visitor still has to fill in. */
-function FieldError({ id, show, children }: { id: string; show: boolean; children: ReactNode }) {
-  if (!show) return null;
+function FieldError({
+  id,
+  show,
+  reserve = false,
+  children,
+}: {
+  id: string;
+  show: boolean;
+  /** Keep the line's height while hidden, so fixing a field does not shift the form under you. */
+  reserve?: boolean;
+  children: ReactNode;
+}) {
+  if (!show)
+    return reserve ? (
+      <p className="mt-2 text-xs" aria-hidden="true">
+        &nbsp;
+      </p>
+    ) : null;
   return (
     <p id={id} className="mt-2 text-xs font-medium text-red-600">
       {children}
@@ -118,6 +134,8 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
     setContact((prev) => ({ ...prev, [key]: value }));
   const [stepIndex, setStepIndex] = useState(0);
   const [attempted, setAttempted] = useState(false);
+  // Free fields opened after a failed attempt: empty is expected until the next try
+  const [justOpened, setJustOpened] = useState<Partial<Record<Field, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const root = useRef<HTMLDivElement>(null);
   const panel = useRef<HTMLDivElement>(null);
@@ -127,6 +145,18 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
   const advanceTimer = useRef(0);
 
   useEffect(() => () => window.clearTimeout(advanceTimer.current), []);
+
+  // A service card can send the visitor here with the type already chosen (`?type=mobile`).
+  // Read after hydration: the pre-rendered page always starts at the first step.
+  useEffect(() => {
+    const type = new URLSearchParams(window.location.search).get('type');
+    const known = PROJECT_TYPES.find((option) => option.id === type);
+    if (!known) return;
+    // The URL is only readable after hydration, so this sync has to happen in an effect
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setBrief((prev) => ({ ...prev, type: known.id }));
+    setStepIndex(1);
+  }, []);
 
   const step = STEPS[stepIndex];
   const isProject = mode === 'project';
@@ -156,7 +186,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
     email: !EMAIL_RE.test(contact.email.trim()),
     message: contact.message.trim() === '',
   };
-  const showError = (field: Field) => attempted && missing[field];
+  const showError = (field: Field) => attempted && missing[field] && !justOpened[field];
   /** The message under a group: why the free value is not usable, or that nothing was picked. */
   const errorText = (field: 'timeline' | 'budget') => {
     if (field === 'timeline' && deadlineError)
@@ -181,6 +211,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
    */
   const pointAt = (field: Field) => {
     setAttempted(true);
+    setJustOpened({});
     // The field itself, or the first option of a group of choices
     const target = root.current?.querySelector<HTMLElement>(`[data-field="${field}"]`);
     if (!target) return;
@@ -360,6 +391,27 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
     },
   ];
 
+  /** What has been chosen so far, with the reminder that none of it is a commitment. */
+  const summaryList = (
+    <>
+      <dl className="mt-4 space-y-2.5">
+        {summaryRows.map(({ label, value }) => (
+          <div key={label} className="flex items-baseline justify-between gap-4 text-sm">
+            <dt className="text-proxio-text-muted">{label}</dt>
+            <dd
+              className={`text-right font-semibold ${value ? 'text-proxio-text-main' : 'text-slate-300'}`}
+            >
+              {value ?? '—'}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <p className="border-proxio-dark-border text-proxio-text-muted mt-5 border-t pt-4 text-xs leading-relaxed">
+        {t(`${b}.summary.disclaimer`)}
+      </p>
+    </>
+  );
+
   const headingKey = isProject ? `${b}.${step}` : `${b}.question`;
 
   /** The props that tie a contact input to its state and to its error message. */
@@ -386,7 +438,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
           className={inputClass}
           {...contactInput('name', 'name')}
         />
-        <FieldError id="brief-error-name" show={showError('name')}>
+        <FieldError id="brief-error-name" reserve={attempted} show={showError('name')}>
           {t(`${b}.errors.name`)}
         </FieldError>
       </label>
@@ -402,7 +454,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
           className={inputClass}
           {...contactInput('email', 'email')}
         />
-        <FieldError id="brief-error-email" show={showError('email')}>
+        <FieldError id="brief-error-email" reserve={attempted} show={showError('email')}>
           {t(`${b}.errors.email`)}
         </FieldError>
       </label>
@@ -432,11 +484,13 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
             selected={value === id}
             onSelect={() => {
               onChange(id);
-              // Opening the free field: move straight into it
-              if (id === 'custom' && value !== 'custom')
+              // Opening the free field: move straight into it, without flagging it empty yet
+              if (id === 'custom' && value !== 'custom') {
+                setJustOpened((prev) => ({ ...prev, [field]: true }));
                 requestAnimationFrame(() =>
                   root.current?.querySelector<HTMLElement>(`input[data-field="${field}"]`)?.focus(),
                 );
+              }
             }}
             className="text-proxio-text-main px-4 py-2.5 text-sm font-semibold tabular-nums"
           >
@@ -449,7 +503,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
         ))}
       </div>
       {value === 'custom' && freeField(field)}
-      <FieldError id={`brief-error-${field}`} show={showError(field)}>
+      <FieldError id={`brief-error-${field}`} reserve={attempted} show={showError(field)}>
         {errorText(field)}
       </FieldError>
     </fieldset>
@@ -595,13 +649,11 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                     onClick={() => switchMode(value)}
                     className={`flex items-center justify-center gap-2 rounded-lg px-2 py-2.5 text-center text-[13px] leading-tight font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:px-3 sm:text-sm ${
                       mode === value
-                        ? 'bg-proxio-dark text-proxio-text-main ring-proxio-accent/40 shadow-sm ring-1'
+                        ? 'bg-proxio-accent text-white shadow-sm'
                         : 'text-proxio-text-muted hover:text-proxio-text-main'
                     }`}
                   >
-                    <Icon
-                      className={`hidden h-4 w-4 shrink-0 sm:block ${mode === value ? 'text-proxio-accent' : ''}`}
-                    />
+                    <Icon className="hidden h-4 w-4 shrink-0 sm:block" />
                     {t(`${b}.mode.${value}`)}
                   </button>
                 ))}
@@ -683,7 +735,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                       </Choice>
                     ))}
                   </div>
-                  <FieldError id="brief-error-type" show={showError('type')}>
+                  <FieldError id="brief-error-type" reserve={attempted} show={showError('type')}>
                     {t(`${b}.errors.type`)}
                   </FieldError>
                 </>
@@ -707,7 +759,11 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                       }
                       className={`${inputClass} block resize-none`}
                     />
-                    <FieldError id="brief-error-description" show={showError('description')}>
+                    <FieldError
+                      id="brief-error-description"
+                      reserve={attempted}
+                      show={showError('description')}
+                    >
                       {t(`${b}.errors.description`)}
                     </FieldError>
                   </label>
@@ -760,6 +816,15 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                       {t('contact.form.error')}
                     </p>
                   )}
+                  {/* Phones have no side panel: a recap of the brief before sending it */}
+                  {isProject && (
+                    <details className="bg-proxio-darker border-proxio-dark-border rounded-xl border px-4 py-3 lg:hidden">
+                      <summary className="text-proxio-text-main cursor-pointer text-sm font-bold">
+                        {t(`${b}.summary.title`)}
+                      </summary>
+                      {summaryList}
+                    </details>
+                  )}
                   {identityFields}
                   {isProject ? (
                     <label className="block">
@@ -791,19 +856,23 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                         className={`${inputClass} block resize-none`}
                         {...contactInput('message', 'message')}
                       />
-                      <FieldError id="brief-error-message" show={showError('message')}>
+                      <FieldError
+                        id="brief-error-message"
+                        reserve={attempted}
+                        show={showError('message')}
+                      >
                         {t(`${b}.errors.message`)}
                       </FieldError>
                     </label>
                   )}
-                  <p className="text-proxio-text-muted text-xs leading-relaxed">
+                  <p className="text-proxio-text-muted text-sm leading-relaxed">
                     <Trans
                       i18nKey={`${b}.privacy`}
                       components={{
                         link: (
                           <Link
                             to="/privacy-policy"
-                            className="text-proxio-text-main underline underline-offset-2"
+                            className="text-proxio-text-main decoration-proxio-accent/60 hover:text-proxio-accent font-medium underline decoration-2 underline-offset-4"
                           />
                         ),
                       }}
@@ -866,21 +935,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
         {isProject && status !== 'success' && (
           <div className="bg-proxio-dark border-proxio-dark-border hidden rounded-2xl border p-6 lg:block">
             <p className="text-proxio-text-main text-sm font-bold">{t(`${b}.summary.title`)}</p>
-            <dl className="mt-4 space-y-2.5">
-              {summaryRows.map(({ label, value }) => (
-                <div key={label} className="flex items-baseline justify-between gap-4 text-sm">
-                  <dt className="text-proxio-text-muted">{label}</dt>
-                  <dd
-                    className={`text-right font-semibold ${value ? 'text-proxio-text-main' : 'text-slate-300'}`}
-                  >
-                    {value ?? '—'}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            <p className="border-proxio-dark-border text-proxio-text-muted mt-5 border-t pt-4 text-xs leading-relaxed">
-              {t(`${b}.summary.disclaimer`)}
-            </p>
+            {summaryList}
           </div>
         )}
         {aside}
