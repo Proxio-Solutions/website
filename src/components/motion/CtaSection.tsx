@@ -47,7 +47,7 @@ export default function CtaSection({ title, subtitle, primary, secondary }: CtaS
 
   return (
     <section ref={root} className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8">
-      <div className="cta-panel relative overflow-hidden rounded-3xl bg-[#0b1120] px-6 py-16 text-center sm:px-12 sm:py-20">
+      <div className="cta-panel bg-proxio-night relative overflow-hidden rounded-3xl px-6 py-16 text-center sm:px-12 sm:py-20">
         <div className="cta-mask pointer-events-none absolute inset-0" aria-hidden="true">
           <DotGrid tone="dark" />
         </div>

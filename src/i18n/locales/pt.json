@@ -9,7 +9,8 @@
     "cta": "Fala Connosco",
     "closeMenu": "Fechar menu",
     "openMenu": "Abrir menu",
-    "switchLanguage": "EN, ver em inglês"
+    "switchLanguage": "EN, ver em inglês",
+    "skipToContent": "Saltar para o conteúdo"
   },
   "home": {
     "seo": {
@@ -363,6 +364,7 @@
         "features": ["Seleção de Stack Tecnológico", "Revisão de Arquitetura", "Roadmap de Produto"]
       }
     },
+    "cardCta": "Falar sobre este serviço",
     "process": {
       "label": "O Nosso Processo",
       "title": "Como Trabalhamos",
@@ -642,8 +644,7 @@
     "description": "Não construímos software por construir, resolvemos problemas reais. Conhece o que estamos a criar e o que está a tomar forma.",
     "featured": "Em Destaque",
     "status": {
-      "development": "Em Desenvolvimento",
-      "research": "Em Investigação"
+      "development": "Em Desenvolvimento"
     },
     "urbi": {
       "description": "Já reportaste um problema na tua cidade e sentiste que estavas a falar para o vazio? O Urbi nasceu exatamente dessa sensação, a de não ser ouvido. Do outro lado, os municípios enfrentam diariamente o caos de gerir centenas de ocorrências sem ferramentas adequadas. O Urbi resolve os dois lados: simples para quem reporta, poderosa para quem gere.",
@@ -660,8 +661,8 @@
     "label": "Erro 404",
     "title": "Página não encontrada",
     "description": "Desculpa, não encontrámos a página que procuras.",
-    "imageAlt": "Ilustração de um espaço vazio",
-    "backHome": "Voltar ao início"
+    "backHome": "Voltar ao início",
+    "suggestions": "Ou vai diretamente para"
   },
   "footer": {
     "tagline": "A construir produtos digitais modernos com excelência e propósito.",

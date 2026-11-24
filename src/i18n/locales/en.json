@@ -9,7 +9,8 @@
     "cta": "Let's Talk",
     "closeMenu": "Close menu",
     "openMenu": "Open menu",
-    "switchLanguage": "PT, ver em português"
+    "switchLanguage": "PT, ver em português",
+    "skipToContent": "Skip to content"
   },
   "home": {
     "seo": {
@@ -359,6 +360,7 @@
         "features": ["Tech Stack Selection", "Architecture Review", "Product Roadmapping"]
       }
     },
+    "cardCta": "Talk to us about this",
     "process": {
       "label": "Our Process",
       "title": "How We Work",
@@ -638,8 +640,7 @@
     "description": "We don't build software for the sake of it, we solve real problems. Discover what we're creating and what's taking shape.",
     "featured": "Featured",
     "status": {
-      "development": "In Development",
-      "research": "In Research"
+      "development": "In Development"
     },
     "urbi": {
       "description": "Have you ever reported a problem in your city and felt like you were talking to a wall? Urbi was born from exactly that feeling, of not being heard. On the other side, municipalities face the daily chaos of managing hundreds of reports with no proper tools. Urbi solves both ends: simple for those who report, powerful for those who manage.",
@@ -656,8 +657,8 @@
     "label": "Error 404",
     "title": "Page not found",
     "description": "Sorry, we couldn't find the page you're looking for.",
-    "imageAlt": "Illustration of an empty space",
-    "backHome": "Go back home"
+    "backHome": "Go back home",
+    "suggestions": "Or go straight to"
   },
   "footer": {
     "tagline": "Building modern digital products with craft and purpose.",

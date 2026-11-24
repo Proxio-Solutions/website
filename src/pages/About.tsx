@@ -61,11 +61,11 @@ export default function About() {
             <div className="space-y-8">
               <ScrollHighlight
                 text={t('about.story.p1')}
-                className="text-proxio-text-main text-2xl leading-snug font-semibold sm:text-3xl"
+                className="text-proxio-text-main text-xl leading-snug font-medium sm:text-3xl sm:font-semibold"
               />
               <ScrollHighlight
                 text={t('about.story.p2')}
-                className="text-proxio-text-main text-2xl leading-snug font-semibold sm:text-3xl"
+                className="text-proxio-text-main text-xl leading-snug font-medium sm:text-3xl sm:font-semibold"
               />
             </div>
           </div>
@@ -87,8 +87,8 @@ export default function About() {
                 <Reveal key={key} delay={(index % 2) * 100}>
                   <SpotlightCard className="group bg-proxio-dark border-proxio-dark-border h-full rounded-2xl border p-8">
                     <div className="mb-6 flex items-center justify-between">
-                      <div className="bg-proxio-accent/10 group-hover:bg-proxio-accent inline-flex rounded-xl p-3 transition-colors duration-300">
-                        <Icon className="text-proxio-accent h-6 w-6 transition-colors duration-300 group-hover:text-white" />
+                      <div className="bg-proxio-accent/10 inline-flex rounded-xl p-3">
+                        <Icon className="text-proxio-accent h-6 w-6" />
                       </div>
                       <span className="text-proxio-text-muted font-mono text-xs">
                         [0{index + 1}]
@@ -124,7 +124,7 @@ export default function About() {
                 return (
                   <Reveal key={id} delay={index * 120}>
                     <SpotlightCard className="group bg-proxio-darker border-proxio-dark-border h-full rounded-2xl border p-8 text-center">
-                      <div className="from-proxio-accent mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br to-blue-400 text-xl font-extrabold text-white shadow-lg shadow-blue-600/20 transition-transform duration-500 group-hover:rotate-6">
+                      <div className="from-proxio-accent mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br to-blue-500 text-xl font-extrabold text-white shadow-lg shadow-blue-600/20">
                         {initials(name)}
                       </div>
                       <p className="text-proxio-accent mb-1 font-mono text-xs tracking-wider uppercase">
