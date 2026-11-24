@@ -92,8 +92,24 @@ function Choice({
 }
 
 /** A short message under a field the visitor still has to fill in. */
-function FieldError({ id, show, children }: { id: string; show: boolean; children: ReactNode }) {
-  if (!show) return null;
+function FieldError({
+  id,
+  show,
+  reserve = false,
+  children,
+}: {
+  id: string;
+  show: boolean;
+  /** Keep the line's height while hidden, so fixing a field does not shift the form under you. */
+  reserve?: boolean;
+  children: ReactNode;
+}) {
+  if (!show)
+    return reserve ? (
+      <p className="mt-2 text-xs" aria-hidden="true">
+        &nbsp;
+      </p>
+    ) : null;
   return (
     <p id={id} className="mt-2 text-xs font-medium text-red-600">
       {children}
@@ -118,6 +134,8 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
     setContact((prev) => ({ ...prev, [key]: value }));
   const [stepIndex, setStepIndex] = useState(0);
   const [attempted, setAttempted] = useState(false);
+  // Free fields opened after a failed attempt: empty is expected until the next try
+  const [justOpened, setJustOpened] = useState<Partial<Record<Field, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const root = useRef<HTMLDivElement>(null);
   const panel = useRef<HTMLDivElement>(null);
@@ -168,7 +186,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
     email: !EMAIL_RE.test(contact.email.trim()),
     message: contact.message.trim() === '',
   };
-  const showError = (field: Field) => attempted && missing[field];
+  const showError = (field: Field) => attempted && missing[field] && !justOpened[field];
   /** The message under a group: why the free value is not usable, or that nothing was picked. */
   const errorText = (field: 'timeline' | 'budget') => {
     if (field === 'timeline' && deadlineError)
@@ -193,6 +211,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
    */
   const pointAt = (field: Field) => {
     setAttempted(true);
+    setJustOpened({});
     // The field itself, or the first option of a group of choices
     const target = root.current?.querySelector<HTMLElement>(`[data-field="${field}"]`);
     if (!target) return;
@@ -419,7 +438,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
           className={inputClass}
           {...contactInput('name', 'name')}
         />
-        <FieldError id="brief-error-name" show={showError('name')}>
+        <FieldError id="brief-error-name" reserve={attempted} show={showError('name')}>
           {t(`${b}.errors.name`)}
         </FieldError>
       </label>
@@ -435,7 +454,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
           className={inputClass}
           {...contactInput('email', 'email')}
         />
-        <FieldError id="brief-error-email" show={showError('email')}>
+        <FieldError id="brief-error-email" reserve={attempted} show={showError('email')}>
           {t(`${b}.errors.email`)}
         </FieldError>
       </label>
@@ -465,11 +484,13 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
             selected={value === id}
             onSelect={() => {
               onChange(id);
-              // Opening the free field: move straight into it
-              if (id === 'custom' && value !== 'custom')
+              // Opening the free field: move straight into it, without flagging it empty yet
+              if (id === 'custom' && value !== 'custom') {
+                setJustOpened((prev) => ({ ...prev, [field]: true }));
                 requestAnimationFrame(() =>
                   root.current?.querySelector<HTMLElement>(`input[data-field="${field}"]`)?.focus(),
                 );
+              }
             }}
             className="text-proxio-text-main px-4 py-2.5 text-sm font-semibold tabular-nums"
           >
@@ -482,7 +503,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
         ))}
       </div>
       {value === 'custom' && freeField(field)}
-      <FieldError id={`brief-error-${field}`} show={showError(field)}>
+      <FieldError id={`brief-error-${field}`} reserve={attempted} show={showError(field)}>
         {errorText(field)}
       </FieldError>
     </fieldset>
@@ -628,13 +649,11 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                     onClick={() => switchMode(value)}
                     className={`flex items-center justify-center gap-2 rounded-lg px-2 py-2.5 text-center text-[13px] leading-tight font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:px-3 sm:text-sm ${
                       mode === value
-                        ? 'bg-proxio-dark text-proxio-text-main ring-proxio-accent/40 shadow-sm ring-1'
+                        ? 'bg-proxio-accent text-white shadow-sm'
                         : 'text-proxio-text-muted hover:text-proxio-text-main'
                     }`}
                   >
-                    <Icon
-                      className={`hidden h-4 w-4 shrink-0 sm:block ${mode === value ? 'text-proxio-accent' : ''}`}
-                    />
+                    <Icon className="hidden h-4 w-4 shrink-0 sm:block" />
                     {t(`${b}.mode.${value}`)}
                   </button>
                 ))}
@@ -716,7 +735,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                       </Choice>
                     ))}
                   </div>
-                  <FieldError id="brief-error-type" show={showError('type')}>
+                  <FieldError id="brief-error-type" reserve={attempted} show={showError('type')}>
                     {t(`${b}.errors.type`)}
                   </FieldError>
                 </>
@@ -740,7 +759,11 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                       }
                       className={`${inputClass} block resize-none`}
                     />
-                    <FieldError id="brief-error-description" show={showError('description')}>
+                    <FieldError
+                      id="brief-error-description"
+                      reserve={attempted}
+                      show={showError('description')}
+                    >
                       {t(`${b}.errors.description`)}
                     </FieldError>
                   </label>
@@ -833,19 +856,23 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                         className={`${inputClass} block resize-none`}
                         {...contactInput('message', 'message')}
                       />
-                      <FieldError id="brief-error-message" show={showError('message')}>
+                      <FieldError
+                        id="brief-error-message"
+                        reserve={attempted}
+                        show={showError('message')}
+                      >
                         {t(`${b}.errors.message`)}
                       </FieldError>
                     </label>
                   )}
-                  <p className="text-proxio-text-muted text-xs leading-relaxed">
+                  <p className="text-proxio-text-muted text-sm leading-relaxed">
                     <Trans
                       i18nKey={`${b}.privacy`}
                       components={{
                         link: (
                           <Link
                             to="/privacy-policy"
-                            className="text-proxio-text-main underline underline-offset-2"
+                            className="text-proxio-text-main decoration-proxio-accent/60 hover:text-proxio-accent font-medium underline decoration-2 underline-offset-4"
                           />
                         ),
                       }}

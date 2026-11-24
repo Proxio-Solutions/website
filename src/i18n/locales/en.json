@@ -401,6 +401,7 @@
     "hero": {
       "label": "Get in Touch",
       "title": "Let's Talk",
+      "highlights": ["Let's Talk"],
       "subtitle": "Whatever brings you here, we're available. Reach out and let's start a conversation."
     },
     "form": {

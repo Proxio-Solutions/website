@@ -405,6 +405,7 @@
     "hero": {
       "label": "Contacta-nos",
       "title": "Vamos Falar",
+      "highlights": ["Vamos Falar"],
       "subtitle": "Seja qual for o motivo, estamos disponíveis. Entra em contacto e começamos uma conversa."
     },
     "form": {
