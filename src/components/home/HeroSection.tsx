@@ -4,19 +4,14 @@ import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from '@components/LocalizedLink';
 
-const heroHighlights: Record<string, string[]> = {
-  pt: ['Soluções Digitais', 'Diferença'],
-  en: ['Digital Solutions', 'Difference'],
-};
-
 export default function HeroSection() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <PageHero
       badge={t('home.hero.badge')}
       title={t('home.hero.title')}
-      highlights={heroHighlights[i18n.language] ?? heroHighlights.en}
+      highlights={t('home.hero.highlights', { returnObjects: true }) as string[]}
       subtitle={t('home.hero.subtitle')}
       size="xl"
       fullHeight

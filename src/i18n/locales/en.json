@@ -20,6 +20,7 @@
     "hero": {
       "badge": "Hi, we're Proxio 👋",
       "title": "We Create Digital Solutions That Make a Difference",
+      "highlights": ["Digital Solutions", "Difference"],
       "subtitle": "From idea to deployment, we design and develop modern software that solves real problems and delights users.",
       "cta": "Start a Project",
       "learnMore": "See Our Work"
@@ -928,6 +929,7 @@
     "hero": {
       "label": "Insights",
       "title": "What we learn building software",
+      "highlights": ["learn"],
       "subtitle": "Notes on how to think through, design and build digital products."
     },
     "minutes_one": "{{count}} min read",

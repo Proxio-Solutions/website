@@ -20,6 +20,7 @@
     "hero": {
       "badge": "Olá, somos a Proxio 👋",
       "title": "Criamos Soluções Digitais que Fazem a Diferença",
+      "highlights": ["Soluções Digitais", "Diferença"],
       "subtitle": "Da ideia à entrega, desenhamos e desenvolvemos software moderno que resolve problemas reais e satisfaz os utilizadores.",
       "cta": "Iniciar um Projeto",
       "learnMore": "Ver o Nosso Trabalho"
@@ -936,6 +937,7 @@
     "hero": {
       "label": "Artigos",
       "title": "O que aprendemos a construir software",
+      "highlights": ["aprendemos"],
       "subtitle": "Notas sobre como pensar, desenhar e construir produtos digitais."
     },
     "minutes_one": "{{count}} min de leitura",
