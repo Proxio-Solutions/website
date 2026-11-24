@@ -57,7 +57,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // 16px on phones, so iOS does not zoom in when a field takes focus
 const inputClass =
-  'border-proxio-dark-border bg-proxio-darker text-proxio-text-main placeholder:text-proxio-text-muted/70 w-full rounded-lg border px-4 py-3 text-base outline-none transition-colors hover:border-slate-300 focus:border-proxio-accent/40 aria-[invalid=true]:border-red-400 sm:text-sm';
+  'border-proxio-dark-border bg-proxio-darker text-proxio-text-main placeholder:text-proxio-text-muted w-full rounded-lg border px-4 py-3 text-base outline-none transition-colors hover:border-slate-300 focus:border-proxio-accent/40 aria-[invalid=true]:border-red-400 sm:text-sm';
 
 /** A selectable card or pill: a radio inside a radiogroup, or a toggle button for multi-select. */
 function Choice({
@@ -127,6 +127,18 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
   const advanceTimer = useRef(0);
 
   useEffect(() => () => window.clearTimeout(advanceTimer.current), []);
+
+  // A service card can send the visitor here with the type already chosen (`?type=mobile`).
+  // Read after hydration: the pre-rendered page always starts at the first step.
+  useEffect(() => {
+    const type = new URLSearchParams(window.location.search).get('type');
+    const known = PROJECT_TYPES.find((option) => option.id === type);
+    if (!known) return;
+    // The URL is only readable after hydration, so this sync has to happen in an effect
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setBrief((prev) => ({ ...prev, type: known.id }));
+    setStepIndex(1);
+  }, []);
 
   const step = STEPS[stepIndex];
   const isProject = mode === 'project';
@@ -359,6 +371,27 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
             : null,
     },
   ];
+
+  /** What has been chosen so far, with the reminder that none of it is a commitment. */
+  const summaryList = (
+    <>
+      <dl className="mt-4 space-y-2.5">
+        {summaryRows.map(({ label, value }) => (
+          <div key={label} className="flex items-baseline justify-between gap-4 text-sm">
+            <dt className="text-proxio-text-muted">{label}</dt>
+            <dd
+              className={`text-right font-semibold ${value ? 'text-proxio-text-main' : 'text-slate-300'}`}
+            >
+              {value ?? '—'}
+            </dd>
+          </div>
+        ))}
+      </dl>
+      <p className="border-proxio-dark-border text-proxio-text-muted mt-5 border-t pt-4 text-xs leading-relaxed">
+        {t(`${b}.summary.disclaimer`)}
+      </p>
+    </>
+  );
 
   const headingKey = isProject ? `${b}.${step}` : `${b}.question`;
 
@@ -760,6 +793,15 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                       {t('contact.form.error')}
                     </p>
                   )}
+                  {/* Phones have no side panel: a recap of the brief before sending it */}
+                  {isProject && (
+                    <details className="bg-proxio-darker border-proxio-dark-border rounded-xl border px-4 py-3 lg:hidden">
+                      <summary className="text-proxio-text-main cursor-pointer text-sm font-bold">
+                        {t(`${b}.summary.title`)}
+                      </summary>
+                      {summaryList}
+                    </details>
+                  )}
                   {identityFields}
                   {isProject ? (
                     <label className="block">
@@ -866,21 +908,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
         {isProject && status !== 'success' && (
           <div className="bg-proxio-dark border-proxio-dark-border hidden rounded-2xl border p-6 lg:block">
             <p className="text-proxio-text-main text-sm font-bold">{t(`${b}.summary.title`)}</p>
-            <dl className="mt-4 space-y-2.5">
-              {summaryRows.map(({ label, value }) => (
-                <div key={label} className="flex items-baseline justify-between gap-4 text-sm">
-                  <dt className="text-proxio-text-muted">{label}</dt>
-                  <dd
-                    className={`text-right font-semibold ${value ? 'text-proxio-text-main' : 'text-slate-300'}`}
-                  >
-                    {value ?? '—'}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            <p className="border-proxio-dark-border text-proxio-text-muted mt-5 border-t pt-4 text-xs leading-relaxed">
-              {t(`${b}.summary.disclaimer`)}
-            </p>
+            {summaryList}
           </div>
         )}
         {aside}
