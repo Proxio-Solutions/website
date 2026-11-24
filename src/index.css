@@ -55,6 +55,13 @@ html {
   transform: none;
 }
 
+/* The pre-rendered page is painted before JavaScript runs: show it, don't wait for Reveal */
+#root[data-prerendered] .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
 /* Card hover: subtle lift + accent tint on the border */
 .card-lift {
   transition:

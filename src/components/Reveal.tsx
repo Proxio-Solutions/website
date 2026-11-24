@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState, type ReactNode } from 'react';
+import { useMountedFromPrerender } from '@/lib/hydration';
+import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
 
 interface RevealProps {
   children: ReactNode;
@@ -10,6 +11,18 @@ interface RevealProps {
 export default function Reveal({ children, delay = 0, className = '' }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const fromPrerender = useMountedFromPrerender();
+
+  // Pre-rendered and already on screen: stay visible when hydration drops the CSS hook,
+  // instead of blanking the first viewport and fading it back in
+  useLayoutEffect(() => {
+    const el = ref.current;
+    if (!fromPrerender || !el) return;
+    if (el.getBoundingClientRect().top < window.innerHeight) {
+      // Has to run before the browser paints the hydrated page, hence a layout effect
+      setVisible(true);
+    }
+  }, [fromPrerender]);
 
   useEffect(() => {
     const el = ref.current;
