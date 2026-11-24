@@ -2,7 +2,7 @@ import { revealServiceCards, serviceIllustrations } from '@components/home/servi
 import ProcessTimeline from '@components/home/ProcessTimeline';
 import CtaSection from '@components/motion/CtaSection';
 import PageHero from '@components/motion/PageHero';
-import SectionHeader from '@components/motion/SectionHeader';
+import SectionLabel from '@components/motion/SectionLabel';
 import SpotlightCard from '@components/motion/SpotlightCard';
 import SEO from '@components/SEO';
 import { gsap, motion, MOTION_OK, useGSAP } from '@/lib/gsap';
@@ -23,13 +23,8 @@ const briefLinks: Record<(typeof serviceKeys)[number], string> = {
   consulting: '/contact?type=consulting',
 };
 
-const heroHighlights: Record<string, string[]> = {
-  pt: ['Ideias', 'Software'],
-  en: ['Ideas', 'Software'],
-};
-
 export default function Services() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -59,65 +54,64 @@ export default function Services() {
         <PageHero
           label={t('services.hero.label')}
           title={t('services.hero.title')}
-          highlights={heroHighlights[i18n.language] ?? heroHighlights.en}
+          highlights={t('services.hero.highlights', { returnObjects: true }) as string[]}
           subtitle={t('services.hero.subtitle')}
         />
 
         {/* Service cards */}
         <section className="bg-proxio-dark border-proxio-dark-border border-y py-24">
           <div ref={cardsRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <SectionHeader
-              index="01"
-              label={t('home.services.label')}
-              title={t('home.services.title')}
-            />
+            {/* The hero already makes the claim: a quiet heading here, not a second display title */}
+            <h2 className="mb-10">
+              <SectionLabel index="01">{t('home.services.label')}</SectionLabel>
+            </h2>
 
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-              {serviceKeys.map((key, index) => {
+              {serviceKeys.map((key) => {
                 const Illustration = serviceIllustrations[key];
                 const features = t(`services.items.${key}.features`, {
                   returnObjects: true,
                 }) as string[];
                 return (
-                  <div key={key} id={`service-${key}`} className="service-card scroll-mt-28">
-                    <SpotlightCard className="group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6 sm:p-8">
-                      <div
-                        className="bg-proxio-dark border-proxio-dark-border mb-6 h-28 rounded-xl border p-4 sm:h-44"
-                        aria-hidden="true"
-                      >
-                        <Illustration />
-                      </div>
-                      <span className="text-proxio-text-muted font-mono text-xs">
-                        [0{index + 1}]
-                      </span>
-                      <h3 className="text-proxio-text-main mt-1 mb-4 text-2xl font-bold">
-                        {t(`services.items.${key}.title`)}
-                      </h3>
-                      <p className="text-proxio-text-muted mb-6 leading-relaxed">
-                        {t(`services.items.${key}.desc`)}
-                      </p>
-                      <ul className="border-proxio-dark-border mt-auto space-y-3 border-t pt-6">
-                        {features.map((feature) => (
-                          <li
-                            key={feature}
-                            className="feature-item text-proxio-text-main flex items-center gap-3 text-sm font-medium"
-                          >
-                            <span className="bg-proxio-accent/10 text-proxio-accent flex h-5 w-5 shrink-0 items-center justify-center rounded-full">
-                              <Check className="h-3 w-3" />
-                            </span>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                      <Link
-                        viewTransition
-                        to={briefLinks[key]}
-                        className="text-proxio-accent hover:text-proxio-accent-hover group/cta mt-6 inline-flex w-max items-center gap-1.5 text-sm font-bold"
-                      >
-                        {t('services.cardCta')}
-                        <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
-                      </Link>
-                    </SpotlightCard>
+                  // The anchor sits on a wrapper the entrance animation never moves, so links land exactly
+                  <div key={key} id={`service-${key}`}>
+                    <div className="service-card h-full">
+                      <SpotlightCard className="group bg-proxio-darker border-proxio-dark-border flex h-full flex-col rounded-2xl border p-6 sm:p-8">
+                        <div
+                          className="bg-proxio-dark border-proxio-dark-border mb-6 h-28 rounded-xl border p-4 sm:h-44"
+                          aria-hidden="true"
+                        >
+                          <Illustration />
+                        </div>
+                        <h3 className="text-proxio-text-main mb-4 text-2xl font-bold">
+                          {t(`services.items.${key}.title`)}
+                        </h3>
+                        <p className="text-proxio-text-muted mb-6 leading-relaxed">
+                          {t(`services.items.${key}.desc`)}
+                        </p>
+                        <ul className="border-proxio-dark-border mt-auto space-y-3 border-t pt-6">
+                          {features.map((feature) => (
+                            <li
+                              key={feature}
+                              className="feature-item text-proxio-text-main flex items-center gap-3 text-sm font-medium"
+                            >
+                              <span className="bg-proxio-accent/10 text-proxio-accent flex h-5 w-5 shrink-0 items-center justify-center rounded-full">
+                                <Check className="h-3 w-3" />
+                              </span>
+                              {feature}
+                            </li>
+                          ))}
+                        </ul>
+                        <Link
+                          viewTransition
+                          to={briefLinks[key]}
+                          className="text-proxio-accent hover:text-proxio-accent-hover group/cta mt-6 inline-flex w-max items-center gap-1.5 text-sm font-bold"
+                        >
+                          {t('services.cardCta')}
+                          <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
+                        </Link>
+                      </SpotlightCard>
+                    </div>
                   </div>
                 );
               })}

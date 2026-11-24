@@ -12,13 +12,8 @@ import SEO from '@components/SEO';
 import { Clock, Mail, MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const heroHighlights: Record<string, string[]> = {
-  pt: ['Vamos Falar', 'Teu Projeto'],
-  en: ["Let's Talk", 'Your Project'],
-};
-
 export default function Contact() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const infoCards = [
     {
       icon: Mail,
@@ -46,8 +41,9 @@ export default function Contact() {
         <PageHero
           label={t('contact.hero.label')}
           title={t('contact.hero.title')}
-          highlights={heroHighlights[i18n.language] ?? heroHighlights.en}
+          highlights={t('contact.hero.highlights', { returnObjects: true }) as string[]}
           subtitle={t('contact.hero.subtitle')}
+          compact
         />
 
         {/* Brief + Info */}

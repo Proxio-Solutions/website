@@ -20,6 +20,7 @@
     "hero": {
       "badge": "Olá, somos a Proxio 👋",
       "title": "Criamos Soluções Digitais que Fazem a Diferença",
+      "highlights": ["Soluções Digitais", "Diferença"],
       "subtitle": "Da ideia à entrega, desenhamos e desenvolvemos software moderno que resolve problemas reais e satisfaz os utilizadores.",
       "cta": "Iniciar um Projeto",
       "learnMore": "Ver o Nosso Trabalho"
@@ -287,6 +288,7 @@
     "mission": {
       "label": "A Nossa Missão",
       "title": "Tecnologia que Conecta e Inspira",
+      "highlights": ["Tecnologia", "Conecta", "Inspira"],
       "desc": "Acreditamos que a tecnologia deve ser apelativa, intuitiva e sustentável. A nossa missão é transformar ideias complexas em produtos digitais que fazem uma diferença real na vida das pessoas."
     },
     "story": {
@@ -340,11 +342,10 @@
       "title": "Desenvolvimento web, mobile e software à medida",
       "description": "Desenhamos, desenvolvemos e fazemos evoluir aplicações web e móveis e software à medida, a pensar em quem os vai usar."
     },
-    "title": "Os Nossos Serviços",
-    "description": "Desenhamos, desenvolvemos e escalamos produtos tecnológicos à medida das tuas necessidades, com foco na performance e inovação.",
     "hero": {
       "label": "Os Nossos Serviços",
       "title": "Transformamos Ideias em Software",
+      "highlights": ["Ideias", "Software"],
       "subtitle": "Trabalhamos com clientes ambiciosos na conceção, desenvolvimento e evolução de produtos digitais, combinando excelência em engenharia com foco na experiência do utilizador."
     },
     "items": {
@@ -385,10 +386,6 @@
         "desc": "Publicamos, monitorizamos e damos suporte ao teu produto à medida que cresce."
       }
     },
-    "stack": {
-      "label": "O Nosso Stack",
-      "title": "Construído com as Melhores Ferramentas"
-    },
     "cta": {
       "title": "Pronto para Começar?",
       "subtitle": "Fala-nos do teu projeto e vamos explorar como podemos ajudar.",
@@ -405,6 +402,7 @@
     "hero": {
       "label": "Contacta-nos",
       "title": "Vamos Falar",
+      "highlights": ["Vamos Falar"],
       "subtitle": "Seja qual for o motivo, estamos disponíveis. Entra em contacto e começamos uma conversa."
     },
     "form": {
@@ -935,6 +933,7 @@
     "hero": {
       "label": "Artigos",
       "title": "O que aprendemos a construir software",
+      "highlights": ["aprendemos"],
       "subtitle": "Notas sobre como pensar, desenhar e construir produtos digitais."
     },
     "minutes_one": "{{count}} min de leitura",

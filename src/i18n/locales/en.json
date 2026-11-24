@@ -20,6 +20,7 @@
     "hero": {
       "badge": "Hi, we're Proxio 👋",
       "title": "We Create Digital Solutions That Make a Difference",
+      "highlights": ["Digital Solutions", "Difference"],
       "subtitle": "From idea to deployment, we design and develop modern software that solves real problems and delights users.",
       "cta": "Start a Project",
       "learnMore": "See Our Work"
@@ -283,6 +284,7 @@
     "mission": {
       "label": "Our Mission",
       "title": "Technology That Connects and Inspires",
+      "highlights": ["Technology", "Connects", "Inspires"],
       "desc": "We believe technology should be appealing, intuitive, and sustainable. Our mission is to turn complex ideas into digital products that make a real difference in people's lives."
     },
     "story": {
@@ -307,7 +309,7 @@
         "desc": "We stay at the forefront of technology so our clients always benefit from the best solutions available."
       },
       "transparency": {
-        "title": "Radical Transparency",
+        "title": "Full Transparency",
         "desc": "Clear communication, honest timelines, and no surprises. We believe trust is built through consistency."
       }
     },
@@ -336,11 +338,10 @@
       "title": "Web, mobile and custom software development",
       "description": "We design, build and evolve web and mobile apps and custom software, with the people who will use them in mind."
     },
-    "title": "Our Services",
-    "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation.",
     "hero": {
       "label": "Our Services",
       "title": "Turning Ideas into Software",
+      "highlights": ["Ideas", "Software"],
       "subtitle": "We work with ambitious clients on the design, development, and evolution of digital products, combining engineering excellence with a strong focus on user experience."
     },
     "items": {
@@ -381,10 +382,6 @@
         "desc": "We deploy, monitor, and support your product as it grows."
       }
     },
-    "stack": {
-      "label": "Our Tech Stack",
-      "title": "Built With the Best Tools"
-    },
     "cta": {
       "title": "Ready to Start?",
       "subtitle": "Tell us about your project and let's explore how we can help.",
@@ -401,6 +398,7 @@
     "hero": {
       "label": "Get in Touch",
       "title": "Let's Talk",
+      "highlights": ["Let's Talk"],
       "subtitle": "Whatever brings you here, we're available. Reach out and let's start a conversation."
     },
     "form": {
@@ -927,6 +925,7 @@
     "hero": {
       "label": "Insights",
       "title": "What we learn building software",
+      "highlights": ["learn"],
       "subtitle": "Notes on how to think through, design and build digital products."
     },
     "minutes_one": "{{count}} min read",
