@@ -9,7 +9,8 @@
     "cta": "Fala Connosco",
     "closeMenu": "Fechar menu",
     "openMenu": "Abrir menu",
-    "switchLanguage": "EN, ver em inglês"
+    "switchLanguage": "EN, ver em inglês",
+    "skipToContent": "Saltar para o conteúdo"
   },
   "home": {
     "seo": {
@@ -363,6 +364,7 @@
         "features": ["Seleção de Stack Tecnológico", "Revisão de Arquitetura", "Roadmap de Produto"]
       }
     },
+    "cardCta": "Falar sobre este serviço",
     "process": {
       "label": "O Nosso Processo",
       "title": "Como Trabalhamos",
@@ -391,8 +393,7 @@
       "title": "Pronto para Começar?",
       "subtitle": "Fala-nos do teu projeto e vamos explorar como podemos ajudar.",
       "button": "Contacta-nos"
-    },
-    "cardCta": "Falar sobre este serviço"
+    }
   },
   "contact": {
     "seo": {

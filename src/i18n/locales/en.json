@@ -9,7 +9,8 @@
     "cta": "Let's Talk",
     "closeMenu": "Close menu",
     "openMenu": "Open menu",
-    "switchLanguage": "PT, ver em português"
+    "switchLanguage": "PT, ver em português",
+    "skipToContent": "Skip to content"
   },
   "home": {
     "seo": {
@@ -359,6 +360,7 @@
         "features": ["Tech Stack Selection", "Architecture Review", "Product Roadmapping"]
       }
     },
+    "cardCta": "Talk to us about this",
     "process": {
       "label": "Our Process",
       "title": "How We Work",
@@ -387,8 +389,7 @@
       "title": "Ready to Start?",
       "subtitle": "Tell us about your project and let's explore how we can help.",
       "button": "Contact Us"
-    },
-    "cardCta": "Talk to us about this"
+    }
   },
   "contact": {
     "seo": {
