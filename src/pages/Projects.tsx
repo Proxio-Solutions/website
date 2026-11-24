@@ -20,10 +20,16 @@ const headlineHighlights: Record<string, string[]> = {
   en: ['Idea', 'Product'],
 };
 
-/** Dots orbiting a seed: the "ideas in incubation" visual. */
+/**
+ * The featured card lifts and glows on hover only when it leads somewhere (the full showcase);
+ * the low-profile teaser has no link, so it stays still rather than looking clickable.
+ */
+const FeaturedCard = urbiShowcaseEnabled ? SpotlightCard : 'div';
+
+/** Dots orbiting a seed: the "ideas in incubation" visual. Smaller on phones. */
 function IncubationOrbit() {
   return (
-    <div className="relative h-48 w-48 shrink-0" aria-hidden="true">
+    <div className="relative h-32 w-32 shrink-0 md:h-48 md:w-48" aria-hidden="true">
       <div className="border-proxio-dark-border absolute inset-0 rounded-full border border-dashed" />
       <div className="border-proxio-dark-border absolute inset-8 rounded-full border border-dashed" />
       <div className="orbit absolute inset-0">
@@ -97,7 +103,7 @@ export default function Projects() {
             </Reveal>
 
             <Reveal>
-              <SpotlightCard className="bg-proxio-dark border-proxio-dark-border overflow-hidden rounded-3xl border">
+              <FeaturedCard className="bg-proxio-dark border-proxio-dark-border overflow-hidden rounded-3xl border">
                 <div className="flex flex-col md:flex-row">
                   {/* Left — content (the whole card while Urbi keeps a low profile) */}
                   <div
@@ -114,7 +120,7 @@ export default function Projects() {
                     <h2 className="text-proxio-text-main mb-4 text-5xl font-black tracking-tight">
                       {featuredProject.title}
                     </h2>
-                    <p className="text-proxio-text-muted mb-8 text-lg leading-relaxed">
+                    <p className="text-proxio-text-muted mb-8 max-w-2xl text-lg leading-relaxed">
                       {t(
                         urbiShowcaseEnabled
                           ? featuredProject.descriptionKey
@@ -184,7 +190,7 @@ export default function Projects() {
                     </div>
                   )}
                 </div>
-              </SpotlightCard>
+              </FeaturedCard>
             </Reveal>
           </section>
 

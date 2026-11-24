@@ -643,8 +643,7 @@
     "description": "Não construímos software por construir, resolvemos problemas reais. Conhece o que estamos a criar e o que está a tomar forma.",
     "featured": "Em Destaque",
     "status": {
-      "development": "Em Desenvolvimento",
-      "research": "Em Investigação"
+      "development": "Em Desenvolvimento"
     },
     "urbi": {
       "description": "Já reportaste um problema na tua cidade e sentiste que estavas a falar para o vazio? O Urbi nasceu exatamente dessa sensação, a de não ser ouvido. Do outro lado, os municípios enfrentam diariamente o caos de gerir centenas de ocorrências sem ferramentas adequadas. O Urbi resolve os dois lados: simples para quem reporta, poderosa para quem gere.",

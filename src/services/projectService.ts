@@ -2,7 +2,7 @@ export interface Project {
   id: string;
   title: string;
   descriptionKey: string;
-  status: 'development' | 'research';
+  status: 'development';
   tags: string[];
 }
 
@@ -18,8 +18,4 @@ const projectsDB: Project[] = [
 
 export const getFeaturedProject = (): Project => {
   return projectsDB.find((p) => p.id === 'urbi') as Project;
-};
-
-export const getIncubatorProjects = (): Project[] => {
-  return projectsDB.filter((p) => p.status === 'research');
 };
