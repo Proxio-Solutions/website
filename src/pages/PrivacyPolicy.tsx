@@ -88,7 +88,7 @@ export default function PrivacyPolicy() {
             </ol>
           </nav>
 
-          <div className="max-w-[68ch] space-y-12">
+          <div className="max-w-xl space-y-12">
             {SECTIONS.map(([section, anchor]) => {
               const items = t(`privacyPolicy.${section}.items`, {
                 returnObjects: true,
