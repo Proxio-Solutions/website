@@ -18,6 +18,9 @@
 
   --color-proxio-text-main: #0f172a;
   --color-proxio-text-muted: #64748b;
+
+  /* The dark closing panel (DESIGN.md: Night Panel) */
+  --color-proxio-night: #0b1120;
 }
 
 html {
@@ -50,6 +53,13 @@ html {
 .reveal-visible {
   opacity: 1;
   transform: none;
+}
+
+/* The pre-rendered page is painted before JavaScript runs: show it, don't wait for Reveal */
+#root[data-prerendered] .reveal {
+  opacity: 1;
+  transform: none;
+  transition: none;
 }
 
 /* Card hover: subtle lift + accent tint on the border */
@@ -251,6 +261,20 @@ html {
 /* Shared CTA: dot grid fades towards the panel edges */
 .cta-mask {
   mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 20%, transparent 85%);
+}
+
+/* Keyboard focus: a clear accent ring on anything without its own (utilities still override) */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-proxio-accent);
+    outline-offset: 2px;
+  }
+
+  /* No single orphan word at the end of a paragraph */
+  p,
+  li {
+    text-wrap: pretty;
+  }
 }
 
 /* Contact form: accent line that draws under the focused field */

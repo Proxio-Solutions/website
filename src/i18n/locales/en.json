@@ -9,7 +9,8 @@
     "cta": "Let's Talk",
     "closeMenu": "Close menu",
     "openMenu": "Open menu",
-    "switchLanguage": "PT, ver em português"
+    "switchLanguage": "PT, ver em português",
+    "skipToContent": "Skip to content"
   },
   "home": {
     "seo": {
@@ -19,6 +20,7 @@
     "hero": {
       "badge": "Hi, we're Proxio 👋",
       "title": "We Create Digital Solutions That Make a Difference",
+      "highlights": ["Digital Solutions", "Difference"],
       "subtitle": "From idea to deployment, we design and develop modern software that solves real problems and delights users.",
       "cta": "Start a Project",
       "learnMore": "See Our Work"
@@ -282,12 +284,13 @@
     "mission": {
       "label": "Our Mission",
       "title": "Technology That Connects and Inspires",
+      "highlights": ["Technology", "Connects", "Inspires"],
       "desc": "We believe technology should be appealing, intuitive, and sustainable. Our mission is to turn complex ideas into digital products that make a real difference in people's lives."
     },
     "story": {
       "label": "Our Story",
       "title": "From Classmates to Founders",
-      "p1": "Proxio was born out of a friendship between two computer engineering classmates. What started as an academic partnership shared assignments, late-night projects, and a lot of code, grew as we realised we held the same views on technology, product, and what it means to do things properly.",
+      "p1": "Proxio was born out of a friendship between two computer engineering classmates. What started as an academic partnership of shared assignments, late-night projects and a lot of code grew as we realised we held the same views on technology, product, and what it means to do things properly.",
       "p2": "We both wanted to change the way relationships between companies and clients work in software. It was with that conviction, and through Urbi, a project we deeply believe in, that we took our first step into the market."
     },
     "values": {
@@ -306,7 +309,7 @@
         "desc": "We stay at the forefront of technology so our clients always benefit from the best solutions available."
       },
       "transparency": {
-        "title": "Radical Transparency",
+        "title": "Full Transparency",
         "desc": "Clear communication, honest timelines, and no surprises. We believe trust is built through consistency."
       }
     },
@@ -335,18 +338,17 @@
       "title": "Web, mobile and custom software development",
       "description": "We design, build and evolve web and mobile apps and custom software, with the people who will use them in mind."
     },
-    "title": "Our Services",
-    "description": "We design, develop, and scale custom technological products tailored to your needs, focusing on performance and innovation.",
     "hero": {
       "label": "Our Services",
       "title": "Turning Ideas into Software",
+      "highlights": ["Ideas", "Software"],
       "subtitle": "We work with ambitious clients on the design, development, and evolution of digital products, combining engineering excellence with a strong focus on user experience."
     },
     "items": {
       "web": {
         "title": "Web Application Development",
         "desc": "From simple websites to complex SaaS platforms, we build web applications that are fast, reliable, and scalable.",
-        "features": ["Custom UI/UX Design", "REST API's", "Performance Optimization"]
+        "features": ["Custom UI/UX Design", "REST APIs", "Performance Optimization"]
       },
       "mobile": {
         "title": "Mobile App Development",
@@ -356,15 +358,16 @@
       "consulting": {
         "title": "Technology Consulting",
         "desc": "Not sure which path to take? We help teams make the right technology choices, from architecture reviews to full product strategy.",
-        "features": ["Tech Stack Selection", "Architecture Review", "Product Road-mapping"]
+        "features": ["Tech Stack Selection", "Architecture Review", "Product Roadmapping"]
       }
     },
+    "cardCta": "Talk to us about this",
     "process": {
       "label": "Our Process",
       "title": "How We Work",
       "discover": {
         "title": "Discover",
-        "desc": "We start by deeply understanding your necessities, users, and goals."
+        "desc": "We start by deeply understanding your needs, users, and goals."
       },
       "design": {
         "title": "Design",
@@ -378,10 +381,6 @@
         "title": "Launch & Scale",
         "desc": "We deploy, monitor, and support your product as it grows."
       }
-    },
-    "stack": {
-      "label": "Our Tech Stack",
-      "title": "Built With the Best Tools"
     },
     "cta": {
       "title": "Ready to Start?",
@@ -399,6 +398,7 @@
     "hero": {
       "label": "Get in Touch",
       "title": "Let's Talk",
+      "highlights": ["Let's Talk"],
       "subtitle": "Whatever brings you here, we're available. Reach out and let's start a conversation."
     },
     "form": {
@@ -577,6 +577,7 @@
         "deadline": {
           "empty": "Pick the date you need the project ready by.",
           "invalid": "That date doesn't exist. Check the day and month.",
+          "past": "That date has already passed. Pick one at least a week from today.",
           "tooSoon": "Pick a date at least a week from today.",
           "tooFar": "Pick a date within the next {{years}} years, or “Flexible”."
         },
@@ -586,7 +587,10 @@
           "tooLow": "The minimum is {{min}}. If you're not sure yet, pick “Not sure yet”.",
           "tooHigh": "That amount looks too high. Check the zeros.",
           "range": "In a range, write the lower amount first."
-        }
+        },
+        "name": "Tell us your name.",
+        "email": "Check the email, for example name@company.com.",
+        "message": "Write your message."
       },
       "privacy": "By sending this, you agree to our <link>privacy policy</link>.",
       "nav": {
@@ -634,8 +638,7 @@
     "description": "We don't build software for the sake of it, we solve real problems. Discover what we're creating and what's taking shape.",
     "featured": "Featured",
     "status": {
-      "development": "In Development",
-      "research": "In Research"
+      "development": "In Development"
     },
     "urbi": {
       "description": "Have you ever reported a problem in your city and felt like you were talking to a wall? Urbi was born from exactly that feeling, of not being heard. On the other side, municipalities face the daily chaos of managing hundreds of reports with no proper tools. Urbi solves both ends: simple for those who report, powerful for those who manage.",
@@ -644,8 +647,7 @@
     "next": {
       "label": "In Incubation",
       "title": "The Next Ideas",
-      "desc": "Every product we build starts with a simple question. We're actively exploring new problems worth solving. If you have an idea or a challenge that deserves a proper solution, we'd love to hear it.",
-      "cta": "Talk to us"
+      "desc": "Every product we build starts with a simple question. We're actively exploring new problems worth solving. If you have an idea or a challenge that deserves a proper solution, we'd love to hear it."
     },
     "viewCaseStudy": "Read the case study"
   },
@@ -653,8 +655,8 @@
     "label": "Error 404",
     "title": "Page not found",
     "description": "Sorry, we couldn't find the page you're looking for.",
-    "imageAlt": "Illustration of an empty space",
-    "backHome": "Go back home"
+    "backHome": "Go back home",
+    "suggestions": "Or go straight to"
   },
   "footer": {
     "tagline": "Building modern digital products with craft and purpose.",
@@ -923,6 +925,7 @@
     "hero": {
       "label": "Insights",
       "title": "What we learn building software",
+      "highlights": ["learn"],
       "subtitle": "Notes on how to think through, design and build digital products."
     },
     "minutes_one": "{{count}} min read",

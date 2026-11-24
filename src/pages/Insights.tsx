@@ -8,11 +8,6 @@ import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from '@components/LocalizedLink';
 
-const heroHighlights: Record<string, string[]> = {
-  pt: ['aprendemos'],
-  en: ['learn'],
-};
-
 export function ArticleCard({ article }: { article: Article }) {
   const { t, i18n } = useTranslation();
   const copy = article[i18n.language === 'en' ? 'en' : 'pt'];
@@ -48,7 +43,7 @@ export function ArticleCard({ article }: { article: Article }) {
 }
 
 export default function Insights() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const articles = [...ARTICLES].sort((a, b) => b.date.localeCompare(a.date));
 
   return (
@@ -59,7 +54,7 @@ export default function Insights() {
         <PageHero
           label={t('insights.hero.label')}
           title={t('insights.hero.title')}
-          highlights={heroHighlights[i18n.language] ?? heroHighlights.en}
+          highlights={t('insights.hero.highlights', { returnObjects: true }) as string[]}
           subtitle={t('insights.hero.subtitle')}
         />
 

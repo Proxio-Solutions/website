@@ -9,7 +9,8 @@
     "cta": "Fala Connosco",
     "closeMenu": "Fechar menu",
     "openMenu": "Abrir menu",
-    "switchLanguage": "EN, ver em inglês"
+    "switchLanguage": "EN, ver em inglês",
+    "skipToContent": "Saltar para o conteúdo"
   },
   "home": {
     "seo": {
@@ -19,6 +20,7 @@
     "hero": {
       "badge": "Olá, somos a Proxio 👋",
       "title": "Criamos Soluções Digitais que Fazem a Diferença",
+      "highlights": ["Soluções Digitais", "Diferença"],
       "subtitle": "Da ideia à entrega, desenhamos e desenvolvemos software moderno que resolve problemas reais e satisfaz os utilizadores.",
       "cta": "Iniciar um Projeto",
       "learnMore": "Ver o Nosso Trabalho"
@@ -286,6 +288,7 @@
     "mission": {
       "label": "A Nossa Missão",
       "title": "Tecnologia que Conecta e Inspira",
+      "highlights": ["Tecnologia", "Conecta", "Inspira"],
       "desc": "Acreditamos que a tecnologia deve ser apelativa, intuitiva e sustentável. A nossa missão é transformar ideias complexas em produtos digitais que fazem uma diferença real na vida das pessoas."
     },
     "story": {
@@ -339,18 +342,17 @@
       "title": "Desenvolvimento web, mobile e software à medida",
       "description": "Desenhamos, desenvolvemos e fazemos evoluir aplicações web e móveis e software à medida, a pensar em quem os vai usar."
     },
-    "title": "Os Nossos Serviços",
-    "description": "Desenhamos, desenvolvemos e escalamos produtos tecnológicos à medida das tuas necessidades, com foco na performance e inovação.",
     "hero": {
       "label": "Os Nossos Serviços",
       "title": "Transformamos Ideias em Software",
+      "highlights": ["Ideias", "Software"],
       "subtitle": "Trabalhamos com clientes ambiciosos na conceção, desenvolvimento e evolução de produtos digitais, combinando excelência em engenharia com foco na experiência do utilizador."
     },
     "items": {
       "web": {
         "title": "Desenvolvimento de Aplicações Web",
         "desc": "De websites simples a plataformas SaaS complexas, construímos aplicações web rápidas, fiáveis e escaláveis.",
-        "features": ["Design UI/UX Personalizado", "API's REST", "Otimização de Performance"]
+        "features": ["Design UI/UX Personalizado", "APIs REST", "Otimização de Performance"]
       },
       "mobile": {
         "title": "Desenvolvimento de Aplicações Móveis",
@@ -363,6 +365,7 @@
         "features": ["Seleção de Stack Tecnológico", "Revisão de Arquitetura", "Roadmap de Produto"]
       }
     },
+    "cardCta": "Falar sobre este serviço",
     "process": {
       "label": "O Nosso Processo",
       "title": "Como Trabalhamos",
@@ -383,10 +386,6 @@
         "desc": "Publicamos, monitorizamos e damos suporte ao teu produto à medida que cresce."
       }
     },
-    "stack": {
-      "label": "O Nosso Stack",
-      "title": "Construído com as Melhores Ferramentas"
-    },
     "cta": {
       "title": "Pronto para Começar?",
       "subtitle": "Fala-nos do teu projeto e vamos explorar como podemos ajudar.",
@@ -403,6 +402,7 @@
     "hero": {
       "label": "Contacta-nos",
       "title": "Vamos Falar",
+      "highlights": ["Vamos Falar"],
       "subtitle": "Seja qual for o motivo, estamos disponíveis. Entra em contacto e começamos uma conversa."
     },
     "form": {
@@ -581,6 +581,7 @@
         "deadline": {
           "empty": "Escolhe a data em que precisas do projeto pronto.",
           "invalid": "Essa data não existe. Confirma o dia e o mês.",
+          "past": "Essa data já passou. Escolhe uma data a partir de daqui a uma semana.",
           "tooSoon": "Escolhe uma data a pelo menos uma semana de hoje.",
           "tooFar": "Escolhe uma data nos próximos {{years}} anos, ou «Flexível»."
         },
@@ -590,7 +591,10 @@
           "tooLow": "O valor mínimo é {{min}}. Se ainda não sabes, escolhe «Ainda não sei».",
           "tooHigh": "Esse valor parece-nos alto demais. Confirma os zeros.",
           "range": "No intervalo, escreve primeiro o valor mais baixo."
-        }
+        },
+        "name": "Diz-nos o teu nome.",
+        "email": "Confirma o email, por exemplo nome@empresa.pt.",
+        "message": "Escreve a tua mensagem."
       },
       "privacy": "Ao enviar, aceitas a nossa <link>política de privacidade</link>.",
       "nav": {
@@ -638,8 +642,7 @@
     "description": "Não construímos software por construir, resolvemos problemas reais. Conhece o que estamos a criar e o que está a tomar forma.",
     "featured": "Em Destaque",
     "status": {
-      "development": "Em Desenvolvimento",
-      "research": "Em Investigação"
+      "development": "Em Desenvolvimento"
     },
     "urbi": {
       "description": "Já reportaste um problema na tua cidade e sentiste que estavas a falar para o vazio? O Urbi nasceu exatamente dessa sensação, a de não ser ouvido. Do outro lado, os municípios enfrentam diariamente o caos de gerir centenas de ocorrências sem ferramentas adequadas. O Urbi resolve os dois lados: simples para quem reporta, poderosa para quem gere.",
@@ -648,8 +651,7 @@
     "next": {
       "label": "Em Incubação",
       "title": "As Próximas Ideias",
-      "desc": "Cada produto que construímos começa com uma pergunta simples. Estamos ativamente a explorar novos problemas para resolver. Se tens uma ideia ou um problema que merece uma solução, queremos ouvir.",
-      "cta": "Fala connosco"
+      "desc": "Cada produto que construímos começa com uma pergunta simples. Estamos ativamente a explorar novos problemas para resolver. Se tens uma ideia ou um problema que merece uma solução, queremos ouvir."
     },
     "viewCaseStudy": "Ver caso de estudo"
   },
@@ -657,8 +659,8 @@
     "label": "Erro 404",
     "title": "Página não encontrada",
     "description": "Desculpa, não encontrámos a página que procuras.",
-    "imageAlt": "Ilustração de um espaço vazio",
-    "backHome": "Voltar ao início"
+    "backHome": "Voltar ao início",
+    "suggestions": "Ou vai diretamente para"
   },
   "footer": {
     "tagline": "A construir produtos digitais modernos com excelência e propósito.",
@@ -931,6 +933,7 @@
     "hero": {
       "label": "Artigos",
       "title": "O que aprendemos a construir software",
+      "highlights": ["aprendemos"],
       "subtitle": "Notas sobre como pensar, desenhar e construir produtos digitais."
     },
     "minutes_one": "{{count}} min de leitura",

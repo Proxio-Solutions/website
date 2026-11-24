@@ -1,0 +1,6 @@
+# Impeccable design skills, vendored as published: update them with `npx impeccable skills update`
+.claude/skills/impeccable/
+.claude/agents/impeccable-*.md
+
+# Local Impeccable critique snapshots (gitignored, written by the tool)
+.impeccable/critique/

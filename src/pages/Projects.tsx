@@ -1,4 +1,5 @@
 import urbiLogo from '@/assets/urbi-logo.svg';
+import CtaSection from '@/components/motion/CtaSection';
 import Magnetic from '@/components/motion/Magnetic';
 import PageHero from '@/components/motion/PageHero';
 import SectionLabel from '@/components/motion/SectionLabel';
@@ -19,10 +20,16 @@ const headlineHighlights: Record<string, string[]> = {
   en: ['Idea', 'Product'],
 };
 
-/** Dots orbiting a seed: the "ideas in incubation" visual. */
+/**
+ * The featured card lifts and glows on hover only when it leads somewhere (the full showcase);
+ * the low-profile teaser has no link, so it stays still rather than looking clickable.
+ */
+const FeaturedCard = urbiShowcaseEnabled ? SpotlightCard : 'div';
+
+/** Dots orbiting a seed: the "ideas in incubation" visual. Smaller on phones. */
 function IncubationOrbit() {
   return (
-    <div className="relative h-48 w-48 shrink-0" aria-hidden="true">
+    <div className="relative h-32 w-32 shrink-0 md:h-48 md:w-48" aria-hidden="true">
       <div className="border-proxio-dark-border absolute inset-0 rounded-full border border-dashed" />
       <div className="border-proxio-dark-border absolute inset-8 rounded-full border border-dashed" />
       <div className="orbit absolute inset-0">
@@ -96,7 +103,7 @@ export default function Projects() {
             </Reveal>
 
             <Reveal>
-              <SpotlightCard className="bg-proxio-dark border-proxio-dark-border overflow-hidden rounded-3xl border">
+              <FeaturedCard className="bg-proxio-dark border-proxio-dark-border overflow-hidden rounded-3xl border">
                 <div className="flex flex-col md:flex-row">
                   {/* Left — content (the whole card while Urbi keeps a low profile) */}
                   <div
@@ -104,7 +111,7 @@ export default function Projects() {
                   >
                     <div className="bg-proxio-darker text-proxio-accent border-proxio-dark-border mb-6 inline-flex w-max items-center rounded-full border px-3 py-1 text-xs font-medium">
                       <span className="relative mr-2 flex h-2 w-2">
-                        <span className="bg-proxio-accent absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"></span>
+                        <span className="bg-proxio-accent absolute inline-flex h-full w-full rounded-full opacity-75 motion-safe:animate-ping"></span>
                         <span className="bg-proxio-accent relative inline-flex h-2 w-2 rounded-full"></span>
                       </span>
                       {t(`projects.status.${featuredProject.status}`)}
@@ -113,7 +120,7 @@ export default function Projects() {
                     <h2 className="text-proxio-text-main mb-4 text-5xl font-black tracking-tight">
                       {featuredProject.title}
                     </h2>
-                    <p className="text-proxio-text-muted mb-8 text-lg leading-relaxed">
+                    <p className="text-proxio-text-muted mb-8 max-w-2xl text-lg leading-relaxed">
                       {t(
                         urbiShowcaseEnabled
                           ? featuredProject.descriptionKey
@@ -183,14 +190,14 @@ export default function Projects() {
                     </div>
                   )}
                 </div>
-              </SpotlightCard>
+              </FeaturedCard>
             </Reveal>
           </section>
 
           {/* What's Next */}
           <section>
             <Reveal>
-              <SectionLabel index="02" className="!text-proxio-text-muted mb-6">
+              <SectionLabel index="02" className="mb-6">
                 {t('projects.next.label')}
               </SectionLabel>
             </Reveal>
@@ -202,24 +209,20 @@ export default function Projects() {
                   <h2 className="text-proxio-text-main mb-4 text-3xl font-extrabold">
                     {t('projects.next.title')}
                   </h2>
-                  <p className="text-proxio-text-muted mb-8 text-lg leading-relaxed">
+                  <p className="text-proxio-text-muted text-lg leading-relaxed">
                     {t('projects.next.desc')}
                   </p>
-                  <Magnetic>
-                    <Link
-                      viewTransition
-                      to="/contact"
-                      className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-max items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white transition-colors"
-                    >
-                      {t('projects.next.cta')}
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                  </Magnetic>
                 </div>
               </div>
             </Reveal>
           </section>
         </div>
+
+        <CtaSection
+          title={t('home.cta.title')}
+          subtitle={t('home.cta.subtitle')}
+          primary={{ to: '/contact', label: t('home.cta.button') }}
+        />
       </main>
     </>
   );

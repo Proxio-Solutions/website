@@ -1,7 +1,7 @@
 import bannerIllustration from '@assets/banner.svg';
 import WordmarkDots from '@components/motion/WordmarkDots';
 import { useTranslation } from 'react-i18next';
-import { Link } from '@components/LocalizedLink';
+import { Link, NavLink } from '@components/LocalizedLink';
 import { NAV_LINKS } from '../config/navigation';
 
 const serviceLinks = [
@@ -9,6 +9,10 @@ const serviceLinks = [
   { key: 'mobile', href: '/services#service-mobile' },
   { key: 'consulting', href: '/services#service-consulting' },
 ] as const;
+
+/** Page links show where the visitor is; NavLink also sets aria-current="page". */
+const footerLinkClass = ({ isActive }: { isActive: boolean }) =>
+  `${isActive ? 'text-proxio-text-main font-semibold' : 'text-proxio-text-muted'} hover:text-proxio-accent text-sm transition-colors`;
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -35,19 +39,15 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
+            <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.company')}
-            </h3>
+            </h2>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
                 <li key={link.translationKey}>
-                  <Link
-                    viewTransition
-                    to={link.href}
-                    className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
-                  >
+                  <NavLink viewTransition to={link.href} end className={footerLinkClass}>
                     {t(link.translationKey)}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>
@@ -55,9 +55,9 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
+            <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.services')}
-            </h3>
+            </h2>
             <ul className="space-y-3">
               {serviceLinks.map(({ key, href }) => (
                 <li key={key}>
@@ -75,9 +75,9 @@ export default function Footer() {
 
           {/* Contact & Legal */}
           <div>
-            <h3 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
+            <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.contact')}
-            </h3>
+            </h2>
             <ul className="space-y-3">
               <li>
                 <a
@@ -109,13 +109,9 @@ export default function Footer() {
           <p className="text-proxio-text-muted text-sm" suppressHydrationWarning>
             {t('footer.copyright', { year })}
           </p>
-          <Link
-            viewTransition
-            to="/privacy-policy"
-            className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
-          >
+          <NavLink viewTransition to="/privacy-policy" className={footerLinkClass}>
             {t('footer.privacy')}
-          </Link>
+          </NavLink>
         </div>
       </div>
     </footer>

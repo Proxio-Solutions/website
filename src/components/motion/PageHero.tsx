@@ -18,6 +18,8 @@ interface PageHeroProps {
   align?: 'center' | 'left';
   size?: 'lg' | 'xl';
   fullHeight?: boolean;
+  /** Less vertical space on phones, for pages where the content below is the point (Contact). */
+  compact?: boolean;
   /** Rendered above the eyebrow, outside the entrance animation (e.g. a back link). */
   before?: ReactNode;
   /** Actions or extra content below the subtitle; fades in last. */
@@ -42,6 +44,7 @@ export default function PageHero({
   align = 'center',
   size = 'lg',
   fullHeight = false,
+  compact = false,
   before,
   children,
 }: PageHeroProps) {
@@ -51,6 +54,12 @@ export default function PageHero({
   const parts = highlights.length
     ? splitHighlights(title, highlights)
     : [{ text: title, highlighted: false }];
+
+  // A reworded title silently loses its underline; say so while developing
+  if (import.meta.env.DEV) {
+    const missing = highlights.filter((phrase) => !title.includes(phrase));
+    if (missing.length) console.warn(`PageHero: "${missing.join('", "')}" not found in "${title}"`);
+  }
 
   useGSAP(
     () => {
@@ -115,7 +124,11 @@ export default function PageHero({
 
       <div
         className={`relative mx-auto flex max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8 ${
-          fullHeight ? 'min-h-[calc(100svh-4rem)] py-24' : 'py-24 lg:py-32'
+          fullHeight
+            ? 'min-h-[calc(100svh-4rem)] py-24'
+            : compact
+              ? 'py-14 sm:py-20 lg:py-24'
+              : 'py-24 lg:py-32'
         } ${centered ? 'items-center' : ''}`}
       >
         {before}
@@ -123,7 +136,7 @@ export default function PageHero({
           {badge && (
             <span className="hero-fade-top bg-proxio-darker/80 border-proxio-dark-border text-proxio-text-muted inline-flex items-center gap-2.5 rounded-full border px-4 py-1.5 font-mono text-xs font-medium shadow-sm backdrop-blur">
               <span className="relative flex h-2 w-2">
-                <span className="bg-proxio-accent absolute inline-flex h-full w-full animate-ping rounded-full opacity-60" />
+                <span className="bg-proxio-accent absolute inline-flex h-full w-full rounded-full opacity-60 motion-safe:animate-ping" />
                 <span className="bg-proxio-accent relative inline-flex h-2 w-2 rounded-full" />
               </span>
               {badge}

@@ -15,7 +15,8 @@ export default function ScrollHighlight({ text, className = '' }: ScrollHighligh
       gsap.matchMedia().add(MOTION_OK, () => {
         gsap.fromTo(
           '.hl-word',
-          { opacity: 0.18 },
+          // Dim enough to show progress, still readable for anyone who reads ahead of the scroll
+          { opacity: 0.35 },
           {
             opacity: 1,
             ease: 'none',
