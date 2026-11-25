@@ -199,7 +199,7 @@ html {
   content: '';
   position: absolute;
   inset: -4px;
-  border: 2px solid rgb(34 79 180 / 0.45);
+  border: 2px solid color-mix(in srgb, var(--color-proxio-accent-hover) 45%, transparent);
   border-radius: 1rem;
   pointer-events: none;
   animation: urbi-callout 1.8s ease-out 0.4s infinite;
@@ -251,7 +251,7 @@ html {
   right: 0.75rem;
   bottom: 0.25rem;
   height: 2px;
-  border-radius: 2px;
+  border-radius: 9999px;
   background: var(--color-proxio-accent);
   transform: scaleX(0);
   transform-origin: left;
@@ -294,7 +294,7 @@ html {
   right: 0.5rem;
   bottom: 0;
   height: 2px;
-  border-radius: 2px;
+  border-radius: 9999px;
   background: var(--color-proxio-accent);
   transform: scaleX(0);
   transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
