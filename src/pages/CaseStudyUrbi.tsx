@@ -307,7 +307,7 @@ export default function CaseStudyUrbi() {
                       <span className="text-proxio-text-main text-xl font-black">
                         {t(`${u}.stack.${key}.name`)}
                       </span>
-                      <span className="bg-proxio-accent/10 text-proxio-accent shrink-0 rounded-full px-3 py-1 font-mono text-[11px] font-medium">
+                      <span className="bg-proxio-accent/10 text-proxio-accent shrink-0 rounded-full px-3 py-1 font-mono text-xs font-medium">
                         {t(`${u}.stack.${key}.role`)}
                       </span>
                     </div>
@@ -360,7 +360,7 @@ export default function CaseStudyUrbi() {
                     {t(`${u}.roadmap.${key}`)}
                   </span>
                   <span
-                    className={`shrink-0 rounded-full px-2.5 py-0.5 font-mono text-[11px] font-medium ${
+                    className={`shrink-0 rounded-full px-2.5 py-0.5 font-mono text-xs font-medium ${
                       status === 'done'
                         ? 'bg-proxio-accent/10 text-proxio-accent'
                         : status === 'active'

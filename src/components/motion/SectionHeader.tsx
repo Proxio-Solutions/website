@@ -36,7 +36,7 @@ export default function SectionHeader({
         const tl = gsap
           .timeline({
             defaults: { ease: motion.ease.expo },
-            scrollTrigger: { trigger: root.current, start: 'top 85%' },
+            scrollTrigger: { trigger: root.current, start: 'top 92%' },
             onStart: () => {
               revealed.current = true;
             },
