@@ -56,6 +56,11 @@ html {
 }
 
 /* The pre-rendered page is painted before JavaScript runs: show it, don't wait for Reveal */
+/* Arriving with ?type=: keep the brief's first step out of sight until hydration moves it on */
+[data-brief-preselect] #root[data-prerendered] [data-brief-panel] {
+  visibility: hidden;
+}
+
 #root[data-prerendered] .reveal {
   opacity: 1;
   transform: none;
