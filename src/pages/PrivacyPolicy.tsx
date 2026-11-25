@@ -3,8 +3,8 @@ import SEO from '@components/SEO';
 import { Link } from '@components/LocalizedLink';
 import { CONTACT_EMAIL } from '@/config/links';
 import { scrollToTarget } from '@/lib/smoothScroll';
-import type { MouseEvent } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { useEffect, useState, type MouseEvent } from 'react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
 
 const linkClass =
@@ -45,27 +45,95 @@ function jumpTo(event: MouseEvent<HTMLAnchorElement>, anchor: string) {
   scrollToTarget(section);
 }
 
+/** The section being read: the last one whose heading has passed the upper third of the screen. */
+function useCurrentSection() {
+  const [current, setCurrent] = useState<string | null>(null);
+  useEffect(() => {
+    const sections = SECTIONS.map(([, anchor]) => document.getElementById(anchor)).filter(
+      (el): el is HTMLElement => el !== null,
+    );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.filter((entry) => entry.isIntersecting);
+        if (visible.length) setCurrent(visible[visible.length - 1].target.id);
+      },
+      // A thin band near the top: a section counts once its start reaches it
+      { rootMargin: '-25% 0px -70% 0px' },
+    );
+    sections.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+  return current;
+}
+
 export default function PrivacyPolicy() {
   const { t } = useTranslation();
+  const current = useCurrentSection();
+
+  const tocLinks = (
+    <ol className="mt-3 grid gap-x-6 sm:grid-cols-2 lg:grid-cols-1">
+      {SECTIONS.map(([section, anchor]) => {
+        const active = current === anchor;
+        return (
+          <li key={section}>
+            <a
+              href={`#${anchor}`}
+              onClick={(event) => jumpTo(event, anchor)}
+              aria-current={active ? 'location' : undefined}
+              className={`-ml-3 block border-l-2 py-2 pl-3 text-sm leading-snug transition-colors lg:py-1.5 ${
+                active
+                  ? 'border-proxio-accent text-proxio-text-main font-semibold'
+                  : 'text-proxio-text-muted hover:text-proxio-accent border-transparent'
+              }`}
+            >
+              {t(`privacyPolicy.${section}.title`)}
+            </a>
+          </li>
+        );
+      })}
+    </ol>
+  );
 
   return (
     <>
       <SEO title={t('privacyPolicy.title')} description={t('privacyPolicy.seo.description')} />
 
-      <main className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <main className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
         <header className="max-w-3xl">
           <SectionLabel>{t('privacyPolicy.label')}</SectionLabel>
           <h1 className="text-proxio-text-main mt-4 text-4xl font-extrabold tracking-tight sm:text-5xl">
             {t('privacyPolicy.title')}
           </h1>
           <p className="text-proxio-text-muted mt-4 text-sm">{t('privacyPolicy.lastUpdated')}</p>
+          {/* What most visitors came to check, before any of the legal detail */}
+          <div className="border-proxio-accent bg-proxio-dark mt-8 rounded-r-2xl border-l-4 px-6 py-5">
+            <p className="text-proxio-accent text-sm font-bold">
+              {t('privacyPolicy.summary.label')}
+            </p>
+            <p className="text-proxio-text-main mt-1 text-lg leading-relaxed">
+              {t('privacyPolicy.summary.body')}
+            </p>
+          </div>
         </header>
 
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-[14rem_1fr] lg:gap-16">
-          {/* A long legal page: let readers jump to the part they came for */}
+          {/* A long legal page: let readers jump to the part they came for. Phones get it folded,
+              so the text starts on the first screen */}
+          <details className="group bg-proxio-dark border-proxio-dark-border rounded-2xl border px-5 py-4 lg:hidden">
+            <summary className="text-proxio-text-main flex cursor-pointer list-none items-center justify-between font-mono text-xs font-medium tracking-[0.2em] uppercase [&::-webkit-details-marker]:hidden">
+              {t('privacyPolicy.toc')}
+              <ChevronDown
+                className="text-proxio-text-muted h-4 w-4 transition-transform group-open:rotate-180"
+                aria-hidden="true"
+              />
+            </summary>
+            <nav aria-label={t('privacyPolicy.toc')} className="pl-3">
+              {tocLinks}
+            </nav>
+          </details>
           <nav
             aria-labelledby="privacy-toc"
-            className="bg-proxio-dark border-proxio-dark-border rounded-2xl border p-5 lg:sticky lg:top-28 lg:self-start lg:border-0 lg:bg-transparent lg:p-0"
+            className="hidden pl-3 lg:sticky lg:top-28 lg:block lg:self-start"
           >
             <h2
               id="privacy-toc"
@@ -73,19 +141,7 @@ export default function PrivacyPolicy() {
             >
               {t('privacyPolicy.toc')}
             </h2>
-            <ol className="mt-4 grid gap-x-6 gap-y-2 sm:grid-cols-2 lg:grid-cols-1">
-              {SECTIONS.map(([section, anchor]) => (
-                <li key={section}>
-                  <a
-                    href={`#${anchor}`}
-                    onClick={(event) => jumpTo(event, anchor)}
-                    className="text-proxio-text-muted hover:text-proxio-accent text-sm leading-snug transition-colors"
-                  >
-                    {t(`privacyPolicy.${section}.title`)}
-                  </a>
-                </li>
-              ))}
-            </ol>
+            {tocLinks}
           </nav>
 
           <div className="max-w-xl space-y-12">
