@@ -103,21 +103,23 @@ export default function Projects() {
             </Reveal>
 
             <Reveal>
-              <FeaturedCard className="bg-proxio-dark border-proxio-dark-border overflow-hidden rounded-3xl border">
+              <FeaturedCard
+                className={`bg-proxio-dark border-proxio-dark-border overflow-hidden rounded-3xl border ${urbiShowcaseEnabled ? '' : 'max-w-3xl'}`}
+              >
                 <div className="flex flex-col md:flex-row">
                   {/* Left — content (the whole card while Urbi keeps a low profile) */}
                   <div
-                    className={`flex flex-col justify-center p-8 md:p-12 ${urbiShowcaseEnabled ? 'md:w-3/5' : 'max-w-3xl'}`}
+                    className={`flex flex-col justify-center p-8 md:p-12 ${urbiShowcaseEnabled ? 'md:w-3/5' : ''}`}
                   >
                     <div className="bg-proxio-darker text-proxio-accent border-proxio-dark-border mb-6 inline-flex w-max items-center rounded-full border px-3 py-1 text-xs font-medium">
-                      <span className="relative mr-2 flex h-2 w-2">
-                        <span className="bg-proxio-accent absolute inline-flex h-full w-full rounded-full opacity-75 motion-safe:animate-ping"></span>
-                        <span className="bg-proxio-accent relative inline-flex h-2 w-2 rounded-full"></span>
-                      </span>
+                      <span
+                        className="bg-proxio-accent mr-2 inline-flex h-2 w-2 rounded-full"
+                        aria-hidden="true"
+                      />
                       {t(`projects.status.${featuredProject.status}`)}
                     </div>
 
-                    <h2 className="text-proxio-text-main mb-4 text-5xl font-black tracking-tight">
+                    <h2 className="text-proxio-text-main mb-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
                       {featuredProject.title}
                     </h2>
                     <p className="text-proxio-text-muted mb-8 max-w-2xl text-lg leading-relaxed">
