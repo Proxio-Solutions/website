@@ -862,11 +862,18 @@
     "seo": {
       "description": "Como a Proxio Solutions recolhe, usa e protege os dados pessoais que nos envias através deste site."
     },
+    "label": "Legal",
     "title": "Política de Privacidade",
     "lastUpdated": "Última atualização: novembro de 2026",
+    "summary": {
+      "label": "Em resumo",
+      "body": "Só recolhemos o que nos envias pelo formulário de contacto, usamos isso para te responder e o site não usa cookies."
+    },
+    "toc": "Nesta página",
+    "newWindow": "(abre numa nova janela)",
     "intro": {
       "title": "Introdução",
-      "body": "Esta política explica que dados recolhemos quando usas o site da Proxio Solutions, para que os usamos e que direitos tens sobre eles. Seguimos o Regulamento Geral sobre a Proteção de Dados (RGPD) e a legislação portuguesa aplicável. Em resumo: só recolhemos o que nos envias pelo formulário de contacto, usamos isso para te responder e o site não usa cookies."
+      "body": "Esta política explica que dados recolhemos quando usas o site da Proxio Solutions, para que os usamos e que direitos tens sobre eles. Seguimos o Regulamento Geral sobre a Proteção de Dados (RGPD) e a legislação portuguesa aplicável."
     },
     "controller": {
       "title": "Responsável pelo Tratamento",
@@ -925,6 +932,10 @@
     "contact": {
       "title": "Contacto e Pedidos sobre os Teus Dados",
       "body": "Para exercer os teus direitos, tirar dúvidas sobre esta política ou fazer um pedido sobre os teus dados, escreve-nos para <email>{{email}}</email>. Respondemos no prazo máximo de 30 dias."
+    },
+    "closing": {
+      "title": "Ficou alguma dúvida sobre os teus dados?",
+      "cta": "Fala connosco"
     }
   },
   "insights": {
