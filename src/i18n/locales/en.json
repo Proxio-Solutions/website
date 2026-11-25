@@ -590,7 +590,17 @@
         },
         "name": "Tell us your name.",
         "email": "Check the email, for example name@company.com.",
-        "message": "Write your message."
+        "message": "Write your message.",
+        "missing": "Still to fill in: {{fields}}.",
+        "fields": {
+          "type": "the type",
+          "description": "the description",
+          "timeline": "the timeline",
+          "budget": "the budget",
+          "name": "your name",
+          "email": "your email",
+          "message": "the message"
+        }
       },
       "privacy": "By sending this, you agree to our <policy>privacy policy</policy>.",
       "nav": {
@@ -626,7 +636,8 @@
       "email": {
         "subject": "Brief: {{type}} · {{who}}",
         "general": "General message"
-      }
+      },
+      "changeType": "Change"
     }
   },
   "projects": {
