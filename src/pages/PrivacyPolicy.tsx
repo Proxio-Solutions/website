@@ -3,19 +3,28 @@ import SEO from '@components/SEO';
 import { Link } from '@components/LocalizedLink';
 import { CONTACT_EMAIL } from '@/config/links';
 import { scrollToTarget } from '@/lib/smoothScroll';
-import { useEffect, useState, type MouseEvent } from 'react';
+import { useEffect, useState, type MouseEvent, type ReactNode } from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Trans, useTranslation } from 'react-i18next';
 
 const linkClass =
   'text-proxio-text-main hover:text-proxio-accent decoration-proxio-accent/60 font-medium underline decoration-2 underline-offset-4 transition-colors';
 
+/** A link that opens in a new window, and says so to screen readers. */
+function ExternalLink({ href, children }: { href: string; children?: ReactNode }) {
+  const { t } = useTranslation();
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" className={linkClass}>
+      {children}
+      <span className="sr-only"> {t('privacyPolicy.newWindow')}</span>
+    </a>
+  );
+}
+
 /** Tags the copy may use: <email> for our address, <cnpd> for the data protection authority. */
 const components = {
   email: <a href={`mailto:${CONTACT_EMAIL}`} className={linkClass} />,
-  cnpd: (
-    <a href="https://www.cnpd.pt" target="_blank" rel="noopener noreferrer" className={linkClass} />
-  ),
+  cnpd: <ExternalLink href="https://www.cnpd.pt" />,
 };
 
 /** Each section and its anchor. Anchors stay in English in both languages (see urls.md). */
@@ -152,7 +161,13 @@ export default function PrivacyPolicy() {
               }) as string[] | null;
 
               return (
-                <section key={section} id={anchor} tabIndex={-1} className="outline-none">
+                <section
+                  key={section}
+                  id={anchor}
+                  tabIndex={-1}
+                  // Reached from the index by keyboard: show where focus landed
+                  className="focus-visible:ring-proxio-accent/40 -m-3 rounded-xl p-3 outline-none focus-visible:ring-2"
+                >
                   <h2 className="text-proxio-text-main mb-4 text-2xl font-bold tracking-tight">
                     {t(`privacyPolicy.${section}.title`)}
                   </h2>
