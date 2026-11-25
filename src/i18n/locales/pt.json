@@ -403,8 +403,7 @@
     },
     "info": {
       "email": {
-        "label": "Email",
-        "value": "proxiosolutions@gmail.com"
+        "label": "Email"
       },
       "location": {
         "label": "Localização",
@@ -864,59 +863,68 @@
       "description": "Como a Proxio Solutions recolhe, usa e protege os dados pessoais que nos envias através deste site."
     },
     "title": "Política de Privacidade",
-    "lastUpdated": "Última atualização: março de 2026",
+    "lastUpdated": "Última atualização: novembro de 2026",
     "intro": {
       "title": "Introdução",
-      "body": "A Proxio Solutions ('nós', 'nos' ou 'nosso') está comprometida com a proteção dos seus dados pessoais. Esta Política de Privacidade explica como recolhemos, utilizamos e protegemos as informações que nos fornece ao utilizar o nosso website e serviços, em conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD) e a legislação portuguesa aplicável."
+      "body": "Esta política explica que dados recolhemos quando usas o site da Proxio Solutions, para que os usamos e que direitos tens sobre eles. Seguimos o Regulamento Geral sobre a Proteção de Dados (RGPD) e a legislação portuguesa aplicável. Em resumo: só recolhemos o que nos envias pelo formulário de contacto, usamos isso para te responder e o site não usa cookies."
     },
     "controller": {
       "title": "Responsável pelo Tratamento",
-      "body": "O responsável pelo tratamento dos seus dados pessoais é a Proxio Solutions, com sede em Portugal. Para qualquer questão relacionada com dados, contacte-nos através de: proxiosolutions@gmail.com"
+      "body": "O responsável pelo tratamento dos teus dados é a Proxio Solutions, em Portugal. Para qualquer questão sobre os teus dados, escreve-nos para <email>{{email}}</email>."
     },
     "dataCollected": {
       "title": "Que Dados Recolhemos",
-      "body": "Recolhemos apenas os dados pessoais que nos fornece voluntariamente através do nosso formulário de contacto. Estes podem incluir:",
+      "body": "Só recolhemos os dados que nos envias pelo formulário de contacto. Conforme o que preencheres, podem ser:",
       "items": [
-        "Nome completo",
-        "Endereço de email",
-        "Assunto e conteúdo da mensagem que nos envia"
+        "O teu nome e o teu email",
+        "O nome da tua empresa, se o indicares",
+        "A tua mensagem ou a descrição do projeto",
+        "Os detalhes do projeto que escolheres: tipo, funcionalidades, prazo e orçamento",
+        "A língua em que vês o site, para te respondermos na mesma"
       ]
     },
     "usage": {
-      "title": "Como Utilizamos os Seus Dados",
-      "body": "Os dados pessoais que nos fornece são utilizados exclusivamente para responder à sua questão e manter correspondência consigo. Não utilizamos os seus dados para fins de marketing ou de criação de perfis sem o seu consentimento explícito."
+      "title": "Como Usamos os Teus Dados",
+      "body": "Usamos estes dados apenas para responder ao teu pedido, preparar uma proposta quando nos pedes uma e manter a conversa contigo. Não os usamos para marketing nem para criar perfis."
     },
     "legal": {
-      "title": "Base Legal para o Tratamento",
-      "body": "Tratamos os seus dados pessoais com base nos seguintes fundamentos legais ao abrigo do RGPD: o seu consentimento (Artigo 6.º, n.º 1, alínea a)), prestado ao submeter o nosso formulário de contacto; e o nosso interesse legítimo em responder a pedidos de negócio (Artigo 6.º, n.º 1, alínea f))."
+      "title": "Base Legal",
+      "body": "Tratamos os teus dados com base no teu consentimento, que dás ao enviar o formulário (artigo 6.º, n.º 1, alínea a) do RGPD), e no nosso interesse legítimo em responder aos pedidos que nos chegam (alínea f)). As estatísticas de visitas, que não identificam ninguém, assentam no interesse legítimo de perceber como o site é usado."
     },
     "retention": {
-      "title": "Período de Conservação",
-      "body": "Conservamos os seus dados pessoais apenas durante o tempo necessário para cumprir a finalidade para a qual foram recolhidos, ou conforme exigido pela legislação aplicável. Os dados de contacto são geralmente conservados por um período máximo de 2 anos, após o qual são eliminados de forma segura."
+      "title": "Durante Quanto Tempo os Guardamos",
+      "body": "Guardamos os teus dados só enquanto forem precisos para responder e acompanhar o teu pedido, ou durante o tempo que a lei exigir. Em regra, os dados de contacto são apagados ao fim de 2 anos."
     },
     "thirdParties": {
-      "title": "Terceiros",
-      "body": "Não vendemos, arrendamos nem transferimos os seus dados pessoais a terceiros para uso próprio. Podemos recorrer a prestadores de serviços de confiança (como serviços de email ou alojamento) que tratam dados em nosso nome, estando vinculados por acordos de processamento de dados e obrigações de confidencialidade."
+      "title": "Quem Mais Trata os Teus Dados",
+      "body": "Não vendemos nem cedemos os teus dados a ninguém. Para o site funcionar, recorremos a estes prestadores de serviços, que tratam dados apenas em nosso nome:",
+      "items": [
+        "EmailJS, que entrega a mensagem do formulário na nossa caixa de correio",
+        "O nosso fornecedor de email, onde a mensagem fica guardada",
+        "GitHub Pages, onde o site está alojado e que pode registar dados técnicos de cada visita, como o endereço IP",
+        "Plausible Analytics, que conta as visitas sem cookies e sem guardar dados pessoais"
+      ]
     },
     "rights": {
-      "title": "Os Seus Direitos",
-      "body": "Como titular de dados ao abrigo do RGPD, tem os seguintes direitos:",
+      "title": "Os Teus Direitos",
+      "body": "Ao abrigo do RGPD, tens direito a:",
       "items": [
-        "Direito de acesso — obter uma cópia dos seus dados pessoais",
-        "Direito de retificação — corrigir dados inexatos ou incompletos",
-        "Direito ao apagamento — solicitar a eliminação dos seus dados ('direito a ser esquecido')",
-        "Direito à limitação — solicitar que limitemos o tratamento dos seus dados",
-        "Direito de oposição — opor-se ao tratamento dos seus dados",
-        "Direito de apresentar reclamação à CNPD (Comissão Nacional de Proteção de Dados) em www.cnpd.pt"
+        "Aceder aos teus dados e receber uma cópia",
+        "Corrigir dados errados ou incompletos",
+        "Pedir que apaguemos os teus dados",
+        "Pedir que limitemos o seu tratamento",
+        "Opor-te ao tratamento",
+        "Retirar o teu consentimento a qualquer momento, sem afetar o que foi feito até aí",
+        "Apresentar queixa à CNPD, a Comissão Nacional de Proteção de Dados, em <cnpd>www.cnpd.pt</cnpd>"
       ]
     },
     "cookies": {
-      "title": "Cookies",
-      "body": "O nosso website utiliza apenas cookies técnicos estritamente necessários, como o armazenamento da sua preferência de idioma. Não utilizamos cookies de rastreamento, análise ou publicidade. Nenhum dado pessoal é recolhido através de cookies."
+      "title": "Cookies e Estatísticas",
+      "body": "O site não usa cookies nem guarda nada no teu dispositivo. Para sabermos quantas pessoas nos visitam e que páginas leem, usamos o Plausible Analytics, que conta as visitas sem cookies e sem identificar quem visita."
     },
     "contact": {
-      "title": "Contacto e Pedidos de Dados",
-      "body": "Para exercer qualquer um dos seus direitos, colocar questões sobre esta Política de Privacidade ou submeter um pedido de dados, contacte-nos através de: proxiosolutions@gmail.com. Responderemos no prazo de 30 dias."
+      "title": "Contacto e Pedidos sobre os Teus Dados",
+      "body": "Para exercer os teus direitos, tirar dúvidas sobre esta política ou fazer um pedido sobre os teus dados, escreve-nos para <email>{{email}}</email>. Respondemos no prazo máximo de 30 dias."
     }
   },
   "insights": {
