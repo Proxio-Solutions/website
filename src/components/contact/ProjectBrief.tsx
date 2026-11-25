@@ -869,7 +869,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                     <Trans
                       i18nKey={`${b}.privacy`}
                       components={{
-                        link: (
+                        policy: (
                           <Link
                             to="/privacy-policy"
                             className="text-proxio-text-main decoration-proxio-accent/60 hover:text-proxio-accent font-medium underline decoration-2 underline-offset-4"

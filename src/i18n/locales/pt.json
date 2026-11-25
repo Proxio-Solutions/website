@@ -596,7 +596,7 @@
         "email": "Confirma o email, por exemplo nome@empresa.pt.",
         "message": "Escreve a tua mensagem."
       },
-      "privacy": "Ao enviar, aceitas a nossa <link>política de privacidade</link>.",
+      "privacy": "Ao enviar, aceitas a nossa <policy>política de privacidade</policy>.",
       "nav": {
         "back": "Voltar",
         "next": "Continuar",

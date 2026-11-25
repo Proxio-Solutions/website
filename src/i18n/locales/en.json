@@ -592,7 +592,7 @@
         "email": "Check the email, for example name@company.com.",
         "message": "Write your message."
       },
-      "privacy": "By sending this, you agree to our <link>privacy policy</link>.",
+      "privacy": "By sending this, you agree to our <policy>privacy policy</policy>.",
       "nav": {
         "back": "Back",
         "next": "Continue",
