@@ -105,9 +105,11 @@ export default function Services() {
                         <Link
                           viewTransition
                           to={briefLinks[key]}
-                          className="text-proxio-accent hover:text-proxio-accent-hover group/cta mt-6 inline-flex w-max items-center gap-1.5 text-sm font-bold"
+                          className="text-proxio-accent hover:text-proxio-accent-hover group/cta mt-4 inline-flex w-max items-center gap-1.5 py-3 text-sm font-bold"
                         >
                           {t('services.cardCta')}
+                          {/* Three links share the visible label: name the service for screen readers */}
+                          <span className="sr-only">: {t(`services.items.${key}.title`)}</span>
                           <ArrowRight className="h-4 w-4 transition-transform group-hover/cta:translate-x-1" />
                         </Link>
                       </SpotlightCard>

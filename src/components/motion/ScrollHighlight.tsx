@@ -15,8 +15,9 @@ export default function ScrollHighlight({ text, className = '' }: ScrollHighligh
       gsap.matchMedia().add(MOTION_OK, () => {
         gsap.fromTo(
           '.hl-word',
-          // Dim enough to show progress, still readable for anyone who reads ahead of the scroll
-          { opacity: 0.35 },
+          // Dim enough to show progress, yet readable ahead of the scroll: 0.6 keeps the words
+          // at 4.6:1 on the Mist background, which the 20px phone text needs
+          { opacity: 0.6 },
           {
             opacity: 1,
             ease: 'none',

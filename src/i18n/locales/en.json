@@ -44,8 +44,7 @@
       "cta": "Learn more"
     },
     "featured": {
-      "label": "Featured Project",
-      "title": "See What We're Building"
+      "label": "Featured Project"
     },
     "urbi": {
       "scrollHint": "Scroll to follow one issue from start to finish",
@@ -250,22 +249,6 @@
             ]
           }
         ]
-      }
-    },
-    "values": {
-      "label": "Our Principles",
-      "title": "Built on a Strong Foundation",
-      "client": {
-        "title": "Client-First Approach",
-        "desc": "We work closely with our clients throughout every stage. Your vision drives our process."
-      },
-      "quality": {
-        "title": "Uncompromising Quality",
-        "desc": "Every line of code, every pixel, every interaction is crafted with care and precision."
-      },
-      "modern": {
-        "title": "Modern by Default",
-        "desc": "We use the best tools and frameworks available to build products that stand the test of time."
       }
     },
     "cta": {
@@ -589,9 +572,19 @@
         },
         "name": "Tell us your name.",
         "email": "Check the email, for example name@company.com.",
-        "message": "Write your message."
+        "message": "Write your message.",
+        "missing": "Still to fill in: {{fields}}.",
+        "fields": {
+          "type": "the type",
+          "description": "the description",
+          "timeline": "the timeline",
+          "budget": "the budget",
+          "name": "your name",
+          "email": "your email",
+          "message": "the message"
+        }
       },
-      "privacy": "By sending this, you agree to our <link>privacy policy</link>.",
+      "privacy": "By sending this, you agree to our <policy>privacy policy</policy>.",
       "nav": {
         "back": "Back",
         "next": "Continue",
@@ -625,7 +618,8 @@
       "email": {
         "subject": "Brief: {{type}} · {{who}}",
         "general": "General message"
-      }
+      },
+      "changeType": "Change"
     }
   },
   "projects": {
