@@ -657,7 +657,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                     role="radio"
                     aria-checked={mode === value}
                     onClick={() => switchMode(value)}
-                    className={`flex items-center justify-center gap-2 rounded-lg px-2 py-2.5 text-center text-[13px] leading-tight font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:px-3 sm:text-sm ${
+                    className={`flex items-center justify-center gap-2 rounded-lg px-2 py-2.5 text-center text-sm leading-tight font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:px-3 ${
                       mode === value
                         ? 'bg-proxio-accent text-white shadow-sm'
                         : 'text-proxio-text-muted hover:text-proxio-text-main'

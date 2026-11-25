@@ -436,7 +436,7 @@
       "mode": {
         "label": "O que te traz cá?",
         "project": "Tenho um projeto",
-        "question": "Só quero fazer uma pergunta"
+        "question": "Só tenho uma pergunta"
       },
       "stepOf": "Passo {{current}} de {{total}}",
       "steps": {
