@@ -11,6 +11,15 @@ import { NAV_LINKS } from '../config/navigation';
 
 const HIDE_AFTER = 160;
 
+/**
+ * The contact button, filled everywhere except on the contact page itself, where it would only
+ * point at the page you are on: there it turns into an outline and is marked as the current page.
+ */
+const ctaTone = (isActive: boolean) =>
+  isActive
+    ? 'border-proxio-accent text-proxio-accent bg-transparent'
+    : 'bg-proxio-accent hover:bg-proxio-accent-hover text-proxio-darker border-transparent';
+
 export default function Navbar() {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -135,13 +144,15 @@ export default function Navbar() {
           {/* Desktop CTA + language toggle */}
           <div className="hidden items-center space-x-4 md:flex">
             <Magnetic strength={0.25}>
-              <Link
+              <NavLink
                 viewTransition
                 to="/contact"
-                className="bg-proxio-accent hover:bg-proxio-accent-hover text-proxio-darker rounded-md px-5 py-2 text-sm font-bold transition-colors"
+                className={({ isActive }) =>
+                  `${ctaTone(isActive)} block rounded-md border px-5 py-2 text-sm font-bold transition-colors`
+                }
               >
                 {t('nav.cta')}
-              </Link>
+              </NavLink>
             </Magnetic>
 
             <RouterLink
@@ -199,14 +210,16 @@ export default function Navbar() {
           ))}
 
           <div className="border-proxio-dark-border mt-4 flex items-center justify-between gap-4 border-t pt-4">
-            <Link
+            <NavLink
               viewTransition
               to="/contact"
               onClick={() => setIsMenuOpen(false)}
-              className="bg-proxio-accent hover:bg-proxio-accent-hover text-proxio-darker flex-1 rounded-md px-5 py-3 text-center text-sm font-bold transition-colors"
+              className={({ isActive }) =>
+                `${ctaTone(isActive)} flex-1 rounded-md border px-5 py-3 text-center text-sm font-bold transition-colors`
+              }
             >
               {t('nav.cta')}
-            </Link>
+            </NavLink>
 
             <RouterLink
               {...languageLinkProps}

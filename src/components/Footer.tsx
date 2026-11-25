@@ -10,9 +10,12 @@ const serviceLinks = [
   { key: 'consulting', href: '/services#service-consulting' },
 ] as const;
 
-/** Page links show where the visitor is; NavLink also sets aria-current="page". */
+/**
+ * Page links show where the visitor is; NavLink also sets aria-current="page". The vertical
+ * padding gives each link a finger-sized target without spreading the list.
+ */
 const footerLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `${isActive ? 'text-proxio-text-main font-semibold' : 'text-proxio-text-muted'} hover:text-proxio-accent text-sm transition-colors`;
+  `${isActive ? 'text-proxio-text-main font-semibold' : 'text-proxio-text-muted'} hover:text-proxio-accent inline-block py-2 text-sm transition-colors`;
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -42,7 +45,7 @@ export default function Footer() {
             <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.company')}
             </h2>
-            <ul className="space-y-3">
+            <ul className="-my-2 space-y-1">
               {NAV_LINKS.map((link) => (
                 <li key={link.translationKey}>
                   <NavLink viewTransition to={link.href} end className={footerLinkClass}>
@@ -58,13 +61,13 @@ export default function Footer() {
             <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.services')}
             </h2>
-            <ul className="space-y-3">
+            <ul className="-my-2 space-y-1">
               {serviceLinks.map(({ key, href }) => (
                 <li key={key}>
                   <Link
                     viewTransition
                     to={href}
-                    className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
+                    className="text-proxio-text-muted hover:text-proxio-accent inline-block py-2 text-sm transition-colors"
                   >
                     {t(`footer.services_${key}`)}
                   </Link>
@@ -78,17 +81,17 @@ export default function Footer() {
             <h2 className="text-proxio-text-main mb-4 text-sm font-bold tracking-widest uppercase">
               {t('footer.contact')}
             </h2>
-            <ul className="space-y-3">
+            <ul className="-my-2 space-y-1">
               <li>
                 <a
                   href="mailto:proxiosolutions@gmail.com"
-                  className="text-proxio-text-muted hover:text-proxio-accent text-sm transition-colors"
+                  className="text-proxio-text-muted hover:text-proxio-accent inline-block py-2 text-sm transition-colors"
                 >
                   proxiosolutions@gmail.com
                 </a>
               </li>
               <li>
-                <span className="text-proxio-text-muted text-sm">Portugal</span>
+                <span className="text-proxio-text-muted inline-block py-2 text-sm">Portugal</span>
               </li>
             </ul>
           </div>

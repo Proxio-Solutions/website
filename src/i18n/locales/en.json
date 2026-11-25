@@ -44,8 +44,7 @@
       "cta": "Learn more"
     },
     "featured": {
-      "label": "Featured Project",
-      "title": "See What We're Building"
+      "label": "Featured Project"
     },
     "urbi": {
       "scrollHint": "Scroll to follow one issue from start to finish",
@@ -250,22 +249,6 @@
             ]
           }
         ]
-      }
-    },
-    "values": {
-      "label": "Our Principles",
-      "title": "Built on a Strong Foundation",
-      "client": {
-        "title": "Client-First Approach",
-        "desc": "We work closely with our clients throughout every stage. Your vision drives our process."
-      },
-      "quality": {
-        "title": "Uncompromising Quality",
-        "desc": "Every line of code, every pixel, every interaction is crafted with care and precision."
-      },
-      "modern": {
-        "title": "Modern by Default",
-        "desc": "We use the best tools and frameworks available to build products that stand the test of time."
       }
     },
     "cta": {

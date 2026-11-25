@@ -44,8 +44,7 @@
       "cta": "Saber mais"
     },
     "featured": {
-      "label": "Projeto em Destaque",
-      "title": "Vê o Que Estamos a Construir"
+      "label": "Projeto em Destaque"
     },
     "urbi": {
       "scrollHint": "Faz scroll para seguir uma ocorrência do início ao fim",
@@ -254,22 +253,6 @@
             ]
           }
         ]
-      }
-    },
-    "values": {
-      "label": "Os Nossos Princípios",
-      "title": "Construídos sobre Bases Sólidas",
-      "client": {
-        "title": "Cliente em Primeiro",
-        "desc": "Trabalhamos de perto com os nossos clientes em cada etapa. A sua visão guia o nosso processo."
-      },
-      "quality": {
-        "title": "Qualidade Sem Compromisso",
-        "desc": "Cada linha de código, cada pixel, cada interação é trabalhada com cuidado e precisão."
-      },
-      "modern": {
-        "title": "Moderno por Defeito",
-        "desc": "Usamos as melhores ferramentas e frameworks disponíveis para construir produtos que resistem ao tempo."
       }
     },
     "cta": {
