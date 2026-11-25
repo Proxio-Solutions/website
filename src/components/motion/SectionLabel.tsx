@@ -10,7 +10,7 @@ export default function SectionLabel({ index, children, className = '' }: Sectio
     <span
       className={`text-proxio-accent inline-block font-mono text-xs font-medium tracking-[0.2em] uppercase ${className}`.trim()}
     >
-      <span className="opacity-60">
+      <span className="opacity-80">
         <span aria-hidden="true">//</span> {index ? `${index} — ` : ''}
       </span>
       {children}
