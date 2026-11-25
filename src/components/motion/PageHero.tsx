@@ -28,7 +28,7 @@ interface PageHeroProps {
 
 const titleSizes = {
   lg: 'text-4xl sm:text-5xl lg:text-6xl',
-  xl: 'text-4xl min-[440px]:text-5xl sm:text-6xl lg:text-7xl',
+  xl: 'text-4xl min-[440px]:text-5xl sm:text-6xl lg:text-[4rem]',
 };
 
 /**

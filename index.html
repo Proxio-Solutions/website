@@ -43,6 +43,12 @@
     />
     <meta name="twitter:image" content="https://proxiosolutions.com/og-image.png" />
 
+    <!-- A service card links to the brief with a type chosen (?type=): the page was pre-rendered
+         at the first step, so the brief stays hidden until it opens at the right one -->
+    <script>
+      if (/[?&]type=/.test(location.search))
+        document.documentElement.setAttribute('data-brief-preselect', '');
+    </script>
     <!-- Privacy-friendly analytics by Plausible (vendor snippet, kept verbatim) -->
     <!-- prettier-ignore -->
     <script async src="https://analytics.proxiosolutions.com/js/pa-kWhyU_7ylvz2sKFHya5DD.js"></script>

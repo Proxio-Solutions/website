@@ -140,10 +140,10 @@ export default function About() {
                       <div className="from-proxio-accent mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br to-blue-500 text-xl font-extrabold text-white shadow-lg shadow-blue-600/20">
                         {initials(name)}
                       </div>
-                      <p className="text-proxio-accent mb-1 font-mono text-xs tracking-wider uppercase">
+                      <h3 className="text-proxio-text-main text-xl font-bold">{name}</h3>
+                      <p className="text-proxio-accent mt-1 mb-3 text-sm font-semibold">
                         {t(`about.team.${id}.role`)}
                       </p>
-                      <h3 className="text-proxio-text-main mb-3 text-xl font-bold">{name}</h3>
                       <p className="text-proxio-text-muted text-sm leading-relaxed">
                         {t(`about.team.${id}.bio`)}
                       </p>

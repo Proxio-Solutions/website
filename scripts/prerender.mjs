@@ -99,16 +99,18 @@ async function write(file, html) {
   await writeFile(file, html);
 }
 
-// The 404 page stays the plain client shell: GitHub Pages serves it for any unknown URL,
-// so it must not carry another route's markup, nor the home page's canonical URL
-await writeFile(
-  path.join(dist, '404.html'),
-  template
-    .replace(HEAD_TAG, (tag) =>
-      ['canonical', 'meta:og:url'].includes(headKey(tag.replace(/\s+/g, ' '))) ? '' : tag,
-    )
-    .replace(/\n(\s*\n)+/g, '\n'),
-);
+// GitHub Pages serves 404.html for any unknown URL, in either language. It carries the
+// Portuguese "page not found" content, so visitors see it before the JS loads, but none of the
+// home page's canonical URL, og:url or language alternates: a missing page has no address.
+// The client renders over it (its data-prerendered path never matches the URL it is served at).
+const notFound = buildPage(
+  { path: '/404', lang: 'pt', source: 'src/pages/NotFound.tsx' },
+  await render('/404'),
+).replace(HEAD_TAG, (tag) => {
+  const key = headKey(tag.replace(/\s+/g, ' '));
+  return key === 'canonical' || key === 'meta:og:url' || key?.startsWith('alternate:') ? '' : tag;
+});
+await writeFile(path.join(dist, '404.html'), notFound.replace(/\n(\s*\n)+/g, '\n'));
 
 for (const page of prerenderPages) {
   const routePath = page.path;

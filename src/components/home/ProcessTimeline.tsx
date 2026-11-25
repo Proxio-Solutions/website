@@ -42,7 +42,7 @@ export default function ProcessTimeline({ index = '03' }: { index?: string }) {
             opacity: 0,
             duration: 0.9,
             ease: 'power3.out',
-            scrollTrigger: { trigger: step, start: 'top 75%' },
+            scrollTrigger: { trigger: step, start: 'top 90%' },
           });
           gsap.to(step, {
             scrollTrigger: { trigger: step, start: 'top 60%', toggleClass: 'is-active' },
@@ -78,7 +78,7 @@ export default function ProcessTimeline({ index = '03' }: { index?: string }) {
             <li
               key={key}
               data-side={left ? 'left' : 'right'}
-              className="process-step relative grid grid-cols-[2.5rem_1fr] gap-6 pb-14 last:pb-0 lg:grid-cols-[1fr_2.5rem_1fr] lg:gap-10"
+              className="process-step relative grid grid-cols-[2.5rem_1fr] gap-6 pb-14 last:pb-0 lg:grid-cols-[1fr_2.5rem_1fr] lg:gap-10 lg:pb-8"
             >
               <div
                 className={`process-card col-start-2 row-start-1 ${left ? 'lg:col-start-1 lg:text-right' : 'lg:col-start-3'}`}

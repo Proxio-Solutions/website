@@ -2,8 +2,16 @@ import { Link } from '@components/LocalizedLink';
 import { gsap, MOTION_OK, motion, useGSAP } from '@/lib/gsap';
 import { scrollToTarget } from '@/lib/smoothScroll';
 import emailjs from '@emailjs/browser';
-import { ArrowLeft, ArrowRight, Check, MessageSquare, Sparkles } from 'lucide-react';
-import { useEffect, useRef, useState, type FormEvent, type ReactNode } from 'react';
+import { ArrowLeft, ArrowRight, Check, ChevronDown, MessageSquare, Sparkles } from 'lucide-react';
+import {
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+  type ReactNode,
+} from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 import {
   BUDGET_MIN,
@@ -64,12 +72,23 @@ function Choice({
   selected,
   onSelect,
   multi = false,
+  invalid = false,
+  tabbable = true,
+  describedBy,
+  onHint,
   children,
   className = '',
 }: {
   selected: boolean;
   onSelect: () => void;
   multi?: boolean;
+  /** Its group still needs an answer: the options take a red edge, like an invalid input. */
+  invalid?: boolean;
+  /** In a radiogroup only one option is a Tab stop; the arrow keys move between the rest. */
+  tabbable?: boolean;
+  describedBy?: string;
+  /** Pointed at or focused: lets the parent show what this option means. */
+  onHint?: () => void;
   children: ReactNode;
   className?: string;
 }) {
@@ -79,17 +98,48 @@ function Choice({
       role={multi ? undefined : 'radio'}
       aria-checked={multi ? undefined : selected}
       aria-pressed={multi ? selected : undefined}
+      aria-describedby={describedBy}
+      tabIndex={tabbable ? 0 : -1}
       onClick={onSelect}
+      onPointerEnter={onHint}
+      onFocus={onHint}
       className={`relative rounded-xl border transition-[border-color,background-color,box-shadow,color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
         selected
           ? 'border-proxio-accent bg-blue-50 shadow-[0_0_0_1px_var(--color-proxio-accent)]'
-          : 'border-proxio-dark-border bg-proxio-darker hover:border-slate-300'
+          : invalid
+            ? 'bg-proxio-darker border-red-300 hover:border-red-400'
+            : 'border-proxio-dark-border bg-proxio-darker hover:border-slate-300'
       } ${className}`}
     >
       {children}
     </button>
   );
 }
+
+const ARROW_STEP: Record<string, number> = {
+  ArrowRight: 1,
+  ArrowDown: 1,
+  ArrowLeft: -1,
+  ArrowUp: -1,
+};
+
+/**
+ * Arrow keys move focus between the options of a radiogroup, as in a native one. They do not
+ * choose: choosing a project type moves on to the next step, which must stay a deliberate act.
+ */
+function moveBetweenRadios(event: KeyboardEvent<HTMLElement>) {
+  const step = ARROW_STEP[event.key];
+  if (!step) return;
+  const radios = [...event.currentTarget.querySelectorAll<HTMLElement>('[role="radio"]')];
+  const index = radios.indexOf(document.activeElement as HTMLElement);
+  if (index < 0) return;
+  event.preventDefault();
+  radios[(index + step + radios.length) % radios.length].focus();
+}
+
+/** The option that takes Tab: the chosen one, or the first while none is chosen. */
+const isTabStop = <T,>(id: T, index: number, value: T | null) =>
+  value === null ? index === 0 : value === id;
 
 /** A short message under a field the visitor still has to fill in. */
 function FieldError({
@@ -137,6 +187,8 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
   // Free fields opened after a failed attempt: empty is expected until the next try
   const [justOpened, setJustOpened] = useState<Partial<Record<Field, boolean>>>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  // The feature last pointed at or tapped: its one-line description shows under the list
+  const [featureHint, setFeatureHint] = useState<Feature | null>(null);
   const root = useRef<HTMLDivElement>(null);
   const panel = useRef<HTMLDivElement>(null);
   const heading = useRef<HTMLHeadingElement>(null);
@@ -147,8 +199,9 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
   useEffect(() => () => window.clearTimeout(advanceTimer.current), []);
 
   // A service card can send the visitor here with the type already chosen (`?type=mobile`).
-  // Read after hydration: the pre-rendered page always starts at the first step.
-  useEffect(() => {
+  // Read after hydration: the pre-rendered page always starts at the first step, so the panel
+  // stays hidden until then (see index.html) and a layout effect swaps the step before painting.
+  useLayoutEffect(() => {
     const type = new URLSearchParams(window.location.search).get('type');
     const known = PROJECT_TYPES.find((option) => option.id === type);
     if (!known) return;
@@ -187,6 +240,10 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
     message: contact.message.trim() === '',
   };
   const showError = (field: Field) => attempted && missing[field] && !justOpened[field];
+  const stillMissing = (isProject ? REQUIRED[step] : QUESTION_REQUIRED).filter(showError);
+  const listFormat = new Intl.ListFormat(i18n.language === 'en' ? 'en' : 'pt', {
+    type: 'conjunction',
+  });
   /** The message under a group: why the free value is not usable, or that nothing was picked. */
   const errorText = (field: 'timeline' | 'budget') => {
     if (field === 'timeline' && deadlineError)
@@ -476,12 +533,15 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
         aria-label={t(`${b}.timing.${field}Label`)}
         aria-invalid={showError(field) || undefined}
         aria-describedby={showError(field) ? `brief-error-${field}` : undefined}
+        onKeyDown={moveBetweenRadios}
         className="flex flex-wrap gap-2"
       >
         {options.map((id, i) => (
           <Choice
             key={id}
             selected={value === id}
+            invalid={showError(field) && value !== 'custom'}
+            tabbable={isTabStop(id, i, value)}
             onSelect={() => {
               onChange(id);
               // Opening the free field: move straight into it, without flagging it empty yet
@@ -581,6 +641,10 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
 
   return (
     <div ref={root} className="grid grid-cols-1 gap-10 lg:grid-cols-3">
+      {/* Mounted from the start, so screen readers announce the success when it fills in */}
+      <p role="status" className="sr-only">
+        {status === 'success' ? t(isProject ? `${b}.success` : `${b}.questionSuccess`) : ''}
+      </p>
       <div className="lg:col-span-2">
         {status === 'success' ? (
           <div className="bg-proxio-dark border-proxio-dark-border flex flex-col items-center rounded-3xl border px-6 py-14 text-center sm:px-16">
@@ -598,7 +662,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                 />
               </svg>
             </div>
-            <h2 className="text-proxio-text-main text-2xl font-bold" role="status">
+            <h2 className="text-proxio-text-main text-2xl font-bold">
               {t(isProject ? `${b}.success` : `${b}.questionSuccess`)}
             </h2>
             <p className="text-proxio-text-muted mt-2 max-w-sm text-sm">
@@ -633,6 +697,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
               <div
                 role="radiogroup"
                 aria-label={t(`${b}.mode.label`)}
+                onKeyDown={moveBetweenRadios}
                 className="bg-proxio-darker border-proxio-dark-border grid grid-cols-2 gap-1 rounded-xl border p-1"
               >
                 {(
@@ -646,8 +711,9 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                     type="button"
                     role="radio"
                     aria-checked={mode === value}
+                    tabIndex={mode === value ? 0 : -1}
                     onClick={() => switchMode(value)}
-                    className={`flex items-center justify-center gap-2 rounded-lg px-2 py-2.5 text-center text-[13px] leading-tight font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:px-3 sm:text-sm ${
+                    className={`flex items-center justify-center gap-2 rounded-lg px-2 py-2.5 text-center text-sm leading-tight font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:px-3 ${
                       mode === value
                         ? 'bg-proxio-accent text-white shadow-sm'
                         : 'text-proxio-text-muted hover:text-proxio-text-main'
@@ -682,11 +748,27 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                       </li>
                     ))}
                   </ol>
+                  {/* Phones have no side panel: keep the chosen type in sight, one tap from changing */}
+                  {stepIndex > 0 && brief.type && (
+                    <p className="mt-3 flex flex-wrap items-baseline gap-x-2 text-sm lg:hidden">
+                      <span className="text-proxio-text-muted">{t(`${b}.summary.type`)}:</span>
+                      <span className="text-proxio-text-main font-semibold">
+                        {t(`${b}.type.options.${brief.type}.title`)}
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => goTo(0)}
+                        className="text-proxio-accent decoration-proxio-accent/40 -my-2 py-2 font-medium underline underline-offset-4"
+                      >
+                        {t(`${b}.changeType`)}
+                      </button>
+                    </p>
+                  )}
                 </>
               )}
             </div>
 
-            <div ref={panel} className="px-6 py-7 sm:min-h-[360px] sm:px-8">
+            <div ref={panel} data-brief-panel className="px-6 py-7 sm:min-h-[360px] sm:px-8">
               {!emailConfigured && isLast && (
                 <p className="mb-6 rounded-lg bg-yellow-500/10 px-4 py-3 text-sm font-medium text-yellow-700">
                   {t('contact.form.notConfigured')}
@@ -709,12 +791,15 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                     aria-label={t(`${b}.type.title`)}
                     aria-invalid={showError('type') || undefined}
                     aria-describedby={showError('type') ? 'brief-error-type' : undefined}
+                    onKeyDown={moveBetweenRadios}
                     className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2"
                   >
                     {PROJECT_TYPES.map(({ id, icon: Icon }, i) => (
                       <Choice
                         key={id}
                         selected={brief.type === id}
+                        invalid={showError('type')}
+                        tabbable={isTabStop(id, i, brief.type)}
                         onSelect={() => chooseType(id)}
                         className="flex gap-4 p-4 text-left"
                       >
@@ -784,7 +869,12 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                               key={id}
                               multi
                               selected={selected}
-                              onSelect={() => toggleFeature(id)}
+                              describedBy={`brief-feature-${id}`}
+                              onHint={() => setFeatureHint(id)}
+                              onSelect={() => {
+                                toggleFeature(id);
+                                setFeatureHint(id);
+                              }}
                               className="text-proxio-text-main flex items-center gap-2 px-3.5 py-2 text-sm font-medium"
                             >
                               {selected ? (
@@ -796,6 +886,18 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                             </Choice>
                           );
                         })}
+                      </div>
+                      {/* What the pointed-at feature means; the line keeps its height */}
+                      <p className="text-proxio-text-muted mt-3 min-h-5 text-sm" aria-hidden="true">
+                        {featureHint && t(`${b}.features.options.${featureHint}.desc`)}
+                      </p>
+                      {/* The same descriptions for screen readers, one per option */}
+                      <div hidden>
+                        {FEATURES.map(({ id }) => (
+                          <span key={id} id={`brief-feature-${id}`}>
+                            {t(`${b}.features.options.${id}.desc`)}
+                          </span>
+                        ))}
                       </div>
                     </fieldset>
                   )}
@@ -818,9 +920,13 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                   )}
                   {/* Phones have no side panel: a recap of the brief before sending it */}
                   {isProject && (
-                    <details className="bg-proxio-darker border-proxio-dark-border rounded-xl border px-4 py-3 lg:hidden">
-                      <summary className="text-proxio-text-main cursor-pointer text-sm font-bold">
+                    <details className="group bg-proxio-darker border-proxio-dark-border rounded-xl border px-4 py-3 lg:hidden">
+                      <summary className="text-proxio-text-main flex cursor-pointer list-none items-center justify-between text-sm font-bold [&::-webkit-details-marker]:hidden">
                         {t(`${b}.summary.title`)}
+                        <ChevronDown
+                          className="text-proxio-text-muted h-4 w-4 transition-transform group-open:rotate-180"
+                          aria-hidden="true"
+                        />
                       </summary>
                       {summaryList}
                     </details>
@@ -869,7 +975,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                     <Trans
                       i18nKey={`${b}.privacy`}
                       components={{
-                        link: (
+                        policy: (
                           <Link
                             to="/privacy-policy"
                             className="text-proxio-text-main decoration-proxio-accent/60 hover:text-proxio-accent font-medium underline decoration-2 underline-offset-4"
@@ -883,54 +989,67 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
             </div>
 
             {/* Navigation: stays in reach at the bottom of the screen on phones */}
-            <div className="border-proxio-dark-border bg-proxio-dark/95 sticky bottom-0 z-10 flex items-center justify-between gap-3 border-t px-6 py-4 backdrop-blur sm:static sm:bg-transparent sm:px-8 sm:backdrop-blur-none">
-              {isProject && stepIndex > 0 ? (
-                <button
-                  type="button"
-                  onClick={() => goTo(stepIndex - 1)}
-                  className="text-proxio-text-muted hover:text-proxio-text-main flex min-h-11 items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-semibold transition-colors"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                  {t(`${b}.nav.back`)}
-                </button>
-              ) : (
-                <span />
-              )}
+            <div className="border-proxio-dark-border bg-proxio-dark/95 sticky bottom-0 z-10 border-t px-6 py-4 backdrop-blur sm:static sm:bg-transparent sm:px-8 sm:backdrop-blur-none">
+              {/* On a phone only the first missing field is in view: say what else is left.
+                  Always mounted, so screen readers announce it when it fills in */}
+              <p aria-live="polite" className="mb-3 text-xs font-medium text-red-600 empty:mb-0">
+                {stillMissing.length > 1 &&
+                  t(`${b}.errors.missing`, {
+                    fields: listFormat.format(
+                      stillMissing.map((f) => t(`${b}.errors.fields.${f}`)),
+                    ),
+                  })}
+              </p>
+              <div className="flex items-center justify-between gap-3">
+                {isProject && stepIndex > 0 ? (
+                  <button
+                    type="button"
+                    onClick={() => goTo(stepIndex - 1)}
+                    className="text-proxio-text-muted hover:text-proxio-text-main flex min-h-11 items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-semibold transition-colors"
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                    {t(`${b}.nav.back`)}
+                  </button>
+                ) : (
+                  <span />
+                )}
 
-              {isLast ? (
-                <button
-                  // Separate keys: React must not turn the clicked "next" button into a submit
-                  key="submit"
-                  type="submit"
-                  disabled={status === 'sending' || !emailConfigured}
-                  className="group bg-proxio-accent hover:bg-proxio-accent-hover flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors disabled:opacity-60"
-                >
-                  {status === 'sending'
-                    ? t('contact.form.sending')
-                    : isProject
-                      ? t(`${b}.nav.submit`)
-                      : t('contact.form.submit')}
-                  {status !== 'sending' && (
+                {isLast ? (
+                  <button
+                    // Separate keys: React must not turn the clicked "next" button into a submit
+                    key="submit"
+                    type="submit"
+                    disabled={status === 'sending' || !emailConfigured}
+                    className="group bg-proxio-accent hover:bg-proxio-accent-hover flex flex-1 items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors disabled:opacity-60 sm:flex-none"
+                  >
+                    {status === 'sending'
+                      ? t('contact.form.sending')
+                      : isProject
+                        ? t(`${b}.nav.submit`)
+                        : t('contact.form.submit')}
+                    {status !== 'sending' && (
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    )}
+                  </button>
+                ) : (
+                  <button
+                    key="next"
+                    type="button"
+                    onClick={next}
+                    className="group bg-proxio-accent hover:bg-proxio-accent-hover flex flex-1 items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors sm:flex-none"
+                  >
+                    {t(`${b}.nav.next`)}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  )}
-                </button>
-              ) : (
-                <button
-                  key="next"
-                  type="button"
-                  onClick={next}
-                  className="group bg-proxio-accent hover:bg-proxio-accent-hover flex items-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors"
-                >
-                  {t(`${b}.nav.next`)}
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </button>
-              )}
+                  </button>
+                )}
+              </div>
             </div>
           </form>
         )}
       </div>
 
-      <div className="space-y-4">
+      {/* Follows the visitor down the long project step, so the choices stay in sight */}
+      <div className="space-y-4 lg:sticky lg:top-24 lg:self-start">
         {/* What the visitor has chosen so far; no estimate, that is for the team */}
         {isProject && status !== 'success' && (
           <div className="bg-proxio-dark border-proxio-dark-border hidden rounded-2xl border p-6 lg:block">
