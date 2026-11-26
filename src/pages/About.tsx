@@ -69,16 +69,13 @@ export default function About() {
                 className="text-proxio-text-main text-xl leading-snug font-medium sm:text-3xl sm:font-semibold"
               />
               {/* Where the story leads: what we do, and what we are building */}
-              <nav
-                aria-label={t('about.story.label')}
-                className="flex flex-wrap gap-x-8 gap-y-3 pt-2"
-              >
+              <nav aria-label={t('about.story.linksLabel')} className="flex flex-wrap gap-x-8 pt-1">
                 {STORY_LINKS.map(({ href, translationKey }) => (
                   <Link
                     key={href}
                     viewTransition
                     to={href}
-                    className="text-proxio-accent hover:text-proxio-accent-hover group inline-flex items-center gap-1.5 font-bold"
+                    className="text-proxio-accent hover:text-proxio-accent-hover group inline-flex min-h-11 items-center gap-1.5 font-bold"
                   >
                     {t(translationKey)}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

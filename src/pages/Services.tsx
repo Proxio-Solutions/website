@@ -56,7 +56,17 @@ export default function Services() {
           title={t('services.hero.title')}
           highlights={t('services.hero.highlights', { returnObjects: true }) as string[]}
           subtitle={t('services.hero.subtitle')}
-        />
+        >
+          {/* An action in the first screen: the cards and the closing call are far below on a phone */}
+          <Link
+            viewTransition
+            to="/contact"
+            className="group bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-full items-center justify-center gap-2 rounded-lg px-8 py-3.5 text-base font-bold text-white shadow-lg shadow-blue-600/30 transition-colors sm:w-auto"
+          >
+            {t('services.cta.button')}
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </PageHero>
 
         {/* Service cards */}
         <section className="bg-proxio-dark border-proxio-dark-border border-y py-24">
