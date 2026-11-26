@@ -278,7 +278,8 @@
       "label": "A Nossa História",
       "title": "De Colegas a Fundadores",
       "p1": "A Proxio nasceu da amizade entre dois colegas do curso de Engenharia Informática. O que começou como parceria académica em trabalhos, projetos e muitas horas de código, foi crescendo à medida que percebemos que partilhávamos as mesmas visões sobre tecnologia, produto e o que significa fazer as coisas bem feitas.",
-      "p2": "Ambos queríamos mudar a forma como as relações entre empresas e clientes funcionam na área de software. Foi com essa convicção, e através do Urbi, um projeto em que acreditamos plenamente, que demos o primeiro passo e entrámos no mercado."
+      "p2": "Ambos queríamos mudar a forma como as relações entre empresas e clientes funcionam na área de software. Foi com essa convicção, e através do Urbi, um projeto em que acreditamos plenamente, que demos o primeiro passo e entrámos no mercado.",
+      "linksLabel": "Continua a explorar"
     },
     "values": {
       "label": "Os Nossos Valores",
@@ -577,7 +578,7 @@
         "name": "Diz-nos o teu nome.",
         "email": "Confirma o email, por exemplo nome@empresa.pt.",
         "message": "Escreve a tua mensagem.",
-        "missing": "Ainda falta {{fields}}.",
+        "missing": "Ainda faltam {{fields}}.",
         "fields": {
           "type": "o tipo",
           "description": "a descrição",

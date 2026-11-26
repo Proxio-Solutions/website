@@ -120,10 +120,10 @@ export default function BeforeAfter({
         {before}
       </div>
 
-      <span className="pointer-events-none absolute top-4 left-4 rounded-full bg-slate-900/80 px-3 py-1 font-mono text-[11px] font-medium tracking-wider text-white uppercase">
+      <span className="pointer-events-none absolute top-4 left-4 rounded-full bg-slate-900/80 px-3 py-1 font-mono text-xs font-medium tracking-wider text-white uppercase">
         {beforeLabel}
       </span>
-      <span className="bg-proxio-accent pointer-events-none absolute top-4 right-4 rounded-full px-3 py-1 font-mono text-[11px] font-medium tracking-wider text-white uppercase">
+      <span className="bg-proxio-accent pointer-events-none absolute top-4 right-4 rounded-full px-3 py-1 font-mono text-xs font-medium tracking-wider text-white uppercase">
         {afterLabel}
       </span>
 

@@ -122,7 +122,7 @@ export default function Projects() {
                     <h2 className="text-proxio-text-main mb-4 text-3xl font-extrabold tracking-tight sm:text-4xl">
                       {featuredProject.title}
                     </h2>
-                    <p className="text-proxio-text-muted mb-8 max-w-2xl text-lg leading-relaxed">
+                    <p className="mb-8 max-w-2xl text-lg leading-relaxed text-slate-600">
                       {t(
                         urbiShowcaseEnabled
                           ? featuredProject.descriptionKey
@@ -205,13 +205,16 @@ export default function Projects() {
             </Reveal>
 
             <Reveal>
-              <div className="border-proxio-dark-border flex flex-col items-center gap-10 rounded-3xl border border-dashed p-8 md:flex-row md:p-12">
+              {/* Same width as the card above, so the two read as one column */}
+              <div
+                className={`border-proxio-dark-border flex flex-col items-center gap-10 rounded-3xl border border-dashed p-8 md:flex-row md:p-12 ${urbiShowcaseEnabled ? '' : 'max-w-3xl'}`}
+              >
                 <IncubationOrbit />
                 <div>
                   <h2 className="text-proxio-text-main mb-4 text-3xl font-extrabold">
                     {t('projects.next.title')}
                   </h2>
-                  <p className="text-proxio-text-muted max-w-2xl text-lg leading-relaxed">
+                  <p className="max-w-2xl text-lg leading-relaxed text-slate-600">
                     {t('projects.next.desc')}
                   </p>
                 </div>

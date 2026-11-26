@@ -89,7 +89,7 @@ export default function PrivacyPolicy() {
               href={`#${anchor}`}
               onClick={(event) => jumpTo(event, anchor)}
               aria-current={active ? 'location' : undefined}
-              className={`-ml-3 block border-l-2 py-2 pl-3 text-sm leading-snug transition-colors lg:py-1.5 ${
+              className={`-ml-3 block border-l-2 py-3.5 pl-3 text-sm leading-snug transition-colors lg:py-1.5 ${
                 active
                   ? 'border-proxio-accent text-proxio-text-main font-semibold'
                   : 'text-proxio-text-muted hover:text-proxio-accent border-transparent'
@@ -115,7 +115,7 @@ export default function PrivacyPolicy() {
           </h1>
           <p className="text-proxio-text-muted mt-4 text-sm">{t('privacyPolicy.lastUpdated')}</p>
           {/* What most visitors came to check, before any of the legal detail */}
-          <div className="border-proxio-accent bg-proxio-dark mt-8 rounded-r-2xl border-l-4 px-6 py-5">
+          <div className="bg-proxio-dark border-proxio-dark-border mt-8 rounded-2xl border px-6 py-5">
             <p className="text-proxio-accent text-sm font-bold">
               {t('privacyPolicy.summary.label')}
             </p>
@@ -165,8 +165,9 @@ export default function PrivacyPolicy() {
                   key={section}
                   id={anchor}
                   tabIndex={-1}
-                  // Reached from the index by keyboard: show where focus landed
-                  className="focus-visible:ring-proxio-accent/40 -m-3 rounded-xl p-3 outline-none focus-visible:ring-2"
+                  // Reached from the index by keyboard: show where focus landed. An outline with an
+                  // offset, so the ring sits outside the text without touching the spacing
+                  className="focus-visible:outline-proxio-accent/40 rounded-sm outline-none focus-visible:outline-2 focus-visible:outline-offset-8 focus-visible:outline-solid"
                 >
                   <h2 className="text-proxio-text-main mb-4 text-2xl font-bold tracking-tight">
                     {t(`privacyPolicy.${section}.title`)}
@@ -202,7 +203,7 @@ export default function PrivacyPolicy() {
               <Link
                 viewTransition
                 to="/contact"
-                className="bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-full items-center justify-center gap-2 rounded-lg px-6 py-3 text-base font-bold text-white transition-colors sm:w-auto"
+                className="bg-proxio-accent hover:bg-proxio-accent-hover inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-lg px-6 py-3 text-base font-bold whitespace-nowrap text-white transition-colors sm:w-auto"
               >
                 {t('privacyPolicy.closing.cta')}
                 <ArrowRight className="h-4 w-4" />

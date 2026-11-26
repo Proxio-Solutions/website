@@ -103,13 +103,17 @@ async function write(file, html) {
 // Portuguese "page not found" content, so visitors see it before the JS loads, but none of the
 // home page's canonical URL, og:url or language alternates: a missing page has no address.
 // The client renders over it (its data-prerendered path never matches the URL it is served at).
+// Its language switch is rendered for /404, a page nobody asked for: until the client takes over,
+// it leads to the English home instead.
 const notFound = buildPage(
   { path: '/404', lang: 'pt', source: 'src/pages/NotFound.tsx' },
   await render('/404'),
-).replace(HEAD_TAG, (tag) => {
-  const key = headKey(tag.replace(/\s+/g, ' '));
-  return key === 'canonical' || key === 'meta:og:url' || key?.startsWith('alternate:') ? '' : tag;
-});
+)
+  .replace(HEAD_TAG, (tag) => {
+    const key = headKey(tag.replace(/\s+/g, ' '));
+    return key === 'canonical' || key === 'meta:og:url' || key?.startsWith('alternate:') ? '' : tag;
+  })
+  .replaceAll('href="/en/404"', 'href="/en"');
 await writeFile(path.join(dist, '404.html'), notFound.replace(/\n(\s*\n)+/g, '\n'));
 
 for (const page of prerenderPages) {
