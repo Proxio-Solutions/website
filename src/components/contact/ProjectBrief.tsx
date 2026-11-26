@@ -46,6 +46,43 @@ const EMPTY: Brief = {
   budget: null,
   budgetText: '',
 };
+/** Where an unsent brief waits while the visitor reads another page. Cleared once sent. */
+const DRAFT_KEY = 'proxio-brief-draft';
+
+interface Draft {
+  mode: Mode;
+  brief: Brief;
+  description: string;
+  contact: { name: string; email: string; company: string; message: string };
+  stepIndex: number;
+}
+
+function readDraft(): Draft | null {
+  try {
+    const raw = sessionStorage.getItem(DRAFT_KEY);
+    return raw ? (JSON.parse(raw) as Draft) : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeDraft(draft: Draft | null) {
+  try {
+    if (draft) sessionStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
+    else sessionStorage.removeItem(DRAFT_KEY);
+  } catch {
+    // Private mode or storage blocked: the form still works, it just does not remember
+  }
+}
+
+/** Keeps `?type=` in the address bar in step with the chosen type, so a reload or a shared link agrees. */
+function syncTypeParam(type: ProjectType | null) {
+  const url = new URL(window.location.href);
+  if (type) url.searchParams.set('type', type);
+  else url.searchParams.delete('type');
+  history.replaceState(history.state, '', url);
+}
+
 /** Long enough for the chosen card to show as selected before the next step slides in. */
 const AUTO_ADVANCE_MS = 220;
 
@@ -65,7 +102,7 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 // 16px on phones, so iOS does not zoom in when a field takes focus
 const inputClass =
-  'border-proxio-dark-border bg-proxio-darker text-proxio-text-main placeholder:text-proxio-text-muted w-full rounded-lg border px-4 py-3 text-base outline-none transition-colors hover:border-slate-300 focus:border-proxio-accent/40 aria-[invalid=true]:border-red-400 sm:text-sm';
+  'border-proxio-dark-border bg-proxio-darker text-proxio-text-main placeholder:text-proxio-text-muted w-full rounded-lg border px-4 py-3 text-base outline-none transition-colors hover:border-slate-300 focus:border-proxio-accent focus:ring-proxio-accent/25 focus:ring-3 aria-[invalid=true]:border-red-400 sm:text-sm';
 
 /** A selectable card or pill: a radio inside a radiogroup, or a toggle button for multi-select. */
 function Choice({
@@ -103,11 +140,11 @@ function Choice({
       onClick={onSelect}
       onPointerEnter={onHint}
       onFocus={onHint}
-      className={`relative rounded-xl border transition-[border-color,background-color,box-shadow,color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 ${
+      className={`focus-visible:ring-proxio-accent relative rounded-xl border transition-[border-color,background-color,box-shadow,color] duration-200 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
         selected
           ? 'border-proxio-accent bg-blue-50 shadow-[0_0_0_1px_var(--color-proxio-accent)]'
           : invalid
-            ? 'bg-proxio-darker border-red-300 hover:border-red-400'
+            ? 'bg-proxio-darker border-red-200 hover:border-red-300'
             : 'border-proxio-dark-border bg-proxio-darker hover:border-slate-300'
       } ${className}`}
     >
@@ -198,18 +235,39 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
 
   useEffect(() => () => window.clearTimeout(advanceTimer.current), []);
 
-  // A service card can send the visitor here with the type already chosen (`?type=mobile`).
-  // Read after hydration: the pre-rendered page always starts at the first step, so the panel
-  // stays hidden until then (see index.html) and a layout effect swaps the step before painting.
+  // Restores a brief left half-way on another page, then applies a type chosen on a service card
+  // (`?type=mobile`). Both are only readable after hydration: the pre-rendered page always starts
+  // empty, so the panel stays hidden while `?type=` is pending (see index.html) and a layout
+  // effect swaps the content before painting.
+  // Until then the state is the empty pre-rendered form, which must not overwrite a saved draft
+  const [restored, setRestored] = useState(false);
   useLayoutEffect(() => {
+    const draft = readDraft();
     const type = new URLSearchParams(window.location.search).get('type');
     const known = PROJECT_TYPES.find((option) => option.id === type);
-    if (!known) return;
-    // The URL is only readable after hydration, so this sync has to happen in an effect
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setBrief((prev) => ({ ...prev, type: known.id }));
-    setStepIndex(1);
+    /* eslint-disable react-hooks/set-state-in-effect -- browser-only state, read after hydration */
+    if (draft) {
+      setMode(draft.mode);
+      setBrief(draft.brief);
+      setDescription(draft.description);
+      setContact(draft.contact);
+      setStepIndex(draft.stepIndex);
+    }
+    if (known && draft?.brief.type !== known.id) {
+      setMode('project');
+      setBrief((prev) => ({ ...prev, type: known.id }));
+      setStepIndex((prev) => Math.max(prev, 1));
+    } else if (draft?.brief.type) syncTypeParam(draft.brief.type);
+    setRestored(true);
+    /* eslint-enable react-hooks/set-state-in-effect */
   }, []);
+
+  // Remember the unsent brief for the rest of the visit; forget it once it is sent
+  useEffect(() => {
+    if (!restored) return;
+    if (status === 'success') writeDraft(null);
+    else writeDraft({ mode, brief, description, contact, stepIndex });
+  }, [restored, mode, brief, description, contact, stepIndex, status]);
 
   const step = STEPS[stepIndex];
   const isProject = mode === 'project';
@@ -285,6 +343,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
 
   const chooseType = (id: ProjectType) => {
     setBrief((prev) => ({ ...prev, type: id }));
+    syncTypeParam(id);
     // A single choice needs no extra click: show it selected, then move on
     window.clearTimeout(advanceTimer.current);
     advanceTimer.current = window.setTimeout(() => goTo(1), AUTO_ADVANCE_MS);
@@ -404,6 +463,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
 
   const restart = () => {
     setBrief(EMPTY);
+    syncTypeParam(null);
     setDescription('');
     // Same person, new message: keep who they are
     setContactField('message')('');
@@ -529,8 +589,8 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
         {t(`${b}.timing.${field}Label`)}
       </legend>
       <div
+        // Named by the fieldset's legend; a second name would be read twice
         role="radiogroup"
-        aria-label={t(`${b}.timing.${field}Label`)}
         aria-invalid={showError(field) || undefined}
         aria-describedby={showError(field) ? `brief-error-${field}` : undefined}
         onKeyDown={moveBetweenRadios}
@@ -713,7 +773,7 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                     aria-checked={mode === value}
                     tabIndex={mode === value ? 0 : -1}
                     onClick={() => switchMode(value)}
-                    className={`flex items-center justify-center gap-2 rounded-lg px-2 py-2.5 text-center text-sm leading-tight font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50 sm:px-3 ${
+                    className={`focus-visible:ring-proxio-accent flex items-center justify-center gap-2 rounded-lg px-2 py-2.5 text-center text-sm leading-tight font-semibold transition-colors outline-none focus-visible:ring-2 focus-visible:ring-offset-2 sm:px-3 ${
                       mode === value
                         ? 'bg-proxio-accent text-white shadow-sm'
                         : 'text-proxio-text-muted hover:text-proxio-text-main'
@@ -976,74 +1036,81 @@ export default function ProjectBrief({ aside }: { aside?: ReactNode }) {
                       i18nKey={`${b}.privacy`}
                       components={{
                         policy: (
+                          // A new tab, so reading it does not leave the form
                           <Link
                             to="/privacy-policy"
+                            target="_blank"
+                            rel="noopener"
                             className="text-proxio-text-main decoration-proxio-accent/60 hover:text-proxio-accent font-medium underline decoration-2 underline-offset-4"
                           />
                         ),
                       }}
                     />
+                    <span className="sr-only"> {t('privacyPolicy.newWindow')}</span>
                   </p>
                 </div>
               )}
             </div>
 
-            {/* Navigation: stays in reach at the bottom of the screen on phones */}
-            <div className="border-proxio-dark-border bg-proxio-dark/95 sticky bottom-0 z-10 border-t px-6 py-4 backdrop-blur sm:static sm:bg-transparent sm:px-8 sm:backdrop-blur-none">
-              {/* On a phone only the first missing field is in view: say what else is left.
+            {/* Navigation: stays in reach at the bottom of the screen on phones. Not on the first
+                step, where choosing a type already moves on */}
+            {!(isProject && step === 'type') && (
+              <div className="border-proxio-dark-border bg-proxio-dark/95 sticky bottom-0 z-10 border-t px-6 py-4 backdrop-blur sm:static sm:bg-transparent sm:px-8 sm:backdrop-blur-none">
+                {/* On a phone only the first missing field is in view: say what else is left.
                   Always mounted, so screen readers announce it when it fills in */}
-              <p aria-live="polite" className="mb-3 text-xs font-medium text-red-600 empty:mb-0">
-                {stillMissing.length > 1 &&
-                  t(`${b}.errors.missing`, {
-                    fields: listFormat.format(
-                      stillMissing.map((f) => t(`${b}.errors.fields.${f}`)),
-                    ),
-                  })}
-              </p>
-              <div className="flex items-center justify-between gap-3">
-                {isProject && stepIndex > 0 ? (
-                  <button
-                    type="button"
-                    onClick={() => goTo(stepIndex - 1)}
-                    className="text-proxio-text-muted hover:text-proxio-text-main flex min-h-11 items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-semibold transition-colors"
-                  >
-                    <ArrowLeft className="h-4 w-4" />
-                    {t(`${b}.nav.back`)}
-                  </button>
-                ) : (
-                  <span />
-                )}
+                <p aria-live="polite" className="mb-3 text-xs font-medium text-red-600 empty:mb-0">
+                  {stillMissing.length > 1 &&
+                    t(`${b}.errors.missing`, {
+                      fields: listFormat.format(
+                        stillMissing.map((f) => t(`${b}.errors.fields.${f}`)),
+                      ),
+                    })}
+                </p>
+                <div className="flex items-center justify-between gap-3">
+                  {isProject && stepIndex > 0 ? (
+                    <button
+                      type="button"
+                      onClick={() => goTo(stepIndex - 1)}
+                      className="text-proxio-text-muted hover:text-proxio-text-main flex min-h-11 items-center gap-1.5 rounded-lg px-2 py-2 text-sm font-semibold transition-colors"
+                    >
+                      <ArrowLeft className="h-4 w-4" />
+                      {t(`${b}.nav.back`)}
+                    </button>
+                  ) : (
+                    <span />
+                  )}
 
-                {isLast ? (
-                  <button
-                    // Separate keys: React must not turn the clicked "next" button into a submit
-                    key="submit"
-                    type="submit"
-                    disabled={status === 'sending' || !emailConfigured}
-                    className="group bg-proxio-accent hover:bg-proxio-accent-hover flex flex-1 items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors disabled:opacity-60 sm:flex-none"
-                  >
-                    {status === 'sending'
-                      ? t('contact.form.sending')
-                      : isProject
-                        ? t(`${b}.nav.submit`)
-                        : t('contact.form.submit')}
-                    {status !== 'sending' && (
+                  {isLast ? (
+                    <button
+                      // Separate keys: React must not turn the clicked "next" button into a submit
+                      key="submit"
+                      type="submit"
+                      disabled={status === 'sending' || !emailConfigured}
+                      className="group bg-proxio-accent hover:bg-proxio-accent-hover flex flex-1 items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors disabled:opacity-60 sm:flex-none"
+                    >
+                      {status === 'sending'
+                        ? t('contact.form.sending')
+                        : isProject
+                          ? t(`${b}.nav.submit`)
+                          : t('contact.form.submit')}
+                      {status !== 'sending' && (
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      )}
+                    </button>
+                  ) : (
+                    <button
+                      key="next"
+                      type="button"
+                      onClick={next}
+                      className="group bg-proxio-accent hover:bg-proxio-accent-hover flex flex-1 items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors sm:flex-none"
+                    >
+                      {t(`${b}.nav.next`)}
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    )}
-                  </button>
-                ) : (
-                  <button
-                    key="next"
-                    type="button"
-                    onClick={next}
-                    className="group bg-proxio-accent hover:bg-proxio-accent-hover flex flex-1 items-center justify-center gap-2 rounded-lg px-6 py-3 text-sm font-bold text-white shadow-lg shadow-blue-600/20 transition-colors sm:flex-none"
-                  >
-                    {t(`${b}.nav.next`)}
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </button>
-                )}
+                    </button>
+                  )}
+                </div>
               </div>
-            </div>
+            )}
           </form>
         )}
       </div>

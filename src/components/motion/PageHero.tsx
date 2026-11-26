@@ -127,7 +127,7 @@ export default function PageHero({
           fullHeight
             ? 'min-h-[calc(100svh-4rem)] py-24'
             : compact
-              ? 'py-14 sm:py-20 lg:py-24'
+              ? 'py-10 sm:py-20 lg:py-24'
               : 'py-24 lg:py-32'
         } ${centered ? 'items-center' : ''}`}
       >
@@ -148,7 +148,7 @@ export default function PageHero({
           {label && <SectionLabel className="hero-fade-top">{label}</SectionLabel>}
 
           <h1
-            className={`text-proxio-text-main mt-6 leading-[1.08] font-extrabold tracking-tight ${titleSizes[size]}`}
+            className={`text-proxio-text-main ${compact ? 'mt-4 sm:mt-6' : 'mt-6'} leading-[1.08] font-extrabold tracking-tight ${titleSizes[size]}`}
           >
             {parts.map((part, i) =>
               part.highlighted ? (
@@ -164,7 +164,7 @@ export default function PageHero({
 
           {subtitle && (
             <p
-              className={`hero-fade text-proxio-text-muted mt-8 max-w-2xl text-xl leading-relaxed ${centered ? 'mx-auto' : ''}`}
+              className={`hero-fade text-proxio-text-muted max-w-2xl leading-relaxed ${compact ? 'mt-4 text-lg sm:mt-8 sm:text-xl' : 'mt-8 text-xl'} ${centered ? 'mx-auto' : ''}`}
             >
               {subtitle}
             </p>

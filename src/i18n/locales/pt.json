@@ -577,7 +577,7 @@
         "name": "Diz-nos o teu nome.",
         "email": "Confirma o email, por exemplo nome@empresa.pt.",
         "message": "Escreve a tua mensagem.",
-        "missing": "Ainda falta {{fields}}.",
+        "missing": "Ainda faltam {{fields}}.",
         "fields": {
           "type": "o tipo",
           "description": "a descrição",
